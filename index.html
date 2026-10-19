@@ -52,6 +52,11 @@
       transform: rotateY(180deg);
     }
     
+    /* KaTeX clean render (prevents mathml copy scramble) */
+    .katex-mathml {
+      display: none !important;
+    }
+    
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
@@ -215,11 +220,11 @@
     </div>
 
     <!-- FLASHCARD CONTAINER (3D FLIP) -->
-    <div class="w-full max-w-2xl min-h-[420px] relative perspective-1000 cursor-pointer select-none" id="cardContainer">
+    <div class="w-full max-w-2xl min-h-[520px] md:min-h-[580px] relative perspective-1000 cursor-pointer select-none" id="cardContainer">
       <div id="cardInner" class="w-full h-full relative transform-style-3d transition-transform duration-500 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
 
         <!-- FRONT SIDE -->
-        <div class="w-full h-full min-h-[420px] p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 backface-hidden flex flex-col justify-between absolute inset-0">
+        <div class="w-full h-full min-h-[520px] md:min-h-[580px] p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 backface-hidden flex flex-col justify-between absolute inset-0">
           <div>
             <!-- Card Top Metadata -->
             <div class="flex items-center justify-between mb-4">
@@ -253,7 +258,7 @@
         </div>
 
         <!-- BACK SIDE -->
-        <div class="w-full h-full min-h-[420px] p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-blue-50/40 dark:from-slate-800 dark:to-slate-900 backface-hidden rotate-y-180 flex flex-col justify-between absolute inset-0 overflow-y-auto">
+        <div class="w-full h-full min-h-[520px] md:min-h-[580px] p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-blue-50/40 dark:from-slate-800 dark:to-slate-900 backface-hidden rotate-y-180 flex flex-col justify-between absolute inset-0 overflow-y-auto">
           <div>
             <!-- Back Top Header -->
             <div class="flex items-center justify-between mb-3 border-b border-slate-200 dark:border-slate-700/60 pb-2">
@@ -435,6 +440,7 @@
 
         const q = searchQuery.toLowerCase().trim();
         const matchesSearch = q === '' || 
+          (c.id && c.id.toLowerCase().includes(q)) ||
           (c.question && c.question.toLowerCase().includes(q)) ||
           (c.question_th && c.question_th.toLowerCase().includes(q)) ||
           (c.topic && c.topic.toLowerCase().includes(q)) ||
@@ -464,8 +470,8 @@
           {left: '\\[', right: '\\]', display: true},
           {left: '\\(', right: '\\)', display: false}
         ];
-        renderMathInElement(cardQuestion, { delimiters: delimiters, throwOnError: false });
-        renderMathInElement(cardAnswer, { delimiters: delimiters, throwOnError: false });
+        renderMathInElement(cardQuestion, { delimiters: delimiters, throwOnError: false, output: 'html' });
+        renderMathInElement(cardAnswer, { delimiters: delimiters, throwOnError: false, output: 'html' });
       } else {
         setTimeout(renderMath, 100);
       }

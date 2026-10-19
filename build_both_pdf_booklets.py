@@ -377,7 +377,7 @@ css_styles = """
   .formula-line {
     margin: 4px 0;
     line-height: 1.6;
-    overflow-x: auto;
+    overflow-x: visible !important;
   }
 
   /* Solution Box */
@@ -427,6 +427,15 @@ css_styles = """
   }
   .katex {
     font-size: 1.02em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  @media print {
+    * {
+      overflow: visible !important;
+    }
   }
 """
 
@@ -606,7 +615,8 @@ def generate_booklet_html(lang="th"):
             {{left: '\\\\[', right: '\\\\]', display: true}},
             {{left: '\\\\(', right: '\\\\)', display: false}}
           ],
-          throwOnError: false
+          throwOnError: false,
+          output: 'html'
         }});
       }}
     }});
