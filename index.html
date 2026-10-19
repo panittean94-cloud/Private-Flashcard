@@ -86,6 +86,10 @@
 
       <!-- Controls Right -->
       <div class="flex items-center space-x-2">
+        <button id="syncNowBtn" class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition" title="Fetch live data from Google Sheet">
+          <i class="ph ph-arrows-clockwise text-sm" id="syncIcon"></i>
+          <span class="hidden sm:inline">Live Sheet</span>
+        </button>
         <button id="themeToggleBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Theme">
           <i class="ph ph-moon text-xl" id="themeIcon"></i>
         </button>
@@ -621,8 +625,51 @@
       alert('✅ Connected Google Sheet backend endpoint!');
     });
 
-    // Initial Load
+    // Real-Time Google Sheet Sync
+    const syncNowBtn = document.getElementById('syncNowBtn');
+    const syncIcon = document.getElementById('syncIcon');
+
+    async function fetchSheetData(silent = false) {
+      if (!gasEndpoint) return;
+      if (syncIcon) syncIcon.classList.add('animate-spin');
+      try {
+        const res = await fetch(gasEndpoint);
+        const json = await res.json();
+        if (json.status === 'success' && Array.isArray(json.data) && json.data.length > 0) {
+          // Map Google Sheet columns to Flashcard format
+          allCards = json.data.map(item => ({
+            id: item.id || '',
+            chapter: item.chapter || '',
+            topic: item.topic || '',
+            difficulty: item.level || 'Level 1 (Concept)',
+            exam_reference: item.topic || 'Final Exam',
+            question: item.question || '',
+            hint: item.formula ? `Key Formula: ${item.formula}` : 'Click to flip card',
+            answer: `<p class="font-semibold text-blue-600 dark:text-blue-400 mb-1">Formula / Principle:</p><p class="mb-3">${item.formula || '-'}</p><p class="font-semibold text-emerald-600 dark:text-emerald-400 mb-1">Step-by-Step Solution:</p><p class="whitespace-pre-line mb-3">${item.solution || '-'}</p><p class="font-semibold text-amber-600 dark:text-amber-400 mb-1">Pitfall / Tip:</p><p class="italic text-slate-500">${item.pitfall || '-'}</p>`
+          }));
+
+          totalCount.textContent = allCards.length;
+          applyFilters();
+          if (!silent) {
+            console.log('✅ Real-time data synced from Google Sheet:', allCards.length, 'cards');
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch from Google Sheet, using local fallback:', err);
+      } finally {
+        if (syncIcon) syncIcon.classList.remove('animate-spin');
+      }
+    }
+
+    if (syncNowBtn) {
+      syncNowBtn.addEventListener('click', () => {
+        fetchSheetData(false);
+      });
+    }
+
+    // Initial Load & Auto-fetch from Google Sheet
     applyFilters();
+    fetchSheetData(true);
   </script>
 </body>
 </html>
