@@ -432,10 +432,11 @@ css_styles = """
     display: none !important;
   }
 
-  @media print {
-    * {
-      overflow: visible !important;
-    }
+  /* Fix KaTeX square root (radical) stretching: hide-tail MUST remain overflow: hidden */
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
   }
 """
 

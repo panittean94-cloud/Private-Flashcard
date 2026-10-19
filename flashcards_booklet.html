@@ -288,7 +288,7 @@
   .formula-line {
     margin: 4px 0;
     line-height: 1.6;
-    overflow-x: auto;
+    overflow-x: visible !important;
   }
 
   /* Solution Box */
@@ -338,6 +338,16 @@
   }
   .katex {
     font-size: 1.02em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  /* Fix KaTeX square root (radical) stretching: hide-tail MUST remain overflow: hidden */
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
   }
 
   </style>
@@ -398,8 +408,8 @@
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">Y: $V_L = \sqrt{3}V_p\angle +30^\circ,\ I_L = I_p$
-$\Delta$: $V_L = V_p,\ I_L = \sqrt{3}I_p\angle -30^\circ$</div>
+                    <div class="formula-line">$$\text{Star (Y): } V_L = \sqrt{3}\, V_p \angle +30^\circ, \quad I_L = I_p$$</div>
+<div class="formula-line">$$\text{Delta (}\Delta\text{): } V_L = V_p, \quad I_L = \sqrt{3}\, I_p \angle -30^\circ$$</div>
                   </div>
                 </div>
                 
@@ -407,8 +417,8 @@ $\Delta$: $V_L = V_p,\ I_L = \sqrt{3}I_p\angle -30^\circ$</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Star (Y) Connection:<br/>- Line Voltage leads Phase Voltage by $30^\circ$: $V_{ab} = \sqrt{3}V_{an}\angle +30^\circ$<br/>- Line Current equals Phase Current: $I_L = I_p$</p>
-<p class="card-p">2. Delta (Δ) Connection:<br/>- Line Voltage equals Phase Voltage: $V_L = V_p$<br/>- Line Current lags Phase Current by $30^\circ$: $I_a = \sqrt{3}I_{ab}\angle -30^\circ$</p>
+                    <p class="card-p">1. Star (Y) Connection:<br/>- Line Voltage leads Phase Voltage by $30^\circ$:<br/>$$V_{ab} = \sqrt{3}\, V_{an} \angle +30^\circ$$<br/>- Line Current equals Phase Current:<br/>$$I_L = I_p$$</p>
+<p class="card-p">2. Delta (Δ) Connection:<br/>- Line Voltage equals Phase Voltage:<br/>$$V_L = V_p$$<br/>- Line Current lags Phase Current by $30^\circ$:<br/>$$I_a = \sqrt{3}\, I_{ab} \angle -30^\circ$$</p>
                   </div>
                 </div>
                 
@@ -1025,8 +1035,8 @@ Fingers curl = Magnetic field ($\vec{B}$)</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">Right-hand solenoid rule:
-Fingers = Current curl, Thumb = North Pole (N)</div>
+                    <div class="formula-line">$$\text{Right-Hand Solenoid Rule: Fingers} \rightarrow \vec{I}_{\text{curl}}, \quad \text{Thumb} \rightarrow \text{North Pole (N)}$$</div>
+<div class="formula-line">$$\vec{F} = I (\vec{L} \times \vec{B})$$</div>
                   </div>
                 </div>
                 
@@ -1034,8 +1044,8 @@ Fingers = Current curl, Thumb = North Pole (N)</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. The two essential parts are:<br/>- Stator (ส่วนที่อยู่กับที่ - stationary field frame)<br/>- Rotor / Armature (ส่วนที่หมุนเคลื่อนที่ - rotating part)</p>
-<p class="card-p">2. Solenoid Pole Identification:<br/>Using the right-hand coil rule, curl four fingers in the direction current wraps around the iron pole pieces. The thumb points toward the North pole (where magnetic flux emerges).</p>
+                    <p class="card-p">1. The two essential parts are:<br/>- Stator (ส่วนที่อยู่กับที่): Stationary field frame providing magnetic flux $\vec{B}$.<br/>- Rotor / Armature (ส่วนที่หมุนเคลื่อนที่): Rotating shaft carrying current coils that generate torque $\vec{\tau}$.</p>
+<p class="card-p">2. Solenoid Pole Identification:<br/>Using the right-hand coil rule, curl four fingers in the direction current wraps around the iron pole pieces. The thumb points toward the North pole (N) where magnetic flux emerges:<br/>$$\text{Current direction: } \vec{I} \implies \text{Magnetic dipole: } \vec{m} \parallel \text{Thumb (N)}$$</p>
                   </div>
                 </div>
                 
@@ -2231,8 +2241,8 @@ Approx: $$VR\% \approx \frac{I_2 R_{eq2} \cos\theta \pm I_2 X_{eq2} \sin\theta}{
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a_{\text{auto}}}$$
-Conducted power + Transformed power</div>
+                    <div class="formula-line">$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a_{\text{auto}}}$$</div>
+<div class="formula-line">$$S_{\text{auto}} = S_{\text{conducted}} + S_{\text{transformed}}$$</div>
                   </div>
                 </div>
                 
@@ -2241,7 +2251,7 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
                     <p class="card-p">1. Construction & Principle:<br/>An auto-transformer has a SINGLE continuous winding shared partly by both primary and secondary circuits (tapped common winding).</p>
-<p class="card-p">2. Higher Rating & Efficiency:<br/>Power is transferred via two mechanisms simultaneously:<br/>- By electromagnetic induction (transformed power)<br/>- By direct electrical conduction (conducted power)<br/>Because part of the energy flows conductively through the shared copper, magnetic core and windings can be much smaller and lighter, with lower $I^2 R$ and core losses.</p>
+<p class="card-p">2. Higher Rating & Efficiency:<br/>Power is transferred via two mechanisms simultaneously:<br/>- By direct electrical conduction ($S_{\text{conducted}} = V_2 I_1$)<br/>- By electromagnetic induction ($S_{\text{transformed}} = V_2 (I_2 - I_1)$)<br/>Because a large fraction of power flows conductively without transforming through magnetic flux:<br/>$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a} > 1$$<br/>Core and windings are much smaller, dramatically lowering $I^2 R$ heat loss and core losses.</p>
 <p class="card-p">3. Safety Drawback:<br/>NO ELECTRICAL ISOLATION between primary (HV) and secondary (LV)! If the common ground connection opens, the full high voltage appears directly on the low voltage terminals, risking electrocution.</p>
                   </div>
                 </div>
@@ -2293,7 +2303,7 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Stages: Generation } \rightarrow \text{ Transmission } \rightarrow \text{ Distribution } \rightarrow \text{ Utilization}$$</div>
 <div class="formula-line">$$P = \sqrt{3} V_L I_L \cos\theta \implies I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
-<div class="formula-line">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} \propto \frac{1}{V_L^2}$$</div>
+<div class="formula-line">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} = \frac{P^2 R_{\text{line}}}{V_L^2 \cos^2\theta} \propto \frac{1}{V_L^2}$$</div>
                   </div>
                 </div>
                 
@@ -2301,8 +2311,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Four Stages of Power System:<br/>- Generation: 10 - 20 kV (alternator output terminals)<br/>- Transmission: 115 kV, 230 kV, 500 kV (long-distance bulk power transfer)<br/>- Distribution: 22 kV, 24 kV, 33 kV (medium voltage to substations and streets)<br/>- Utilization: 380 V (3-phase) / 220 V (1-phase) (end consumers)</p>
-<p class="card-p">2. Voltage Classifications for Exam:<br/>- 500 kV: Extra High Voltage (EHV)<br/>- 22 kV: Medium Voltage (MV) - standard PEA/MEA primary distribution<br/>- 380 V: Low Voltage (LV) - standard 3-phase line-to-line utilization<br/>- Household: 220 V (or modern 230 V) - single-phase line-to-neutral utilization.</p>
+                    <p class="card-p">1. Four Stages of Power System:<br/>- Generation (การผลิต): $10\text{ kV} - 20\text{ kV}$ at power station alternators.<br/>- Transmission (สายส่งไฟฟ้า): $115\text{ kV}, 230\text{ kV}, 500\text{ kV}$ bulk long-distance power wheeling.<br/>- Distribution (สายจำหน่าย): $22\text{ kV}$ (PEA), $24\text{ kV} / 12\text{ kV}$ (MEA), $33\text{ kV}$ primary street feeders.<br/>- Utilization (การใช้ไฟฟ้า): $380\text{ V}$ (3-phase) / $220\text{ V}$ (single-phase) end customers.</p>
+<p class="card-p">2. Voltage Level Classifications:<br/>- $500\text{ kV}$: Extra High Voltage (EHV)<br/>- $22\text{ kV}$: Medium Voltage (MV) - standard PEA distribution<br/>- $380\text{ V}$: Low Voltage (LV) - standard 3-phase line-to-line<br/>- Household: $220\text{ V}$ (or modern $230\text{ V}$) - single-phase line-to-neutral.</p>
+<p class="card-p">3. Line Loss Scaling:<br/>$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} \propto \frac{1}{V_L^2}$$<br/>Stepping up voltage by a factor of 10 reduces line current by 10 and line losses by a factor of 100.</p>
                   </div>
                 </div>
                 
@@ -2310,7 +2321,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Why transmit at Extra High Voltage (500 kV)? Because stepping up VL reduces line current IL proportionally, which decreases transmission line I^2 R loss by a factor of (1/V)^2.</p>
+                    <p class="card-p">Why transmit at 500 kV? Because stepping up VL reduces line current IL proportionally, which decreases I^2 R line loss by a factor of (1/V)^2.</p>
                   </div>
                 </div>
                 
@@ -2340,9 +2351,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{EGAT: Generation + High-Voltage Grid (Nationwide)}$$</div>
-<div class="formula-line">$$\text{MEA: Distribution in 3 Provinces (BKK, Nonthaburi, Samut Prakan)}$$</div>
-<div class="formula-line">$$\text{PEA: Distribution in 74 Provinces (All other provinces)}$$</div>
+                    <div class="formula-line">$$\text{EGAT: Generation + High-Voltage Transmission Grid (Nationwide)}$$</div>
+<div class="formula-line">$$\text{MEA: Retail Distribution in 3 Provinces (Bangkok, Nonthaburi, Samut Prakan)}$$</div>
+<div class="formula-line">$$\text{PEA: Retail Distribution in 74 Provinces (All other regions)}$$</div>
                   </div>
                 </div>
                 
@@ -2350,9 +2361,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. EGAT (Electricity Generating Authority of Thailand / กฟผ.):<br/>Responsible for bulk power generation (hydro, thermal, combined cycle) and the nationwide high-voltage transmission grid (115 kV - 500 kV). Sells wholesale electricity to MEA, PEA, and large direct industrial customers.</p>
-<p class="card-p">2. MEA (Metropolitan Electricity Authority / กฟน.):<br/>Responsible for electricity distribution and retail customer service strictly across 3 provinces: Bangkok, Nonthaburi, and Samut Prakan.</p>
-<p class="card-p">3. PEA (Provincial Electricity Authority / กฟภ.):<br/>Responsible for electricity distribution and retail customer service across all remaining 74 provinces of Thailand.</p>
+                    <p class="card-p">1. EGAT (Electricity Generating Authority of Thailand / กฟผ.):<br/>- Responsibilities: Bulk power generation and high-voltage transmission grid ($115\text{ kV} - 500\text{ kV}$) across the entire nation.<br/>- Sells wholesale electricity to MEA, PEA, and large direct industrial customers.</p>
+<p class="card-p">2. MEA (Metropolitan Electricity Authority / กฟน.):<br/>- Responsibilities: Retail electricity distribution and customer service.<br/>- Jurisdiction: Strictly 3 provinces: Bangkok, Nonthaburi, and Samut Prakan.</p>
+<p class="card-p">3. PEA (Provincial Electricity Authority / กฟภ.):<br/>- Responsibilities: Retail electricity distribution and customer service.<br/>- Jurisdiction: All remaining 74 provinces across Thailand.</p>
                   </div>
                 </div>
                 
@@ -2391,7 +2402,7 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Primary / Most Used: Natural Gas (ก๊าซธรรมชาติ) } \approx 55\% - 60\%$$</div>
-<div class="formula-line">$$\text{Second: Coal / Lignite (ถ่านหินลิกไนต์) } + \text{ Imported Hydro (สปป.ลาว)}$$</div>
+<div class="formula-line">$$\text{Second: Coal / Lignite (ถ่านหินลิกไนต์) } \approx 15\% - 18\% + \text{Imported Hydro } \approx 12\% - 15\%$$</div>
 <div class="formula-line">$$\text{Least Used: Heavy Fuel Oil / Diesel (น้ำมันเตา/ดีเซล) } < 1\%$$</div>
                   </div>
                 </div>
@@ -2400,9 +2411,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Most Used Fuel:<br/>Natural Gas (ก๊าซธรรมชาติ) generates over 55-60% of total electrical energy in Thailand, supplied from the Gulf of Thailand, Myanmar pipelines, and imported Liquefied Natural Gas (LNG).</p>
-<p class="card-p">2. Secondary Sources:<br/>Coal / Lignite (ถ่านหินลิกไนต์ แม่เมาะ) and imported hydropower from Lao PDR.</p>
-<p class="card-p">3. Least Used Fuel:<br/>Heavy fuel oil (น้ำมันเตา) and diesel, utilized only as emergency backup during gas pipeline maintenance due to exceptionally high operating costs and particulate emissions.</p>
+                    <p class="card-p">1. Most Heavily Used Fuel:<br/>Natural Gas (ก๊าซธรรมชาติ) accounts for over $55\% - 60\%$ of total electricity generation in Thailand, sourced from the Gulf of Thailand, Myanmar pipelines, and imported Liquefied Natural Gas (LNG).</p>
+<p class="card-p">2. Secondary Fuels:<br/>Coal / Lignite (ถ่านหินลิกไนต์ที่แม่เมาะ) and imported hydropower from Lao PDR.</p>
+<p class="card-p">3. Least Used Fuel:<br/>Heavy fuel oil (น้ำมันเตา) and diesel ($< 1\%$), used strictly as emergency standby when gas pipelines undergo planned maintenance due to extremely high operating costs.</p>
                   </div>
                 </div>
                 
@@ -2445,8 +2456,8 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Base Load: Continuous 24/7 operation, High Capital Cost, Low Fuel/Operating Cost}$$</div>
-<div class="formula-line">$$\text{Peak Load: Fast Startup (minutes), Low Capital Cost, High Fuel/Operating Cost}$$</div>
+                    <div class="formula-line">$$\text{Base Load: 24/7 continuous, High Capital Cost, Low Fuel Cost/kWh, Startup: Hours to Days}$$</div>
+<div class="formula-line">$$\text{Peak Load: Fast Startup (3-15 min), Lower Capital Cost, High Fuel Cost/kWh}$$</div>
                   </div>
                 </div>
                 
@@ -2454,8 +2465,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Base Load Power Plants:<br/>- Purpose: Run continuously 24 hours a day at rated constant capacity to meet baseline national demand.<br/>- Plant Types: Coal/Lignite Thermal Plants (Mae Moh), Nuclear, Combined-Cycle Gas Turbine (CCGT).<br/>- Characteristics: Very high capital construction cost, low fuel/operating cost per kWh, very slow startup time (hours to days from cold start).</p>
-<p class="card-p">2. Peak Load Power Plants:<br/>- Purpose: Operated temporarily during peak demand hours (typically hot weekday afternoons and early evenings) and sudden grid disturbances.<br/>- Plant Types: Gas Turbines (Open Cycle), Pumped-Storage Hydro (เขื่อนลำตะคองชลภาวัฒนา), Conventional Hydro.<br/>- Characteristics: Lower capital investment, high fuel operating cost per kWh, extremely fast startup time (starts and synchronizes to grid in 3 - 15 minutes).</p>
+                    <p class="card-p">1. Base Load Power Plants:<br/>- Objective: Operate continuously 24 hours a day at rated steady capacity to supply baseline grid demand.<br/>- Plant Types: Coal/Lignite Thermal Plants (Mae Moh), Nuclear, Combined-Cycle Gas Turbine (CCGT).<br/>- Economics: Very high capital cost, lowest operating cost per kWh.<br/>- Startup Time: Very slow (hours to days from cold condition).</p>
+<p class="card-p">2. Peak Load Power Plants:<br/>- Objective: Dispatched briefly during peak demand hours (hot afternoons, early evenings) and sudden grid disturbances.<br/>- Plant Types: Gas Turbines (Open Cycle), Pumped-Storage Hydro (เขื่อนลำตะคองชลภาวัฒนา), Conventional Hydro.<br/>- Economics: Lower capital investment, high fuel cost per kWh.<br/>- Startup Time: Extremely fast ($3 - 15\text{ minutes}$ from stop to full synchronized generation).</p>
                   </div>
                 </div>
                 
@@ -2499,9 +2510,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Suspension: Straight paths, supports vertical conductor weight}$$</div>
-<div class="formula-line">$$\text{Tension / Angle: Turns/corners, withstands directional pull tension}$$</div>
-<div class="formula-line">$$\text{Dead-end: Terminal stations, handles one-sided full mechanical tension}$$</div>
-<div class="formula-line">$$\text{Transposition: Balances mutual inductance } L_{12} = L_{23} = L_{31} \text{ and capacitance across 3 phases}$$</div>
+<div class="formula-line">$$\text{Tension / Angle: Path turns, withstands directional pull tension}$$</div>
+<div class="formula-line">$$\text{Dead-end: Line termination at substations, handles full unilateral tension}$$</div>
+<div class="formula-line">$$\text{Transposition: Equalizes phase inductances } L_{12} = L_{23} = L_{31} \text{ and capacitances}$$</div>
                   </div>
                 </div>
                 
@@ -2509,10 +2520,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Suspension Towers (เสาแขวน):<br/>Used along straight line routes. Insulators hang vertically downwards to support only the physical downward weight of conductors without taking longitudinal line tension.</p>
-<p class="card-p">2. Tension / Angle Towers (เสารั้ง / เสามุม):<br/>Installed where transmission line changes direction (curves/corners). Insulators are placed horizontally in tension to withstand the horizontal mechanical pulling vector.</p>
-<p class="card-p">3. Dead-end / Terminal Towers (เสาสิ้นสุด):<br/>Placed where the line terminates at a substation or crosses major obstacles (wide rivers, mountains). Engineered to withstand the full, unbalanced tension from one side.</p>
-<p class="card-p">4. Transposition Towers (เสาสลับเฟส):<br/>Swaps physical conductor positions at regular 1/3 distance intervals to equalize line inductances and capacitances, balancing phase voltages.</p>
+                    <p class="card-p">1. Suspension Towers (เสาแขวน):<br/>Used along straight line routes. Insulator strings hang vertically downward to support only the physical downward weight of conductors without taking longitudinal line tension.</p>
+<p class="card-p">2. Tension / Angle Towers (เสารั้ง / เสามุม):<br/>Installed where transmission line changes direction (curves/corners). Insulator strings are positioned horizontally under tension to withstand the horizontal resultant mechanical pulling force.</p>
+<p class="card-p">3. Dead-end / Terminal Towers (เสาสิ้นสุด):<br/>Placed where the line terminates at a substation or crosses major obstacles (wide rivers, mountain passes). Engineered to withstand full, unbalanced mechanical tension from one side.</p>
+<p class="card-p">4. Transposition Towers (เสาสลับตำแหน่งเฟส):<br/>Swaps conductor positions (A, B, C) at regular $1/3$ line distance intervals to equalize line mutual inductances and capacitances across all 3 phases, preventing voltage unbalance.</p>
                   </div>
                 </div>
                 
@@ -2534,15 +2545,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.4 (หน้า 25 - 4 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.3 & 5.4 (หน้า 25 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">Customer Categories & Supply Voltage Thresholds</h3>
+              <h3 class="card-topic">Voltage Range Classifications & Customer Types</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">State the standard customer categories used by MEA and PEA (Residential, Small General Service, Medium/Large General Service), and explain why large industrial customers must receive high voltage (22 kV - 115 kV) rather than low voltage (380 V).</div>
+                <div class="card-question-text">Define Low Voltage (LV), Medium Voltage (MV), High Voltage (HV), and Extra High Voltage (EHV). Identify which customer tariff types connect to each voltage level.</div>
               </div>
               
               
@@ -2555,9 +2566,8 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$I = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
-<div class="formula-line">$$\text{If } P = 10\text{ MW at } 380\text{ V: } I \approx 18,200\text{ A (Impossibly thick cables)}$$</div>
-<div class="formula-line">$$\text{If } P = 10\text{ MW at } 22\text{ kV: } I \approx 315\text{ A (Standard manageable cable)}$$</div>
+                    <div class="formula-line">$$\text{EHV: } 500\text{ kV} \qquad \text{HV: } 115\text{ kV}, 230\text{ kV}$$</div>
+<div class="formula-line">$$\text{MV: } 22\text{ kV}, 24\text{ kV}, 33\text{ kV} \qquad \text{LV: } 380\text{ V } (3\phi), \; 220\text{ V } (1\phi)$$</div>
                   </div>
                 </div>
                 
@@ -2565,8 +2575,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Customer Categories (MEA/PEA):<br/>- Type 1: Residential (บ้านอยู่อาศัย) - Single-phase 220 V or 3-phase 380 V for large homes.<br/>- Type 2: Small General Service (ธุรกิจขนาดเล็ก) - Demand < 30 kW (shops, small offices).<br/>- Type 3: Medium General Service (ธุรกิจขนาดกลาง) - Demand 30 kW - 999 kW.<br/>- Type 4: Large General Service (ธุรกิจขนาดใหญ่) - Demand >= 1,000 kW (factories, malls).</p>
-<p class="card-p">2. Why Large Customers Take High Voltage (22 kV - 115 kV):<br/>- Current Reduction: From P = sqrt(3)*V*I*cos(theta), supplying massive power at 380 V would require tens of thousands of amperes, needing impossibly thick copper busbars and incurring massive voltage drops (Delta V = I*Z).<br/>- Grid Reliability: Directly feeding from 22 kV or 115 kV keeps the customer's heavy fluctuating loads from distorting voltage quality for neighboring residential consumers on the low-voltage network.</p>
+                    <p class="card-p">1. Voltage Definitions in Thai System:<br/>- Extra High Voltage (EHV): $500\text{ kV}$ (inter-regional supergrid lines)<br/>- High Voltage (HV): $115\text{ kV}, 230\text{ kV}$ (regional transmission substations)<br/>- Medium Voltage (MV): $22\text{ kV}$ (PEA), $24\text{ kV} / 12\text{ kV}$ (MEA), $33\text{ kV}$ (distribution lines along roads)<br/>- Low Voltage (LV): $380\text{ V}$ (3-phase) / $220\text{ V}$ (single-phase).</p>
+<p class="card-p">2. Customer Connections:<br/>- EHV / HV ($115 - 500\text{ kV}$): Heavy industrial plants (steel smelting, cement plants, chemical refineries).<br/>- MV ($22 - 33\text{ kV}$): Medium factories, department stores, universities, hospitals (having private step-down transformers).<br/>- LV ($220 / 380\text{ V}$): Residential homes, small commercial shops, residential buildings.</p>
                   </div>
                 </div>
                 
@@ -2574,7 +2584,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Supplying large loads at low voltage causes extreme copper loss I^2 R and severe voltage drop Delta V = I*Z.</p>
+                    <p class="card-p">Do not confuse MV (22 kV) with HV (115 kV). Normal street power lines on concrete poles are Medium Voltage (22 kV).</p>
                   </div>
                 </div>
                 
@@ -2588,15 +2598,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.2 (หน้า 25 - 2 คะแนน) & Sheet ติว</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.1 & 5.2 (หน้า 25 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">Power Plant Specifics in Thailand (Bhumibol, Ubolratana, Mae Moh, Nam Pong)</h3>
+              <h3 class="card-topic">Power Plant Types & Fuel Sources in Thailand</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">Identify the power generation types and fuels of these major Thai power plants: Bhumibol Dam, Ubolratana Dam, Mae Moh Power Plant, and Nam Pong Power Plant.</div>
+                <div class="card-question-text">Name the major power plant types in Thailand, list their fuel sources, and cite authentic plant examples for coal, combined cycle, and pumped storage hydro.</div>
               </div>
               
               
@@ -2609,9 +2619,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Bhumibol / Ubolratana: Hydroelectric (พลังน้ำ)}$$</div>
-<div class="formula-line">$$\text{Mae Moh (Lampang): Lignite Coal Thermal (พลังความร้อนถ่านหินลิกไนต์)}$$</div>
-<div class="formula-line">$$\text{Nam Pong (Khon Kaen): Natural Gas Combined Cycle (พลังความร้อนร่วมก๊าซธรรมชาติ)}$$</div>
+                    <div class="formula-line">$$\text{Thermal Coal / Lignite: Mae Moh (ลำปาง) } \rightarrow \text{Base Load}$$</div>
+<div class="formula-line">$$\text{Combined Cycle (Gas): Bang Pakong, South Bangkok, Wang Noi } \rightarrow \text{Base / Intermediate Load}$$</div>
+<div class="formula-line">$$\text{Pumped Storage Hydro: Lam Takhong (ลำตะคอง โคราช) } \rightarrow \text{Peak Load}$$</div>
+<div class="formula-line">$$\text{Conventional Hydro: Bhumibol, Sirikit, Srinagarind } \rightarrow \text{Peak / Quick Reserve}$$</div>
                   </div>
                 </div>
                 
@@ -2619,10 +2630,7 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Bhumibol Dam (เขื่อนภูมิพล - Tak):<br/>Hydroelectric power plant (พลังน้ำ); Thailand's largest concrete arch-gravity dam; also features pumped-storage units.</p>
-<p class="card-p">2. Ubolratana Dam (เขื่อนอุบลรัตน์ - Khon Kaen):<br/>Hydroelectric multi-purpose dam (พลังน้ำ) supplying renewable power and irrigation in the Northeast (Isan).</p>
-<p class="card-p">3. Mae Moh Power Plant (โรงไฟฟ้าแม่เมาะ - Lampang):<br/>Lignite coal-fired thermal power plant (โรงไฟฟ้าพลังความร้อนลิกไนต์); largest coal power complex in SE Asia, operating as a critical base load plant.</p>
-<p class="card-p">4. Nam Pong Power Plant (โรงไฟฟ้าน้ำพอง - Khon Kaen):<br/>Combined-Cycle gas turbine power plant (โรงไฟฟ้าพลังความร้อนร่วม) fueled primarily by domestic natural gas from Sinphuhorm gas field.</p>
+                    <p class="card-p">1. Major Power Plants in Thailand:<br/>- Thermal Power Plant (Coal/Lignite): Mae Moh Power Plant (โรงไฟฟ้าแม่เมาะ จ.ลำปาง) uses domestic lignite coal, generating steady base load.<br/>- Combined-Cycle Power Plant (Gas Turbine + Steam Turbine): Bang Pakong (บางปะกง), South Bangkok (พระนครใต้), Wang Noi (วังน้อย) burning natural gas with high thermal efficiency ($> 55\%$).<br/>- Pumped-Storage Hydro: Lam Takhong Jolabha Vadhana (เขื่อนลำตะคองชลภาวัฒนา จ.นครราชสีมา), pumps water up at night (cheap base power) and releases it during daytime peak demand.<br/>- Conventional Hydro: Bhumibol Dam (เขื่อนภูมิพล), Sirikit Dam (เขื่อนสิริกิติ์) used for rapid spinning reserve.</p>
                   </div>
                 </div>
                 
@@ -2630,7 +2638,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Do not confuse Mae Moh (Lignite Coal in Lampang) with Nam Pong (Natural Gas in Khon Kaen).</p>
+                    <p class="card-p">Lam Takhong is a Pumped-Storage Hydro plant, NOT a conventional river dam. It stores energy like a massive hydro battery.</p>
                   </div>
                 </div>
                 
@@ -2641,18 +2649,18 @@ Conducted power + Transformed power</div>
                 <div class="card-header-left">
                   <span class="card-id">CH09-08</span>
                   <span class="card-chapter-tag">Chapter 9</span>
-                  <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
+                  <span class="card-diff-tag badge-calc">🔴 Level 2 (Exam / Calc)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Lecture Chapter 9 (Renewable Energy)</span>
+                  <span class="card-ref-tag">📌 Lecture Chapter 9 (Power Systems)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">Residential Solar PV Rooftop System Components</h3>
+              <h3 class="card-topic">Transmission Tower Grounding Resistance & Lightning Protection</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">List the core components of a grid-tied residential Solar PV Rooftop system and explain the essential safety role of Anti-Islanding protection.</div>
+                <div class="card-question-text">What is Tower Footing Resistance, why must it be kept below 10 ohms, and how do overhead ground wires (OHGW / Shield wires) prevent transmission line flashovers during lightning strikes?</div>
               </div>
               
               
@@ -2660,8 +2668,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{PV Panels (DC)} \rightarrow \text{DC Combiner/Breaker} \rightarrow \text{Grid-Tied Inverter (DC to AC)} \rightarrow \text{Bi-directional Meter} \rightarrow \text{Grid}$$</div>
-<div class="formula-line">$$\text{Anti-Islanding: Grid Loss } \implies \text{Inverter disconnects immediately within 2 seconds}$$</div>
+                    <div class="formula-line">$$R_{\text{tower}} \le 10\;\Omega$$</div>
+<div class="formula-line">$$V_{\text{tower top}} = I_{\text{lightning}} \cdot R_{\text{tower}} + L_{\text{tower}} \frac{di}{dt}$$</div>
+<div class="formula-line">$$\text{Back Flashover occurs if: } V_{\text{tower top}} - V_{\text{conductor}} > V_{\text{insulator CFO}}$$</div>
                   </div>
                 </div>
                 
@@ -2669,8 +2678,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Core Components:<br/>- Solar PV Modules (แผงโซลาร์เซลล์): Converts sunlight photons into DC electricity.<br/>- DC Protection Box (ตู้ไฟ DC): Fuses, DC Circuit Breaker, DC Surge Protection Device (SPD).<br/>- Grid-Tied Inverter (อินเวอร์เตอร์): Converts variable DC into synchronized 220 V 50 Hz AC matching the utility grid.<br/>- AC Protection Box (ตู้ไฟ AC): AC Breaker, RCBO/RCD, AC SPD.<br/>- Bi-directional Meter (มิเตอร์ 2 ทาง): Measures both imported energy from grid and surplus exported solar energy.</p>
-<p class="card-p">2. Anti-Islanding Protection (Mandatory):<br/>When the public utility grid suffers a blackout or is switched off for line maintenance, the inverter MUST disconnect automatically within 2 seconds. This prevents backfeeding power into downed lines, protecting utility repair technicians from lethal electrocution.</p>
+                    <p class="card-p">1. Tower Footing Resistance ($R_{\text{tower}}$):<br/>The electrical contact resistance between the steel tower base / counterpoise ground wires and the surrounding earth. It must be kept strictly below $10\;\Omega$ (often $< 5\;\Omega$).</p>
+<p class="card-p">2. Back Flashover Mechanism:<br/>When lightning strikes the tower apex or overhead shield wire, huge lightning surge current ($I_{\text{lightning}} \approx 20 - 100\text{ kA}$) rushes down the tower to ground. The transient voltage at the tower top rises to:<br/>$$V_{\text{tower top}} = I_{\text{lightning}} \cdot R_{\text{tower}} + L \frac{di}{dt}$$<br/>If $R_{\text{tower}}$ is large, $V_{\text{tower top}}$ spikes to hundreds of kilovolts, flashing over across the insulator string to the phase conductor (Back Flashover), causing a grid trip.</p>
+<p class="card-p">3. Overhead Ground Wire (OHGW):<br/>Shield wires positioned at the very top of towers provide an interception shield angle ($< 30^\circ$), capturing direct lightning strikes and draining the current safely into ground.</p>
                   </div>
                 </div>
                 
@@ -2678,7 +2688,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Anti-Islanding is a strict legal requirement by MEA/PEA for all grid-tied solar installations.</p>
+                    <p class="card-p">High tower footing resistance causes Back Flashover from tower to line, defeating the purpose of insulators.</p>
                   </div>
                 </div>
                 
@@ -2692,15 +2702,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.5 (หน้า 24 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.5 (หน้า 24 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">Energy Conservation in Household Washing Machines</h3>
+              <h3 class="card-topic">Household Energy Conservation Measures</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">State practical energy-saving guidelines when using a residential washing machine.</div>
+                <div class="card-question-text">Propose 4 practical and effective energy conservation measures to reduce electrical consumption in residential homes.</div>
               </div>
               
               
@@ -2713,7 +2723,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Wash at full rated load} + \text{Use cold water } + \text{Select Inverter Motor}$$</div>
+                    <div class="formula-line">$$P = \frac{\text{BTU/hr}}{\text{SEER} \times 3.412} \implies \text{High SEER Inverter saves } 20\% - 30\%$$</div>
+<div class="formula-line">$$\Delta P \approx 10\% \text{ per } 1^\circ\text{C increase (Set AC to } 25^\circ\text{C} - 26^\circ\text{C)}$$</div>
+<div class="formula-line">$$P_{\text{LED}} \approx \frac{1}{5} P_{\text{Incandescent}} \quad (80\% \text{ energy reduction})$$</div>
                   </div>
                 </div>
                 
@@ -2721,10 +2733,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Wash at Full Capacity:<br/>Accumulate clothes and wash at the machine's rated full drum capacity, rather than doing frequent small washes, reducing total motor running cycles and water consumption.</p>
-<p class="card-p">2. Use Cold Water:<br/>Use cold water setting (30°C or room temp) instead of hot water heating cycles (60°C - 90°C), as electric water heating elements consume over 80-90% of total wash cycle energy.</p>
-<p class="card-p">3. Pre-soak Heavy Stains:<br/>Pre-soak heavily soiled clothes manually before putting them in, allowing standard or quick wash modes rather than heavy prolonged cycles.</p>
-<p class="card-p">4. Use Inverter Motor & Air Dry:<br/>Choose washing machines with high energy-efficiency labels (ฉลากประหยัดไฟเบอร์ 5 ดาวสูง) with Inverter BLDC motors, and utilize natural outdoor sunlight for drying instead of electric tumble dryers.</p>
+                    <p class="card-p">Four Practical Residential Energy Conservation Measures:<br/>1. Air Conditioning Optimization:<br/>- Set thermostat to $25^\circ\text{C} - 26^\circ\text{C}$ and use a fan simultaneously (each $1^\circ\text{C}$ temperature increase saves $\approx 10\%$ electrical energy).<br/>- Select High-Efficiency Inverter units with Energy Label No. 5 (5 Stars, high SEER).<br/>- Clean air filter screens every month and service coils every 6 months.</p>
+<p class="card-p">2. Lighting Upgrades:<br/>- Replace all conventional incandescent ($60\text{ W}$) and compact fluorescent ($18\text{ W}$) bulbs with high-efficacy LED lighting ($9\text{ W}$), achieving $> 80\%$ power reduction for identical luminous flux.</p>
+<p class="card-p">3. Refrigerator Management:<br/>- Position refrigerator at least $15\text{ cm}$ away from walls to ensure airflow around condenser coils; set dial to medium and avoid opening door frequently.</p>
+<p class="card-p">4. Eliminate Standby Vampire Power:<br/>- Unplug entertainment electronics and chargers or switch off power strips when not in use.</p>
                   </div>
                 </div>
                 
@@ -2732,7 +2744,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Electric water heating in washing machines consumes far more energy than the motor itself. Avoid hot wash cycles unless medically required.</p>
+                    <p class="card-p">Air conditioning represents 50-65% of typical home electricity bills. Targeting AC temperature and maintenance yields the largest financial savings.</p>
                   </div>
                 </div>
                 
@@ -2746,15 +2758,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.6 (หน้า 24 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.6 (หน้า 24 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">Energy Conservation in Industrial Manufacturing Plants</h3>
+              <h3 class="card-topic">Industrial Factory Energy Conservation Measures</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">Propose practical energy conservation measures for an industrial factory across: (a) Electric motors and drives, (b) Lighting systems, and (c) Air conditioning and thermal systems.</div>
+                <div class="card-question-text">Propose 4 engineering measures for energy conservation in industrial factories and commercial facilities.</div>
               </div>
               
               
@@ -2767,9 +2779,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Motor: VFD / Inverter + IE3/IE4 Motors} \quad \Delta P_{\text{save}} \propto (1 - (n_2/n_1)^3)$$</div>
-<div class="formula-line">$$\text{Power Factor Correction: Install Capacitor Banks } \implies PF \ge 0.85$$</div>
-<div class="formula-line">$$\text{Lighting: Replace HID/Fluorescent with LED} \implies 50\% - 70\% \text{ reduction}$$</div>
+                    <div class="formula-line">$$Q_C = P \left( \tan\theta_1 - \tan\theta_2 \right) \implies \text{Raise } \text{PF} \ge 0.85 \text{ to avoid PEA/MEA penalty}$$</div>
+<div class="formula-line">$$I_{\text{line}} = \frac{P}{\sqrt{3} V_L \cos\theta} \implies \text{Higher PF reduces cable } I^2 R \text{ loss}$$</div>
+<div class="formula-line">$$\text{VFD Affinity Law: } \frac{P_1}{P_2} = \left(\frac{n_1}{n_2}\right)^3 = \left(\frac{Q_1}{Q_2}\right)^3$$</div>
                   </div>
                 </div>
                 
@@ -2777,9 +2789,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Electric Motor Systems (Consumes > 65% of industrial power):<br/>- Install Variable Frequency Drives (VFD) on centrifugal pumps and fans to adjust motor speed according to real-time load instead of wasteful mechanical throttling valves (affinity laws: P proportional to n^3).<br/>- Upgrade old motors to Premium High-Efficiency Motors (IE3 or IE4 standard).<br/>- Correct Plant Power Factor by installing Automatic Capacitor Banks at the main switchboard (MDB) to maintain PF >= 0.85, eliminating PEA/MEA reactive power fines (ค่า kVAR).</p>
-<p class="card-p">2. Lighting Systems:<br/>- Retrofit older fluorescent (T8) and high-intensity discharge (HID/Metal Halide) lamps with industrial LED luminaires (saving 50-70% power).<br/>- Install smart daylight sensors and occupancy sensors in warehouses.</p>
-<p class="card-p">3. Air Conditioning & Chillers:<br/>- Optimize chilled water temperatures and schedule chiller sequencing based on production shifts.<br/>- Maintain and clean chiller condenser tubes and cooling tower fins regularly to prevent heat-transfer scale buildup.</p>
+                    <p class="card-p">Four Engineering Industrial Energy Conservation Measures:<br/>1. Power Factor (PF) Correction with Capacitor Banks:<br/>- Install automatic power factor correction (APFC) capacitor banks at main distribution switchboards to boost plant PF from $< 0.80$ to $> 0.95$.<br/>- Eliminates utility low power factor penalty charges and reduces factory cable $I^2 R$ heat losses.</p>
+<p class="card-p">2. Variable Frequency Drives (VFD) on Pumps and Fans:<br/>- Replace mechanical throttle valves and dampers with VFD motor speed controllers.<br/>- By pump/fan affinity laws ($P \propto n^3$), reducing motor speed by $20\%$ cuts motor shaft power consumption by nearly $50\%$.</p>
+<p class="card-p">3. High-Efficiency Motors (IE3 / IE4 Premium Efficiency):<br/>- Retrofit standard induction motors with IE3/IE4 motors equipped with low-loss copper rotors and superior magnetic core laminations.</p>
+<p class="card-p">4. Compressed Air System Leak Audits & Optimization:<br/>- Detect and seal compressed air pipe leaks (leaks routinely waste $20\% - 30\%$ of compressor output) and lower system operating pressure to the minimum required level.</p>
                   </div>
                 </div>
                 
@@ -2787,7 +2800,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Capacitor banks do NOT reduce active power (kW) consumed by the load, but they eliminate reactive power (kVAR) from the grid, reducing line current and avoiding utility penalty fees.</p>
+                    <p class="card-p">In factories, electric motors account for ~70% of total electrical energy. VFDs and PF correction yield massive financial returns.</p>
                   </div>
                 </div>
                 
@@ -2807,7 +2820,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 & Final Exam ข้อ 3</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 & Final Exam ข้อ 3.1</span>
                 </div>
               </div>
               
@@ -2815,7 +2828,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">Explain the operating principle of a Permanent Magnet Moving Coil (PMMC / D'Arsonval) instrument. State the formula for deflecting torque and explain why PMMC instruments only measure DC directly.</div>
+                <div class="card-question-text">Explain the operating principle of a Permanent Magnet Moving Coil (PMMC / D'Arsonval) instrument. State the formulas for deflecting torque and controlling torque, and explain why PMMC instruments measure only DC directly.</div>
               </div>
               
               
@@ -2825,7 +2838,8 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$T_d = B \cdot I \cdot N \cdot A = G \cdot I$$</div>
 <div class="formula-line">$$T_c = C \cdot \theta$$</div>
-<div class="formula-line">$$\text{At equilibrium: } T_d = T_c \implies \theta = \left(\frac{G}{C}\right) I \propto I$$</div>
+<div class="formula-line">$$\text{At equilibrium: } T_d = T_c \implies \theta = \left(\frac{B \cdot N \cdot A}{C}\right) I \propto I$$</div>
+<div class="formula-line">$$I_{\text{avg, AC}} = \frac{1}{T} \int_0^T I_m \sin(\omega t)\, dt = 0$$</div>
                   </div>
                 </div>
                 
@@ -2833,9 +2847,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Operating Principle:<br/>A rectangular copper coil carrying current I is pivoted inside the magnetic field B of a permanent magnet. The interaction of current and magnetic flux creates a Lorentz force (F = I*L x B), producing a deflecting torque Td.</p>
-<p class="card-p">2. Linear Scale:<br/>Since deflecting torque Td = B*I*N*A and restoring spring torque Tc = C*theta, at steady state:<br/>theta = (B*N*A / C) * I<br/>Because B, N, A, and C are constant, the pointer deflection angle theta is directly proportional to current I, yielding a perfectly LINEAR scale.</p>
-<p class="card-p">3. Why DC Only:<br/>If connected to alternating current (AC), the torque alternates direction every half-cycle (50 Hz). Due to the mechanical inertia of the moving coil and pointer, the meter cannot follow this rapid oscillation and indicates strictly the AVERAGE value, which is ZERO for pure sinusoidal AC.</p>
+                    <p class="card-p">1. Operating Principle:<br/>A rectangular coil with $N$ turns and cross-sectional area $A$ carrying current $I$ is suspended in the uniform radial magnetic field $B$ of a permanent magnet. The interaction between current and magnetic flux produces a Lorentz force ($F = I L B$), resulting in a deflecting torque $T_d$:<br/>$$T_d = B \cdot I \cdot N \cdot A = G \cdot I$$<br/>where $G = B N A$ is the galvanometer constant.</p>
+<p class="card-p">2. Controlling Torque & Linear Scale:<br/>A spiral hairspring produces an opposing restoring torque $T_c$:<br/>$$T_c = C \cdot \theta$$<br/>where $C$ is the spring constant and $\theta$ is the angular deflection. At equilibrium ($T_d = T_c$):<br/>$$\theta = \left(\frac{B \cdot N \cdot A}{C}\right) I = \left(\frac{G}{C}\right) I$$<br/>Because $B, N, A$, and $C$ are constants, the pointer deflection angle $\theta$ is directly proportional to current $I$ ($\theta \propto I$). This guarantees an evenly spaced, completely linear scale.</p>
+<p class="card-p">3. Why Measures Only DC Directly:<br/>If connected to sinusoidal alternating current ($i(t) = I_m \sin\omega t$), torque alternates direction every half-cycle (50 Hz). Due to the mechanical inertia of the moving coil assembly, the pointer cannot track 50 Hz oscillations and responds strictly to the time-average value:<br/>$$I_{\text{avg}} = \frac{1}{T} \int_0^T I_m \sin(\omega t)\, dt = 0$$<br/>The pointer vibrates negligibly around zero. To measure AC, a diode rectifier must be placed before the PMMC movement.</p>
                   </div>
                 </div>
                 
@@ -2857,7 +2871,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 Level 2 (Exam / Calc)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 1 & Past Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 1 (Official Problem 1)</span>
                 </div>
               </div>
               
@@ -2865,7 +2879,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">A PMMC coil has N = 100 turns, width w = 2 cm, length l = 3 cm, and sits in a uniform radial flux density B = 0.2 T. The spring constant is C = 1.2 x 10^-6 N*m/degree. Calculate the deflecting torque and pointer deflection angle when carrying a current of 1 mA.</div>
+                <div class="card-question-text">A moving coil instrument has N = 150 turns, coil area A = 100 mm^2, and operates in a magnetic flux density B = 0.15 T. The spring constant is C = 2 x 10^-6 N*m/degree. Calculate the deflecting torque Td and pointer deflection angle theta when carrying a current of I = 5 mA.</div>
               </div>
               
               
@@ -2873,7 +2887,7 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$A = w \cdot l = (0.02)(0.03) = 6 \times 10^{-4}\text{ m}^2$$</div>
+                    <div class="formula-line">$$A = 100\text{ mm}^2 = 100 \times 10^{-6}\text{ m}^2 = 10^{-4}\text{ m}^2$$</div>
 <div class="formula-line">$$T_d = B \cdot I \cdot N \cdot A$$</div>
 <div class="formula-line">$$\theta = \frac{T_d}{C}$$</div>
                   </div>
@@ -2883,9 +2897,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Calculate Coil Area:<br/>A = 0.02 m * 0.03 m = 6 x 10^-4 m^2</p>
-<p class="card-p">2. Calculate Deflecting Torque (Td):<br/>Td = B * I * N * A<br/>Td = (0.2 T) * (1 x 10^-3 A) * (100 turns) * (6 x 10^-4 m^2)<br/>Td = 1.2 x 10^-5 N*m</p>
-<p class="card-p">3. Calculate Deflection Angle (theta):<br/>At equilibrium, Td = Tc = C * theta<br/>theta = Td / C<br/>theta = (1.2 x 10^-5 N*m) / (1.2 x 10^-6 N*m/degree)<br/>theta = 10 degrees.</p>
+                    <p class="card-p">1. Convert Coil Area to SI Units ($m^2$):<br/>$$A = 100\text{ mm}^2 \times \left(\frac{1\text{ m}}{1000\text{ mm}}\right)^2 = 100 \times 10^{-6}\text{ m}^2 = 10^{-4}\text{ m}^2$$</p>
+<p class="card-p">2. Calculate Deflecting Torque ($T_d$):<br/>$$T_d = B \cdot I \cdot N \cdot A$$<br/>$$T_d = (0.15\text{ T}) \times (5 \times 10^{-3}\text{ A}) \times 150 \times (10^{-4}\text{ m}^2)$$<br/>$$T_d = 1.125 \times 10^{-5}\text{ N}\cdot\text{m}$$</p>
+<p class="card-p">3. Calculate Pointer Deflection Angle ($\theta$):<br/>At steady deflection equilibrium ($T_d = T_c = C \cdot \theta$):<br/>$$\theta = \frac{T_d}{C} = \frac{1.125 \times 10^{-5}\text{ N}\cdot\text{m}}{2 \times 10^{-6}\text{ N}\cdot\text{m/deg}} = 5.625^\circ$$</p>
                   </div>
                 </div>
                 
@@ -2893,7 +2907,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Always convert dimensions from cm to meters (m) to avoid calculation errors by factors of 10,000.</p>
+                    <p class="card-p">Always convert dimensions from mm^2 or cm^2 to m^2 (100 mm^2 = 10^-4 m^2). Failure to convert causes error by 1,000,000x.</p>
                   </div>
                 </div>
                 
@@ -2907,7 +2921,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 Level 2 (Exam / Calc)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 2 & Final Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 2 (Official Problem 2)</span>
                 </div>
               </div>
               
@@ -2915,7 +2929,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">A Galvanometer has internal resistance Rm = 100 ohms, full-scale current Ifsd = 1 mA, and Critical Damping Resistance CDRX = 900 ohms. Design a DC Ammeter to measure full scale I = 1 A for:
+                <div class="card-question-text">A Galvanometer has internal resistance Rg = 50 ohms, full-scale current Ig = 10 mA, and Critical Damping Resistance CDRX = 400 ohms. Design a DC Ammeter to measure full scale I = 100 mA for:
 (a) Pure circuit without CDRX
 (b) Circuit with CDRX (damping resistor).</div>
               </div>
@@ -2930,10 +2944,11 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Without CDRX: } R_{\text{sh}} = \frac{I_{\text{fsd}} R_m}{I - I_{\text{fsd}}} = \frac{R_m}{m - 1}$$</div>
-<div class="formula-line">$$\text{With CDRX: Series resistor } R_s = \text{CDRX} - R_m$$</div>
-<div class="formula-line">$$R_{\text{sh}}' = \frac{I_{\text{fsd}} (R_m + R_s)}{I - I_{\text{fsd}}} = \frac{I_{\text{fsd}} \cdot \text{CDRX}}{I - I_{\text{fsd}}}$$</div>
-<div class="formula-line">$$\text{Total Meter Resistance: } R_{\text{in}} = R_{\text{sh}} \parallel (R_m + R_s)$$</div>
+                    <div class="formula-line">$$\text{Without CDRX: } R_{\text{sh}} = \frac{I_g R_g}{I - I_g} = \frac{R_g}{m - 1}$$</div>
+<div class="formula-line">$$\text{With CDRX: Series resistor } R_s = \text{CDRX} - R_g = 400 - 50 = 350\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{branch}} = R_g + R_s = \text{CDRX} = 400\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{sh}}' = \frac{I_g \cdot R_{\text{branch}}}{I - I_g} = \frac{I_g \cdot \text{CDRX}}{I - I_g}$$</div>
+<div class="formula-line">$$R_{\text{in}} = R_{\text{sh}}' \parallel R_{\text{branch}}$$</div>
                   </div>
                 </div>
                 
@@ -2941,8 +2956,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Part (a) Without CDRX:<br/>- Shunt resistor Rsh is connected in parallel with Rm:<br/>I_sh = I - Ifsd = 1 A - 0.001 A = 0.999 A<br/>Rsh = (Ifsd * Rm) / (I - Ifsd) = (0.001 * 100) / 0.999 = 0.1001 ohms.</p>
-<p class="card-p">2. Part (b) With CDRX:<br/>- To achieve critical damping, the total resistance across meter terminals must equal CDRX = 900 ohms.<br/>- Add series resistor Rs = CDRX - Rm = 900 - 100 = 800 ohms.<br/>- Now the effective meter branch resistance is (Rm + Rs) = CDRX = 900 ohms.<br/>- New Shunt Resistor Rsh':<br/>Rsh' = (Ifsd * CDRX) / (I - Ifsd) = (0.001 * 900) / 0.999 = 0.9009 ohms.</p>
+                    <p class="card-p">1. Part (a) Without CDRX:<br/>Shunt current bypassing the coil:<br/>$$I_{\text{sh}} = I - I_g = 100\text{ mA} - 10\text{ mA} = 90\text{ mA} = 0.090\text{ A}$$<br/>Shunt resistor $R_{\text{sh}}$:<br/>$$R_{\text{sh}} = \frac{I_g \cdot R_g}{I - I_g} = \frac{(0.010\text{ A})(50\;\Omega)}{0.090\text{ A}} = \frac{0.50}{0.090} = 5.556\;\Omega$$</p>
+<p class="card-p">2. Part (b) With Critical Damping Resistance (CDRX = 400 ohms):<br/>To ensure critical damping in an ammeter, insert a series damping resistor $R_s$ in the galvanometer branch:<br/>$$R_s = \text{CDRX} - R_g = 400\;\Omega - 50\;\Omega = 350\;\Omega$$<br/>Effective meter branch resistance:<br/>$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$<br/>New shunt resistor $R_{\text{sh}}'$:<br/>$$R_{\text{sh}}' = \frac{I_g \cdot R_{\text{branch}}}{I - I_g} = \frac{(0.010\text{ A})(400\;\Omega)}{0.090\text{ A}} = \frac{4.0}{0.090} = 44.444\;\Omega$$<br/>Total ammeter input resistance:<br/>$$R_{\text{in}} = R_{\text{sh}}' \parallel R_{\text{branch}} = \frac{(44.444)(400)}{44.444 + 400} = 40.0\;\Omega$$</p>
                   </div>
                 </div>
                 
@@ -2950,7 +2965,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Do not connect CDRX in parallel with Rm! Rs is connected in SERIES with Rm so their sum equals CDRX, and then Rsh is connected in parallel with the entire combination.</p>
+                    <p class="card-p">In Ammeters, CDRX requires a SERIES resistor Rs. Do not connect CDRX in parallel with Rg!</p>
                   </div>
                 </div>
                 
@@ -2964,7 +2979,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 Level 2 (Exam / Calc)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 3 & Final Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 3 (Official Problem 3)</span>
                 </div>
               </div>
               
@@ -2972,7 +2987,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">A Galvanometer has Rm = 100 ohms, Ifsd = 1 mA, and CDRX = 900 ohms. Design a DC Voltmeter to measure full-scale V = 100 V for:
+                <div class="card-question-text">A Galvanometer has internal resistance Rg = 50 ohms, full-scale current Ig = 10 mA, and Critical Damping Resistance CDRX = 400 ohms. Design a DC Voltmeter to measure full scale V = 50 V for:
 (a) Pure circuit without CDRX
 (b) Circuit with CDRX (damping resistor).</div>
               </div>
@@ -2987,11 +3002,12 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Without CDRX: } R_s = \frac{V}{I_{\text{fsd}}} - R_m$$</div>
-<div class="formula-line">$$\text{With CDRX: Shunt damping resistor } R_p = \text{CDRX} = 900\;\Omega$$</div>
-<div class="formula-line">$$I_{\text{total}} = I_{\text{fsd}} + I_p = I_{\text{fsd}} \left(1 + \frac{R_m}{R_p}\right)$$</div>
-<div class="formula-line">$$R_s' = \frac{V - V_m}{I_{\text{total}}} = \frac{V - I_{\text{fsd}} R_m}{I_{\text{total}}}$$</div>
-<div class="formula-line">$$\text{Sensitivity: } S = \frac{1}{I_{\text{fsd}}} \;(\Omega/\text{V})$$</div>
+                    <div class="formula-line">$$\text{Without CDRX: } R_s = \frac{V}{I_g} - R_g$$</div>
+<div class="formula-line">$$\text{With CDRX: Parallel damping resistor } R_p = \text{CDRX} = 400\;\Omega$$</div>
+<div class="formula-line">$$V_m = I_g \cdot R_g \qquad I_p = \frac{V_m}{R_p}$$</div>
+<div class="formula-line">$$I_{\text{total}} = I_g + I_p = I_g \left(1 + \frac{R_g}{R_p}\right)$$</div>
+<div class="formula-line">$$R_s' = \frac{V - V_m}{I_{\text{total}}}$$</div>
+<div class="formula-line">$$\text{Sensitivity: } S = \frac{1}{I_{\text{total}}} \;(\Omega/\text{V})$$</div>
                   </div>
                 </div>
                 
@@ -2999,8 +3015,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Part (a) Without CDRX:<br/>- Total required resistance R_total = V / Ifsd = 100 V / 0.001 A = 100,000 ohms (100 k-ohms).<br/>- Multiplier series resistor Rs = R_total - Rm = 100,000 - 100 = 99,900 ohms (99.9 k-ohms).</p>
-<p class="card-p">2. Part (b) With CDRX:<br/>- To provide critical damping in a voltmeter, a parallel damping resistor Rp = CDRX = 900 ohms is connected in PARALLEL with Rm.<br/>- Voltage drop across coil at full scale: Vm = Ifsd * Rm = 0.001 A * 100 ohms = 0.1 V.<br/>- Current through Rp: Ip = Vm / Rp = 0.1 V / 900 ohms = 0.1111 mA.<br/>- Total circuit current: I_total = Ifsd + Ip = 1.0 mA + 0.1111 mA = 1.1111 mA.<br/>- Multiplier series resistor Rs':<br/>Rs' = (V - Vm) / I_total = (100 V - 0.1 V) / (1.1111 x 10^-3 A) = 89,910 ohms (89.91 k-ohms).</p>
+                    <p class="card-p">1. Part (a) Without CDRX:<br/>Total circuit resistance required:<br/>$$R_{\text{total}} = \frac{V}{I_g} = \frac{50\text{ V}}{0.010\text{ A}} = 5,000\;\Omega = 5\text{ k}\Omega$$<br/>Multiplier series resistor $R_s$:<br/>$$R_s = R_{\text{total}} - R_g = 5,000\;\Omega - 50\;\Omega = 4,950\;\Omega = 4.95\text{ k}\Omega$$</p>
+<p class="card-p">2. Part (b) With Critical Damping Resistance (CDRX = 400 ohms):<br/>For a voltmeter, connect damping resistor $R_p = \text{CDRX} = 400\;\Omega$ in PARALLEL across the meter movement:<br/>- Voltage drop across coil at full scale:<br/>$$V_m = I_g \cdot R_g = (0.010\text{ A})(50\;\Omega) = 0.5\text{ V}$$<br/>- Current drawn by parallel damping resistor $R_p$:<br/>$$I_p = \frac{V_m}{R_p} = \frac{0.5\text{ V}}{400\;\Omega} = 1.25\text{ mA} = 0.00125\text{ A}$$<br/>- Total current entering the voltmeter:<br/>$$I_{\text{total}} = I_g + I_p = 10\text{ mA} + 1.25\text{ mA} = 11.25\text{ mA} = 0.01125\text{ A}$$<br/>- Multiplier series resistor $R_s'$:<br/>$$R_s' = \frac{V - V_m}{I_{\text{total}}} = \frac{50\text{ V} - 0.5\text{ V}}{0.01125\text{ A}} = \frac{49.5\text{ V}}{0.01125\text{ A}} = 4,400\;\Omega = 4.4\text{ k}\Omega$$<br/>- Voltmeter sensitivity:<br/>$$S = \frac{1}{I_{\text{total}}} = \frac{1}{0.01125\text{ A}} = 88.89\;\Omega/\text{V}$$</p>
                   </div>
                 </div>
                 
@@ -3030,7 +3046,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 PROBLEM / QUESTION:</div>
-                <div class="card-question-text">Design a 3-range DC Ammeter for ranges I1 = 10 mA, I2 = 50 mA, and I3 = 100 mA using a PMMC meter with Rm = 50 ohms, Ifsd = 1 mA, and CDRX = 450 ohms. Determine the damping resistor Rs and each individual shunt resistor Rsh1, Rsh2, and Rsh3.</div>
+                <div class="card-question-text">A galvanometer has sensitivity 0.1 uA/mm, full scale deflection 10 mm, coil resistance Rg = 100 ohms, and critical damping resistance CDRX = 400 ohms. Design a 3-range DC ammeter for I1 = 1 mA, I2 = 50 mA, and I3 = 1 A using individual shunts. Determine damping resistor Rs and shunt resistors R11, R21, R31.</div>
               </div>
               
               
@@ -3043,9 +3059,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$R_s = \text{CDRX} - R_m = 450 - 50 = 400\;\Omega$$</div>
-<div class="formula-line">$$R_{\text{branch}} = R_m + R_s = 450\;\Omega$$</div>
-<div class="formula-line">$$R_{\text{sh},n} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_n - I_{\text{fsd}}} = \frac{(0.001)(450)}{I_n - 0.001}$$</div>
+                    <div class="formula-line">$$I_{\text{fsd}} = \text{Sensitivity} \times \text{Scale Length} = (0.1\;\mu\text{A/mm})(10\text{ mm}) = 1\;\mu\text{A} = 10^{-6}\text{ A}$$</div>
+<div class="formula-line">$$R_s = \text{CDRX} - R_g = 400\;\Omega - 100\;\Omega = 300\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$</div>
+<div class="formula-line">$$R_{n1} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_n - I_{\text{fsd}}}$$</div>
                   </div>
                 </div>
                 
@@ -3053,10 +3070,11 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Determine Series Damping Resistor Rs:<br/>Rs = CDRX - Rm = 450 - 50 = 400 ohms.<br/>Effective meter branch resistance: R_branch = Rm + Rs = 450 ohms.</p>
-<p class="card-p">2. Calculate Shunt Resistors for Each Range:<br/>- Range 1 (10 mA):<br/>Rsh1 = (0.001 * 450) / (0.010 - 0.001) = 0.450 / 0.009 = 50.0 ohms.</p>
-<p class="card-p">- Range 2 (50 mA):<br/>Rsh2 = (0.001 * 450) / (0.050 - 0.001) = 0.450 / 0.049 = 9.184 ohms.</p>
-<p class="card-p">- Range 3 (100 mA):<br/>Rsh3 = (0.001 * 450) / (0.100 - 0.001) = 0.450 / 0.099 = 4.545 ohms.</p>
+                    <p class="card-p">1. Determine Full-Scale Galvanometer Current ($I_{\text{fsd}}$):<br/>$$I_{\text{fsd}} = 0.1\;\mu\text{A/mm} \times 10\text{ mm} = 1\;\mu\text{A} = 10^{-6}\text{ A}$$</p>
+<p class="card-p">2. Determine Series Damping Resistor ($R_s$):<br/>$$R_s = \text{CDRX} - R_g = 400\;\Omega - 100\;\Omega = 300\;\Omega$$<br/>Total meter branch resistance:<br/>$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$</p>
+<p class="card-p">3. Calculate Shunt Resistors for Each Range:<br/>- Range 1 ($I_1 = 1\text{ mA} = 10^{-3}\text{ A}$):<br/>$$R_{11} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_1 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{10^{-3}\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.000999} = 0.4004\;\Omega$$</p>
+<p class="card-p">- Range 2 ($I_2 = 50\text{ mA} = 0.05\text{ A}$):<br/>$$R_{21} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_2 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{0.05\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.049999} = 0.00800\;\Omega$$</p>
+<p class="card-p">- Range 3 ($I_3 = 1\text{ A}$):<br/>$$R_{31} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_3 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{1.0\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.999999} = 0.000400\;\Omega$$</p>
                   </div>
                 </div>
                 
@@ -3064,7 +3082,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">Notice that higher current range requires SMALLER shunt resistance (Rsh3 < Rsh2 < Rsh1) because more current must be bypassed around the meter movement.</p>
+                    <p class="card-p">Notice that higher current range requires SMALLER shunt resistance (R31 < R21 < R11) because more current must be bypassed around the meter movement.</p>
                   </div>
                 </div>
                 
@@ -3110,8 +3128,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. What is an Ayrton Shunt:<br/>A tapped chain of resistors (Ra + Rb + Rc) continuously connected across the meter movement. Changing ranges alters which portion acts as shunt and which portion acts as series resistance.</p>
-<p class="card-p">2. Decisive Advantage over Individual Shunts:<br/>- Make-Before-Break Safety: In individual shunts, if the rotary switch momentarily disconnects between contacts, the FULL circuit current would blast through the fragile meter coil (Rm), destroying it immediately.<br/>- Ayrton shunt ensures the meter movement is ALWAYS shunted by resistance, preventing destructive overload during range switching.</p>
+                    <p class="card-p">1. What is an Ayrton Shunt:<br/>A tapped series chain of resistors ($R_a + R_b + R_c$) permanently connected in parallel across the meter movement $R_m$. Switching ranges moves the circuit input tap, altering which resistors act as shunt and which are added in series with the meter coil.</p>
+<p class="card-p">2. Decisive Advantage Over Individual Shunts:<br/>- Make-Before-Break Safety: In individual shunts, if the rotary switch momentarily opens between contacts, the entire line current would blast through the fragile meter movement ($R_m$), destroying it instantly.<br/>- In Ayrton shunt, the meter movement is NEVER left open without a parallel bypass path during range switching.</p>
+<p class="card-p">3. Equations for 3 Ranges:<br/>- Lowest current $I_1$:<br/>$$R_a + R_b + R_c = \frac{I_{\text{fsd}} R_m}{I_1 - I_{\text{fsd}}}$$<br/>- Medium current $I_2$:<br/>$$R_b + R_c = \frac{I_{\text{fsd}} (R_m + R_a)}{I_2}$$<br/>- Highest current $I_3$:<br/>$$R_c = \frac{I_{\text{fsd}} (R_m + R_a + R_b)}{I_3}$$</p>
                   </div>
                 </div>
                 
@@ -3154,7 +3173,7 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}} = 20,000\;\Omega/\text{V} \quad (20\text{ k}\Omega/\text{V})$$</div>
+                    <div class="formula-line">$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}\text{ A}} = 20,000\;\Omega/\text{V} \quad (20\text{ k}\Omega/\text{V})$$</div>
 <div class="formula-line">$$R_{\text{total},1} = S \cdot V_1 = (20\text{ k}\Omega/\text{V})(10\text{ V}) = 200\text{ k}\Omega$$</div>
 <div class="formula-line">$$R_1 = R_{\text{total},1} - R_m = 200\text{ k}\Omega - 100\;\Omega = 199.9\text{ k}\Omega$$</div>
 <div class="formula-line">$$R_2 = S(V_2 - V_1) = 20\text{ k}\Omega/\text{V} \cdot (50 - 10) = 800\text{ k}\Omega$$</div>
@@ -3166,10 +3185,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Voltmeter Sensitivity (S):<br/>S = 1 / Ifsd = 1 / (50 x 10^-6 A) = 20,000 ohms/V (20 k-ohm/V).</p>
-<p class="card-p">2. Range 1 (10 V):<br/>R_total1 = S * 10 V = 200,000 ohms.<br/>R1 = R_total1 - Rm = 200,000 - 100 = 199,900 ohms (199.9 k-ohms).</p>
-<p class="card-p">3. Range 2 (50 V):<br/>R_total2 = S * 50 V = 1,000,000 ohms.<br/>R2 = R_total2 - R_total1 = 1,000,000 - 200,000 = 800,000 ohms (800 k-ohms).</p>
-<p class="card-p">4. Range 3 (250 V):<br/>R_total3 = S * 250 V = 5,000,000 ohms.<br/>R3 = R_total3 - R_total2 = 5,000,000 - 1,000,000 = 4,000,000 ohms (4 M-ohms).</p>
+                    <p class="card-p">1. Voltmeter Sensitivity ($S$):<br/>$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}\text{ A}} = 20,000\;\Omega/\text{V} = 20\text{ k}\Omega/\text{V}$$</p>
+<p class="card-p">2. Range 1 ($V_1 = 10\text{ V}$):<br/>$$R_{\text{total},1} = S \cdot V_1 = (20\text{ k}\Omega/\text{V})(10\text{ V}) = 200\text{ k}\Omega$$<br/>$$R_1 = R_{\text{total},1} - R_m = 200\text{ k}\Omega - 0.1\text{ k}\Omega = 199.9\text{ k}\Omega$$</p>
+<p class="card-p">3. Range 2 ($V_2 = 50\text{ V}$):<br/>In a tapped series chain, each incremental resistor spans the voltage difference between adjacent ranges:<br/>$$R_2 = S \cdot (V_2 - V_1) = (20\text{ k}\Omega/\text{V})(50\text{ V} - 10\text{ V}) = (20\text{ k}\Omega/\text{V})(40\text{ V}) = 800\text{ k}\Omega$$</p>
+<p class="card-p">4. Range 3 ($V_3 = 250\text{ V}$):<br/>$$R_3 = S \cdot (V_3 - V_2) = (20\text{ k}\Omega/\text{V})(250\text{ V} - 50\text{ V}) = (20\text{ k}\Omega/\text{V})(200\text{ V}) = 4,000\text{ k}\Omega = 4\text{ M}\Omega$$</p>
                   </div>
                 </div>
                 
@@ -3213,9 +3232,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I = \frac{E}{R_{\text{in}} + R_x}$$</div>
-<div class="formula-line">$$R_x = 0 \implies I = I_{\text{fsd}} \quad (\text{Rightmost edge})$$</div>
-<div class="formula-line">$$R_x = R_{\text{in}} \implies I = 0.5\, I_{\text{fsd}} \quad (\text{Center of scale: } R_h)$$</div>
-<div class="formula-line">$$R_x = \infty \implies I = 0 \quad (\text{Leftmost zero current})$$</div>
+<div class="formula-line">$$R_x = 0 \implies I = I_{\text{fsd}} = \frac{E}{R_{\text{in}}} \quad (\text{Far Right: } 0\;\Omega)$$</div>
+<div class="formula-line">$$R_x = R_h = R_{\text{in}} \implies I = 0.5\, I_{\text{fsd}} \quad (\text{Center of scale: } R_h)$$</div>
+<div class="formula-line">$$R_x = \infty \implies I = 0 \quad (\text{Far Left zero current: } \infty\;\Omega)$$</div>
                   </div>
                 </div>
                 
@@ -3223,9 +3242,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Circuit Topology:<br/>A battery E, current-limiting resistor R1, zero-adjust rheostat R2, and meter movement Rm are connected in series with the unknown resistor Rx.</p>
-<p class="card-p">2. Calibration Points:<br/>- Rx = 0 (Short Circuit): Full current flows, pointer deflects to FULL SCALE (far RIGHT) = 0 ohms.<br/>- Rx = R_half (R_in): Total resistance doubles, current drops to 50% Ifsd, pointer sits exactly at MID-SCALE = Rh.<br/>- Rx = infinity (Open Circuit): Current is 0, pointer remains at REST (far LEFT) = infinity ohms.</p>
-<p class="card-p">3. Non-linear & Backwards Scale:<br/>Because current I = E / (R_in + Rx) is an inverse hyperbolic function of Rx, deflection is NOT linear. Scale markings are widely spaced on the right (low ohms) and heavily compressed on the left (high ohms).</p>
+                    <p class="card-p">1. Circuit Topology:<br/>An internal battery $E$, current-limiting resistor $R_1$, zero-adjust rheostat $R_2$, and galvanometer $R_m$ are all connected in series with the unknown resistance $R_x$ across test terminals.</p>
+<p class="card-p">2. Scale Deflection Points:<br/>- $R_x = 0$ (Short Circuit): Maximum current flows, deflecting pointer to full-scale at the far RIGHT:<br/>$$I = I_{\text{fsd}} = \frac{E}{R_{\text{in}}} \implies 0\;\Omega$$<br/>- $R_x = R_{\text{in}} = R_h$ (Half-Scale Resistance): Total resistance doubles, halving current to exactly mid-scale:<br/>$$I = \frac{E}{2 R_{\text{in}}} = 0.5\, I_{\text{fsd}} \implies R_h$$<br/>- $R_x = \infty$ (Open Circuit): No current flows, pointer remains at rest at far LEFT:<br/>$$I = 0 \implies \infty\;\Omega$$</p>
+<p class="card-p">3. Why Scale is Non-Linear & Reads Backwards:<br/>Because current $I = E / (R_{\text{in}} + R_x)$ varies inversely with $R_x$, deflection is hyperbolic. Markings are widely spaced on the right (low ohms) and heavily compressed on the left (high ohms).</p>
                   </div>
                 </div>
                 
@@ -3269,9 +3288,10 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I_m = I_{\text{total}} \cdot \frac{R_x}{R_m + R_x}$$</div>
-<div class="formula-line">$$R_x = 0 \implies I_m = 0 \quad (\text{Leftmost edge = 0 }\Omega)$$</div>
-<div class="formula-line">$$R_x = \infty \implies I_m = I_{\text{fsd}} \quad (\text{Rightmost edge = } \infty\;\Omega)$$</div>
-<div class="formula-line">$$\text{Suited for LOW resistance measurement } (5\;\text{m}\Omega - 100\;\Omega)$$</div>
+<div class="formula-line">$$R_x = 0 \implies I_m = 0 \quad (\text{Far Left edge = } 0\;\Omega)$$</div>
+<div class="formula-line">$$R_x = R_m \implies I_m = 0.5\, I_{\text{total}} \quad (\text{Center of scale = } R_m)$$</div>
+<div class="formula-line">$$R_x = \infty \implies I_m = I_{\text{fsd}} \quad (\text{Far Right edge = } \infty\;\Omega)$$</div>
+<div class="formula-line">$$\text{Measurement range: Low resistance } (5\;\text{m}\Omega - 100\;\Omega)$$</div>
                   </div>
                 </div>
                 
@@ -3279,9 +3299,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Operating Principle:<br/>The unknown resistor Rx is connected in PARALLEL (shunt) across the meter movement Rm, rather than in series. A series battery and switch provide supply current.</p>
-<p class="card-p">2. Scale Behavior:<br/>- Rx = 0 (Short Circuit): All current bypasses through the zero-ohm short; coil current Im = 0. Pointer stays at far LEFT = 0 ohms.<br/>- Rx = infinity (Open Circuit): No current bypassed; full current flows through Rm, deflecting pointer to far RIGHT = infinity ohms.<br/>- Result: Shunt ohmmeter scale reads from LEFT TO RIGHT (0 on left, infinity on right), exactly matching voltmeter/ammeter scale direction!</p>
-<p class="card-p">3. Primary Application:<br/>Measuring very LOW resistances (0.1 ohm to a few tens of ohms), such as motor winding coils, contact resistance, and transformer wire.</p>
+                    <p class="card-p">1. Operating Principle:<br/>The unknown resistor $R_x$ is connected in PARALLEL (shunt) across the meter movement $R_m$, rather than in series. A series battery and resistor supply constant circuit current.</p>
+<p class="card-p">2. Scale Deflection Points:<br/>- $R_x = 0$ (Short Circuit): All current bypasses through the zero-ohm short; coil current $I_m = 0$. Pointer stays at far LEFT = $0\;\Omega$:<br/>$$I_m = 0 \implies 0\;\Omega$$<br/>- $R_x = R_m$: Current splits equally; pointer deflects to mid-scale ($0.5 I_{\text{fsd}}$) = $R_m$.<br/>- $R_x = \infty$ (Open Circuit): No current bypassed; full current flows through $R_m$, deflecting pointer to far RIGHT = $\infty\;\Omega$:<br/>$$I_m = I_{\text{fsd}} \implies \infty\;\Omega$$<br/>Result: Shunt ohmmeter scale reads from LEFT TO RIGHT ($0$ on left, $\infty$ on right), matching normal voltmeter/ammeter scale direction!</p>
+<p class="card-p">3. Primary Application:<br/>Measuring very LOW resistances ($0.01\;\Omega$ to a few tens of ohms), such as motor winding coils, contact resistance, and transformer wire.</p>
                   </div>
                 </div>
                 
@@ -3319,9 +3339,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$R_{\text{scale}} = \text{Reading on Dial} \times \text{Range Multiplier}$$</div>
+                    <div class="formula-line">$$R_{\text{measured}} = \text{Dial Reading} \times \text{Range Multiplier}$$</div>
 <div class="formula-line">$$R_{h,\text{new}} = R_h \times \text{Multiplier}$$</div>
-<div class="formula-line">$$\text{Battery Aging: } E \downarrow \implies \text{Adjust } R_{\text{zero}} \downarrow \text{ to maintain } I_{\text{fsd}} = \frac{E}{R_{\text{in}}}$$</div>
+<div class="formula-line">$$\text{Battery Decline: } E \downarrow \implies \text{Decrease } R_{\text{zero}} \text{ so that } I_{\text{fsd}} = \frac{E}{R_{\text{in}}}$$</div>
                   </div>
                 </div>
                 
@@ -3329,8 +3349,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Purpose of Zero-Adjust Rheostat:<br/>As the internal dry cell battery ages, its open-circuit terminal voltage E drops and its internal resistance rises. The Zero-Adjust potentiometer compensates for this battery voltage decline by adjusting total internal resistance so that shorting test leads still yields exactly full-scale current Ifsd (pointer aligns perfectly to 0 ohms).</p>
-<p class="card-p">2. Multi-Range Operation:<br/>Switching to higher ranges (e.g., Rx10, Rx1k, Rx10k) changes internal shunt/series divider resistors, multiplying the center-scale half-deflection resistance Rh by that factor. To measure 100 k-ohms accurately, use Rx10k so the pointer lands near center scale where reading precision is highest.</p>
+                    <p class="card-p">1. Purpose of Zero-Adjust Rheostat:<br/>As the internal dry cell battery ages, its open-circuit terminal voltage $E$ drops and its internal resistance rises. The Zero-Adjust potentiometer compensates for this battery decline by decreasing circuit resistance so that shorting test leads ($R_x = 0$) still yields exactly full-scale current $I_{\text{fsd}}$ (pointer aligns perfectly to $0\;\Omega$).</p>
+<p class="card-p">2. Multi-Range Operation:<br/>Switching to higher ranges (e.g., $R \times 1, R \times 10, R \times 100, R \times 1\text{k}, R \times 10\text{k}$) modifies internal shunt/series divider resistors, multiplying the center-scale half-deflection resistance $R_h$ by that factor:<br/>$$R_{h,\text{new}} = R_h \times \text{Multiplier}$$<br/>To measure $100\text{ k}\Omega$ accurately, select $R \times 10\text{k}$ so the pointer deflects near center scale ($R_h$) where reading precision is highest.</p>
                   </div>
                 </div>
                 
@@ -3352,7 +3372,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 Level 2 (Exam / Calc)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Lecture Chapter 10 & Jele Sheet</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.2 (หน้า 30 - 3 คะแนน)</span>
                 </div>
               </div>
               
@@ -3368,10 +3388,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$V_{\text{avg}} = \frac{2}{\pi} V_m = 0.637\, V_m$$</div>
-<div class="formula-line">$$V_{\text{rms}} = \frac{V_m}{\sqrt{2}} = 0.707\, V_m$$</div>
-<div class="formula-line">$$\text{Form Factor } k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{0.707}{0.637} = 1.11$$</div>
-<div class="formula-line">$$V_{\text{scale}} = 1.11 \times V_{\text{avg}}$$</div>
+                    <div class="formula-line">$$V_{\text{avg}} = \frac{2}{\pi} V_m \approx 0.637\, V_m$$</div>
+<div class="formula-line">$$V_{\text{rms}} = \frac{V_m}{\sqrt{2}} \approx 0.707\, V_m$$</div>
+<div class="formula-line">$$\text{Form Factor } k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{0.707\, V_m}{0.637\, V_m} = 1.11$$</div>
+<div class="formula-line">$$V_{\text{scale}} = 1.11 \times V_{\text{avg}} = V_{\text{rms}}$$</div>
                   </div>
                 </div>
                 
@@ -3379,9 +3399,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. PMMC Mechanism Response:<br/>The PMMC movement responds strictly to average rectified current: V_avg = (2/pi) * Vm = 0.637 Vm.</p>
-<p class="card-p">2. AC Calibration:<br/>Users expect the dial to indicate Effective / Root-Mean-Square (RMS) voltage. For pure sinusoidal AC, the Form Factor is:<br/>kf = V_rms / V_avg = 1.11<br/>Manufacturers calibrate the dial markings by multiplying the actual deflection by 1.11.</p>
-<p class="card-p">3. Non-Sinusoidal Waveform Error:<br/>If measuring non-sinusoidal waveforms (square wave kf = 1.0, triangular wave kf = 1.155), the 1.11 calibration scale causes significant measurement error. True RMS meters (thermal or digital sampling) must be used for non-sine waves.</p>
+                    <p class="card-p">1. PMMC Mechanism Response:<br/>The moving coil responds strictly to average rectified DC current:<br/>$$V_{\text{avg}} = \frac{2}{\pi} V_m \approx 0.637\, V_m$$</p>
+<p class="card-p">2. AC Calibration (Form Factor):<br/>Users require the dial to display Effective / Root-Mean-Square (RMS) voltage. For pure sinusoidal AC, the Form Factor is:<br/>$$k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{V_m / \sqrt{2}}{2 V_m / \pi} = \frac{\pi}{2 \sqrt{2}} \approx 1.11$$<br/>Manufacturers calibrate dial markings by multiplying average deflection by $1.11$:<br/>$$V_{\text{dial}} = 1.11 \times V_{\text{avg}} = V_{\text{rms}}$$</p>
+<p class="card-p">3. Non-Sinusoidal Waveform Error:<br/>For a square wave, $k_f = 1.00$. Measuring a $10\text{ V}$ peak square wave causes the meter to read $1.11 \times 10 = 11.1\text{ V}$ (an error of $+11\%$)! For non-sinusoidal waveforms, True-RMS meters must be utilized.</p>
                   </div>
                 </div>
                 
@@ -3425,8 +3445,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$P = V_{\text{load}} \cdot I_{\text{load}} \cdot \cos\theta$$</div>
-<div class="formula-line">$$\text{Current Coil (CC): Fixed, thick wire, low turns } \implies \text{Connected in SERIES with load}$$</div>
-<div class="formula-line">$$\text{Potential Coil (PC): Moving, fine wire, high turns } \implies \text{Connected in PARALLEL across load}$$</div>
+<div class="formula-line">$$\text{Current Coil (CC): Fixed, thick wire, low turns } \implies \text{Connected in SERIES with load (Terminals 1--2)}$$</div>
+<div class="formula-line">$$\text{Potential Coil (PC): Moving, fine wire, high turns } \implies \text{Connected in PARALLEL across load (Terminals 3--5)}$$</div>
+<div class="formula-line">$$\text{Burnout Hazard: Connecting CC in parallel creates a dead short circuit } I_{\text{sc}} = \frac{V}{R_{\text{CC}}} \approx \infty$$</div>
                   </div>
                 </div>
                 
@@ -3434,9 +3455,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Wattmeter Coils & Connection:<br/>- Current Coil (CC / ขดลวดกระแส): Made of thick copper wire with few turns (near-zero impedance). MUST be connected in SERIES with the load to carry full line current.<br/>- Potential Coil (PC / ขดลวดแรงดัน): Made of thin wire with many turns, connected in series with a high multiplier resistance. MUST be connected in PARALLEL across the load terminals to measure line voltage.</p>
-<p class="card-p">2. Power Indication:<br/>Instantaneous torque is proportional to the product i_cc * i_pc, so average pointer deflection indicates real average active power: P = V * I * cos(theta).</p>
-<p class="card-p">3. Burnout Hazard:<br/>NEVER connect the Current Coil in parallel across the voltage supply! Because CC has near-zero resistance, connecting it in parallel creates a dead short circuit, drawing hundreds of amps and instantly vaporizing the coil.</p>
+                    <p class="card-p">1. Wattmeter Coils & Connection:<br/>- Current Coil (CC / ขดลวดกระแส): Made of thick copper wire with few turns (near-zero impedance). MUST be connected in SERIES with the load (terminals 1-2) to carry full line current.<br/>- Potential Coil (PC / ขดลวดแรงดัน): Made of fine wire with many turns, connected in series with a high non-inductive multiplier resistance. MUST be connected in PARALLEL across the load terminals (terminals 3-5) to measure voltage.</p>
+<p class="card-p">2. Power Indication:<br/>Instantaneous torque is proportional to the product of magnetic fields produced by both coils: $T_d \propto i_{\text{cc}}(t) \cdot i_{\text{pc}}(t)$, deflecting the pointer to indicate true real average active power:<br/>$$P = V_{\text{load}} \cdot I_{\text{load}} \cdot \cos\theta$$</p>
+<p class="card-p">3. Burnout Hazard:<br/>NEVER connect the Current Coil (CC) in parallel across the voltage supply! Because CC has near-zero resistance, connecting it in parallel creates an immediate dead short circuit ($I_{\text{sc}} = V / R_{\text{CC}} \approx \infty$), vaporizing the coil instantly.</p>
                   </div>
                 </div>
                 
@@ -3458,7 +3479,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 Level 1 (Core Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.1 (หน้า 30 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.3 (หน้า 30 - 2 คะแนน)</span>
                 </div>
               </div>
               
@@ -3485,9 +3506,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Driving Torque Generation:<br/>The meter contains a shunt electromagnet (connected across line voltage) and a series electromagnet (carrying load current). Their alternating fluxes induce eddy currents inside a lightweight aluminum disc. The interaction between each eddy current and the other magnet's flux creates a continuous rotational driving torque Td proportional to instantaneous real power P.</p>
-<p class="card-p">2. Braking Magnet Role:<br/>A C-shaped permanent magnet sits near the edge of the disc. As the disc spins through its field, eddy currents are induced that create a retarding torque Tb proportional to rotational speed (Tb proportional to omega).</p>
-<p class="card-p">3. Energy Integration:<br/>Equating Td = Tb yields disc speed omega proportional to power P. Therefore, the total number of disc revolutions over time is directly proportional to cumulative electrical energy: Energy = Integral(P dt) in kWh, registered on gear dials.</p>
+                    <p class="card-p">1. Driving Torque Generation:<br/>The meter contains a shunt electromagnet (connected across line voltage) and a series electromagnet (carrying load current). Their alternating magnetic fluxes induce eddy currents inside a lightweight aluminum disc. The interaction between each eddy current and the alternating flux produces a continuous rotational driving torque $T_d$ proportional to instantaneous real power $P$:<br/>$$T_d \propto V \cdot I \cdot \cos\theta = P$$</p>
+<p class="card-p">2. Braking Magnet Role:<br/>A C-shaped permanent magnet sits near the outer edge of the disc. As the disc spins through this stationary field, eddy currents are induced in the disc, creating a retarding braking torque $T_b$ directly proportional to rotational speed $\omega$:<br/>$$T_b \propto \omega$$</p>
+<p class="card-p">3. Energy Integration:<br/>Equating driving and braking torque ($T_d = T_b$) yields:<br/>$$\omega \propto P$$<br/>The total number of disc revolutions $N$ over time is directly proportional to cumulative electrical energy in kilowatt-hours (kWh):<br/>$$N = \int \omega\, dt \propto \int P\, dt = \text{Energy (kWh)}$$</p>
                   </div>
                 </div>
                 
@@ -3528,7 +3549,7 @@ Conducted power + Transformed power</div>
                     <div class="formula-line">$$\text{Absolute Error: } e = Y_n - X_n$$</div>
 <div class="formula-line">$$\text{Relative Error: } e_r = \frac{Y_n - X_n}{X_n}$$</div>
 <div class="formula-line">$$\%\text{ Error} = \frac{|Y_n - X_n|}{X_n} \times 100\%$$</div>
-<div class="formula-line">$$\%\text{ Accuracy } A = 100\% - \%\text{ Error}$$</div>
+<div class="formula-line">$$\%\text{ Accuracy } A = 100\% - \%\text{ Error} = \left(1 - \frac{|Y_n - X_n|}{X_n}\right) \times 100\%$$</div>
                   </div>
                 </div>
                 
@@ -3536,9 +3557,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Accuracy (ความแม่นยำ/ความถูกต้อง):<br/>How close the measured value Yn is to the true accepted standard value Xn.</p>
-<p class="card-p">2. Precision (ความเที่ยงตรง):<br/>The repeatability or consistency of successive measurements of the exact same quantity under identical conditions, regardless of whether it is near the true value.</p>
-<p class="card-p">3. Error Formulas:<br/>- Absolute Error: e = Yn - Xn (Measured value minus True value)<br/>- Relative Error: e_r = (Yn - Xn) / Xn<br/>- % Error: (% Error) = (|Yn - Xn| / Xn) * 100%<br/>- % Accuracy: A = 100% - % Error = [1 - |Yn - Xn| / Xn] * 100%.</p>
+                    <p class="card-p">1. Accuracy (ความแม่นยำ/ความถูกต้อง):<br/>How close the measured reading $Y_n$ is to the true, accepted standard value $X_n$.</p>
+<p class="card-p">2. Precision (ความเที่ยงตรง):<br/>The repeatability or consistency of successive measurements of the exact same physical quantity under identical conditions, regardless of whether it is near the true value.</p>
+<p class="card-p">3. Error & Accuracy Formulas:<br/>- Absolute Error:<br/>$$e = Y_n - X_n$$<br/>- Relative Error:<br/>$$e_r = \frac{Y_n - X_n}{X_n}$$<br/>- Percentage Error:<br/>$$\%\text{ Error} = \frac{|Y_n - X_n|}{X_n} \times 100\%$$<br/>- Percentage Accuracy ($A$):<br/>$$A = 100\% - \%\text{ Error} = \left(1 - \frac{|Y_n - X_n|}{X_n}\right) \times 100\%$$</p>
                   </div>
                 </div>
                 
@@ -3597,9 +3618,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Intrinsic vs Extrinsic Semiconductors:<br/>- Intrinsic: Extremely pure semiconductor crystal (Silicon or Germanium, valence = 4) with no impurities. Electrical conductivity at room temperature is very low.<br/>- Extrinsic: Doped with tiny amounts of impurity atoms to dramatically increase electrical conductivity.</p>
-<p class="card-p">2. N-Type Semiconductor:<br/>- Doped with Pentavalent impurity (valence 5: Phosphorus, Arsenic, Antimony).<br/>- 4 valence electrons form covalent bonds with Silicon, while the 5th electron becomes a free conduction electron.<br/>- Majority Carriers: Free Electrons (e-); Minority Carriers: Holes (h+).</p>
-<p class="card-p">3. P-Type Semiconductor:<br/>- Doped with Trivalent impurity (valence 3: Boron, Gallium, Indium).<br/>- 3 valence electrons bond with Silicon, leaving a vacancy or 'hole' that eagerly accepts an electron.<br/>- Majority Carriers: Holes (h+); Minority Carriers: Electrons (e-).</p>
+                    <p class="card-p">1. Intrinsic vs Extrinsic Semiconductors:<br/>- Intrinsic: Pure semiconductor crystal (Silicon, valence = 4) with no impurities. Low conductivity at room temperature.<br/>- Extrinsic: Doped with tiny concentrations of impurity atoms to dramatically increase conductivity.</p>
+<p class="card-p">2. N-Type Semiconductor:<br/>- Doped with Pentavalent impurities (valence 5: Phosphorus, Arsenic, Antimony).<br/>- 4 valence electrons bond with Silicon; the 5th electron becomes a free conduction electron.<br/>- Majority Carriers: Free Electrons ($e^-$); Minority Carriers: Holes ($h^+$).</p>
+<p class="card-p">3. P-Type Semiconductor:<br/>- Doped with Trivalent impurities (valence 3: Boron, Gallium, Indium).<br/>- 3 valence electrons bond with Silicon, leaving a vacancy or 'hole' ($h^+$).<br/>- Majority Carriers: Holes ($h^+$); Minority Carriers: Electrons ($e^-$).</p>
+<p class="card-p">4. Mass Action Law:<br/>$$n \cdot p = n_i^2$$</p>
                   </div>
                 </div>
                 
@@ -3653,9 +3675,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Definition & Terminals:<br/>MOSFET stands for Metal-Oxide-Semiconductor Field-Effect Transistor. Its 3 functional terminals are Gate (G), Drain (D), and Source (S) (with a substrate/body terminal internally tied to Source).</p>
-<p class="card-p">2. Near-Infinite Gate Input Impedance:<br/>The Gate electrode is physically isolated from the semiconductor conducting channel by an ultra-thin dielectric layer of Silicon Dioxide (SiO2). Because SiO2 is an exceptional electrical insulator, steady-state gate current IG is practically ZERO (nanoamperes to picoamperes), giving an input impedance of 10^12 to 10^14 ohms.</p>
-<p class="card-p">3. Advantages over BJT:<br/>- Voltage-controlled (requires zero static gate current to remain ON, unlike BJT which demands continuous base current IB).<br/>- Extremely fast switching speeds (ideal for high-frequency switch-mode power supplies and CPU logic gates).<br/>- Low conduction resistance RDS(on) in modern power MOSFETs, yielding high efficiency.</p>
+                    <p class="card-p">1. Definition & Terminals:<br/>MOSFET stands for Metal-Oxide-Semiconductor Field-Effect Transistor. Its 3 active terminals are Gate (G), Drain (D), and Source (S).</p>
+<p class="card-p">2. Near-Infinite Gate Input Impedance:<br/>The Gate electrode is physically isolated from the conducting channel by an ultra-thin dielectric layer of Silicon Dioxide ($SiO_2$). Because $SiO_2$ is an outstanding electrical insulator, static gate current is practically zero:<br/>$$I_G \approx 0 \implies R_{\text{in, gate}} \approx 10^{12} - 10^{14}\;\Omega$$</p>
+<p class="card-p">3. Key Advantages Over BJT:<br/>- Voltage-Controlled: Requires zero continuous gate current to stay ON, unlike BJT which demands base current $I_B$.<br/>- High Switching Speed: Fast transition times ideal for high-frequency switch-mode power supplies and CPU logic gates.<br/>- Positive Thermal Coefficient: Prevents thermal runaway and allows straightforward parallel connection.</p>
                   </div>
                 </div>
                 
@@ -3707,8 +3729,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Definition of an IC:<br/>An Integrated Circuit (IC or microchip) is a complete electronic circuit consisting of millions or billions of interconnected microscopic components (transistors, diodes, resistors, capacitors) fabricated monolithically on a single tiny crystal semiconductor substrate (usually Silicon).</p>
-<p class="card-p">2. Revolutionary Advantages over Discrete Circuits:<br/>- Extreme Miniaturization: Packs complex computers into a fingernail-sized silicon chip.<br/>- Mass Production & Low Cost: Fabricated simultaneously in huge batches on silicon wafers using photolithography, drastically lowering cost per gate.<br/>- High Reliability: Monolithic internal metal interconnections eliminate thousands of fragile soldered joints and mechanical wiring failures.<br/>- High Speed & Low Power: Nanometer-scale distances between transistors allow gigahertz switching speeds with negligible parasitic capacitance and minimal power dissipation.</p>
+                    <p class="card-p">1. Definition of an Integrated Circuit (IC):<br/>An Integrated Circuit (IC or microchip) is a complete electronic circuit consisting of millions to billions ($> 10^9$) of interconnected microscopic components (transistors, diodes, resistors, capacitors) fabricated monolithically on a single tiny semiconductor die (Silicon wafer):<br/>$$\text{Microscopic Integration: } \text{Transistors } (> 10^9) + \text{Interconnects on single } \text{Si die}$$</p>
+<p class="card-p">2. Revolutionary Advantages over Discrete Circuits:<br/>- Extreme Miniaturization: Shrinks entire computers onto a thumbnail-sized die ($< 1\text{ cm}^2$).<br/>- Low Unit Cost: Mass-produced simultaneously by the thousands on silicon wafers using optical photolithography.<br/>- High Reliability: Monolithic metal layers replace thousands of fragile soldered wire joints.<br/>- High Speed & Low Power: Nanometer trace distances allow gigahertz clock rates with negligible parasitic delays ($R C \rightarrow 0$).</p>
                   </div>
                 </div>
                 
@@ -3716,7 +3738,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ EXAM PITFALL & CAUTION:</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">An IC is not merely a single transistor packaged in plastic; it is a COMPLETE SYSTEM of millions of interconnected transistors, diodes, and resistors.</p>
+                    <p class="card-p">ICs are monolithic (all components created simultaneously on the same crystal substrate), not soldered discrete parts.</p>
                   </div>
                 </div>
                 
@@ -3752,8 +3774,8 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$V_{\text{knee, Si}} \approx 0.7\text{ V} \qquad V_{\text{knee, Ge}} \approx 0.3\text{ V}$$</div>
-<div class="formula-line">$$\text{Forward: } V_{\text{anode}} > V_{\text{cathode}} + V_{\text{knee}} \implies \text{Conducts heavy current } I_D$$</div>
-<div class="formula-line">$$\text{Reverse: } V_{\text{cathode}} > V_{\text{anode}} \implies I_D \approx I_s \text{ (Reverse Saturation Current } \approx \text{nA)}$$</div>
+<div class="formula-line">$$\text{Forward Bias: } V_{\text{anode}} > V_{\text{cathode}} + V_{\text{knee}} \implies I_D \text{ conducts heavily}$$</div>
+<div class="formula-line">$$\text{Reverse Bias: } V_{\text{cathode}} > V_{\text{anode}} \implies I_D \approx I_s \text{ (Reverse Saturation Current } \approx \text{nA)}$$</div>
                   </div>
                 </div>
                 
@@ -3761,9 +3783,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Forward Bias:<br/>Positive terminal of source connected to Anode (P-type), Negative to Cathode (N-type). When applied voltage exceeds the barrier potential (0.7 V for Si, 0.3 V for Ge), the depletion layer collapses and large forward current flows exponentially.</p>
-<p class="card-p">2. Reverse Bias:<br/>Positive terminal to Cathode (N-type), Negative to Anode (P-type). The external voltage widens the depletion layer, preventing majority carrier flow. Only a tiny temperature-dependent reverse saturation current Is (picoamps to nanoamps) flows.</p>
-<p class="card-p">3. Reverse Breakdown:<br/>If reverse voltage exceeds the Peak Inverse Voltage (PIV / Breakdown Voltage Vz), avalanche multiplication or zener tunneling occurs, causing sudden massive reverse current. Unless current is externally limited by a resistor, the diode will burn out.</p>
+                    <p class="card-p">1. Forward Bias (ไบแอสตรง):<br/>Positive supply terminal connected to Anode (P-side), Negative to Cathode (N-side). When applied voltage overcomes the internal barrier potential ($0.7\text{ V}$ for Silicon, $0.3\text{ V}$ for Germanium), the depletion layer collapses and large forward current $I_D$ conducts exponentially.</p>
+<p class="card-p">2. Reverse Bias (ไบแอสกลับ):<br/>Positive supply to Cathode (N-side), Negative to Anode (P-side). External voltage widens the depletion barrier, preventing majority carrier transit. Only an ultra-tiny temperature-dependent reverse saturation current $I_s$ (picoamps to nanoamps) leaks through.</p>
+<p class="card-p">3. Reverse Breakdown:<br/>If reverse voltage exceeds Peak Inverse Voltage (PIV), avalanche multiplication causes sudden massive reverse current. Unless current is externally limited by a resistor, the diode burns out instantly.</p>
                   </div>
                 </div>
                 
@@ -3811,9 +3833,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Shockley Diode Equation:<br/>ID = Is * [exp(VD / (n*VT)) - 1]<br/>where Is = reverse saturation current, n = ideality factor (1 to 2), VT = thermal voltage = kT/q = 26 mV at room temperature (27°C / 300 K).</p>
-<p class="card-p">2. Dynamic AC Resistance (rd):<br/>Taking the derivative dVD/dID yields:<br/>rd = 26 mV / ID (where ID is in milliamperes).<br/>At ID = 2 mA, rd = 26 mV / 2 mA = 13 ohms.</p>
-<p class="card-p">3. LED Resistor Calculation:<br/>R = (Vcc - V_led) / I_led = (12 V - 2.0 V) / 0.015 A = 10 V / 0.015 A = 666.67 ohms.<br/>Select standard resistor R = 680 ohms.</p>
+                    <p class="card-p">1. Shockley Diode Equation:<br/>$$I_D = I_s \left( e^{\frac{V_D}{n V_T}} - 1 \right)$$<br/>where $I_s$ is reverse saturation current, $n$ is ideality factor (1 to 2), and $V_T = kT/q \approx 26\text{ mV}$ at room temperature ($300\text{ K}$).</p>
+<p class="card-p">2. Dynamic AC Resistance ($r_d$):<br/>Taking the derivative $d V_D / d I_D$ yields:<br/>$$r_d = \frac{26\text{ mV}}{I_D}$$<br/>At $I_D = 2\text{ mA}$:<br/>$$r_d = \frac{26\text{ mV}}{2\text{ mA}} = 13\;\Omega$$</p>
+<p class="card-p">3. Calculate LED Series Resistor ($R$):<br/>Applying KVL around the loop:<br/>$$R = \frac{V_{CC} - V_{\text{LED}}}{I_{\text{LED}}} = \frac{12\text{ V} - 2.0\text{ V}}{15 \times 10^{-3}\text{ A}} = \frac{10\text{ V}}{0.015\text{ A}} = 666.67\;\Omega$$<br/>Standard practical resistor value: $680\;\Omega$.</p>
                   </div>
                 </div>
                 
@@ -3858,8 +3880,8 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I_L = \frac{V_Z}{R_L} = \frac{10\text{ V}}{500\;\Omega} = 20\text{ mA}$$</div>
 <div class="formula-line">$$I_{Z,\max} = \frac{P_{Z,\max}}{V_Z} = \frac{1\text{ W}}{10\text{ V}} = 100\text{ mA}$$</div>
-<div class="formula-line">$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20 - 10}{0.100 + 0.020} = \frac{10}{0.120} = 83.3\;\Omega$$</div>
-<div class="formula-line">$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15 - 10}{0.005 + 0.020} = \frac{5}{0.025} = 200\;\Omega$$</div>
+<div class="formula-line">$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20 - 10}{0.100 + 0.020} = 83.3\;\Omega$$</div>
+<div class="formula-line">$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15 - 10}{0.005 + 0.020} = 200\;\Omega$$</div>
                   </div>
                 </div>
                 
@@ -3867,11 +3889,11 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Zener Regulation Mechanism:<br/>A Zener diode operates in the REVERSE breakdown region. When reverse-biased beyond its breakdown voltage Vz, terminal voltage remains remarkably constant at Vz over a broad range of Zener current Iz.</p>
-<p class="card-p">2. Load Current:<br/>IL = Vz / RL = 10 V / 500 ohms = 20 mA (constant as long as Vz is regulated).</p>
-<p class="card-p">3. Maximum Zener Current:<br/>Iz_max = Pz_max / Vz = 1 W / 10 V = 100 mA.</p>
-<p class="card-p">4. Calculate Minimum Series Resistance R_min (at Vin_max = 20 V):<br/>R_min = (Vin_max - Vz) / (Iz_max + IL) = (20 - 10) / (0.100 + 0.020) = 10 / 0.120 = 83.3 ohms.</p>
-<p class="card-p">5. Calculate Maximum Series Resistance R_max (at Vin_min = 15 V, assuming Iz_min = 5 mA):<br/>R_max = (Vin_min - Vz) / (Iz_min + IL) = (15 - 10) / (0.005 + 0.020) = 5 / 0.025 = 200 ohms.<br/>Any value between 84 ohms and 200 ohms (e.g. standard 120 ohms) guarantees stable 10 V regulation.</p>
+                    <p class="card-p">1. Zener Regulation Mechanism:<br/>A Zener diode operates in the REVERSE breakdown region. When reverse-biased beyond $V_Z$, terminal voltage remains clamped at $V_Z$ over a wide range of reverse current $I_Z$.</p>
+<p class="card-p">2. Load Current ($I_L$):<br/>$$I_L = \frac{V_Z}{R_L} = \frac{10\text{ V}}{500\;\Omega} = 20\text{ mA} = 0.020\text{ A}$$</p>
+<p class="card-p">3. Maximum Zener Current ($I_{Z,\max}$):<br/>$$I_{Z,\max} = \frac{P_{Z,\max}}{V_Z} = \frac{1\text{ W}}{10\text{ V}} = 100\text{ mA} = 0.100\text{ A}$$</p>
+<p class="card-p">4. Calculate Minimum Series Resistor ($R_{\min}$):<br/>To protect the Zener from exceeding maximum power when $V_{\text{in}}$ is highest ($20\text{ V}$):<br/>$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20\text{ V} - 10\text{ V}}{0.100\text{ A} + 0.020\text{ A}} = \frac{10\text{ V}}{0.120\text{ A}} = 83.3\;\Omega$$</p>
+<p class="card-p">5. Calculate Maximum Series Resistor ($R_{\max}$):<br/>To maintain regulation at lowest $V_{\text{in}}$ ($15\text{ V}$) assuming $I_{Z,\min} = 5\text{ mA}$:<br/>$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15\text{ V} - 10\text{ V}}{0.005\text{ A} + 0.020\text{ A}} = \frac{5\text{ V}}{0.025\text{ A}} = 200\;\Omega$$<br/>Choose standard resistor $R = 120\;\Omega$ or $150\;\Omega$.</p>
                   </div>
                 </div>
                 
@@ -3920,8 +3942,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Solar Cell Equivalent Circuit:<br/>Consists of a photocurrent source Iph (proportional to solar irradiance) in parallel with:<br/>- An intrinsic PN junction diode (Shockley equation)<br/>- A shunt resistance Rsh (representing leakage current across cell edges, ideally infinity)<br/>- A series resistance Rs (representing bulk silicon and metal contact resistance, ideally zero).</p>
-<p class="card-p">2. Key Parameters:<br/>- Short-Circuit Current (Isc): Output current when terminals are shorted (V = 0), almost equal to light-generated current Iph.<br/>- Open-Circuit Voltage (Voc): Terminal voltage when net current is zero (I = 0), typically ~0.6 V per silicon cell.<br/>- Maximum Power Point (MPP): The specific point (Vmp, Imp) on the I-V curve where product P = V*I is maximized.<br/>- Fill Factor (FF): Ratio of actual maximum power to theoretical product (Voc * Isc). Higher FF (typically 0.75 - 0.85) denotes a squarer curve and superior cell quality.</p>
+                    <p class="card-p">1. Solar Cell Equivalent Circuit Components:<br/>Consists of a light-generated photocurrent source $I_{\text{ph}}$ in parallel with:<br/>- An intrinsic PN junction diode $D$<br/>- A shunt resistance $R_{\text{sh}}$ (leakage path across cell edges, ideally $\infty$)<br/>- A series resistance $R_s$ (bulk silicon and contact resistance, ideally $0$).</p>
+<p class="card-p">2. Key Parameters Defined:<br/>- Short-Circuit Current ($I_{sc}$): Current when terminals are shorted ($V = 0$):<br/>$$I_{sc} \approx I_{\text{ph}}$$<br/>- Open-Circuit Voltage ($V_{oc}$): Voltage when net current is zero ($I = 0$), typically $\approx 0.6\text{ V}$ per silicon cell.<br/>- Maximum Power Point ($P_{\max}$): Optimal operating point on the I-V curve:<br/>$$P_{\max} = V_{\text{mp}} \cdot I_{\text{mp}}$$<br/>- Fill Factor ($FF$): Ratio of peak power to theoretical product ($V_{oc} I_{sc}$):<br/>$$FF = \frac{V_{\text{mp}} I_{\text{mp}}}{V_{oc} I_{sc}}$$<br/>Typically ranges from $0.75$ to $0.85$ for high-quality commercial silicon cells.</p>
                   </div>
                 </div>
                 
@@ -3974,9 +3996,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Kirchhoff's Current Law for BJT:<br/>By KCL, the total current leaving/entering the emitter equals the sum of base and collector currents:<br/>IE = IB + IC</p>
-<p class="card-p">2. Current Gains Defined:<br/>- Common-Emitter DC Current Gain (Beta or hFE):<br/>Beta = IC / IB (typically ranges from 50 to 300).<br/>- Common-Base DC Current Gain (Alpha):<br/>Alpha = IC / IE (slightly less than 1, typically 0.98 to 0.998).</p>
-<p class="card-p">3. Relationship Derivation:<br/>Divide IE = IB + IC by IC:<br/>IE / IC = (IB / IC) + 1<br/>1 / Alpha = (1 / Beta) + 1 = (Beta + 1) / Beta<br/>Inverting yields: Alpha = Beta / (Beta + 1)<br/>Solving for Beta yields: Beta = Alpha / (1 - Alpha).</p>
+                    <p class="card-p">1. Kirchhoff's Current Law for BJT:<br/>By KCL, total current passing through the emitter equals the sum of base and collector currents:<br/>$$I_E = I_B + I_C$$</p>
+<p class="card-p">2. DC Current Gains Defined:<br/>- Common-Emitter Gain ($\beta$ or $h_{FE}$):<br/>$$\beta = \frac{I_C}{I_B} \quad (\text{typically } 50 - 300)$$<br/>- Common-Base Gain ($\alpha$):<br/>$$\alpha = \frac{I_C}{I_E} \quad (\text{slightly less than 1, typically } 0.98 - 0.998)$$</p>
+<p class="card-p">3. Mathematical Relationship Derivation:<br/>Dividing $I_E = I_B + I_C$ by $I_C$:<br/>$$\frac{I_E}{I_C} = \frac{I_B}{I_C} + 1$$<br/>$$\frac{1}{\alpha} = \frac{1}{\beta} + 1 = \frac{\beta + 1}{\beta}$$<br/>Inverting yields:<br/>$$\alpha = \frac{\beta}{\beta + 1} \qquad \beta = \frac{\alpha}{1 - \alpha}$$</p>
                   </div>
                 </div>
                 
@@ -4014,10 +4036,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Cutoff (OFF): } V_{in} = 0 \implies I_B = 0, \; I_C = 0, \; V_{CE} = V_{CC}$$</div>
+                    <div class="formula-line">$$\text{Cutoff (OFF): } V_{\text{in}} = 0 \implies I_B = 0, \; I_C = 0, \; V_{CE} = V_{CC}$$</div>
 <div class="formula-line">$$\text{Saturation (ON): } I_B \ge \frac{I_{C,\text{sat}}}{\beta_{\text{sat}}} \implies V_{CE} = V_{CE,\text{sat}} \approx 0.2\text{ V}$$</div>
 <div class="formula-line">$$I_{C,\text{sat}} = \frac{V_{CC} - V_{CE,\text{sat}}}{R_{\text{load}}}$$</div>
-<div class="formula-line">$$R_B = \frac{V_{in} - V_{BE,\text{sat}}}{I_B}$$</div>
+<div class="formula-line">$$R_B = \frac{V_{\text{in}} - V_{BE,\text{sat}}}{I_B}$$</div>
                   </div>
                 </div>
                 
@@ -4025,8 +4047,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Operating States as a Switch:<br/>- Cutoff (Switch OFF): When Vin = 0 V, Vbe < 0.7 V. Base current IB = 0, Collector current IC = 0. The transistor behaves as an open switch; full supply Vcc appears across C-E.<br/>- Saturation (Switch ON): Sufficient base current IB is injected so both B-E and B-C junctions become forward-biased. Vce collapses to Vce(sat) ~ 0.2 V. The transistor acts as a closed switch, passing full load current.</p>
-<p class="card-p">2. Base Resistor Calculation:<br/>- Target load current: IC_sat = 100 mA = 0.1 A.<br/>- Overdrive base current for hard saturation (using forced Beta = 10):<br/>IB = IC_sat / Beta_sat = 100 mA / 10 = 10 mA.<br/>- Calculate RB:<br/>RB = (Vin - Vbe_sat) / IB = (5.0 V - 0.7 V) / (10 x 10^-3 A) = 4.3 V / 0.010 A = 430 ohms.<br/>(Select standard 430 ohms or 390 ohms for robust saturation).</p>
+                    <p class="card-p">1. Operating States as a Switch:<br/>- Cutoff (Switch OFF): When $V_{\text{in}} = 0\text{ V}$ ($V_{BE} < 0.7\text{ V}$), base current $I_B = 0$ and collector current $I_C = 0$. The transistor behaves as an open switch ($V_{CE} = V_{CC}$).<br/>- Saturation (Switch ON): Ample base current $I_B$ forward-biases both B-E and B-C junctions. $V_{CE}$ drops to $V_{CE,\text{sat}} \approx 0.2\text{ V}$, acting as a closed contact.</p>
+<p class="card-p">2. Base Resistor Calculation:<br/>- Required collector load current: $I_{C,\text{sat}} = 100\text{ mA} = 0.100\text{ A}$.<br/>- Required base current for deep saturation (using forced $\beta_{\text{sat}} = 10$):<br/>$$I_B = \frac{I_{C,\text{sat}}}{\beta_{\text{sat}}} = \frac{100\text{ mA}}{10} = 10\text{ mA} = 0.010\text{ A}$$<br/>- Calculate base resistor $R_B$:<br/>$$R_B = \frac{V_{\text{in}} - V_{BE,\text{sat}}}{I_B} = \frac{5.0\text{ V} - 0.7\text{ V}}{0.010\text{ A}} = \frac{4.3\text{ V}}{0.010\text{ A}} = 430\;\Omega$$<br/>Standard practical resistor: $430\;\Omega$ or $390\;\Omega$.</p>
                   </div>
                 </div>
                 
@@ -4078,10 +4100,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">Comprehensive Comparison:<br/>1. Carrier Conduction:<br/>- BJT is BIPOLAR (current conduction involves both electrons and holes).<br/>- MOSFET is UNIPOLAR (current conduction relies strictly on majority carriers in the channel).</p>
-<p class="card-p">2. Control Mechanism:<br/>- BJT is CURRENT-CONTROLLED: Output current IC is controlled by input base current IB (IC = Beta * IB).<br/>- MOSFET is VOLTAGE-CONTROLLED: Output drain current ID is controlled by gate-to-source voltage VGS.</p>
-<p class="card-p">3. Input Impedance:<br/>- BJT: Low to moderate input impedance (1 k-ohm to 10 k-ohms) because the base-emitter junction is forward-biased.<br/>- MOSFET: Near-infinite input impedance (10^12 to 10^14 ohms) due to the insulating silicon dioxide gate dielectric.</p>
-<p class="card-p">4. Thermal Stability:<br/>- BJT has negative temperature coefficient for Vbe, making it vulnerable to Thermal Runaway.<br/>- MOSFET has positive temperature coefficient for RDS(on), naturally preventing thermal runaway and allowing easy parallel operation.</p>
+                    <p class="card-p">Comprehensive Comparison:<br/>1. Carrier Conduction:<br/>- BJT is BIPOLAR (current conduction involves both electrons and holes simultaneously).<br/>- MOSFET is UNIPOLAR (current conduction relies strictly on majority carriers in the channel).</p>
+<p class="card-p">2. Control Mechanism:<br/>- BJT is CURRENT-CONTROLLED: Output collector current $I_C$ is controlled by input base current $I_B$ ($I_C = \beta I_B$).<br/>- MOSFET is VOLTAGE-CONTROLLED: Output drain current $I_D$ is controlled by gate-to-source voltage $V_{GS}$.</p>
+<p class="card-p">3. Input Impedance ($R_{\text{in}}$):<br/>- BJT: Moderate ($1\text{ k}\Omega - 10\text{ k}\Omega$) because the B-E junction is forward-biased.<br/>- MOSFET: Near-infinite ($10^{12} - 10^{14}\,\Omega$) due to the insulating $SiO_2$ gate dielectric.</p>
+<p class="card-p">4. Thermal Stability:<br/>- BJT has negative temperature coefficient for $V_{BE}$, making it vulnerable to Thermal Runaway.<br/>- MOSFET has positive temperature coefficient for $R_{DS(\text{on})}$, preventing thermal runaway.</p>
                   </div>
                 </div>
                 
@@ -4119,9 +4141,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 KEY FORMULAS & DEFINITIONS:</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Half-Wave: } V_{\text{dc}} = \frac{V_m}{\pi} = 0.318\, V_m \qquad f_{\text{ripple}} = f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
-<div class="formula-line">$$\text{Center-Tapped: } V_{\text{dc}} = \frac{2V_m}{\pi} = 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = 2V_m$$</div>
-<div class="formula-line">$$\text{Bridge Rectifier: } V_{\text{dc}} = \frac{2V_m}{\pi} = 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
+                    <div class="formula-line">$$\text{Half-Wave: } V_{\text{dc}} = \frac{V_m}{\pi} \approx 0.318\, V_m \qquad f_{\text{ripple}} = f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
+<div class="formula-line">$$\text{Center-Tapped: } V_{\text{dc}} = \frac{2V_m}{\pi} \approx 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = 2V_m$$</div>
+<div class="formula-line">$$\text{Bridge Rectifier: } V_{\text{dc}} = \frac{2V_m}{\pi} \approx 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
                   </div>
                 </div>
                 
@@ -4129,9 +4151,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Half-Wave Rectifier (1 Diode):<br/>- Vdc = Vm / pi = 0.318 Vm<br/>- Ripple frequency = fin (50 Hz)<br/>- Maximum theoretical efficiency = 40.6%<br/>- Diode PIV = Vm</p>
-<p class="card-p">2. Center-Tapped Full-Wave Rectifier (2 Diodes + Center-Tapped Transformer):<br/>- Vdc = 2*Vm / pi = 0.637 Vm<br/>- Ripple frequency = 2*fin (100 Hz, easier to filter)<br/>- Maximum theoretical efficiency = 81.2%<br/>- Diode PIV = 2*Vm (Major drawback: diodes must withstand twice peak voltage!)</p>
-<p class="card-p">3. Bridge Full-Wave Rectifier (4 Diodes, Standard Transformer):<br/>- Vdc = 2*Vm / pi = 0.637 Vm<br/>- Ripple frequency = 2*fin (100 Hz)<br/>- Maximum theoretical efficiency = 81.2%<br/>- Diode PIV = Vm (Only 1*Vm, allowing lower-voltage diodes; dominant industry standard).</p>
+                    <p class="card-p">1. Half-Wave Rectifier (1 Diode):<br/>- DC Average Voltage: $V_{\text{dc}} = V_m / \pi = 0.318\, V_m$<br/>- Ripple frequency: $f_{\text{ripple}} = f_{\text{in}}$ (50 Hz)<br/>- Maximum theoretical efficiency: $40.6\%$<br/>- Diode PIV: $\text{PIV} = V_m$</p>
+<p class="card-p">2. Center-Tapped Full-Wave Rectifier (2 Diodes):<br/>- DC Average Voltage: $V_{\text{dc}} = 2V_m / \pi = 0.637\, V_m$<br/>- Ripple frequency: $f_{\text{ripple}} = 2f_{\text{in}}$ (100 Hz, easier to filter)<br/>- Maximum theoretical efficiency: $81.2\%$<br/>- Diode PIV: $\text{PIV} = 2V_m$ (Major drawback: diodes must withstand twice peak voltage!)</p>
+<p class="card-p">3. Bridge Full-Wave Rectifier (4 Diodes):<br/>- DC Average Voltage: $V_{\text{dc}} = 2V_m / \pi = 0.637\, V_m$<br/>- Ripple frequency: $f_{\text{ripple}} = 2f_{\text{in}}$ (100 Hz)<br/>- Maximum theoretical efficiency: $81.2\%$<br/>- Diode PIV: $\text{PIV} = V_m$ (Dominant industry standard).</p>
                   </div>
                 </div>
                 
@@ -4180,8 +4202,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 STEP-BY-STEP MODEL SOLUTION:</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. Ideal Op-Amp Characteristics:<br/>- Input Impedance (Rin): Infinite (no current enters the input terminals: I+ = I- = 0).<br/>- Output Impedance (Rout): Zero (can supply any load current without internal voltage drop).<br/>- Open-Loop Voltage Gain (A_OL): Infinite.<br/>- Bandwidth (BW): Infinite (amplifies signals from DC to infinite frequency without attenuation).<br/>- Slew Rate: Infinite (output changes voltage instantaneously).<br/>- Common-Mode Rejection Ratio (CMRR): Infinite.</p>
-<p class="card-p">2. Virtual Short & Virtual Ground:<br/>Because open-loop gain A_OL is infinite, in any negative feedback configuration, the differential input voltage MUST be zero:<br/>(V+ - V-) = Vout / A_OL = Vout / infinity = 0  =>  V+ = V-.<br/>This is called a 'Virtual Short'. If the non-inverting terminal V+ is tied to physical ground (0 V), then V- is held firmly at 0 V without being physically connected to ground, known as 'Virtual Ground'.</p>
+                    <p class="card-p">1. Ideal Op-Amp Characteristics:<br/>- Input Impedance ($R_{\text{in}}$): Infinite ($I_+ = I_- = 0$).<br/>- Output Impedance ($R_{\text{out}}$): Zero (supplies load without drop).<br/>- Open-Loop Gain ($A_{OL}$): Infinite ($10^5 - 10^6$ in real chips).<br/>- Bandwidth ($BW$): Infinite (flat response from DC to $\infty$).<br/>- Slew Rate: Infinite (instantaneous output slew).</p>
+<p class="card-p">2. Virtual Short & Virtual Ground:<br/>Because open-loop gain $A_{OL}$ is infinite, in any closed-loop negative feedback configuration, the differential input voltage must be zero:<br/>$$V_+ - V_- = \frac{V_{\text{out}}}{A_{OL}} = \frac{V_{\text{out}}}{\infty} = 0 \implies V_+ = V_-$$<br/>This condition is known as a Virtual Short. If the non-inverting terminal $V_+$ is connected to physical ground ($0\text{ V}$), then $V_-$ is held at zero volts without being physically grounded, known as Virtual Ground.</p>
                   </div>
                 </div>
                 
@@ -4206,7 +4228,8 @@ Conducted power + Transformed power</div>
             {left: '\\[', right: '\\]', display: true},
             {left: '\\(', right: '\\)', display: false}
           ],
-          throwOnError: false
+          throwOnError: false,
+          output: 'html'
         });
       }
     });

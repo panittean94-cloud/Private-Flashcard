@@ -288,7 +288,7 @@
   .formula-line {
     margin: 4px 0;
     line-height: 1.6;
-    overflow-x: auto;
+    overflow-x: visible !important;
   }
 
   /* Solution Box */
@@ -338,6 +338,16 @@
   }
   .katex {
     font-size: 1.02em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  /* Fix KaTeX square root (radical) stretching: hide-tail MUST remain overflow: hidden */
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
   }
 
   </style>
@@ -398,8 +408,8 @@
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">Y: $V_L = \sqrt{3}V_p\angle +30^\circ,\ I_L = I_p$
-$\Delta$: $V_L = V_p,\ I_L = \sqrt{3}I_p\angle -30^\circ$</div>
+                    <div class="formula-line">$$\text{Star (Y): } V_L = \sqrt{3}\, V_p \angle +30^\circ, \quad I_L = I_p$$</div>
+<div class="formula-line">$$\text{Delta (}\Delta\text{): } V_L = V_p, \quad I_L = \sqrt{3}\, I_p \angle -30^\circ$$</div>
                   </div>
                 </div>
                 
@@ -407,8 +417,8 @@ $\Delta$: $V_L = V_p,\ I_L = \sqrt{3}I_p\angle -30^\circ$</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. การต่อแบบ Star (Y):<br/>- Line Voltage นำหน้า (leads) Phase Voltage อยู่ $30^\circ$: $V_{ab} = \sqrt{3}V_{an}\angle +30^\circ$<br/>- Line Current เท่ากับ Phase Current โดยตรง: $I_L = I_p$</p>
-<p class="card-p">2. การต่อแบบ Delta (Δ):<br/>- Line Voltage เท่ากับ Phase Voltage โดยตรง: $V_L = V_p$<br/>- Line Current ตามหลัง (lags) Phase Current อยู่ $30^\circ$: $I_a = \sqrt{3}I_{ab}\angle -30^\circ$</p>
+                    <p class="card-p">1. การต่อแบบ Star (Y):<br/>- Line Voltage นำหน้า (leads) Phase Voltage อยู่ $30^\circ$:<br/>$$V_{ab} = \sqrt{3}\, V_{an} \angle +30^\circ$$<br/>- Line Current เท่ากับ Phase Current โดยตรง:<br/>$$I_L = I_p$$</p>
+<p class="card-p">2. การต่อแบบ Delta (Δ):<br/>- Line Voltage เท่ากับ Phase Voltage โดยตรง:<br/>$$V_L = V_p$$<br/>- Line Current ตามหลัง (lags) Phase Current อยู่ $30^\circ$:<br/>$$I_a = \sqrt{3}\, I_{ab} \angle -30^\circ$$</p>
                   </div>
                 </div>
                 
@@ -1025,8 +1035,8 @@ Fingers curl = Magnetic field ($\vec{B}$)</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">Right-hand solenoid rule:
-Fingers = Current curl, Thumb = North Pole (N)</div>
+                    <div class="formula-line">$$\text{Right-Hand Solenoid Rule: Fingers} \rightarrow \vec{I}_{\text{curl}}, \quad \text{Thumb} \rightarrow \text{North Pole (N)}$$</div>
+<div class="formula-line">$$\vec{F} = I (\vec{L} \times \vec{B})$$</div>
                   </div>
                 </div>
                 
@@ -1034,8 +1044,8 @@ Fingers = Current curl, Thumb = North Pole (N)</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. โครงสร้างหลัก 2 ส่วนของมอเตอร์:<br/>- Stator (ส่วนที่อยู่กับที่ สร้างสนามแม่เหล็กหลัก)<br/>- Rotor หรือ Armature (ส่วนที่หมุน ตัดกับเส้นแรงแม่เหล็ก)</p>
-<p class="card-p">2. การระบุขั้วแม่เหล็ก N-S:<br/>ใช้กฎมือขวาสำหรับโซเลนอยด์ (กำมือขวานิ้วทั้งสี่ตามทิศทางกระแสที่พันรอบแกนเหล็ก) นิ้วหัวแม่มือจะชี้ไปยังทิศทางของขั้วเหนือ (N Pole) เสมอ</p>
+                    <p class="card-p">1. โครงสร้างหลัก 2 ส่วนของมอเตอร์:<br/>- Stator (ส่วนที่อยู่กับที่): สร้างสนามแม่เหล็กหลัก $\vec{B}$<br/>- Rotor หรือ Armature (ส่วนที่หมุน): ตัดกับเส้นแรงแม่เหล็กเพื่อสร้างแรงบิดหมุน $\vec{\tau}$</p>
+<p class="card-p">2. การระบุขั้วแม่เหล็ก N-S:<br/>ใช้กฎมือขวาสำหรับโซเลนอยด์ (กำมือนิ้วทั้งสี่ตามทิศทางกระแส $\vec{I}$ ที่พันรอบแกนเหล็ก) นิ้วหัวแม่มือจะชี้ไปยังทิศทางของขั้วเหนือ (N Pole) ที่เส้นแรงแม่เหล็กพุ่งออกเสมอ:<br/>$$\text{ทิศทางกระแส: } \vec{I} \implies \text{ขั้วเหนือ (N Pole): ตามทิศนิ้วหัวแม่มือ}$$</p>
                   </div>
                 </div>
                 
@@ -2231,8 +2241,8 @@ Approx: $$VR\% \approx \frac{I_2 R_{eq2} \cos\theta \pm I_2 X_{eq2} \sin\theta}{
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a_{\text{auto}}}$$
-Conducted power + Transformed power</div>
+                    <div class="formula-line">$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a_{\text{auto}}}$$</div>
+<div class="formula-line">$$S_{\text{auto}} = S_{\text{conducted}} + S_{\text{transformed}}$$</div>
                   </div>
                 </div>
                 
@@ -2241,7 +2251,7 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
                     <p class="card-p">1. โครงสร้างและหลักการ:<br/>หม้อแปลงออโต้มี 'ขดลวดเพียงขดเดียว' พันบนแกนเหล็ก โดยขดลวดปฐมภูมิและทุติยภูมิจะใช้เนื้อขดลวดส่วนหนึ่งร่วมกัน (Common Winding)</p>
-<p class="card-p">2. พิกัดและประสิทธิภาพที่สูงกว่า:<br/>ส่งถ่ายพลังงานได้ 2 ทางพร้อมกัน คือ ทางการเหนี่ยวนำแม่เหล็ก และ ทางการนำไฟฟ้าโดยตรง (Conduction) ทำให้ประหยัดขนาดแกนเหล็กและทองแดง มีการสูญเสียต่ำกว่ามาก</p>
+<p class="card-p">2. พิกัดและประสิทธิภาพที่สูงกว่า:<br/>ส่งถ่ายพลังงานได้ 2 ทางพร้อมกัน คือ ทางการนำไฟฟ้าโดยตรง ($S_{\text{conducted}}$) และทางการเหนี่ยวนำแม่เหล็ก ($S_{\text{transformed}}$):<br/>$$S_{\text{auto}} = S_{\text{conducted}} + S_{\text{transformed}}$$<br/>$$\frac{S_{\text{auto}}}{S_{\text{2-w}}} = \frac{1}{1 - 1/a} > 1$$<br/>ทำให้ประหยัดขนาดแกนเหล็กและทองแดง มีการสูญเสียความร้อน $I^2 R$ และการสูญเสียในแกนเหล็กต่ำกว่ามาก</p>
 <p class="card-p">3. ข้อเสียร้ายแรงด้านความปลอดภัย:<br/>'ไม่มีการแยกทางไฟฟ้าระหว่างขดลวด (No Galvanic Isolation)' ด้านแรงดันสูงและแรงดันต่ำเชื่อมถึงกันโดยตรง หากขดลวดร่วมขาด แรงดันสูงจากฝั่งปฐมภูมิจะรั่วข้ามไปยังฝั่งทุติยภูมิทันที</p>
                   </div>
                 </div>
@@ -2293,7 +2303,7 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Stages: Generation } \rightarrow \text{ Transmission } \rightarrow \text{ Distribution } \rightarrow \text{ Utilization}$$</div>
 <div class="formula-line">$$P = \sqrt{3} V_L I_L \cos\theta \implies I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
-<div class="formula-line">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} \propto \frac{1}{V_L^2}$$</div>
+<div class="formula-line">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} = \frac{P^2 R_{\text{line}}}{V_L^2 \cos^2\theta} \propto \frac{1}{V_L^2}$$</div>
                   </div>
                 </div>
                 
@@ -2301,8 +2311,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. 4 ขั้นตอนหลักของระบบไฟฟ้ากำลัง:<br/>- การผลิต (Generation): 10 - 20 kV (แรงดันออกจากเครื่องกำเนิดไฟฟ้า)<br/>- สายส่งไฟฟ้า (Transmission): 115 kV, 230 kV, 500 kV (ส่งพลังงานระยะไกลข้ามภาค)<br/>- สายจำหน่าย (Distribution): 22 kV (กฟภ.), 24 kV / 12 kV (กฟน.), 33 kV (จ่ายเข้าเสาไฟหน้าบ้าน/หม้อแปลงชุมชน)<br/>- การใช้ไฟฟ้า (Utilization): 380 V (3 เฟส) / 220 V (1 เฟส) (จ่ายเข้าอุปกรณ์ไฟฟ้าผู้ใช้)</p>
-<p class="card-p">2. จัดกลุ่มระดับแรงดันตามโจทย์ข้อสอบ:<br/>- 500 kV: แรงดันสูงพิเศษ (Extra High Voltage: EHV)<br/>- 22 kV: แรงดันปานกลาง (Medium Voltage: MV) - สายป้อนหลักของ กฟภ.<br/>- 380 V: แรงดันต่ำ (Low Voltage: LV) - ไฟฟ้า 3 เฟสในโรงงาน/อาคาร<br/>- แรงดันไฟบ้าน: 220 V (หรือมาตรฐานใหม่ 230 V) - ไฟฟ้า 1 เฟสใช้งานทั่วไป</p>
+                    <p class="card-p">1. 4 ขั้นตอนหลักของระบบไฟฟ้ากำลัง:<br/>- การผลิต (Generation): แรงดัน $10\text{ kV} - 20\text{ kV}$ ผลิตจากเครื่องกำเนิดไฟฟ้าในโรงไฟฟ้า<br/>- สายส่งไฟฟ้า (Transmission): แรงดัน $115\text{ kV}, 230\text{ kV}, 500\text{ kV}$ ส่งพลังงานระยะไกลข้ามภาค<br/>- สายจำหน่าย (Distribution): แรงดัน $22\text{ kV}$ (กฟภ.), $24\text{ kV} / 12\text{ kV}$ (กฟน.), $33\text{ kV}$ จ่ายตามแนวถนนเข้าสู่หม้อแปลงชุมชน<br/>- การใช้ไฟฟ้า (Utilization): แรงดัน $380\text{ V}$ (3 เฟส) / $220\text{ V}$ (1 เฟส) จ่ายเข้าอุปกรณ์ไฟฟ้าผู้ใช้</p>
+<p class="card-p">2. จัดกลุ่มระดับแรงดันตามโจทย์ข้อสอบ:<br/>- $500\text{ kV}$: แรงดันสูงพิเศษ (Extra High Voltage: EHV)<br/>- $22\text{ kV}$: แรงดันปานกลาง (Medium Voltage: MV) - สายป้อนหลักของ กฟภ.<br/>- $380\text{ V}$: แรงดันต่ำ (Low Voltage: LV) - ไฟฟ้า 3 เฟสในโรงงานและอาคาร<br/>- แรงดันไฟบ้าน: $220\text{ V}$ (หรือ $230\text{ V}$) - ไฟฟ้า 1 เฟสใช้งานทั่วไป</p>
+<p class="card-p">3. การลดการสูญเสียในสายส่ง:<br/>$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} \propto \frac{1}{V_L^2}$$<br/>เมื่อเพิ่มแรงดันส่ง $V_L$ กระแส $I_L$ จะลดลง ทำให้การสูญเสียความร้อนลดลงอย่างมหาศาลตามสัดส่วน $(1/V_L^2)$</p>
                   </div>
                 </div>
                 
@@ -2340,9 +2351,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{EGAT: Generation + High-Voltage Grid (Nationwide)}$$</div>
-<div class="formula-line">$$\text{MEA: Distribution in 3 Provinces (BKK, Nonthaburi, Samut Prakan)}$$</div>
-<div class="formula-line">$$\text{PEA: Distribution in 74 Provinces (All other provinces)}$$</div>
+                    <div class="formula-line">$$\text{EGAT: Generation + High-Voltage Transmission Grid (Nationwide)}$$</div>
+<div class="formula-line">$$\text{MEA: Retail Distribution in 3 Provinces (Bangkok, Nonthaburi, Samut Prakan)}$$</div>
+<div class="formula-line">$$\text{PEA: Retail Distribution in 74 Provinces (All other regions)}$$</div>
                   </div>
                 </div>
                 
@@ -2350,9 +2361,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. กฟผ. (EGAT - การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย):<br/>มีหน้าที่ผลิตพลังงานไฟฟ้า (เขื่อน, โรงไฟฟ้าถ่านหิน, ก๊าซธรรมชาติ) และบริหารโครงข่ายสายส่งไฟฟ้าแรงสูงทั่วประเทศ (115 kV - 500 kV) โดยขายส่งไฟฟ้าให้ กฟน., กฟภ. และผู้ใช้อุตสาหกรรมรายใหญ่ตรง</p>
-<p class="card-p">2. กฟน. (MEA - การไฟฟ้านครหลวง):<br/>มีหน้าที่จัดจำหน่ายไฟฟ้าและให้บริการผู้ใช้ไฟในพื้นที่เฉพาะ 3 จังหวัด ได้แก่ กรุงเทพมหานคร, นนทบุรี และสมุทรปราการ</p>
-<p class="card-p">3. กฟภ. (PEA - การไฟฟ้าส่วนภูมิภาค):<br/>มีหน้าที่จัดจำหน่ายไฟฟ้าและดูแลระบบสายจำหน่ายในพื้นที่ 74 จังหวัดที่เหลือทั่วประเทศ</p>
+                    <p class="card-p">1. กฟผ. (EGAT - การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย):<br/>- หน้าที่: ผลิตพลังงานไฟฟ้า (เขื่อน, โรงไฟฟ้าถ่านหิน, ก๊าซธรรมชาติ) และบริหารระบบโครงข่ายสายส่งไฟฟ้าแรงสูงทั่วประเทศ ($115\text{ kV} - 500\text{ kV}$)<br/>- ขายส่งไฟฟ้าให้แก่ กฟน., กฟภ. และผู้ใช้อุตสาหกรรมขนาดใหญ่โดยตรง</p>
+<p class="card-p">2. กฟน. (MEA - การไฟฟ้านครหลวง):<br/>- หน้าที่: จัดจำหน่ายไฟฟ้าและดูแลระบบสายจำหน่ายแก่ผู้ใช้ไฟ<br/>- พื้นที่รับผิดชอบ: เฉพาะ 3 จังหวัดเท่านั้น คือ กรุงเทพมหานคร, นนทบุรี และสมุทรปราการ</p>
+<p class="card-p">3. กฟภ. (PEA - การไฟฟ้าส่วนภูมิภาค):<br/>- หน้าที่: จัดจำหน่ายไฟฟ้าและดูแลระบบสายจำหน่ายแก่ผู้ใช้ไฟ<br/>- พื้นที่รับผิดชอบ: 74 จังหวัดที่เหลือทั่วประเทศไทย</p>
                   </div>
                 </div>
                 
@@ -2391,7 +2402,7 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Primary / Most Used: Natural Gas (ก๊าซธรรมชาติ) } \approx 55\% - 60\%$$</div>
-<div class="formula-line">$$\text{Second: Coal / Lignite (ถ่านหินลิกไนต์) } + \text{ Imported Hydro (สปป.ลาว)}$$</div>
+<div class="formula-line">$$\text{Second: Coal / Lignite (ถ่านหินลิกไนต์) } \approx 15\% - 18\% + \text{Imported Hydro } \approx 12\% - 15\%$$</div>
 <div class="formula-line">$$\text{Least Used: Heavy Fuel Oil / Diesel (น้ำมันเตา/ดีเซล) } < 1\%$$</div>
                   </div>
                 </div>
@@ -2400,9 +2411,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. เชื้อเพลิงที่ใช้มากที่สุด:<br/>ก๊าซธรรมชาติ (Natural Gas) ครองสัดส่วนมากกว่า 55-60% ของการผลิตไฟฟ้าทั้งหมดในไทย (มาจากอ่าวไทย, ท่อส่งพม่า และการนำเข้า LNG)</p>
-<p class="card-p">2. เชื้อเพลิงรองลงมา:<br/>ถ่านหิน/ลิกไนต์ (Coal/Lignite ที่โรงไฟฟ้าแม่เมาะ) และการซื้อพลังน้ำนำเข้าจาก สปป.ลาว</p>
-<p class="card-p">3. เชื้อเพลิงที่ใช้น้อยที่สุด:<br/>น้ำมันเตา (Heavy Fuel Oil) และน้ำมันดีเซล ซึ่งใช้ไม่ถึง 1% โดยจะเดินเครื่องเฉพาะช่วงฉุกเฉินหรือซ่อมบำรุงท่อก๊าซเท่านั้นเนื่องจากมีต้นทุนต่อหน่วยสูงมากและปล่อยมลพิษสูง</p>
+                    <p class="card-p">1. เชื้อเพลิงที่ใช้มากที่สุด:<br/>ก๊าซธรรมชาติ (Natural Gas) ครองสัดส่วนมากกว่า $55\% - 60\%$ ของการผลิตไฟฟ้าทั้งหมดในไทย (มาจากอ่าวไทย, ท่อส่งพม่า และการนำเข้า LNG)</p>
+<p class="card-p">2. เชื้อเพลิงรองลงมา:<br/>ถ่านหิน/ลิกไนต์ (Coal/Lignite ที่โรงไฟฟ้าแม่เมาะ $\approx 16\%$) และการซื้อพลังน้ำนำเข้าจาก สปป.ลาว ($\approx 13\%$)</p>
+<p class="card-p">3. เชื้อเพลิงที่ใช้น้อยที่สุด:<br/>น้ำมันเตา (Heavy Fuel Oil) และน้ำมันดีเซล ซึ่งใช้ไม่ถึง $1\%$ โดยจะเดินเครื่องเฉพาะช่วงฉุกเฉินหรือซ่อมบำรุงท่อก๊าซเท่านั้นเนื่องจากมีต้นทุนต่อหน่วยสูงมาก</p>
                   </div>
                 </div>
                 
@@ -2445,8 +2456,8 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Base Load: Continuous 24/7 operation, High Capital Cost, Low Fuel/Operating Cost}$$</div>
-<div class="formula-line">$$\text{Peak Load: Fast Startup (minutes), Low Capital Cost, High Fuel/Operating Cost}$$</div>
+                    <div class="formula-line">$$\text{Base Load: 24/7 continuous, High Capital Cost, Low Fuel Cost/kWh, Startup: Hours to Days}$$</div>
+<div class="formula-line">$$\text{Peak Load: Fast Startup (3-15 min), Lower Capital Cost, High Fuel Cost/kWh}$$</div>
                   </div>
                 </div>
                 
@@ -2454,8 +2465,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. โรงไฟฟ้าฐาน (Base Load Power Plant):<br/>- วัตถุประสงค์: เดินเครื่องผลิตไฟฟ้าคงที่ต่อเนื่องตลอด 24 ชั่วโมงเพื่อรองรับความต้องการไฟฟ้าขั้นต่ำของประเทศ<br/>- ประเภทโรงไฟฟ้า: โรงไฟฟ้าพลังความร้อนถ่านหิน (แม่เมาะ), นิวเคลียร์, โรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle)<br/>- จุดเด่น: ค่าก่อสร้างสูงมาก (High Capital Cost) แต่ต้นทุนค่าเชื้อเพลิงต่อหน่วยต่ำมาก, สตาร์ทเครื่องช้า (ใช้เวลาหลายชั่วโมงถึงเป็นวัน)</p>
-<p class="card-p">2. โรงไฟฟ้ารับโหลดสูงสุด (Peak Load Power Plant):<br/>- วัตถุประสงค์: เดินเครื่องเฉพาะช่วงเวลาที่มีการใช้ไฟฟ้าสูงสุด (เช่น บ่ายวันทำงานที่อากาศร้อนจัด หรือช่วงค่ำ) และช่วงฉุกเฉิน<br/>- ประเภทโรงไฟฟ้า: กังหันก๊าซเดี่ยว (Gas Turbine), พลังน้ำสูบกลับ (เขื่อนลำตะคอง), โรงไฟฟ้าพลังน้ำ<br/>- จุดเด่น: สตาร์ทเครื่องได้เร็วมาก (Fast Startup ภายใน 3 - 15 นาที), ค่าก่อสร้างต่ำกว่า แต่ต้นทุนเชื้อเพลิงต่อหน่วยสูง</p>
+                    <p class="card-p">1. โรงไฟฟ้าฐาน (Base Load Power Plant):<br/>- วัตถุประสงค์: เดินเครื่องผลิตไฟฟ้าคงที่ต่อเนื่องตลอด 24 ชั่วโมงเพื่อรองรับความต้องการไฟฟ้าขั้นต่ำของประเทศ<br/>- ประเภทโรงไฟฟ้า: โรงไฟฟ้าพลังความร้อนถ่านหิน (แม่เมาะ), นิวเคลียร์, โรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle)<br/>- จุดเด่น: ค่าก่อสร้างสูงมาก (High Capital Cost) แต่ต้นทุนค่าเชื้อเพลิงต่อหน่วยต่ำมาก<br/>- เวลาสตาร์ทเครื่อง: ช้ามาก (ใช้เวลาหลายชั่วโมงถึงเป็นวันจากสถานะเครื่องเย็น)</p>
+<p class="card-p">2. โรงไฟฟ้ารับโหลดสูงสุด (Peak Load Power Plant):<br/>- วัตถุประสงค์: เดินเครื่องเฉพาะช่วงเวลาที่มีการใช้ไฟฟ้าสูงสุด (Peak Hours) เช่น ช่วงบ่ายวันทำงาน หรือช่วงค่ำ<br/>- ประเภทโรงไฟฟ้า: กังหันก๊าซเดี่ยว (Gas Turbine), พลังน้ำสูบกลับ (เขื่อนลำตะคอง), โรงไฟฟ้าพลังน้ำ<br/>- จุดเด่น: สตาร์ทเครื่องได้เร็วมาก (Fast Startup ภายใน $3 - 15\text{ นาที}$), ค่าก่อสร้างต่ำกว่า แต่ต้นทุนเชื้อเพลิงต่อหน่วยสูง</p>
                   </div>
                 </div>
                 
@@ -2499,9 +2510,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$\text{Suspension: Straight paths, supports vertical conductor weight}$$</div>
-<div class="formula-line">$$\text{Tension / Angle: Turns/corners, withstands directional pull tension}$$</div>
-<div class="formula-line">$$\text{Dead-end: Terminal stations, handles one-sided full mechanical tension}$$</div>
-<div class="formula-line">$$\text{Transposition: Balances mutual inductance } L_{12} = L_{23} = L_{31} \text{ and capacitance across 3 phases}$$</div>
+<div class="formula-line">$$\text{Tension / Angle: Path turns, withstands directional pull tension}$$</div>
+<div class="formula-line">$$\text{Dead-end: Line termination at substations, handles full unilateral tension}$$</div>
+<div class="formula-line">$$\text{Transposition: Equalizes phase inductances } L_{12} = L_{23} = L_{31} \text{ and capacitances}$$</div>
                   </div>
                 </div>
                 
@@ -2512,7 +2523,7 @@ Conducted power + Transformed power</div>
                     <p class="card-p">1. เสาแขวน (Suspension Tower):<br/>ใช้ในแนวสายส่งที่เป็นเส้นตรง ลูกถ้วยฉนวนจะห้อยลงในแนวดิ่ง ทำหน้าที่รับน้ำหนักของสายตัวนำอย่างเดียว ไม่ได้รับแรงดึงตามแนวยาวของสาย</p>
 <p class="card-p">2. เสารั้ง / เสามุม (Tension / Angle Tower):<br/>ใช้บริเวณทางโค้งหรือจุดที่แนวสายส่งหักมุม ลูกถ้วยจะอยู่ในแนวนอนตามแนวแรงดึง ทำหน้าที่รับแรงดึงเชิงกลจากการเปลี่ยนทิศทางของสาย</p>
 <p class="card-p">3. เสาสิ้นสุด (Dead-end / Terminal Tower):<br/>ใช้บริเวณปลายสุดของสายส่งก่อนเข้าสถานีไฟฟ้าย่อย หรือจุดข้ามแม่น้ำกว้าง โครงสร้างแข็งแรงเป็นพิเศษเพื่อรับแรงดึงข้างเดียวทั้งหมดได้โดยไม่พัง</p>
-<p class="card-p">4. เสาสลับตำแหน่งเฟส (Transposition Tower):<br/>สลับตำแหน่งสายตัวนำ (A, B, C) ทุกๆ 1/3 ของระยะทาง เพื่อให้ค่าความเหนี่ยวนำ (Inductance) และความจุไฟฟ้า (Capacitance) ของทั้ง 3 เฟสสมดุลเท่ากัน ลดปัญหาแรงดันไม่สมดุล</p>
+<p class="card-p">4. เสาสลับตำแหน่งเฟส (Transposition Tower):<br/>สลับตำแหน่งสายตัวนำ (A, B, C) ทุกๆ $1/3$ ของระยะทาง เพื่อให้ค่าความเหนี่ยวนำ ($L_{12} = L_{23} = L_{31}$) และความจุไฟฟ้าของทั้ง 3 เฟสสมดุลเท่ากัน ป้องกันแรงดันตกคร่อมไม่สมดุล</p>
                   </div>
                 </div>
                 
@@ -2534,15 +2545,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.4 (หน้า 25 - 4 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.3 & 5.4 (หน้า 25 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">ประเภทผู้ใช้ไฟฟ้าตามเกณฑ์ กฟน./กฟภ. และระดับแรงดันที่ต้องจ่าย</h3>
+              <h3 class="card-topic">การจำแนกระดับแรงดันไฟฟ้าและประเภทผู้ใช้ไฟฟ้าในประเทศไทย</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงระบุประเภทผู้ใช้ไฟฟ้ามาตรฐานตามข้อกำหนดของ กฟน./กฟภ. (บ้านอยู่อาศัย, กิจการขนาดเล็ก, กิจการขนาดกลาง/ใหญ่) และอธิบายเหตุผลทางวิศวกรรมว่าเหตุใดโรงงานอุตสาหกรรมขนาดใหญ่จึงต้องรับไฟฟ้าที่แรงดันสูง (22 kV - 115 kV) แทนที่จะรับที่แรงดันต่ำ 380 V</div>
+                <div class="card-question-text">จงนิยามระดับแรงดัน: แรงดันต่ำ (LV), แรงดันปานกลาง (MV), แรงดันสูง (HV) และแรงดันสูงพิเศษ (EHV) พร้อมทั้งระบุว่าผู้ใช้ไฟฟ้าประเภทใดรับไฟที่ระดับแรงดันดังกล่าว</div>
               </div>
               
               
@@ -2555,9 +2566,8 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$I = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
-<div class="formula-line">$$\text{If } P = 10\text{ MW at } 380\text{ V: } I \approx 18,200\text{ A (Impossibly thick cables)}$$</div>
-<div class="formula-line">$$\text{If } P = 10\text{ MW at } 22\text{ kV: } I \approx 315\text{ A (Standard manageable cable)}$$</div>
+                    <div class="formula-line">$$\text{EHV: } 500\text{ kV} \qquad \text{HV: } 115\text{ kV}, 230\text{ kV}$$</div>
+<div class="formula-line">$$\text{MV: } 22\text{ kV}, 24\text{ kV}, 33\text{ kV} \qquad \text{LV: } 380\text{ V } (3\phi), \; 220\text{ V } (1\phi)$$</div>
                   </div>
                 </div>
                 
@@ -2565,8 +2575,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ประเภทผู้ใช้ไฟฟ้า (กฟน./กฟภ.):<br/>- ประเภท 1: บ้านอยู่อาศัย (Residential) - ใช้ไฟ 1 เฟส 220 V หรือ 3 เฟส 380 V<br/>- ประเภท 2: กิจการขนาดเล็ก (Small General Service) - ความต้องการพลังไฟฟ้า < 30 kW<br/>- ประเภท 3: กิจการขนาดกลาง (Medium General Service) - ความต้องการ 30 kW - 999 kW<br/>- ประเภท 4: กิจการขนาดใหญ่ (Large General Service) - ความต้องการ >= 1,000 kW ขึ้นไป (โรงงาน, ศูนย์การค้า)</p>
-<p class="card-p">2. ทำไมกิจการขนาดใหญ่ต้องรับไฟที่แรงดันสูง (22 kV - 115 kV):<br/>- ลดขนาดกระแส: จากสูตร I = P / (sqrt(3)*V*cos(theta)) หากจ่ายโหลด 10 MW ที่ 380 V กระแสจะสูงถึง 18,000 แอมป์ สายไฟต้องมีขนาดมโหฬารและแรงดันตกมหาศาล แต่ถ้ารับที่ 22 kV กระแสเหลือเพียง 315 A<br/>- ป้องกันผลกระทบต่อผู้ใช้ไฟรายอื่น: การใช้ไฟกระชากของโรงงานจะไม่รบกวนแรงดันของผู้ใช้ไฟบ้านเรือนข้างเคียง</p>
+                    <p class="card-p">1. การแบ่งระดับแรงดันในระบบไฟฟ้าไทย:<br/>- แรงดันสูงพิเศษ (EHV): $500\text{ kV}$ (สายส่งสายหลักเชื่อมต่อระหว่างภาค)<br/>- แรงดันสูง (HV): $115\text{ kV}, 230\text{ kV}$ (สายส่งเชื่อมระหว่างสถานีไฟฟ้าย่อย)<br/>- แรงดันปานกลาง (MV): $22\text{ kV}$ (กฟภ.), $24\text{ kV} / 12\text{ kV}$ (กฟน.), $33\text{ kV}$ (สายป้อนบนเสาไฟริมถนน)<br/>- แรงดันต่ำ (LV): $380\text{ V}$ (3 เฟส) / $220\text{ V}$ (1 เฟสใช้งานทั่วไป)</p>
+<p class="card-p">2. ประเภทผู้ใช้ไฟฟ้าที่ต่อรับไฟ:<br/>- EHV / HV ($115 - 500\text{ kV}$): โรงงานอุตสาหกรรมหนักขนาดใหญ่มาก (โรงถลุงเหล็ก, โรงปูนซีเมนต์, โรงกลั่นปิโตรเคมี)<br/>- MV ($22 - 33\text{ kV}$): โรงงานอุตสาหกรรมขนาดกลาง, ห้างสรรพสินค้า, มหาวิทยาลัย, โรงพยาบาล (มีหม้อแปลงของตนเอง)<br/>- LV ($220 / 380\text{ V}$): บ้านเรือนที่อยู่อาศัย, อาคารพาณิชย์ และร้านค้าทั่วไป</p>
                   </div>
                 </div>
                 
@@ -2574,7 +2584,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">เหตุผลสำคัญ: ยิ่งกำลังไฟฟ้า P สูง ยิ่งต้องรับที่แรงดันสูง V เพื่อให้กระแส I ต่ำ ทำให้ประหยัดขนาดสายไฟ ลดแรงดันตก และลดการสูญเสีย I^2*R</p>
+                    <p class="card-p">ข้อระวัง: เสาไฟคอนกรีตริมถนนทั่วไปคือแรงดันปานกลาง (22 kV หรือ 24 kV) ไม่ใช่แรงดันสูง ส่วนสายไฟล่างสุดคือแรงดันต่ำ 220/380 V</p>
                   </div>
                 </div>
                 
@@ -2588,15 +2598,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.2 (หน้า 25 - 2 คะแนน) & Sheet ติว</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.1 & 5.2 (หน้า 25 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">โรงไฟฟ้าสำคัญในประเทศไทย (เขื่อนภูมิพล, เขื่อนอุบลรัตน์, โรงไฟฟ้าแม่เมาะ, โรงไฟฟ้าน้ำพอง)</h3>
+              <h3 class="card-topic">ประเภทโรงไฟฟ้า แหล่งเชื้อเพลิง และโรงไฟฟ้าหลักในประเทศไทย</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงระบุประเภทของโรงไฟฟ้าและเชื้อเพลิงหลักของโรงไฟฟ้าสำคัญในประเทศไทยต่อไปนี้: เขื่อนภูมิพล, เขื่อนอุบลรัตน์, โรงไฟฟ้าแม่เมาะ และโรงไฟฟ้าน้ำพอง</div>
+                <div class="card-question-text">จงระบุประเภทโรงไฟฟ้าหลักในประเทศไทย แหล่งเชื้อเพลิงที่ใช้ พร้อมยกตัวอย่างโรงไฟฟ้าของจริงสำหรับโรงไฟฟ้าถ่านหิน, โรงไฟฟ้าความร้อนร่วม และโรงไฟฟ้าพลังน้ำสูบกลับ</div>
               </div>
               
               
@@ -2609,9 +2619,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Bhumibol / Ubolratana: Hydroelectric (พลังน้ำ)}$$</div>
-<div class="formula-line">$$\text{Mae Moh (Lampang): Lignite Coal Thermal (พลังความร้อนถ่านหินลิกไนต์)}$$</div>
-<div class="formula-line">$$\text{Nam Pong (Khon Kaen): Natural Gas Combined Cycle (พลังความร้อนร่วมก๊าซธรรมชาติ)}$$</div>
+                    <div class="formula-line">$$\text{Thermal Coal / Lignite: Mae Moh (ลำปาง) } \rightarrow \text{Base Load}$$</div>
+<div class="formula-line">$$\text{Combined Cycle (Gas): Bang Pakong, South Bangkok, Wang Noi } \rightarrow \text{Base / Intermediate Load}$$</div>
+<div class="formula-line">$$\text{Pumped Storage Hydro: Lam Takhong (ลำตะคอง โคราช) } \rightarrow \text{Peak Load}$$</div>
+<div class="formula-line">$$\text{Conventional Hydro: Bhumibol, Sirikit, Srinagarind } \rightarrow \text{Peak / Quick Reserve}$$</div>
                   </div>
                 </div>
                 
@@ -2619,10 +2630,7 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. เขื่อนภูมิพล (จ.ตาก):<br/>โรงไฟฟ้าพลังน้ำ (Hydroelectric) เป็นเขื่อนคอนกรีตโค้งที่ใหญ่ที่สุดในไทย และมีเครื่องกำเนิดไฟฟ้าพลังน้ำสูบกลับ</p>
-<p class="card-p">2. เขื่อนอุบลรัตน์ (จ.ขอนแก่น):<br/>โรงไฟฟ้าพลังน้ำอเนกประสงค์แห่งแรกในภาคอีสาน ใช้ผลิตไฟฟ้า พลประทาน และป้องกันน้ำท่วม</p>
-<p class="card-p">3. โรงไฟฟ้าแม่เมาะ (จ.ลำปาง):<br/>โรงไฟฟ้าพลังความร้อน ใช้ถ่านหินลิกไนต์ (Lignite Coal) ในพื้นที่เป็นเชื้อเพลิง ทำหน้าที่เป็นโรงไฟฟ้าฐาน (Base Load) ที่สำคัญที่สุดของภาคเหนือ</p>
-<p class="card-p">4. โรงไฟฟ้าน้ำพอง (จ.ขอนแก่น):<br/>โรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle) ใช้ 'ก๊าซธรรมชาติ' จากแหล่งสินภูฮ่อมและน้ำพองเป็นเชื้อเพลิงหลักในการผลิตไฟฟ้าป้อนภาคอีสาน</p>
+                    <p class="card-p">1. โรงไฟฟ้าหลักในประเทศไทยและเชื้อเพลิง:<br/>- โรงไฟฟ้าพลังความร้อนถ่านหิน (Lignite Thermal): โรงไฟฟ้าแม่เมาะ จ.ลำปาง ใช้ถ่านหินลิกไนต์ในประเทศ เดินเครื่องเป็นโรงไฟฟ้าฐาน (Base Load)<br/>- โรงไฟฟ้าพลังความร้อนร่วม (Combined-Cycle): โรงไฟฟ้าบางปะกง, โรงไฟฟ้าพระนครใต้, โรงไฟฟ้าวังน้อย ใช้ก๊าซธรรมชาติร่วมกับกังหันไอน้ำ มีประสิทธิภาพความร้อนสูง ($> 55\%$)<br/>- โรงไฟฟ้าพลังน้ำสูบกลับ (Pumped-Storage Hydro): โรงไฟฟ้าลำตะคองชลภาวัฒนา จ.นครราชสีมา สูบน้ำกลับขึ้นอ่างเก็บน้ำบนเขาตอนกลางคืน และปล่อยน้ำลงมาปั่นไฟเวลารับโหลดสูงสุด (Peak Load)<br/>- โรงไฟฟ้าพลังน้ำทั่วไป: เขื่อนภูมิพล, เขื่อนสิริกิติ์, เขื่อนศรีนครินทร์ ใช้เสริมช่วงพีกและสำรองฉุกเฉิน</p>
                   </div>
                 </div>
                 
@@ -2630,7 +2638,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">จำให้แม่น: แม่เมาะ (ลำปาง) = ถ่านหินลิกไนต์, น้ำพอง (ขอนแก่น) = ก๊าซธรรมชาติ, ภูมิพล/อุบลรัตน์ = พลังน้ำ</p>
+                    <p class="card-p">จุดเน้น: โรงไฟฟ้าลำตะคองเป็น 'พลังน้ำสูบกลับ (Pumped Storage)' ทำหน้าที่เหมือนแบตเตอรี่น้ำขนาดใหญ่ ไม่ใช่เขื่อนกักน้ำแม่น้ำทั่วไป</p>
                   </div>
                 </div>
                 
@@ -2641,18 +2649,18 @@ Conducted power + Transformed power</div>
                 <div class="card-header-left">
                   <span class="card-id">CH09-08</span>
                   <span class="card-chapter-tag">Chapter 9</span>
-                  <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
+                  <span class="card-diff-tag badge-calc">🔴 ข้อสอบจริง / คำนวณ</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Lecture Chapter 9 (Renewable Energy)</span>
+                  <span class="card-ref-tag">📌 Lecture Chapter 9 (Power Systems)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">องค์ประกอบของระบบโซลาร์เซลล์บนหลังคาบ้าน (Solar PV Rooftop)</h3>
+              <h3 class="card-topic">ความต้านทานดินของเสาสายส่ง (Tower Footing Resistance) และการป้องกันฟ้าผ่า</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงระบุอุปกรณ์หลักในระบบโซลาร์เซลล์บนหลังคาบ้านเรือนแบบเชื่อมต่อโครงข่าย (Grid-Tied Solar PV Rooftop) และอธิบายความสำคัญของการป้องกันการจ่ายไฟแบบเกาะเดี่ยว (Anti-Islanding Protection)</div>
+                <div class="card-question-text">ความต้านทานขากราวด์เสาสายส่ง (Tower Footing Resistance) คืออะไร ทำไมต้องคุมให้ต่ำกว่า 10 โอห์ม และสายล่อฟ้าเหนือศีรษะ (Overhead Ground Wire: OHGW) ป้องกันการเกิดฟลัชโอเวอร์ได้อย่างไร?</div>
               </div>
               
               
@@ -2660,8 +2668,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{PV Panels (DC)} \rightarrow \text{DC Combiner/Breaker} \rightarrow \text{Grid-Tied Inverter (DC to AC)} \rightarrow \text{Bi-directional Meter} \rightarrow \text{Grid}$$</div>
-<div class="formula-line">$$\text{Anti-Islanding: Grid Loss } \implies \text{Inverter disconnects immediately within 2 seconds}$$</div>
+                    <div class="formula-line">$$R_{\text{tower}} \le 10\;\Omega$$</div>
+<div class="formula-line">$$V_{\text{tower top}} = I_{\text{lightning}} \cdot R_{\text{tower}} + L_{\text{tower}} \frac{di}{dt}$$</div>
+<div class="formula-line">$$\text{Back Flashover occurs if: } V_{\text{tower top}} - V_{\text{conductor}} > V_{\text{insulator CFO}}$$</div>
                   </div>
                 </div>
                 
@@ -2669,8 +2678,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. อุปกรณ์หลักในระบบ:<br/>- แผงโซลาร์เซลล์ (PV Modules): เปลี่ยนพลังงานแสงอาทิตย์เป็นไฟฟ้ากระแสตรง (DC)<br/>- ตู้ควบคุมไฟฟ้ากระแสตรง (DC Combiner/Protection Box): ฟิวส์, DC Breaker, และอุปกรณ์ป้องกันเสิร์จ (SPD)<br/>- อินเวอร์เตอร์เชื่อมโครงข่าย (Grid-Tied Inverter): แปลงไฟ DC เป็นไฟ AC 220 V 50 Hz ที่ซิงโครไนซ์เฟสตรงกับไฟการไฟฟ้า<br/>- ตู้ควบคุมไฟฟ้ากระแสสลับ (AC Distribution/Protection Box): เบรกเกอร์ AC และอุปกรณ์ตัดไฟรั่ว<br/>- มิเตอร์ไฟฟ้าสองทิศทาง (Bi-directional Smart Meter): บันทึกหน่วยไฟฟ้าทั้งฝั่งที่ซื้อจากการไฟฟ้าและฝั่งที่ขายคืนโซลาร์</p>
-<p class="card-p">2. ระบบป้องกัน Anti-Islanding (หัวใจสำคัญด้านความปลอดภัย):<br/>เมื่อไฟจากการไฟฟ้าดับ หรือมีการตัดไฟเพื่อซ่อมแซมสายไฟ อินเวอร์เตอร์ต้องหยุดจ่ายไฟและตัดการเชื่อมต่อทันที (ภายใน 2 วินาที) เพื่อป้องกันไฟจากโซลาร์เซลล์ไหลย้อนเข้าสายส่ง ซึ่งอาจช็อตเจ้าหน้าที่การไฟฟ้าที่กำลังปฏิบัติงานจนถึงแก่ชีวิต</p>
+                    <p class="card-p">1. ความต้านทานขากราวด์เสาสายส่ง (Tower Footing Resistance):<br/>คือความต้านทานระหว่างโครงสร้างเหล็กของเสากับเนื้อดิน ต้องควบคุมให้ต่ำกว่า $10\;\Omega$ (มาตรฐานที่ดีควรต่ำกว่า $5\;\Omega$)</p>
+<p class="card-p">2. กลไกการเกิด Back Flashover:<br/>เมื่อฟ้าผ่าลงยอดเสาหรือสายลวดล่อฟ้า กระแสฟ้าผ่ามหาศาล ($20 - 100\text{ kA}$) จะไหลลงดินผ่านโครงสร้างเสา ทำให้เกิดแรงดันตกคร่อมขากราวด์:<br/>$$V_{\text{tower top}} = I_{\text{lightning}} \cdot R_{\text{tower}} + L \frac{di}{dt}$$<br/>ถ้าความต้านทานดิน $R_{\text{tower}}$ สูง แรงดันที่ยอดเสาจะพุ่งสูงหลายร้อยกิโลโวลต์ จนเกิดการสปาร์กข้ามลูกถ้วยฉนวนกลับไปยังสายตัวนำเฟส (Back Flashover) ทำให้ระบบตัดวงจร</p>
+<p class="card-p">3. สายล่อฟ้าเหนือศีรษะ (Overhead Ground Wire: OHGW):<br/>ขึงอยู่บนยอดสุดของเสาสายส่ง ทำมุมป้องกัน (Shielding Angle $< 30^\circ$) ดักรับฟ้าผ่าโดยตรงแทนสายตัวนำเฟส แล้วกระจายกระแสลงดินอย่างปลอดภัย</p>
                   </div>
                 </div>
                 
@@ -2678,7 +2688,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">จุดสำคัญ: มาตรฐาน กฟน./กฟภ. บังคับให้อินเวอร์เตอร์ทุกเครื่องต้องมีระบบ Anti-Islanding ป้องกันไฟฟ้าไหลย้อนกลับสายส่งเด็ดขาดเมื่อไฟหลวงดับ</p>
+                    <p class="card-p">ข้อระวัง: หากความต้านทานขากราวด์เสาสูง ฟ้าผ่าลงสายดินแต่จะกระโดดย้อนข้ามลูกถ้วยเข้าสายส่ง (Back Flashover) ทำให้ไฟฟ้าดับได้</p>
                   </div>
                 </div>
                 
@@ -2692,15 +2702,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.5 (หน้า 24 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.5 (หน้า 24 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">การอนุรักษ์พลังงานในการใช้เครื่องซักผ้าในบ้านเรือน</h3>
+              <h3 class="card-topic">มาตรการการอนุรักษ์พลังงานไฟฟ้าในบ้านเรือนที่อยู่อาศัย (ข้อสอบไฟนอล)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงระบุแนวทางการประหยัดพลังงานและอนุรักษ์ไฟฟ้าในการใช้งานเครื่องซักผ้าในบ้านเรือน</div>
+                <div class="card-question-text">จงเสนอ 4 มาตรการประหยัดพลังงานไฟฟ้าที่มีประสิทธิภาพและนำไปปฏิบัติได้จริงสำหรับบ้านเรือนที่อยู่อาศัย (ข้อสอบไฟนอลข้อ 5.5)</div>
               </div>
               
               
@@ -2713,7 +2723,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Wash at full rated load} + \text{Use cold water } + \text{Select Inverter Motor}$$</div>
+                    <div class="formula-line">$$P = \frac{\text{BTU/hr}}{\text{SEER} \times 3.412} \implies \text{High SEER Inverter saves } 20\% - 30\%$$</div>
+<div class="formula-line">$$\Delta P \approx 10\% \text{ per } 1^\circ\text{C increase (Set AC to } 25^\circ\text{C} - 26^\circ\text{C)}$$</div>
+<div class="formula-line">$$P_{\text{LED}} \approx \frac{1}{5} P_{\text{Incandescent}} \quad (80\% \text{ energy reduction})$$</div>
                   </div>
                 </div>
                 
@@ -2721,10 +2733,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ซักผ้าตามพิกัดความจุถัง (Full Load):<br/>รวบรวมผ้าซักให้เต็มความจุพิกัดของถังซักในแต่ละรอบ ไม่ควรซักผ้าทีละน้อยชิ้นบ่อยๆ เพื่อลดรอบการทำงานของมอเตอร์และการใช้น้ำ</p>
-<p class="card-p">2. ใช้น้ำอุณหภูมิปกติ (Cold Water):<br/>หลีกเลี่ยงการใช้น้ำร้อนในการซักผ้า (ยกเว้นจำเป็น) เพราะขดลวดฮีตเตอร์ต้มน้ำใช้พลังงานไฟฟ้าสูงถึง 80-90% ของพลังงานทั้งหมดในรอบซัก</p>
-<p class="card-p">3. แช่ผ้าก่อนซักสำหรับผ้าที่สกปรกมาก:<br/>ขจัดคราบสกปรกหนักก่อนนำเข้าเครื่อง เพื่อให้สามารถใช้โปรแกรมซักแบบปกติหรือ Quick Wash แทนการซักรอบยาว</p>
-<p class="card-p">4. เลือกเครื่องซักผ้าระบบอินเวอร์เตอร์และตากแดดธรรมชาติ:<br/>เลือกซื้อเครื่องซักผ้าฉลากเบอร์ 5 แบบมีดาว (Inverter Direct Drive) และตากผ้าด้วยแสงแดดธรรมชาติแทนการใช้เครื่องอบผ้าไฟฟ้าที่กินไฟสูง</p>
+                    <p class="card-p">4 มาตรการประหยัดพลังงานในบ้านเรือน (ตามแนวข้อสอบไฟนอล):<br/>1. การปรับปรุงระบบปรับอากาศ (กินไฟสูงสุดในบ้าน $\approx 60\%$):<br/>- ปรับอุณหภูมิที่ $25^\circ\text{C} - 26^\circ\text{C}$ ควบคู่กับการเปิดพัดลมช่วยกระจายลม (การเพิ่มอุณหภูมิ $1^\circ\text{C}$ ประหยัดไฟได้ประมาณ $10\%$)<br/>- เลือกใช้แอร์ระบบ Inverter เบอร์ 5 ติดดาว (ค่า SEER สูง)<br/>- ล้างแผ่นกรองอากาศทุกเดือน และล้างเครื่องปรับอากาศทุก 6 เดือน</p>
+<p class="card-p">2. เปลี่ยนมาใช้หลอดไฟ LED:<br/>- เปลี่ยนหลอดไส้เดิม ($60\text{ W}$) หรือหลอดฟลูออเรสเซนต์ ($18\text{ W}$) เป็นหลอด LED ($9\text{ W}$) ประหยัดไฟลงได้มากกว่า $50\% - 80\%$ โดยได้ความสว่างเท่าเดิม</p>
+<p class="card-p">3. การใช้งานตู้เย็นอย่างถูกวิธี:<br/>- วางตู้เย็นห่างจากผนังอย่างน้อย $15\text{ cm}$ เพื่อระบายความร้อน, ไม่นำของร้อนเข้าแช่ทันที และตรวจเช็กยางขอบประตูไม่ให้รั่ว</p>
+<p class="card-p">4. ปลดปลั๊กตัด Standby Power (ไฟสแตนด์บาย):<br/>- ถอดปลั๊กอุปกรณ์อิเล็กทรอนิกส์, ทีวี, และที่ชาร์จเมื่อไม่ใช้งานเพื่อตัดกระแสไฟสแตนด์บายที่กินไฟตลอด 24 ชั่วโมง</p>
                   </div>
                 </div>
                 
@@ -2732,7 +2744,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">จุดสำคัญ: ตัวที่กินไฟที่สุดในเครื่องซักผ้าไม่ใช่ตัวมอเตอร์ แต่คือ 'ฮีตเตอร์ต้มน้ำร้อน' การซักด้วยน้ำอุณหภูมิปกติจะช่วยประหยัดไฟได้มากที่สุด</p>
+                    <p class="card-p">จุดสำคัญ: แอร์กินไฟมากกว่า 60% ของทั้งบ้าน ดังนั้นมาตรการปรับอุณหภูมิแอร์และล้างแอร์เป็นจุดที่ให้ผลประหยัดเงินสูงสุด</p>
                   </div>
                 </div>
                 
@@ -2746,15 +2758,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.6 (หน้า 24 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 5.6 (หน้า 24 - 4 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">มาตรการอนุรักษ์พลังงานในโรงงานอุตสาหกรรม (มอเตอร์, แสงสว่าง, ระบบปรับอากาศ)</h3>
+              <h3 class="card-topic">มาตรการการอนุรักษ์พลังงานไฟฟ้าในโรงงานอุตสาหกรรม (ข้อสอบไฟนอล)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงเสนอมาตรการอนุรักษ์พลังงานไฟฟ้าในโรงงานอุตสาหกรรมใน 3 ด้านหลัก: (a) ระบบมอเตอร์ไฟฟ้าและขับเคลื่อน, (b) ระบบไฟฟ้าแสงสว่าง, และ (c) ระบบปรับอากาศและระบายความร้อน</div>
+                <div class="card-question-text">จงเสนอ 4 มาตรการอนุรักษ์พลังงานไฟฟ้าเชิงวิศวกรรมสำหรับโรงงานอุตสาหกรรมและอาคารธุรกิจ (ข้อสอบไฟนอลข้อ 5.6)</div>
               </div>
               
               
@@ -2767,9 +2779,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Motor: VFD / Inverter + IE3/IE4 Motors} \quad \Delta P_{\text{save}} \propto (1 - (n_2/n_1)^3)$$</div>
-<div class="formula-line">$$\text{Power Factor Correction: Install Capacitor Banks } \implies PF \ge 0.85$$</div>
-<div class="formula-line">$$\text{Lighting: Replace HID/Fluorescent with LED} \implies 50\% - 70\% \text{ reduction}$$</div>
+                    <div class="formula-line">$$Q_C = P \left( \tan\theta_1 - \tan\theta_2 \right) \implies \text{Raise } \text{PF} \ge 0.85 \text{ to avoid PEA/MEA penalty}$$</div>
+<div class="formula-line">$$I_{\text{line}} = \frac{P}{\sqrt{3} V_L \cos\theta} \implies \text{Higher PF reduces cable } I^2 R \text{ loss}$$</div>
+<div class="formula-line">$$\text{VFD Affinity Law: } \frac{P_1}{P_2} = \left(\frac{n_1}{n_2}\right)^3 = \left(\frac{Q_1}{Q_2}\right)^3$$</div>
                   </div>
                 </div>
                 
@@ -2777,9 +2789,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ระบบมอเตอร์ไฟฟ้า (ใช้ไฟมากที่สุดในโรงงาน > 65%):<br/>- ติดตั้งอินเวอร์เตอร์ปรับความเร็วรอบ (VFD): สำหรับปั๊มน้ำและพัดลมระบายอากาศ เพื่อปรับรอบตามโหลดจริง แทนการหรี่วาล์วเชิงกล (ตามกฎ Affinity Law: กำลังไฟฟ้าแปรผันตามความเร็วรอบยกกำลังสาม P ~ n^3)<br/>- เปลี่ยนมาใช้มอเตอร์ประสิทธิภาพสูงพิเศษ (IE3 / IE4 Premium Efficiency Motors)<br/>- ปรับปรุงค่าเพาเวอร์แฟกเตอร์ (PF Correction): ติดตั้ง Capacitor Bank อัตโนมัติที่ตู้ MDB เพื่อรักษาค่า PF >= 0.85 หลีกเลี่ยงค่าปรับเพาเวอร์แฟกเตอร์ของ กฟน./กฟภ.</p>
-<p class="card-p">2. ระบบแสงสว่าง:<br/>- เปลี่ยนหลอดไฟโรงงานเดิม (หลอดฟลูออเรสเซนต์ T8 หรือหลอดแสงจันทร์ HID) เป็นหลอดประหยัดไฟ LED คุณภาพสูง (ประหยัดไฟได้ 50-70%)<br/>- ติดตั้งเซ็นเซอร์ตรวจจับการเคลื่อนไหว (Motion Sensor) และเซ็นเซอร์วัดแสงแดดในคลังสินค้า</p>
-<p class="card-p">3. ระบบปรับอากาศและทำความเย็น (Chiller & HVAC):<br/>- ควบคุมอุณหภูมิน้ำเย็น (Chilled Water) ให้เหมาะสม และตั้งเวลาเปิด-ปิดตามกะการทำงานจริง<br/>- ล้างคอนเดนเซอร์และบำรุงรักษาหอผึ่งน้ำ (Cooling Tower) สม่ำเสมอเพื่อขจัดตะกรันและรักษาประสิทธิภาพการระบายความร้อน</p>
+                    <p class="card-p">4 มาตรการอนุรักษ์พลังงานในโรงงานอุตสาหกรรม (ตามแนวข้อสอบไฟนอล):<br/>1. ติดตั้งชุดคาปาซิเตอร์แบงก์ปรับปรุงค่าเพาเวอร์แฟกเตอร์ (PF Improvement):<br/>- ปรับปรุงค่าเพาเวอร์แฟกเตอร์จากเดิมที่ต่ำให้สูงกว่า $0.85$ (มาตรฐานควร $> 0.95$) เพื่อหลีกเลี่ยงค่าปรับเพาเวอร์แฟกเตอร์ของ กฟภ./กฟน. และลดกระแสโหลดในสายเคเบิล ทำให้ลดการสูญเสีย $I^2 R$</p>
+<p class="card-p">2. ติดตั้งอุปกรณ์ปรับความเร็วรอบมอเตอร์ (Variable Frequency Drive: VFD):<br/>- นำ VFD มาควบคุมมอเตอร์ปั๊มน้ำและพัดลมระบายอากาศแทนการใช้แดมเปอร์หรือวาล์วหรี่<br/>- ตามกฎความคล้ายคลึงของปั๊ม ($P \propto n^3$) การลดความเร็วรอบลงเพียง $20\%$ จะช่วยประหยัดพลังงานได้เกือบ $50\%$</p>
+<p class="card-p">3. เปลี่ยนมาใช้มอเตอร์ประสิทธิภาพสูง (Premium Efficiency Motor IE3/IE4):<br/>- ใช้มอเตอร์มาตรฐาน IE3/IE4 ที่มีแกนเหล็กสูญเสียต่ำและขดลวดทองแดงหนา ช่วยลดความร้อนสะสมและประหยัดไฟตลอดอายุการใช้งาน</p>
+<p class="card-p">4. ซ่อมบำรุงระบบอากาศอัด (Compressed Air Leak Repair):<br/>- ตรวจเช็กและอุดรอยรั่วท่อลมในโรงงาน (ซึ่งมักสูญเสียลมทิ้งเฉลี่ย $20\% - 30\%$ ของกำลังปั๊มลม) และปรับลดแรงดันใช้งานลงให้พอดีกับความต้องการจริง</p>
                   </div>
                 </div>
                 
@@ -2787,7 +2800,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">ข้อควรระวัง: คาปาซิเตอร์แบงก์ไม่ได้ช่วยลดกำลังไฟฟ้าจริง (kW) ของเครื่องจักร แต่ช่วยลดกำลังไฟฟ้ารีแอคทีฟ (kVAR) ทำให้กระแสรวมในสายลดลง และไม่โดนค่าปรับ PF ตกจากการไฟฟ้า</p>
+                    <p class="card-p">จุดเน้นวิศวกรรม: ในโรงงานอุตสาหกรรม มอเตอร์กินไฟมากกว่า 70% ของโรงงาน การติดตั้ง VFD และคาปาซิเตอร์แบงก์จึงเป็นมาตรการที่คุ้มทุนเร็วที่สุด</p>
                   </div>
                 </div>
                 
@@ -2807,7 +2820,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 & Final Exam ข้อ 3</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 & Final Exam ข้อ 3.1</span>
                 </div>
               </div>
               
@@ -2815,7 +2828,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงอธิบายหลักการทำงานของเครื่องมือวัดแบบขดลวดเคลื่อนที่แกนแม่เหล็กถาวร (PMMC / D'Arsonval Galvanometer) เขียนสมการแรงบิดบิดเบน (Deflecting Torque) และอธิบายเหตุผลว่าทำไม PMMC จึงวัดได้เฉพาะไฟฟ้ากระแสตรง (DC) โดยตรง</div>
+                <div class="card-question-text">จงอธิบายหลักการทำงานของเครื่องมือวัดแบบขดลวดเคลื่อนที่แกนแม่เหล็กถาวร (PMMC / D'Arsonval Galvanometer) เขียนสมการแรงบิดบิดเบน (Deflecting Torque) และแรงบิดควบคุม (Controlling Torque) พร้อมอธิบายเหตุผลว่าทำไม PMMC จึงวัดได้เฉพาะไฟฟ้ากระแสตรง (DC) โดยตรง</div>
               </div>
               
               
@@ -2825,7 +2838,8 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$T_d = B \cdot I \cdot N \cdot A = G \cdot I$$</div>
 <div class="formula-line">$$T_c = C \cdot \theta$$</div>
-<div class="formula-line">$$\text{At equilibrium: } T_d = T_c \implies \theta = \left(\frac{G}{C}\right) I \propto I$$</div>
+<div class="formula-line">$$\text{At equilibrium: } T_d = T_c \implies \theta = \left(\frac{B \cdot N \cdot A}{C}\right) I \propto I$$</div>
+<div class="formula-line">$$I_{\text{avg, AC}} = \frac{1}{T} \int_0^T I_m \sin(\omega t)\, dt = 0$$</div>
                   </div>
                 </div>
                 
@@ -2833,9 +2847,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. หลักการทำงาน:<br/>ขดลวดทองแดงสี่เหลี่ยมที่มีกระแส I ไหลผ่าน ถูกติดตั้งอยู่ระหว่างขั้วแม่เหล็กถาวรความเข้ม B ปฏิกิริยาระหว่างกระแสไฟฟ้าและสนามแม่เหล็กจะทำให้เกิดแรงลอเรนซ์ (Lorentz Force: F = I*L*B) ส่งผลให้เกิดแรงบิดบิดเบน (Deflecting Torque: Td) ผลักให้แกนเข็มหมุน</p>
-<p class="card-p">2. สเกลเชิงเส้น (Linear Scale):<br/>แรงบิดบิดเบน Td = B*I*N*A จะถูกต้านด้วยแรงบิดควบคุมจากสปริงก้นหอย Tc = C*theta เมื่อเข็มชี้หยุดนิ่ง (Td = Tc):<br/>theta = (B*N*A / C) * I<br/>เนื่องจากค่า B, N, A, C เป็นค่าคงที่ มุมเบี่ยงเบน theta จึงแปรผันตรงกับกระแส I ทำให้สเกลหน้าปัดแบ่งช่องได้เท่ากันอย่างสม่ำเสมอ (Linear Scale)</p>
-<p class="card-p">3. ทำไมวัดได้เฉพาะไฟ DC:<br/>หากนำไปต่อกับไฟสลับ (AC) 50 Hz ทิศทางของแรงบิดจะกลับทิศไปมา 50 ครั้งต่อวินาที ความเฉื่อยเชิงกล (Inertia) ของขดลวดและเข็มชี้ทำให้เข็มขยับตามไม่ทัน จึงชี้ที่ 'ค่าเฉลี่ย' ซึ่งสำหรับไฟสลับรูปคลื่นไซน์ ค่าเฉลี่ยใน 1 คาบจะเท่ากับศูนย์ (เข็มสั่นอยู่ที่ขีด 0)</p>
+                    <p class="card-p">1. หลักการทำงาน:<br/>ขดลวดทองแดงรูปสี่เหลี่ยมจำนวน $N$ รอบ พื้นที่หน้าตัด $A$ มีกระแส $I$ ไหลผ่าน ถูกติดตั้งอยู่ระหว่างขั้วแม่เหล็กถาวรความเข้มสนามแม่เหล็ก $B$ แรงลอเรนซ์ ($F = I L B$) ทำให้เกิดแรงบิดบิดเบน ($T_d$):<br/>$$T_d = B \cdot I \cdot N \cdot A = G \cdot I$$<br/>โดยที่ $G = B N A$ คือค่าคงที่ของกัลวาโนมิเตอร์</p>
+<p class="card-p">2. สเกลเชิงเส้น (Linear Scale):<br/>สปริงก้นหอยจะสร้างแรงบิดควบคุมต้านกลับ ($T_c$):<br/>$$T_c = C \cdot \theta$$<br/>เมื่อเข็มชี้หยุดนิ่งที่สภาวะสมดุล ($T_d = T_c$):<br/>$$\theta = \left(\frac{B \cdot N \cdot A}{C}\right) I = \left(\frac{G}{C}\right) I$$<br/>เนื่องจาก $B, N, A, C$ เป็นค่าคงที่ มุมเบี่ยงเบน $\theta$ จึงแปรผันตรงกับกระแส $I$ ส่งผลให้สเกลหน้าปัดแบ่งช่องได้เท่ากันอย่างสม่ำเสมอเป็นเชิงเส้น (Linear Scale)</p>
+<p class="card-p">3. เหตุผลที่วัดได้เฉพาะไฟ DC:<br/>หากนำไปต่อกับไฟสลับ (AC) 50 Hz ทิศทางของแรงบิดจะกลับทิศไปมา 50 ครั้งต่อวินาที ความเฉื่อยเชิงกล (Inertia) ของขดลวดทำให้เข็มขยับตามไม่ทัน จึงชี้ที่ค่าเฉลี่ยใน 1 คาบ:<br/>$$I_{\text{avg}} = \frac{1}{T} \int_0^T I_m \sin(\omega t)\, dt = 0$$<br/>เข็มชี้จึงสั่นอยู่ที่ขีด 0 หากต้องการวัดไฟ AC ต้องต่อร่วมกับวงจรเรียงกระแส (Rectifier) ก่อนเสมอ</p>
                   </div>
                 </div>
                 
@@ -2857,15 +2871,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 ข้อสอบจริง / คำนวณ</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 1 & Past Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 1 (Official Problem 1)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">การคำนวณแรงบิดบิดเบนและมุมเบี่ยงเบนของมิเตอร์ PMMC</h3>
+              <h3 class="card-topic">การคำนวณแรงบิดบิดเบนและมุมเบี่ยงเบนของมิเตอร์ PMMC (การบ้านข้อ 1)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">ขดลวด PMMC มีจำนวนรอบ N = 100 รอบ, ความกว้าง w = 2 cm, ความยาว l = 3 cm วางตัวในสนามแม่เหล็กสม่ำเสมอ B = 0.2 T สปริงควบคุมมีค่าคงที่ C = 1.2 x 10^-6 N*m/degree จงคำนวณแรงบิดบิดเบน (Deflecting Torque) และมุมเบี่ยงเบนของเข็มชี้ (theta) เมื่อมีกระแสไหล 1 mA</div>
+                <div class="card-question-text">ขดลวดเคลื่อนที่ของเครื่องมือวัดมีจำนวนรอบ N = 150 รอบ, พื้นที่หน้าตัดขดลวด A = 100 mm^2 วางตัวในสนามแม่เหล็ก B = 0.15 T สปริงควบคุมมีค่าคงที่ C = 2 x 10^-6 N*m/degree จงคำนวณหาแรงบิดบิดเบน (Td) และมุมเบี่ยงเบนของเข็มชี้ (theta) เมื่อมีกระแสไหล I = 5 mA (การบ้านบทที่ 10 ข้อ 1)</div>
               </div>
               
               
@@ -2873,7 +2887,7 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$A = w \cdot l = (0.02)(0.03) = 6 \times 10^{-4}\text{ m}^2$$</div>
+                    <div class="formula-line">$$A = 100\text{ mm}^2 = 100 \times 10^{-6}\text{ m}^2 = 10^{-4}\text{ m}^2$$</div>
 <div class="formula-line">$$T_d = B \cdot I \cdot N \cdot A$$</div>
 <div class="formula-line">$$\theta = \frac{T_d}{C}$$</div>
                   </div>
@@ -2883,9 +2897,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. คำนวณพื้นที่หน้าตัดขดลวด A:<br/>A = กว้าง x ยาว = 0.02 m x 0.03 m = 6 x 10^-4 m^2</p>
-<p class="card-p">2. คำนวณแรงบิดบิดเบน Td:<br/>Td = B * I * N * A<br/>Td = (0.2 T) * (1 x 10^-3 A) * 100 รอบ * (6 x 10^-4 m^2)<br/>Td = 1.2 x 10^-5 N*m</p>
-<p class="card-p">3. คำนวณมุมเบี่ยงเบนของเข็มชี้ theta:<br/>ที่สภาวะสมดุล Td = Tc = C * theta<br/>theta = Td / C<br/>theta = (1.2 x 10^-5 N*m) / (1.2 x 10^-6 N*m/degree)<br/>theta = 10 องศา</p>
+                    <p class="card-p">1. แปลงหน่วยพื้นที่หน้าตัดเป็นตารางเมตร ($m^2$):<br/>$$A = 100\text{ mm}^2 \times 10^{-6}\text{ m}^2/\text{mm}^2 = 10^{-4}\text{ m}^2$$</p>
+<p class="card-p">2. คำนวณแรงบิดบิดเบน ($T_d$):<br/>$$T_d = B \cdot I \cdot N \cdot A$$<br/>$$T_d = (0.15\text{ T}) \times (5 \times 10^{-3}\text{ A}) \times 150 \times (10^{-4}\text{ m}^2)$$<br/>$$T_d = 1.125 \times 10^{-5}\text{ N}\cdot\text{m}$$</p>
+<p class="card-p">3. คำนวณมุมเบี่ยงเบนของเข็มชี้ ($\theta$):<br/>ที่สภาวะสมดุล ($T_d = T_c = C \cdot \theta$):<br/>$$\theta = \frac{T_d}{C} = \frac{1.125 \times 10^{-5}\text{ N}\cdot\text{m}}{2 \times 10^{-6}\text{ N}\cdot\text{m/deg}} = 5.625^\circ$$</p>
                   </div>
                 </div>
                 
@@ -2893,7 +2907,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">ข้อควรระวัง: ต้องแปลงหน่วยมิติขดลวดจากเซนติเมตร (cm) เป็นเมตร (m) ก่อนเสมอ เพื่อไม่ให้คำนวณพื้นที่ผิดพลาดไป 10,000 เท่า</p>
+                    <p class="card-p">ข้อควรระวัง: ต้องแปลงหน่วยพื้นที่หน้าตัดจาก mm^2 เป็น m^2 เสมอ (100 mm^2 = 10^-4 m^2) มิฉะนั้นค่าแรงบิดจะผิดไป 1 ล้านเท่า</p>
                   </div>
                 </div>
                 
@@ -2907,17 +2921,17 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 ข้อสอบจริง / คำนวณ</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 2 & Final Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 2 (Official Problem 2)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">การออกแบบดีซีแอมมิเตอร์ (DC Ammeter) ทั้งกรณีมีและไม่มีความต้านทาน CDRX</h3>
+              <h3 class="card-topic">การออกแบบดีซีแอมมิเตอร์ ทั้งกรณีไม่มีและมีค่าแดมปิ้งวิกฤต CDRX (การบ้านข้อ 2)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">กัลวาโนมิเตอร์ตัวหนึ่งมีความต้านทานภายใน Rm = 100 โอห์ม, พิกัดกระแสเต็มสเกล Ifsd = 1 mA, และมีความต้านทานแดมปิ้งวิกฤต CDRX = 900 โอห์ม จงออกแบบแอมมิเตอร์วัดกระแสเต็มสเกล I = 1 A สำหรับ:
-(a) วงจรปกติที่ไม่มีความต้านทาน CDRX
-(b) วงจรที่มีความต้านทานแดมปิ้ง CDRX ร่วมด้วย</div>
+                <div class="card-question-text">กัลวาโนมิเตอร์ตัวหนึ่งมีความต้านทานภายใน Rg = 50 โอห์ม, กระแสเต็มสเกล Ig = 10 mA, และความต้านทานแดมปิ้งวิกฤต CDRX = 400 โอห์ม จงออกแบบดีซีแอมมิเตอร์วัดกระแสเต็มสเกล I = 100 mA สำหรับ:
+(a) วงจรปกติไม่มีความต้านทาน CDRX
+(b) วงจรที่มีความต้านทานแดมปิ้ง CDRX ร่วมด้วย (การบ้านบทที่ 10 ข้อ 2)</div>
               </div>
               
               
@@ -2930,10 +2944,11 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Without CDRX: } R_{\text{sh}} = \frac{I_{\text{fsd}} R_m}{I - I_{\text{fsd}}} = \frac{R_m}{m - 1}$$</div>
-<div class="formula-line">$$\text{With CDRX: Series resistor } R_s = \text{CDRX} - R_m$$</div>
-<div class="formula-line">$$R_{\text{sh}}' = \frac{I_{\text{fsd}} (R_m + R_s)}{I - I_{\text{fsd}}} = \frac{I_{\text{fsd}} \cdot \text{CDRX}}{I - I_{\text{fsd}}}$$</div>
-<div class="formula-line">$$\text{Total Meter Resistance: } R_{\text{in}} = R_{\text{sh}} \parallel (R_m + R_s)$$</div>
+                    <div class="formula-line">$$\text{Without CDRX: } R_{\text{sh}} = \frac{I_g R_g}{I - I_g} = \frac{R_g}{m - 1}$$</div>
+<div class="formula-line">$$\text{With CDRX: Series resistor } R_s = \text{CDRX} - R_g = 400 - 50 = 350\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{branch}} = R_g + R_s = \text{CDRX} = 400\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{sh}}' = \frac{I_g \cdot R_{\text{branch}}}{I - I_g} = \frac{I_g \cdot \text{CDRX}}{I - I_g}$$</div>
+<div class="formula-line">$$R_{\text{in}} = R_{\text{sh}}' \parallel R_{\text{branch}}$$</div>
                   </div>
                 </div>
                 
@@ -2941,8 +2956,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ข้อ (a) กรณีไม่มีความต้านทาน CDRX:<br/>- ตัวต้านทานชันต์ Rsh ต่อขนานกับขดลวดมิเตอร์ Rm เพื่อแบ่งกระแสส่วนเกินออกไป:<br/>I_sh = I - Ifsd = 1 A - 0.001 A = 0.999 A<br/>Rsh = (Ifsd * Rm) / (I - Ifsd) = (0.001 * 100) / 0.999 = 0.1001 โอห์ม</p>
-<p class="card-p">2. ข้อ (b) กรณีมีค่าแดมปิ้งวิกฤต CDRX:<br/>- ขดลวดมิเตอร์ต้องเห็นความต้านทานรวมเท่ากับ CDRX = 900 โอห์ม เพื่อให้เข็มชี้หยุดนิ่งเร็วที่สุดโดยไม่แกว่ง<br/>- ต่อตัวต้านทานอนุกรม Rs เพิ่มในขามิเตอร์: Rs = CDRX - Rm = 900 - 100 = 800 โอห์ม<br/>- ค่าความต้านทานรวมในกิ่งมิเตอร์กลายเป็น (Rm + Rs) = CDRX = 900 โอห์ม<br/>- คำนวณค่าตัวต้านทานชันต์ใหม่ Rsh':<br/>Rsh' = (Ifsd * CDRX) / (I - Ifsd) = (0.001 * 900) / 0.999 = 0.9009 โอห์ม</p>
+                    <p class="card-p">1. ข้อ (a) กรณีไม่มีความต้านทาน CDRX:<br/>กระแสที่ต้องแบ่งไหลผ่านตัวต้านทานชันต์:<br/>$$I_{\text{sh}} = I - I_g = 100\text{ mA} - 10\text{ mA} = 90\text{ mA} = 0.090\text{ A}$$<br/>คำนวณค่าตัวต้านทานชันต์ $R_{\text{sh}}$:<br/>$$R_{\text{sh}} = \frac{I_g \cdot R_g}{I - I_g} = \frac{(0.010\text{ A})(50\;\Omega)}{0.090\text{ A}} = \frac{0.50}{0.090} = 5.556\;\Omega$$</p>
+<p class="card-p">2. ข้อ (b) กรณีมีค่าแดมปิ้งวิกฤต (CDRX = 400 ohms):<br/>เพื่อให้ขดลวดมิเตอร์เห็นความต้านทานรวมเท่ากับ CDRX พอดี ต้องต่อตัวต้านทานอนุกรม $R_s$ ในกิ่งมิเตอร์:<br/>$$R_s = \text{CDRX} - R_g = 400\;\Omega - 50\;\Omega = 350\;\Omega$$<br/>ความต้านทานรวมในกิ่งมิเตอร์กลายเป็น:<br/>$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$<br/>คำนวณค่าตัวต้านทานชันต์ใหม่ $R_{\text{sh}}'$:<br/>$$R_{\text{sh}}' = \frac{I_g \cdot R_{\text{branch}}}{I - I_g} = \frac{(0.010\text{ A})(400\;\Omega)}{0.090\text{ A}} = \frac{4.0}{0.090} = 44.444\;\Omega$$<br/>ความต้านทานอินพุตรวมของแอมมิเตอร์:<br/>$$R_{\text{in}} = R_{\text{sh}}' \parallel R_{\text{branch}} = \frac{(44.444)(400)}{44.444 + 400} = 40.0\;\Omega$$</p>
                   </div>
                 </div>
                 
@@ -2950,7 +2965,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">ข้อผิดบ่อย: ตัวต้านทานปรับแดมปิ้ง Rs ต้องต่อ 'อนุกรม' เข้ากับ Rm (เพื่อให้ได้ผลรวมเป็น CDRX) จากนั้นจึงนำ Rsh มาต่อ 'ขนาน' ร่วมภายนอก</p>
+                    <p class="card-p">ข้อผิดบ่อย: ในแอมมิเตอร์ ตัวต้านทานปรับแดมปิ้ง Rs ต้องต่อ 'อนุกรม' เข้ากับ Rg เพื่อให้ได้ค่ารวมเป็น CDRX แล้วจึงนำ Rsh มาขนานภายนอก</p>
                   </div>
                 </div>
                 
@@ -2964,17 +2979,17 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 ข้อสอบจริง / คำนวณ</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 3 & Final Exam</span>
+                  <span class="card-ref-tag">📌 Homework Chapter 10 ข้อ 3 (Official Problem 3)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">การออกแบบดีซีโวลต์มิเตอร์ (DC Voltmeter) ทั้งกรณีมีและไม่มีความต้านทาน CDRX</h3>
+              <h3 class="card-topic">การออกแบบดีซีโวลต์มิเตอร์ ทั้งกรณีไม่มีและมีค่าแดมปิ้งวิกฤต CDRX (การบ้านข้อ 3)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">กัลวาโนมิเตอร์ตัวเดิม Rm = 100 โอห์ม, Ifsd = 1 mA และ CDRX = 900 โอห์ม จงออกแบบดีซีโวลต์มิเตอร์วัดแรงดันเต็มสเกล V = 100 V สำหรับ:
+                <div class="card-question-text">กัลวาโนมิเตอร์ตัวเดิมมีความต้านทานภายใน Rg = 50 โอห์ม, กระแสเต็มสเกล Ig = 10 mA, และความต้านทานแดมปิ้งวิกฤต CDRX = 400 โอห์ม จงออกแบบดีซีโวลต์มิเตอร์วัดแรงดันเต็มสเกล V = 50 V สำหรับ:
 (a) วงจรปกติไม่มีความต้านทาน CDRX
-(b) วงจรที่มีความต้านทานแดมปิ้ง CDRX ร่วมด้วย</div>
+(b) วงจรที่มีความต้านทานแดมปิ้ง CDRX ร่วมด้วย (การบ้านบทที่ 10 ข้อ 3)</div>
               </div>
               
               
@@ -2987,11 +3002,12 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Without CDRX: } R_s = \frac{V}{I_{\text{fsd}}} - R_m$$</div>
-<div class="formula-line">$$\text{With CDRX: Shunt damping resistor } R_p = \text{CDRX} = 900\;\Omega$$</div>
-<div class="formula-line">$$I_{\text{total}} = I_{\text{fsd}} + I_p = I_{\text{fsd}} \left(1 + \frac{R_m}{R_p}\right)$$</div>
-<div class="formula-line">$$R_s' = \frac{V - V_m}{I_{\text{total}}} = \frac{V - I_{\text{fsd}} R_m}{I_{\text{total}}}$$</div>
-<div class="formula-line">$$\text{Sensitivity: } S = \frac{1}{I_{\text{fsd}}} \;(\Omega/\text{V})$$</div>
+                    <div class="formula-line">$$\text{Without CDRX: } R_s = \frac{V}{I_g} - R_g$$</div>
+<div class="formula-line">$$\text{With CDRX: Parallel damping resistor } R_p = \text{CDRX} = 400\;\Omega$$</div>
+<div class="formula-line">$$V_m = I_g \cdot R_g \qquad I_p = \frac{V_m}{R_p}$$</div>
+<div class="formula-line">$$I_{\text{total}} = I_g + I_p = I_g \left(1 + \frac{R_g}{R_p}\right)$$</div>
+<div class="formula-line">$$R_s' = \frac{V - V_m}{I_{\text{total}}}$$</div>
+<div class="formula-line">$$\text{Sensitivity: } S = \frac{1}{I_{\text{total}}} \;(\Omega/\text{V})$$</div>
                   </div>
                 </div>
                 
@@ -2999,8 +3015,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ข้อ (a) กรณีไม่มีความต้านทาน CDRX:<br/>- ความต้านทานรวมของวงจรโวลต์มิเตอร์: R_total = V / Ifsd = 100 V / 0.001 A = 100,000 โอห์ม (100 k-ohms)<br/>- ตัวต้านทานอนุกรมตัวคูณแรงดัน (Multiplier Resistor Rs):<br/>Rs = R_total - Rm = 100,000 - 100 = 99,900 โอห์ม (99.9 k-ohms)</p>
-<p class="card-p">2. ข้อ (b) กรณีมีค่าแดมปิ้งวิกฤต CDRX:<br/>- สำหรับโวลต์มิเตอร์ การให้ขดลวดมิเตอร์เห็นความต้านทาน CDRX ต้องต่อตัวต้านทานขนาน Rp = CDRX = 900 โอห์ม 'คร่อมขนาน' กับขดลวดมิเตอร์ Rm<br/>- แรงดันตกคร่อมขดลวดเมื่อเต็มสเกล: Vm = Ifsd * Rm = 0.001 A * 100 โอห์ม = 0.1 V<br/>- กระแสที่ไหลผ่าน Rp: Ip = Vm / Rp = 0.1 V / 900 โอห์ม = 0.1111 mA<br/>- กระแสรวมที่เข้าวงจรโวลต์มิเตอร์: I_total = Ifsd + Ip = 1 mA + 0.1111 mA = 1.1111 mA<br/>- ตัวต้านทานอนุกรม Rs':<br/>Rs' = (V - Vm) / I_total = (100 - 0.1) / (1.1111 x 10^-3 A) = 89,910 โอห์ม (89.91 k-ohms)</p>
+                    <p class="card-p">1. ข้อ (a) กรณีไม่มีความต้านทาน CDRX:<br/>ความต้านทานรวมของวงจรโวลต์มิเตอร์:<br/>$$R_{\text{total}} = \frac{V}{I_g} = \frac{50\text{ V}}{0.010\text{ A}} = 5,000\;\Omega = 5\text{ k}\Omega$$<br/>ตัวต้านทานตัวคูณแรงดันอนุกรม ($R_s$):<br/>$$R_s = R_{\text{total}} - R_g = 5,000\;\Omega - 50\;\Omega = 4,950\;\Omega = 4.95\text{ k}\Omega$$</p>
+<p class="card-p">2. ข้อ (b) กรณีมีค่าแดมปิ้งวิกฤต (CDRX = 400 ohms):<br/>สำหรับโวลต์มิเตอร์ การให้ขดลวดเห็นค่าแดมปิ้ง ต้องต่อตัวต้านทาน $R_p = \text{CDRX} = 400\;\Omega$ แบบ 'ขนาน' คร่อมขดลวด:<br/>- แรงดันตกคร่อมขดลวดเมื่อเต็มสเกล:<br/>$$V_m = I_g \cdot R_g = (0.010\text{ A})(50\;\Omega) = 0.5\text{ V}$$<br/>- กระแสที่ไหลผ่านตัวต้านทานขนาน $R_p$:<br/>$$I_p = \frac{V_m}{R_p} = \frac{0.5\text{ V}}{400\;\Omega} = 1.25\text{ mA} = 0.00125\text{ A}$$<br/>- กระแสรวมที่เข้าสู่วงจรโวลต์มิเตอร์:<br/>$$I_{\text{total}} = I_g + I_p = 10\text{ mA} + 1.25\text{ mA} = 11.25\text{ mA} = 0.01125\text{ A}$$<br/>- ตัวต้านทานตัวคูณแรงดันอนุกรมใหม่ ($R_s'$):<br/>$$R_s' = \frac{V - V_m}{I_{\text{total}}} = \frac{50\text{ V} - 0.5\text{ V}}{0.01125\text{ A}} = \frac{49.5\text{ V}}{0.01125\text{ A}} = 4,400\;\Omega = 4.4\text{ k}\Omega$$<br/>- ความไวของโวลต์มิเตอร์ (Sensitivity: $S$):<br/>$$S = \frac{1}{I_{\text{total}}} = \frac{1}{0.01125\text{ A}} = 88.89\;\Omega/\text{V}$$</p>
                   </div>
                 </div>
                 
@@ -3026,11 +3042,11 @@ Conducted power + Transformed power</div>
                 </div>
               </div>
               
-              <h3 class="card-topic">การออกแบบดีซีแอมมิเตอร์หลายย่านวัด (Multi-Range) ร่วมกับความต้านทานแดมปิ้ง CDRX</h3>
+              <h3 class="card-topic">การออกแบบดีซีแอมมิเตอร์หลายย่านวัดร่วมกับความต้านทานแดมปิ้งวิกฤต CDRX (ข้อสอบไฟนอล 3.5)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงออกแบบดีซีแอมมิเตอร์ 3 ย่านวัด: I1 = 10 mA, I2 = 50 mA และ I3 = 100 mA โดยใช้กัลวาโนมิเตอร์ Rm = 50 โอห์ม, Ifsd = 1 mA และ CDRX = 450 โอห์ม จงคำนวณหาค่าความต้านทานแดมปิ้ง Rs และความต้านทานชันต์แต่ละย่านวัด Rsh1, Rsh2, Rsh3</div>
+                <div class="card-question-text">กัลวาโนมิเตอร์มีความไว 0.1 uA/mm, สเกลเบี่ยงเบนเต็มที่ 10 mm, ความต้านทานขดลวด Rg = 100 โอห์ม, และความต้านทานแดมปิ้งวิกฤต CDRX = 400 โอห์ม จงออกแบบแอมมิเตอร์วัดกระแสตรง 3 ย่านวัด: I1 = 1 mA, I2 = 50 mA, และ I3 = 1 A โดยคำนวณหาค่าความต้านทานแดมปิ้งอนุกรม Rs และความต้านทานชันต์แต่ละย่านวัด R11, R21, R31 (ข้อสอบไฟนอลข้อ 3.5 หน้า 29)</div>
               </div>
               
               
@@ -3043,9 +3059,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$R_s = \text{CDRX} - R_m = 450 - 50 = 400\;\Omega$$</div>
-<div class="formula-line">$$R_{\text{branch}} = R_m + R_s = 450\;\Omega$$</div>
-<div class="formula-line">$$R_{\text{sh},n} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_n - I_{\text{fsd}}} = \frac{(0.001)(450)}{I_n - 0.001}$$</div>
+                    <div class="formula-line">$$I_{\text{fsd}} = \text{Sensitivity} \times \text{Scale Length} = (0.1\;\mu\text{A/mm})(10\text{ mm}) = 1\;\mu\text{A} = 10^{-6}\text{ A}$$</div>
+<div class="formula-line">$$R_s = \text{CDRX} - R_g = 400\;\Omega - 100\;\Omega = 300\;\Omega$$</div>
+<div class="formula-line">$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$</div>
+<div class="formula-line">$$R_{n1} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_n - I_{\text{fsd}}}$$</div>
                   </div>
                 </div>
                 
@@ -3053,10 +3070,11 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. คำนวณตัวต้านทานแดมปิ้งอนุกรม Rs:<br/>Rs = CDRX - Rm = 450 - 50 = 400 โอห์ม<br/>ส่งผลให้ความต้านทานกิ่งมิเตอร์มีค่าเท่ากับ CDRX พอดี คือ R_branch = 450 โอห์ม</p>
-<p class="card-p">2. คำนวณค่า Shunt Resistor ในแต่ละย่านวัด:<br/>- ย่านที่ 1 (I1 = 10 mA):<br/>Rsh1 = (0.001 * 450) / (0.010 - 0.001) = 0.45 / 0.009 = 50.0 โอห์ม</p>
-<p class="card-p">- ย่านที่ 2 (I2 = 50 mA):<br/>Rsh2 = (0.001 * 450) / (0.050 - 0.001) = 0.45 / 0.049 = 9.184 โอห์ม</p>
-<p class="card-p">- ย่านที่ 3 (I3 = 100 mA):<br/>Rsh3 = (0.001 * 450) / (0.100 - 0.001) = 0.45 / 0.099 = 4.545 โอห์ม</p>
+                    <p class="card-p">1. คำนวณพิกัดกระแสเต็มสเกลของกัลวาโนมิเตอร์ ($I_{\text{fsd}}$):<br/>$$I_{\text{fsd}} = 0.1\;\mu\text{A/mm} \times 10\text{ mm} = 1\;\mu\text{A} = 10^{-6}\text{ A}$$</p>
+<p class="card-p">2. คำนวณตัวต้านทานแดมปิ้งอนุกรม ($R_s$):<br/>$$R_s = \text{CDRX} - R_g = 400\;\Omega - 100\;\Omega = 300\;\Omega$$<br/>ความต้านทานรวมในกิ่งมิเตอร์:<br/>$$R_{\text{branch}} = R_g + R_s = 400\;\Omega$$</p>
+<p class="card-p">3. คำนวณหาค่าความต้านทานชันต์แต่ละย่านวัด:<br/>- ย่านวัดที่ 1 ($I_1 = 1\text{ mA}$):<br/>$$R_{11} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_1 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{10^{-3}\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.000999} = 0.4004\;\Omega$$</p>
+<p class="card-p">- ย่านวัดที่ 2 ($I_2 = 50\text{ mA}$):<br/>$$R_{21} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_2 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{0.05\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.049999} = 0.00800\;\Omega$$</p>
+<p class="card-p">- ย่านวัดที่ 3 ($I_3 = 1\text{ A}$):<br/>$$R_{31} = \frac{I_{\text{fsd}} \cdot R_{\text{branch}}}{I_3 - I_{\text{fsd}}} = \frac{(10^{-6}\text{ A})(400\;\Omega)}{1.0\text{ A} - 10^{-6}\text{ A}} = \frac{0.0004}{0.999999} = 0.000400\;\Omega$$</p>
                   </div>
                 </div>
                 
@@ -3064,7 +3082,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">ข้อสังเกต: ยิ่งย่านวัดกระแสสูง ค่าความต้านทานชันต์ยิ่งต้องมีค่าน้อยลง (Rsh3 < Rsh2 < Rsh1) เพื่อให้กระแสส่วนใหญ่ไหลบายพาสผ่านตัวชันต์ไป</p>
+                    <p class="card-p">ข้อสังเกต: ยิ่งย่านวัดกระแสสูง ค่าความต้านทานชันต์ยิ่งต้องมีค่าน้อยลง (R31 < R21 < R11) เพื่อให้กระแสส่วนใหญ่ไหลบายพาสผ่านตัวชันต์ไป</p>
                   </div>
                 </div>
                 
@@ -3110,8 +3128,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ชันต์ของแอร์ตันคืออะไร:<br/>คือวงจรตัวต้านทานต่ออนุกรมกันเป็นลูกโซ่ (Ra + Rb + Rc) ต่อคร่อมถาวรกับขดลวดมิเตอร์ Rm การเปลี่ยนย่านวัดทำได้โดยการย้ายตำแหน่งแท็ป ซึ่งจะทำให้ความต้านทานส่วนหนึ่งกลายมาเป็นชันต์ และอีกส่วนหนึ่งกลายเป็นตัวต้านทานอนุกรมกับมิเตอร์</p>
-<p class="card-p">2. ข้อดีสำคัญที่สุดเหนือกว่าชันต์แบบแยกเดี่ยว:<br/>- ป้องกันมิเตอร์พังขณะสับสวิตช์: ในชันต์แบบเดิม หากสวิตช์หมุนเกิดจังหวะ 'หน้าสัมผัสลอย (Open-circuit)' ชั่วคราว กระแสโหลดทั้งหมดจะทะลักเข้าขดลวดมิเตอร์ Rm ทำให้ขดลวดไหม้ขาดทันที<br/>- วงจร Ayrton Shunt รับประกันว่าขดลวดมิเตอร์จะมีตัวต้านทานต่อขนานบายพาสกระแสอยู่ตลอดเวลาอย่างปลอดภัยแม้ขณะหมุนสวิตช์เปลี่ยนย่านวัด</p>
+                    <p class="card-p">1. วงจรชันต์ของแอร์ตันคืออะไร:<br/>คือวงจรตัวต้านทานต่ออนุกรมกัน ($R_a + R_b + R_c$) ต่อคร่อมถาวรกับขดลวดมิเตอร์ $R_m$ การเปลี่ยนย่านวัดทำได้โดยการย้ายจุดต่อแท็ป ซึ่งจะทำให้ความต้านทานบางส่วนทำหน้าที่เป็นตัวชันต์ และส่วนที่เหลือจะถูกต่ออนุกรมเข้ากับมิเตอร์</p>
+<p class="card-p">2. ข้อดีสำคัญที่สุดเหนือกว่าชันต์แบบสวิตช์เดี่ยว:<br/>- ป้องกันมิเตอร์พังขณะสับสวิตช์: ในชันต์แบบเดี่ยว หากหน้าสัมผัสของสวิตช์เกิดลอย (Open-circuit) ชั่วขณะขณะหมุน กระแสโหลดทั้งหมดจะไหลทะลักเข้าขดลวดมิเตอร์ $R_m$ ทำให้ขดลวดไหม้ขาดทันที<br/>- วงจร Ayrton Shunt รับประกันว่าขดลวดมิเตอร์จะมีตัวต้านทานต่อขนานบายพาสกระแสอยู่ตลอดเวลาอย่างปลอดภัยแม้ขณะหมุนสวิตช์เปลี่ยนย่านวัด</p>
+<p class="card-p">3. สมการคำนวณค่าตัวต้านทานแต่ละย่าน:<br/>- ย่านกระแสต่ำสุด $I_1$:<br/>$$R_a + R_b + R_c = \frac{I_{\text{fsd}} R_m}{I_1 - I_{\text{fsd}}}$$<br/>- ย่านกระแสปานกลาง $I_2$:<br/>$$R_b + R_c = \frac{I_{\text{fsd}} (R_m + R_a)}{I_2}$$<br/>- ย่านกระแสสูงสุด $I_3$:<br/>$$R_c = \frac{I_{\text{fsd}} (R_m + R_a + R_b)}{I_3}$$</p>
                   </div>
                 </div>
                 
@@ -3154,7 +3173,7 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}} = 20,000\;\Omega/\text{V} \quad (20\text{ k}\Omega/\text{V})$$</div>
+                    <div class="formula-line">$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}\text{ A}} = 20,000\;\Omega/\text{V} \quad (20\text{ k}\Omega/\text{V})$$</div>
 <div class="formula-line">$$R_{\text{total},1} = S \cdot V_1 = (20\text{ k}\Omega/\text{V})(10\text{ V}) = 200\text{ k}\Omega$$</div>
 <div class="formula-line">$$R_1 = R_{\text{total},1} - R_m = 200\text{ k}\Omega - 100\;\Omega = 199.9\text{ k}\Omega$$</div>
 <div class="formula-line">$$R_2 = S(V_2 - V_1) = 20\text{ k}\Omega/\text{V} \cdot (50 - 10) = 800\text{ k}\Omega$$</div>
@@ -3166,10 +3185,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ความไวของโวลต์มิเตอร์ (Sensitivity: S):<br/>S = 1 / Ifsd = 1 / (50 x 10^-6 A) = 20,000 โอห์ม/โวลต์ (20 k-ohm/V)</p>
-<p class="card-p">2. ย่านวัดที่ 1 (V1 = 10 V):<br/>R_total1 = S * 10 V = 200,000 โอห์ม<br/>R1 = R_total1 - Rm = 200,000 - 100 = 199,900 โอห์ม (199.9 k-ohms)</p>
-<p class="card-p">3. ย่านวัดที่ 2 (V2 = 50 V):<br/>R_total2 = S * 50 V = 1,000,000 โอห์ม<br/>R2 = R_total2 - R_total1 = 1,000,000 - 200,000 = 800,000 โอห์ม (800 k-ohms)</p>
-<p class="card-p">4. ย่านวัดที่ 3 (V3 = 250 V):<br/>R_total3 = S * 250 V = 5,000,000 โอห์ม<br/>R3 = R_total3 - R_total2 = 5,000,000 - 1,000,000 = 4,000,000 โอห์ม (4 M-ohms)</p>
+                    <p class="card-p">1. ความไวของโวลต์มิเตอร์ (Sensitivity: $S$):<br/>$$S = \frac{1}{I_{\text{fsd}}} = \frac{1}{50 \times 10^{-6}\text{ A}} = 20,000\;\Omega/\text{V} = 20\text{ k}\Omega/\text{V}$$</p>
+<p class="card-p">2. ย่านวัดที่ 1 ($V_1 = 10\text{ V}$):<br/>$$R_{\text{total},1} = S \cdot V_1 = (20\text{ k}\Omega/\text{V})(10\text{ V}) = 200\text{ k}\Omega$$<br/>$$R_1 = R_{\text{total},1} - R_m = 200\text{ k}\Omega - 0.1\text{ k}\Omega = 199.9\text{ k}\Omega$$</p>
+<p class="card-p">3. ย่านวัดที่ 2 ($V_2 = 50\text{ V}$):<br/>ในวงจรตัวคูณแบบอนุกรมเรียงลำดับ ความต้านทานตัวถัดไปคำนวณจากผลต่างของแรงดันระหว่างสองย่านวัด:<br/>$$R_2 = S \cdot (V_2 - V_1) = (20\text{ k}\Omega/\text{V})(50\text{ V} - 10\text{ V}) = 800\text{ k}\Omega$$</p>
+<p class="card-p">4. ย่านวัดที่ 3 ($V_3 = 250\text{ V}$):<br/>$$R_3 = S \cdot (V_3 - V_2) = (20\text{ k}\Omega/\text{V})(250\text{ V} - 50\text{ V}) = 4,000\text{ k}\Omega = 4\text{ M}\Omega$$</p>
                   </div>
                 </div>
                 
@@ -3213,9 +3232,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I = \frac{E}{R_{\text{in}} + R_x}$$</div>
-<div class="formula-line">$$R_x = 0 \implies I = I_{\text{fsd}} \quad (\text{Rightmost edge})$$</div>
-<div class="formula-line">$$R_x = R_{\text{in}} \implies I = 0.5\, I_{\text{fsd}} \quad (\text{Center of scale: } R_h)$$</div>
-<div class="formula-line">$$R_x = \infty \implies I = 0 \quad (\text{Leftmost zero current})$$</div>
+<div class="formula-line">$$R_x = 0 \implies I = I_{\text{fsd}} = \frac{E}{R_{\text{in}}} \quad (\text{Far Right: } 0\;\Omega)$$</div>
+<div class="formula-line">$$R_x = R_h = R_{\text{in}} \implies I = 0.5\, I_{\text{fsd}} \quad (\text{Center of scale: } R_h)$$</div>
+<div class="formula-line">$$R_x = \infty \implies I = 0 \quad (\text{Far Left zero current: } \infty\;\Omega)$$</div>
                   </div>
                 </div>
                 
@@ -3223,9 +3242,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. โครงสร้างวงจร:<br/>ประกอบด้วยแบตเตอรี่ภายใน E, ตัวต้านทานจำกัดกระแส R1, ตัวต้านทานปรับศูนย์ (Zero-adjust R2) และขดลวดมิเตอร์ Rm ต่ออนุกรมทั้งหมดเข้ากับความต้านทานที่ต้องการวัด Rx</p>
-<p class="card-p">2. ตำแหน่งเข็มชี้ตามพิกัดความต้านทาน:<br/>- เมื่อ Rx = 0 (ช็อตปลายสายวัด): กระแสไหลสูงสุดเต็มสเกล (Ifsd) เข็มชี้เบี่ยงเบนไปสุดทาง 'ขวามือ' = อ่านค่า 0 โอห์ม<br/>- เมื่อ Rx = R_in (ความต้านทานเท่ากับความต้านทานภายในมิเตอร์): กระแสลดลงเหลือครึ่งหนึ่ง (0.5 Ifsd) เข็มชี้ตรง 'กึ่งกลางหน้าปัด' = จุด Half-Scale (Rh)<br/>- เมื่อ Rx = อินฟินิตี้ (เปิดวงจร ไม่ต่อสาย): ไม่มีกระแสไหล เข็มชี้ไม่กระดิก อยู่ที่ตำแหน่งพัก 'ซ้ายมือสุด' = อ่านค่า อินฟินิตี้</p>
-<p class="card-p">3. ทำไมสเกลอ่านกลับด้านและไม่สม่ำเสมอ:<br/>จากสมการ I = E / (R_in + Rx) กระแส I แปรผกผันกับ Rx ส่งผลให้สเกลอ่านจากขวาไปซ้าย และระยะห่างของขีดบนหน้าปัดจะไม่เท่ากัน โดยช่องจะกว้างทางฝั่งขวา (โอห์มต่ำ) และเบียดชิดกันมากทางฝั่งซ้าย (โอห์มสูง)</p>
+                    <p class="card-p">1. โครงสร้างวงจร:<br/>ประกอบด้วยแบตเตอรี่ภายใน $E$, ตัวต้านทานจำกัดกระแส $R_1$, ตัวต้านทานปรับศูนย์ ($R_2$) และขดลวดมิเตอร์ $R_m$ ต่ออนุกรมทั้งหมดเข้ากับความต้านทานที่ต้องการวัด $R_x$</p>
+<p class="card-p">2. ตำแหน่งเข็มชี้ตามพิกัดความต้านทาน:<br/>- เมื่อ $R_x = 0$ (ช็อตปลายสายวัด): กระแสไหลสูงสุดเต็มสเกล ($I_{\text{fsd}}$) เข็มชี้เบี่ยงเบนไปสุดทาง 'ขวามือ' อ่านค่า $0\;\Omega$:<br/>$$I = I_{\text{fsd}} = \frac{E}{R_{\text{in}}} \implies 0\;\Omega$$<br/>- เมื่อ $R_x = R_{\text{in}} = R_h$ (ความต้านทานเท่ากับความต้านทานภายในมิเตอร์): ความต้านทานรวมเพิ่มเป็น 2 เท่า กระแสลดลงครึ่งหนึ่ง ($0.5 I_{\text{fsd}}$) เข็มชี้ตรง 'กึ่งกลางหน้าปัด' พอดี:<br/>$$I = 0.5\, I_{\text{fsd}} \implies R_h$$<br/>- เมื่อ $R_x = \infty$ (เปิดวงจร ไม่ต่อสาย): ไม่มีกระแสไหล ($I = 0$) เข็มชี้อยู่ที่ตำแหน่งพัก 'ซ้ายมือสุด' อ่านค่า $\infty\;\Omega$</p>
+<p class="card-p">3. ทำไมสเกลอ่านกลับด้านและไม่สม่ำเสมอ:<br/>จากสมการ $I = E / (R_{\text{in}} + R_x)$ กระแส $I$ แปรผกผันกับ $R_x$ สเกลจึงอ่านจากขวาไปซ้าย โดยช่องจะกว้างทางฝั่งขวา (โอห์มต่ำ) และเบียดชิดกันมากทางฝั่งซ้าย (โอห์มสูง)</p>
                   </div>
                 </div>
                 
@@ -3269,9 +3288,10 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I_m = I_{\text{total}} \cdot \frac{R_x}{R_m + R_x}$$</div>
-<div class="formula-line">$$R_x = 0 \implies I_m = 0 \quad (\text{Leftmost edge = 0 }\Omega)$$</div>
-<div class="formula-line">$$R_x = \infty \implies I_m = I_{\text{fsd}} \quad (\text{Rightmost edge = } \infty\;\Omega)$$</div>
-<div class="formula-line">$$\text{Suited for LOW resistance measurement } (5\;\text{m}\Omega - 100\;\Omega)$$</div>
+<div class="formula-line">$$R_x = 0 \implies I_m = 0 \quad (\text{Far Left edge = } 0\;\Omega)$$</div>
+<div class="formula-line">$$R_x = R_m \implies I_m = 0.5\, I_{\text{total}} \quad (\text{Center of scale = } R_m)$$</div>
+<div class="formula-line">$$R_x = \infty \implies I_m = I_{\text{fsd}} \quad (\text{Far Right edge = } \infty\;\Omega)$$</div>
+<div class="formula-line">$$\text{Measurement range: Low resistance } (5\;\text{m}\Omega - 100\;\Omega)$$</div>
                   </div>
                 </div>
                 
@@ -3279,9 +3299,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. หลักการทำงาน:<br/>นำความต้านทานที่ไม่ทราบค่า Rx มาต่อ 'ขนาน (Shunt)' คร่อมขดลวดมิเตอร์ Rm แทนการต่ออนุกรม</p>
-<p class="card-p">2. ทิศทางสเกลหน้าปัด:<br/>- เมื่อ Rx = 0 (ช็อตสายวัด): กระแสทั้งหมดจะไหลลัดวงจรผ่าน Rx ทำให้ไม่มีกระแสเข้าขดลวดมิเตอร์ (Im = 0) เข็มชี้อยู่ที่ตำแหน่งพัก 'ซ้ายสุด' = 0 โอห์ม<br/>- เมื่อ Rx = อินฟินิตี้ (เปิดวงจร): ไม่มีกระแสแยกไหลผ่าน Rx กระแสไหลเข้าขดลวดมิเตอร์เต็มที่ เข็มชี้เบี่ยงเบนไป 'ขวาสุด' = อินฟินิตี้<br/>- สรุป: สเกลของโอห์มมิเตอร์แบบขนานจะอ่านจาก 'ซ้ายไปขวา' (0 อยู่ซ้าย, อินฟินิตี้อยู่ขวา) เหมือนกับโวลต์มิเตอร์และแอมมิเตอร์ทั่วไป</p>
-<p class="card-p">3. การประยุกต์ใช้งาน:<br/>เหมาะอย่างยิ่งสำหรับการวัดค่าความต้านทานต่ำมาก (Low Resistance เช่น 0.1 โอห์ม - 50 โอห์ม) เช่น ขดลวดมอเตอร์, ขดลวดหม้อแปลง, และความต้านทานหน้าสัมผัสของสวิตช์</p>
+                    <p class="card-p">1. หลักการทำงาน:<br/>นำความต้านทานที่ไม่ทราบค่า $R_x$ มาต่อ 'ขนาน (Shunt)' คร่อมขดลวดมิเตอร์ $R_m$ แทนการต่ออนุกรม</p>
+<p class="card-p">2. ทิศทางสเกลหน้าปัด:<br/>- เมื่อ $R_x = 0$ (ช็อตสายวัด): กระแสทั้งหมดจะไหลลัดวงจรผ่าน $R_x$ ทำให้ไม่มีกระแสเข้าขดลวดมิเตอร์ ($I_m = 0$) เข็มชี้อยู่ที่ตำแหน่งพัก 'ซ้ายสุด' อ่านค่า $0\;\Omega$:<br/>$$I_m = 0 \implies 0\;\Omega$$<br/>- เมื่อ $R_x = R_m$: กระแสแบ่งไหลเท่ากัน เข็มชี้เบี่ยงเบนกึ่งกลางสเกล ($0.5 I_{\text{fsd}}$)<br/>- เมื่อ $R_x = \infty$ (เปิดวงจร): ไม่มีกระแสแยกไหลผ่าน $R_x$ กระแสทั้งหมดไหลเข้าขดลวดมิเตอร์เต็มที่ เข็มชี้เบี่ยงเบนไป 'ขวาสุด' อ่านค่า $\infty\;\Omega$:<br/>$$I_m = I_{\text{fsd}} \implies \infty\;\Omega$$<br/>สรุป: สเกลของโอห์มมิเตอร์แบบขนานจะอ่านจาก 'ซ้ายไปขวา' ($0$ อยู่ซ้าย, $\infty$ อยู่ขวา) เหมือนกับโวลต์มิเตอร์และแอมมิเตอร์ทั่วไป</p>
+<p class="card-p">3. การประยุกต์ใช้งาน:<br/>เหมาะอย่างยิ่งสำหรับการวัดค่าความต้านทานต่ำมาก (Low Resistance เช่น $0.01\;\Omega - 50\;\Omega$) เช่น ขดลวดมอเตอร์, ขดลวดหม้อแปลง, และความต้านทานหน้าสัมผัสของสวิตช์</p>
                   </div>
                 </div>
                 
@@ -3319,9 +3339,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$R_{\text{scale}} = \text{Reading on Dial} \times \text{Range Multiplier}$$</div>
+                    <div class="formula-line">$$R_{\text{measured}} = \text{Dial Reading} \times \text{Range Multiplier}$$</div>
 <div class="formula-line">$$R_{h,\text{new}} = R_h \times \text{Multiplier}$$</div>
-<div class="formula-line">$$\text{Battery Aging: } E \downarrow \implies \text{Adjust } R_{\text{zero}} \downarrow \text{ to maintain } I_{\text{fsd}} = \frac{E}{R_{\text{in}}}$$</div>
+<div class="formula-line">$$\text{Battery Decline: } E \downarrow \implies \text{Decrease } R_{\text{zero}} \text{ so that } I_{\text{fsd}} = \frac{E}{R_{\text{in}}}$$</div>
                   </div>
                 </div>
                 
@@ -3329,8 +3349,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. หน้าที่ของปุ่มปรับศูนย์โอห์ม (Zero-Adjust Rheostat):<br/>เมื่อแบตเตอรี่ภายในมัลติมิเตอร์ถูกใช้งานไปนานๆ แรงดันไฟฟ้า E จะค่อยๆ ตกและค่าความต้านทานภายในถ่านจะสูงขึ้น ปุ่ม Zero-Adjust มีไว้เพื่อปรับลดค่าความต้านทานวงจรภายในชดเชยแรงดันถ่านที่ลดลง ทำให้เมื่อนำปลายสายวัดมาช็อตกัน เข็มชี้ยังคงเบี่ยงเบนไปตรงขีด 0 โอห์มได้อย่างแม่นยำ</p>
-<p class="card-p">2. การทำงานของย่านวัดตัวคูณ (Multipliers):<br/>การเปลี่ยนสวิตช์ย่านวัด (เช่น R x 1, R x 100, R x 10k) จะสลับวงจรแบ่งแรงดันภายใน ทำให้ความต้านทานกึ่งกลางสเกล (Half-scale Rh) ขยายตามตัวคูณนั้น ผู้ใช้ควรรักษาตำแหน่งเข็มให้อยู่บริเวณกึ่งกลางหน้าปัดเสมอเพื่อความเที่ยงตรงสูงสุด</p>
+                    <p class="card-p">1. หน้าที่ของปุ่มปรับศูนย์โอห์ม (Zero-Adjust Rheostat):<br/>เมื่อแบตเตอรี่ภายในมัลติมิเตอร์ถูกใช้งานไปนานๆ แรงดันไฟฟ้า $E$ จะค่อยๆ ลดลงและค่าความต้านทานภายในถ่านจะสูงขึ้น ปุ่ม Zero-Adjust มีไว้เพื่อปรับลดค่าความต้านทานวงจรภายในชดเชยแรงดันถ่านที่ลดลง ทำให้เมื่อนำปลายสายวัดมาช็อตกัน ($R_x = 0$) เข็มชี้ยังคงเบี่ยงเบนไปตรงขีด $0\;\Omega$ ได้อย่างแม่นยำ</p>
+<p class="card-p">2. การทำงานของย่านวัดตัวคูณ (Multipliers):<br/>การเปลี่ยนสวิตช์ย่านวัด (เช่น $R \times 1, R \times 100, R \times 10\text{k}$) จะสลับวงจรแบ่งแรงดันภายใน ทำให้ความต้านทานกึ่งกลางสเกล (Half-scale $R_h$) ขยายตามตัวคูณนั้น:<br/>$$R_{h,\text{new}} = R_h \times \text{Multiplier}$$<br/>ผู้ใช้ควรรักษาตำแหน่งเข็มให้อยู่บริเวณกึ่งกลางหน้าปัดเสมอเพื่อความเที่ยงตรงสูงสุด</p>
                   </div>
                 </div>
                 
@@ -3352,15 +3372,15 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-calc">🔴 ข้อสอบจริง / คำนวณ</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Lecture Chapter 10 & Jele Sheet</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.2 (หน้า 30 - 3 คะแนน)</span>
                 </div>
               </div>
               
-              <h3 class="card-topic">เอซีโวลต์มิเตอร์แบบใช้วงจรเรียงกระแส (Rectifier AC Voltmeter) และฟอร์มแฟกเตอร์</h3>
+              <h3 class="card-topic">เอซีโวลต์มิเตอร์แบบใช้วงจรเรียงกระแส (Rectifier AC Voltmeter) และฟอร์มแฟกเตอร์ (ข้อสอบไฟนอล 3.2)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">เมื่อนำมิเตอร์ PMMC มาต่อร่วมกับวงจรบริดจ์เรกติไฟเออร์แบบเต็มคลื่น (Full-Wave Rectifier) เพื่อวัดแรงดันไฟฟ้ากระแสสลับรูปคลื่นไซน์ จงอธิบายความสัมพันธ์ระหว่างค่าเฉลี่ย DC ที่มิเตอร์ตอบสนอง กับค่า RMS ของแรงดัน AC และอธิบายว่าจะเกิดความผิดพลาดอย่างไรหากนำไปวัดคลื่นสี่เหลี่ยมหรือคลื่นสามเหลี่ยม</div>
+                <div class="card-question-text">เมื่อนำมิเตอร์ PMMC มาต่อร่วมกับวงจรบริดจ์เรกติไฟเออร์แบบเต็มคลื่น (Full-Wave Rectifier) เพื่อวัดแรงดันไฟฟ้ากระแสสลับรูปคลื่นไซน์ จงอธิบายความสัมพันธ์ระหว่างค่าเฉลี่ย DC ที่มิเตอร์ตอบสนอง กับค่า RMS ของแรงดัน AC และอธิบายว่าจะเกิดความผิดพลาดอย่างไรหากนำไปวัดคลื่นสี่เหลี่ยมหรือคลื่นสามเหลี่ยม (ข้อสอบไฟนอลข้อ 3.2 หน้า 30)</div>
               </div>
               
               
@@ -3368,10 +3388,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$V_{\text{avg}} = \frac{2}{\pi} V_m = 0.637\, V_m$$</div>
-<div class="formula-line">$$V_{\text{rms}} = \frac{V_m}{\sqrt{2}} = 0.707\, V_m$$</div>
-<div class="formula-line">$$\text{Form Factor } k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{0.707}{0.637} = 1.11$$</div>
-<div class="formula-line">$$V_{\text{scale}} = 1.11 \times V_{\text{avg}}$$</div>
+                    <div class="formula-line">$$V_{\text{avg}} = \frac{2}{\pi} V_m \approx 0.637\, V_m$$</div>
+<div class="formula-line">$$V_{\text{rms}} = \frac{V_m}{\sqrt{2}} \approx 0.707\, V_m$$</div>
+<div class="formula-line">$$\text{Form Factor } k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{0.707\, V_m}{0.637\, V_m} = 1.11$$</div>
+<div class="formula-line">$$V_{\text{scale}} = 1.11 \times V_{\text{avg}} = V_{\text{rms}}$$</div>
                   </div>
                 </div>
                 
@@ -3379,9 +3399,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. การตอบสนองของ PMMC:<br/>ขดลวดเคลื่อนที่ PMMC ตอบสนองต่อ 'ค่าเฉลี่ย (Average DC)' หลังผ่านการเรียงกระแส: V_avg = (2/pi)*Vm = 0.637 Vm</p>
-<p class="card-p">2. การปรับเทียบสเกลหน้าปัด (AC Calibration):<br/>ผู้ใช้งานต้องการอ่านค่าแรงดันใช้งานจริง หรือค่ายังผล (RMS) หน้าปัดจึงถูกสเกลค่าล่วงหน้าโดยคูณด้วย 'ฟอร์มแฟกเตอร์ (Form Factor: kf)':<br/>kf = V_rms / V_avg = (Vm / sqrt(2)) / (2*Vm / pi) = 1.11<br/>ดังนั้น สเกล AC จึงถูกตั้งไว้ที่ 1.11 เท่าของค่าเฉลี่ย</p>
-<p class="card-p">3. ข้อผิดพลาดเมื่อวัดรูปคลื่นอื่นที่ไม่ใช่ไซน์:<br/>หากนำไปวัดรูปคลื่นสี่เหลี่ยม (Square Wave ซึ่งมี kf = 1.00) มิเตอร์จะอ่านค่าสูงเกินจริง 11% หากต้องการวัดสัญญาณรูปคลื่นใดๆ ให้แม่นยำ ต้องใช้มิเตอร์ประเภท 'True RMS'</p>
+                    <p class="card-p">1. การตอบสนองของ PMMC:<br/>ขดลวดเคลื่อนที่ PMMC ตอบสนองต่อ 'ค่าเฉลี่ย (Average DC)' หลังผ่านการเรียงกระแส:<br/>$$V_{\text{avg}} = \frac{2}{\pi} V_m \approx 0.637\, V_m$$</p>
+<p class="card-p">2. การปรับเทียบสเกลหน้าปัด (AC Calibration):<br/>ผู้ใช้งานต้องการอ่านค่าแรงดันยังผล หรือค่ายังผล (RMS) หน้าปัดจึงถูกปรับสเกลล่วงหน้าโดยคูณด้วย 'ฟอร์มแฟกเตอร์ (Form Factor: $k_f$)':<br/>$$k_f = \frac{V_{\text{rms}}}{V_{\text{avg}}} = \frac{V_m / \sqrt{2}}{2 V_m / \pi} = \frac{\pi}{2 \sqrt{2}} \approx 1.11$$<br/>ดังนั้น สเกล AC จึงถูกตั้งค่าให้อ่านเป็น $1.11$ เท่าของค่าเฉลี่ย:<br/>$$V_{\text{dial}} = 1.11 \times V_{\text{avg}} = V_{\text{rms}}$$</p>
+<p class="card-p">3. ข้อผิดพลาดเมื่อวัดรูปคลื่นอื่นที่ไม่ใช่ไซน์:<br/>สำหรับคลื่นสี่เหลี่ยม (Square Wave) มีค่า $k_f = 1.00$ หากนำมิเตอร์นี้ไปวัดไฟคลื่นสี่เหลี่ยม $10\text{ V}$ มิเตอร์จะคูณ $1.11$ และอ่านได้ $11.1\text{ V}$ (ผิดพลาดสูงเกินจริง $+11\%$) หากต้องการวัดสัญญาณรูปคลื่นใดๆ ให้แม่นยำ ต้องใช้มิเตอร์ประเภท 'True RMS'</p>
                   </div>
                 </div>
                 
@@ -3411,7 +3431,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงอธิบายโครงสร้างของวัตต์มิเตอร์แบบอิเล็กโทรไดนาโมมิเตอร์ (Electrodynamometer Wattmeter) ขดลวดกระแส (Current Coil: CC) และขดลวดแรงดัน (Potential Coil: PC) ต้องต่อเข้ากับโหลดอย่างไร และมีข้อควรระวังใดในการป้องกันขดลวดไหม้?</div>
+                <div class="card-question-text">จงอธิบายโครงสร้างของวัตต์มิเตอร์แบบอิเล็กโทรไดนาโมมิเตอร์ (Electrodynamometer Wattmeter) ขดลวดกระแส (Current Coil: CC) และขดลวดแรงดัน (Potential Coil: PC) ต้องต่อเข้ากับโหลดอย่างไร และมีข้อควรระวังใดในการป้องกันขดลวดไหม้? (ข้อสอบไฟนอลข้อ 3.4 หน้า 30)</div>
               </div>
               
               
@@ -3425,8 +3445,9 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$P = V_{\text{load}} \cdot I_{\text{load}} \cdot \cos\theta$$</div>
-<div class="formula-line">$$\text{Current Coil (CC): Fixed, thick wire, low turns } \implies \text{Connected in SERIES with load}$$</div>
-<div class="formula-line">$$\text{Potential Coil (PC): Moving, fine wire, high turns } \implies \text{Connected in PARALLEL across load}$$</div>
+<div class="formula-line">$$\text{Current Coil (CC): Fixed, thick wire, low turns } \implies \text{Connected in SERIES with load (Terminals 1--2)}$$</div>
+<div class="formula-line">$$\text{Potential Coil (PC): Moving, fine wire, high turns } \implies \text{Connected in PARALLEL across load (Terminals 3--5)}$$</div>
+<div class="formula-line">$$\text{Burnout Hazard: Connecting CC in parallel creates a dead short circuit } I_{\text{sc}} = \frac{V}{R_{\text{CC}}} \approx \infty$$</div>
                   </div>
                 </div>
                 
@@ -3434,9 +3455,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. โครงสร้างและการต่อใช้งาน:<br/>- ขดลวดกระแส (Current Coil: CC): เป็นขดลวดลวดทองแดงเส้นใหญ่ จำนวนรอบน้อย (ความต้านทานต่ำมากใกล้ศูนย์) ต้องต่อ 'อนุกรม' กับโหลด เพื่อให้กระแสโหลดทั้งหมดไหลผ่าน<br/>- ขดลวดแรงดัน (Potential Coil: PC): เป็นขดลวดเส้นเล็ก จำนวนรอบมาก ต่ออนุกรมกับตัวต้านทานค่าสูง ต้องต่อ 'ขนาน' คร่อมโหลด เพื่อวัดแรงดันตกคร่อมโหลด</p>
-<p class="card-p">2. การแสดงค่ากำลังไฟฟ้า:<br/>แรงบิดของเข็มชี้จะแปรผันตามผลคูณของสนามแม่เหล็กจากทั้งสองขดลวด ทำให้เข็มชี้แสดงค่ากำลังไฟฟ้าจริงเฉลี่ย: P = V * I * cos(theta)</p>
-<p class="card-p">3. ข้อควรระวังอันตรายขดลวดไหม้:<br/>ห้ามนำขดลวดกระแส (CC) ไปต่อขนานคร่อมแหล่งจ่ายไฟเด็ดขาด! เพราะ CC มีความต้านทานต่ำมาก หากต่อขนานจะเกิดการลัดวงจรโดยตรง ทำให้ขดลวดไหม้ละลายทันที</p>
+                    <p class="card-p">1. โครงสร้างและการต่อใช้งาน:<br/>- ขดลวดกระแส (Current Coil: CC): เป็นขดลวดลวดทองแดงเส้นใหญ่ จำนวนรอบน้อย (ความต้านทานต่ำมากใกล้ศูนย์) ต้องต่อ 'อนุกรม' กับโหลด (ขั้ว 1-2) เพื่อให้กระแสโหลดทั้งหมดไหลผ่าน<br/>- ขดลวดแรงดัน (Potential Coil: PC): เป็นขดลวดเส้นเล็ก จำนวนรอบมาก ต่ออนุกรมกับตัวต้านทานค่าสูง ต้องต่อ 'ขนาน' คร่อมโหลด (ขั้ว 3-5) เพื่อวัดแรงดันตกคร่อมโหลด</p>
+<p class="card-p">2. การแสดงค่ากำลังไฟฟ้า:<br/>แรงบิดของเข็มชี้จะแปรผันตามผลคูณของสนามแม่เหล็กจากทั้งสองขดลวด ทำให้เข็มชี้แสดงค่ากำลังไฟฟ้าจริงเฉลี่ย:<br/>$$P = V_{\text{load}} \cdot I_{\text{load}} \cdot \cos\theta$$</p>
+<p class="card-p">3. ข้อควรระวังอันตรายขดลวดไหม้:<br/>ห้ามนำขดลวดกระแส (CC) ไปต่อขนานคร่อมแหล่งจ่ายไฟเด็ดขาด! เพราะ CC มีความต้านทานต่ำมาก หากต่อขนานจะเกิดการลัดวงจรโดยตรง ($I_{\text{sc}} \approx \infty$) ทำให้ขดลวดไหม้ละลายทันที</p>
                   </div>
                 </div>
                 
@@ -3458,7 +3479,7 @@ Conducted power + Transformed power</div>
                   <span class="card-diff-tag badge-concept">🟢 แนวคิดสำคัญ (Concept)</span>
                 </div>
                 <div class="card-header-right">
-                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.1 (หน้า 30 - 2 คะแนน)</span>
+                  <span class="card-ref-tag">📌 Final Exam ข้อ 3.3 (หน้า 30 - 2 คะแนน)</span>
                 </div>
               </div>
               
@@ -3466,7 +3487,7 @@ Conducted power + Transformed power</div>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงอธิบายหลักการทำงานของมาตรวัดพลังงานไฟฟ้าแบบเหนี่ยวนำ (Induction Kilowatt-Hour Meter จานหมุน) อะไรเป็นตัวสร้างแรงบิดขับจานอะลูมิเนียม และแม่เหล็กถาวรหน่วงการหมุน (Braking Magnet) มีหน้าที่อะไร?</div>
+                <div class="card-question-text">จงอธิบายหลักการทำงานของมาตรวัดพลังงานไฟฟ้าแบบเหนี่ยวนำ (Induction Kilowatt-Hour Meter จานหมุน) อะไรเป็นตัวสร้างแรงบิดขับจานอะลูมิเนียม และแม่เหล็กถาวรหน่วงการหมุน (Braking Magnet) มีหน้าที่อะไร? (ข้อสอบไฟนอลข้อ 3.3 หน้า 30)</div>
               </div>
               
               
@@ -3485,9 +3506,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. การสร้างแรงบิดขับหมุนจานอะลูมิเนียม:<br/>มาตรวัดประกอบด้วยแม่เหล็กไฟฟ้าขดลวดแรงดัน (Shunt Magnet) และแม่เหล็กไฟฟ้าขดลวดกระแส (Series Magnet) ฟลักซ์แม่เหล็กสลับจากทั้งสองขดลวดจะเหนี่ยวนำให้เกิดกระแสไหลวน (Eddy Currents) บนจานอะลูมิเนียม ปฏิกิริยาระหว่างกระแสไหลวนและฟลักซ์แม่เหล็กทำให้เกิดแรงผลักเป็นแรงบิดหมุนขับ (Driving Torque: Td) ซึ่งแปรผันตรงกับกำลังไฟฟ้าจริง P</p>
-<p class="card-p">2. หน้าที่ของแม่เหล็กเบรก (Braking Magnet):<br/>แม่เหล็กถาวรรูปเกือกม้าที่ติดตั้งคร่อมขอบจาน จะสร้างแรงบิดหน่วง (Braking Torque: Tb) ที่แปรผันตรงกับความเร็วรอบการหมุน (omega) โดยอาศัยหลักการของ Eddy Current Braking</p>
-<p class="card-p">3. การรวมหน่วยพลังงานไฟฟ้า (kWh):<br/>เมื่อแรงบิดขับสมดุลกับแรงบิดเบรก (Td = Tb) ความเร็วรอบจานหมุนจะแปรผันตรงกับกำลังไฟฟ้า P ทำให้จำนวนรอบการหมุนทั้งหมดของจานแปรผันตรงกับพลังงานไฟฟ้ารวม: Energy = Integral(P dt) ซึ่งจะส่งผ่านชุดเฟืองไปหมุนตัวเลขหน้าปัดบอกค่าเป็น กิโลวัตต์-ชั่วโมง (kWh)</p>
+                    <p class="card-p">1. การสร้างแรงบิดขับหมุนจานอะลูมิเนียม:<br/>มาตรวัดประกอบด้วยแม่เหล็กไฟฟ้าขดลวดแรงดัน (Shunt Magnet) และแม่เหล็กไฟฟ้าขดลวดกระแส (Series Magnet) ฟลักซ์แม่เหล็กสลับจากทั้งสองขดลวดจะเหนี่ยวนำให้เกิดกระแสไหลวน (Eddy Currents) บนจานอะลูมิเนียม ปฏิกิริยาระหว่างกระแสไหลวนและฟลักซ์แม่เหล็กทำให้เกิดแรงผลักเป็นแรงบิดหมุนขับ ($T_d$) ซึ่งแปรผันตรงกับกำลังไฟฟ้าจริง $P$:<br/>$$T_d \propto V \cdot I \cdot \cos\theta = P$$</p>
+<p class="card-p">2. หน้าที่ของแม่เหล็กเบรก (Braking Magnet):<br/>แม่เหล็กถาวรรูปเกือกม้าที่ติดตั้งคร่อมขอบจาน จะสร้างแรงบิดหน่วง ($T_b$) ที่แปรผันตรงกับความเร็วรอบการหมุน ($\omega$) โดยอาศัยหลักการของ Eddy Current Braking:<br/>$$T_b \propto \omega$$</p>
+<p class="card-p">3. การรวมหน่วยพลังงานไฟฟ้า (kWh):<br/>เมื่อแรงบิดขับสมดุลกับแรงบิดเบรก ($T_d = T_b$) ความเร็วรอบจานหมุนจะแปรผันตรงกับกำลังไฟฟ้า $P$ ทำให้จำนวนรอบการหมุนทั้งหมดของจานแปรผันตรงกับพลังงานไฟฟ้ารวม:<br/>$$N = \int \omega\, dt \propto \int P\, dt = \text{Energy (kWh)}$$<br/>ซึ่งส่งผ่านชุดเฟืองไปหมุนตัวเลขหน้าปัดบอกค่าเป็น กิโลวัตต์-ชั่วโมง (kWh)</p>
                   </div>
                 </div>
                 
@@ -3528,7 +3549,7 @@ Conducted power + Transformed power</div>
                     <div class="formula-line">$$\text{Absolute Error: } e = Y_n - X_n$$</div>
 <div class="formula-line">$$\text{Relative Error: } e_r = \frac{Y_n - X_n}{X_n}$$</div>
 <div class="formula-line">$$\%\text{ Error} = \frac{|Y_n - X_n|}{X_n} \times 100\%$$</div>
-<div class="formula-line">$$\%\text{ Accuracy } A = 100\% - \%\text{ Error}$$</div>
+<div class="formula-line">$$\%\text{ Accuracy } A = 100\% - \%\text{ Error} = \left(1 - \frac{|Y_n - X_n|}{X_n}\right) \times 100\%$$</div>
                   </div>
                 </div>
                 
@@ -3536,9 +3557,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. ความถูกต้อง (Accuracy):<br/>ระดับความใกล้เคียงของค่าที่วัดได้ (Measured Value Yn) กับค่าจริงที่แท้จริง (True Value Xn)</p>
-<p class="card-p">2. ความเที่ยงตรง (Precision):<br/>ความสามารถในการวัดซ้ำแล้วได้ค่าเดิมสม่ำเสมอ (Repeatability/Consistency) ของปริมาณเดิมภายใต้สภาวะเดียวกัน แม้ค่านั้นอาจจะไม่ตรงกับค่าจริงก็ตาม</p>
-<p class="card-p">3. สูตรการคำนวณความผิดพลาด:<br/>- ค่าความผิดพลาดสัมบูรณ์: e = Yn - Xn (ค่าที่วัดได้ ลบ ค่าจริง)<br/>- ค่าความผิดพลาดสัมพัทธ์: e_r = (Yn - Xn) / Xn<br/>- เปอร์เซ็นต์ความผิดพลาด: % Error = (|Yn - Xn| / Xn) * 100%<br/>- เปอร์เซ็นต์ความถูกต้อง: % Accuracy = 100% - % Error</p>
+                    <p class="card-p">1. ความถูกต้อง (Accuracy):<br/>ระดับความใกล้เคียงของค่าที่วัดได้ ($Y_n$) กับค่าจริงที่แท้จริง ($X_n$)</p>
+<p class="card-p">2. ความเที่ยงตรง (Precision):<br/>ความสามารถในการวัดซ้ำแล้วได้ค่าเดิมสม่ำเสมอ (Repeatability / Consistency) ของปริมาณเดิมภายใต้สภาวะเดียวกัน แม้ค่านั้นอาจจะไม่ตรงกับค่าจริงก็ตาม</p>
+<p class="card-p">3. สูตรการคำนวณความผิดพลาด:<br/>- ค่าความผิดพลาดสัมบูรณ์:<br/>$$e = Y_n - X_n$$<br/>- ค่าความผิดพลาดสัมพัทธ์:<br/>$$e_r = \frac{Y_n - X_n}{X_n}$$<br/>- เปอร์เซ็นต์ความผิดพลาด:<br/>$$\%\text{ Error} = \frac{|Y_n - X_n|}{X_n} \times 100\%$$<br/>- เปอร์เซ็นต์ความถูกต้อง ($A$):<br/>$$A = 100\% - \%\text{ Error} = \left(1 - \frac{|Y_n - X_n|}{X_n}\right) \times 100\%$$</p>
                   </div>
                 </div>
                 
@@ -3570,11 +3591,11 @@ Conducted power + Transformed power</div>
                 </div>
               </div>
               
-              <h3 class="card-topic">สารกึ่งตัวนำบริสุทธิ์ vs สารเจือปน, ชนิด N-Type และ P-Type</h3>
+              <h3 class="card-topic">สารกึ่งตัวนำบริสุทธิ์ vs สารเจือปน, ชนิด N-Type และ P-Type (ข้อสอบไฟนอล 4.1)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">จงอธิบายความแตกต่างระหว่างสารกึ่งตัวนำบริสุทธิ์ (Intrinsic) และสารกึ่งตัวนำไม่บริสุทธิ์ (Extrinsic) อธิบายกระบวนการโดปสารชนิด N-Type และ P-Type พร้อมระบุพาหะข้างมาก (Majority Carrier) และพาหะข้างน้อย (Minority Carrier) ของแต่ละชนิด</div>
+                <div class="card-question-text">จงอธิบายความแตกต่างระหว่างสารกึ่งตัวนำบริสุทธิ์ (Intrinsic) และสารกึ่งตัวนำไม่บริสุทธิ์ (Extrinsic) อธิบายกระบวนการโดปสารชนิด N-Type และ P-Type พร้อมระบุพาหะข้างมาก (Majority Carrier) และพาหะข้างน้อย (Minority Carrier) ของแต่ละชนิด (ข้อสอบไฟนอลข้อ 4.1 หน้า 24)</div>
               </div>
               
               
@@ -3597,9 +3618,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. สารกึ่งตัวนำ Intrinsic vs Extrinsic:<br/>- สารบริสุทธิ์ (Intrinsic Semiconductor): ผลึกซิลิคอน (Si) หรือเจอร์เมเนียม (Ge) บริสุทธิ์ มีเวเลนซ์อิเล็กตรอน 4 ตัว นำไฟฟ้าได้ต่ำมากที่อุณหภูมิห้อง<br/>- สารเจือปน (Extrinsic Semiconductor): สารกึ่งตัวนำที่ผ่านการโดป (Doping) เติมสารเจือปนเพื่อเพิ่มการนำไฟฟ้าอย่างมหาศาล</p>
-<p class="card-p">2. สารกึ่งตัวนำชนิด N (N-Type):<br/>- โดปด้วยสารเจือปนที่มีเวเลนซ์ 5 (Pentavalent เช่น ฟอสฟอรัส P, สารหนู As)<br/>- อิเล็กตรอน 4 ตัวจับคู่กับ Si เหลืออิเล็กตรอนตัวที่ 5 หลุดเป็นอิสระ<br/>- พาหะข้างมาก (Majority Carrier): อิเล็กตรอนอิสระ (Electrons)<br/>- พาหะข้างน้อย (Minority Carrier): โฮล (Holes)</p>
-<p class="card-p">3. สารกึ่งตัวนำชนิด P (P-Type):<br/>- โดปด้วยสารเจือปนที่มีเวเลนซ์ 3 (Trivalent เช่น โบรอน B, แกลเลียม Ga)<br/>- อิเล็กตรอน 3 ตัวจับคู่กับ Si ทำให้ขาดอิเล็กตรอนไป 1 ตำแหน่ง เกิดเป็น 'โฮล (Hole)' หรือที่ว่าง<br/>- พาหะข้างมาก (Majority Carrier): โฮล (Holes)<br/>- พาหะข้างน้อย (Minority Carrier): อิเล็กตรอน (Electrons)</p>
+                    <p class="card-p">1. สารกึ่งตัวนำ Intrinsic vs Extrinsic:<br/>- สารบริสุทธิ์ (Intrinsic): ผลึกซิลิคอน (Si) บริสุทธิ์ มีเวเลนซ์อิเล็กตรอน 4 ตัว นำไฟฟ้าได้ต่ำมากที่อุณหภูมิห้อง<br/>- สารเจือปน (Extrinsic): สารที่ผ่านการโดป (Doping) เติมสารเจือปนเพื่อเพิ่มการนำไฟฟ้าอย่างมหาศาล</p>
+<p class="card-p">2. สารกึ่งตัวนำชนิด N (N-Type):<br/>- โดปด้วยสารเจือปนที่มีเวเลนซ์ 5 (Pentavalent เช่น ฟอสฟอรัส P, สารหนู As)<br/>- อิเล็กตรอน 4 ตัวจับคู่กับ Si เหลืออิเล็กตรอนตัวที่ 5 หลุดเป็นอิสระ<br/>- พาหะข้างมาก (Majority Carrier): อิเล็กตรอนอิสระ ($e^-$)<br/>- พาหะข้างน้อย (Minority Carrier): โฮล ($h^+$)</p>
+<p class="card-p">3. สารกึ่งตัวนำชนิด P (P-Type):<br/>- โดปด้วยสารเจือปนที่มีเวเลนซ์ 3 (Trivalent เช่น โบรอน B, แกลเลียม Ga)<br/>- อิเล็กตรอน 3 ตัวจับคู่กับ Si ขาดไป 1 ตำแหน่ง เกิดเป็น 'โฮล ($h^+$)'<br/>- พาหะข้างมาก (Majority Carrier): โฮล ($h^+$)<br/>- พาหะข้างน้อย (Minority Carrier): อิเล็กตรอน ($e^-$)</p>
+<p class="card-p">4. กฎสมดุลพาหะ (Mass Action Law):<br/>$$n \cdot p = n_i^2$$</p>
                   </div>
                 </div>
                 
@@ -3625,11 +3647,11 @@ Conducted power + Transformed power</div>
                 </div>
               </div>
               
-              <h3 class="card-topic">มอสเฟต (MOSFET) นิยาม โครงสร้าง คุณสมบัติเด่น และการประยุกต์ใช้งาน</h3>
+              <h3 class="card-topic">มอสเฟต (MOSFET) นิยาม โครงสร้าง คุณสมบัติเด่น และการประยุกต์ใช้งาน (ข้อสอบไฟนอล 4.2)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">MOSFET ย่อมาจากอะไร? จงอธิบายโครงสร้าง 3 ขาหลัก อธิบายเหตุผลที่ขาเกต (Gate) มีอินพุตอิมพีแดนซ์สูงมากเกือบเป็นอนันต์ และระบุข้อดีที่เหนือกว่าทรานซิสเตอร์แบบ BJT</div>
+                <div class="card-question-text">MOSFET ย่อมาจากอะไร? จงอธิบายโครงสร้าง 3 ขาหลัก อธิบายเหตุผลที่ขาเกต (Gate) มีอินพุตอิมพีแดนซ์สูงมากเกือบเป็นอนันต์ และระบุข้อดีที่เหนือกว่าทรานซิสเตอร์แบบ BJT (ข้อสอบไฟนอลข้อ 4.2 หน้า 24)</div>
               </div>
               
               
@@ -3654,8 +3676,8 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
                     <p class="card-p">1. นิยามและขาใช้งาน:<br/>MOSFET ย่อมาจาก 'Metal-Oxide-Semiconductor Field-Effect Transistor' มี 3 ขาหลักคือ ขาเกต Gate (G), ขาเดรน Drain (D) และขาซอร์ส Source (S)</p>
-<p class="card-p">2. เหตุผลที่ขาเกตมีอิมพีแดนซ์สูงมาก (R_in เกือบอนันต์):<br/>เพราะขาเกตถูกคั่นแยกจากช่องนำกระแสด้วยชั้นฉนวนบางของ 'ซิลิคอนไดออกไซด์ (Silicon Dioxide: SiO2)' ซึ่งเป็นฉนวนไฟฟ้าชั้นยอด ทำให้ไม่มีกระแสไฟตรงไหลเข้าขาเกตเลย (IG = 0) อิมพีแดนซ์ขาเข้าจึงสูงถึง 10^12 - 10^14 โอห์ม</p>
-<p class="card-p">3. ข้อดีเด่นชัดเหนือกว่าทรานซิสเตอร์ BJT:<br/>- ควบคุมด้วยแรงดัน (Voltage-Controlled): ไม่กินกระแสขับขาเข้า ต่างจาก BJT ที่ต้องจ่ายกระแสไบแอสที่ขาเบส IB ตลอดเวลา<br/>- ความเร็วในการสวิตชิ่งสูงมาก (Fast Switching): เหมาะสำหรับสวิตชิ่งความถี่สูงในวงจรดิจิทัลและสวิตชิ่งเพาเวอร์ซัพพลาย<br/>- ประสิทธิภาพสูง: กินพลังงานขับต่ำมาก ทำให้ไม่ร้อนและนำไปสร้างเป็นไมโครโปรเซสเซอร์ที่มีทรานซิสเตอร์นับพันล้านตัวได้</p>
+<p class="card-p">2. เหตุผลที่ขาเกตมีอิมพีแดนซ์สูงมาก ($R_{\text{in}}$ เกือบอนันต์):<br/>เพราะขาเกตถูกคั่นแยกจากช่องนำกระแสด้วยชั้นฉนวนบางของ 'ซิลิคอนไดออกไซด์ ($SiO_2$)' ซึ่งเป็นฉนวนไฟฟ้าชั้นยอด ทำให้ไม่มีกระแสไฟตรงไหลเข้าขาเกตเลย:<br/>$$I_G \approx 0 \implies R_{\text{in, gate}} \approx 10^{12} - 10^{14}\;\Omega$$</p>
+<p class="card-p">3. ข้อดีเด่นชัดเหนือกว่าทรานซิสเตอร์ BJT:<br/>- ควบคุมด้วยแรงดัน (Voltage-Controlled): ไม่กินกระแสขับขาเข้า ต่างจาก BJT ที่ต้องจ่ายกระแสไบแอสที่ขาเบส $I_B$ ตลอดเวลา<br/>- ความเร็วในการสวิตชิ่งสูงมาก (Fast Switching): เหมาะสำหรับสวิตชิ่งความถี่สูงในวงจรดิจิทัลและสวิตชิ่งเพาเวอร์ซัพพลาย<br/>- สัมประสิทธิ์อุณหภูมิเป็นบวก: ไม่เกิดปัญหาความร้อนทำลายตัวเอง (No Thermal Runaway) และต่อขนานได้ง่าย</p>
                   </div>
                 </div>
                 
@@ -3681,11 +3703,11 @@ Conducted power + Transformed power</div>
                 </div>
               </div>
               
-              <h3 class="card-topic">วงจรรวม (Integrated Circuit: IC) นิยาม ความสำคัญ และวิวัฒนาการ</h3>
+              <h3 class="card-topic">วงจรรวม (Integrated Circuit: IC) นิยาม ความสำคัญ และวิวัฒนาการ (ข้อสอบไฟนอล 4.3)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
-                <div class="card-question-text">วงจรรวม (Integrated Circuit: IC) คืออะไร? ถูกผลิตขึ้นบนแผ่นเวเฟอร์สารกึ่งตัวนำอย่างไร และให้ประโยชน์ที่พลิกโฉมวงการเหนือวงจรที่ประกอบด้วยชิ้นส่วนแยกชิ้น (Discrete Components) อย่างไร?</div>
+                <div class="card-question-text">วงจรรวม (Integrated Circuit: IC) คืออะไร? ถูกผลิตขึ้นบนแผ่นเวเฟอร์สารกึ่งตัวนำอย่างไร และให้ประโยชน์ที่พลิกโฉมวงการเหนือวงจรที่ประกอบด้วยชิ้นส่วนแยกชิ้น (Discrete Components) อย่างไร? (ข้อสอบไฟนอลข้อ 4.3 หน้า 24)</div>
               </div>
               
               
@@ -3707,8 +3729,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. นิยามของวงจรรวม (IC):<br/>วงจรรวม (Integrated Circuit หรือ Microchip) คือการรวมวงจรอิเล็กทรอนิกส์ทั้งหมด ซึ่งประกอบด้วยทรานซิสเตอร์, ไดโอด, ตัวต้านทาน และตัวเก็บประจุ ขนาดไมโครเมตร/นาโนเมตรนับล้านถึงหมื่นล้านตัว สร้างขึ้นพร้อมกันบนผลึกสารกึ่งตัวนำซิลิคอนแผ่นเดียว (Silicon Chip)</p>
-<p class="card-p">2. ประโยชน์ที่เหนือกว่าวงจรแยกชิ้น (Discrete Circuits):<br/>- ขนาดเล็กกะทัดรัดอย่างยิ่ง: ย่อคอมพิวเตอร์ทั้งระบบลงบนชิปขนาดเท่าปลายนิ้ว<br/>- ต้นทุนต่ำ ผลิตได้จำนวนมาก: ผลิตด้วยกระบวนการโฟโตลิโทกราฟี (Photolithography) บนเวเฟอร์ทีละหลายพันชิ้นพร้อมกัน<br/>- ความน่าเชื่อถือสูงมาก: วงจรเชื่อมต่อกันระดับโมเลกุลภายในชิป ไม่มีจุดบัดกรีภายนอกที่อาจหลุดหลวมหรือขึ้นสนิม<br/>- ความเร็วสูงและกินไฟต่ำ: ระยะห่างระหว่างทรานซิสเตอร์สั้นมากระดับนาโนเมตร ทำให้ส่งสัญญาณได้เร็วในระดับกิกะเฮิรตซ์ (GHz) โดยสูญเสียพลังงานน้อยมาก</p>
+                    <p class="card-p">1. นิยามของวงจรรวม (IC):<br/>วงจรรวม (Integrated Circuit หรือ Microchip) คือการรวมวงจรอิเล็กทรอนิกส์ทั้งหมด ซึ่งประกอบด้วยทรานซิสเตอร์, ไดโอด, ตัวต้านทาน และตัวเก็บประจุจำนวนหลายล้านถึงหลายพันล้านตัว ($> 10^9$ ตัว) สร้างขึ้นพร้อมกันบนแผ่นผลึกซิลิคอนชิ้นเดียว (Monolithic Silicon Substrate):<br/>$$\text{วงจรรวม: ทรานซิสเตอร์ } (> 10^9\text{ ตัว}) + \text{สายเชื่อมต่อบนชิปซิลิคอนขนาดจิ๋ว}$$</p>
+<p class="card-p">2. ประโยชน์ที่เหนือกว่าวงจรแบบแยกชิ้น (Discrete Components):<br/>- ขนาดเล็กมาก (Miniaturization): ย่อคอมพิวเตอร์ทั้งเครื่องลงบนชิปขนาดเท่าปลายนิ้ว ($< 1\text{ cm}^2$)<br/>- ต้นทุนต่ำมากในการผลิตจำนวนมาก: ผลิตได้ครั้งละหลายพันชิ้นพร้อมกันบนเวเฟอร์ด้วยเทคโนโลยีโฟโทลิโทกราฟี (Photolithography)<br/>- ความน่าเชื่อถือสูงมาก: ลดจุดบัดกรีต่อสายภายนอกที่อาจหลุดหลวม<br/>- ความเร็วสูงและกินไฟต่ำ: ระยะทางระหว่างทรานซิสเตอร์สั้นระดับนาโนเมตร ทำให้ทำงานที่ความถี่ระดับกิกะเฮิรตซ์ (GHz) ได้โดยมีความหน่วงต่ำมาก ($R C \rightarrow 0$)</p>
                   </div>
                 </div>
                 
@@ -3716,7 +3738,7 @@ Conducted power + Transformed power</div>
                 <div class="card-pitfall-box">
                   <div class="section-label">⚠️ จุดระวังข้อสอบ & เทคนิคตัดคะแนน (EXAM PITFALL & TIPS):</div>
                   <div class="card-pitfall-content">
-                    <p class="card-p">ความเข้าใจที่ถูกต้อง: IC ไม่ใช่แค่ทรานซิสเตอร์ตัวเดียว แต่เป็นระบบวงจรอิเล็กทรอนิกส์ทั้งวงจรที่ถูกย่อส่วนลงบนแผ่นชิปซิลิคอน</p>
+                    <p class="card-p">จุดเน้น: IC สร้างขึ้นแบบ Monolithic (ทุกชิ้นส่วนหลอมรวมเป็นเนื้อเดียวบนผลึกซิลิคอน) ไม่ได้เกิดจากการนำอุปกรณ์เดี่ยวมาบัดกรีรวมกัน</p>
                   </div>
                 </div>
                 
@@ -3752,8 +3774,8 @@ Conducted power + Transformed power</div>
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$V_{\text{knee, Si}} \approx 0.7\text{ V} \qquad V_{\text{knee, Ge}} \approx 0.3\text{ V}$$</div>
-<div class="formula-line">$$\text{Forward: } V_{\text{anode}} > V_{\text{cathode}} + V_{\text{knee}} \implies \text{Conducts heavy current } I_D$$</div>
-<div class="formula-line">$$\text{Reverse: } V_{\text{cathode}} > V_{\text{anode}} \implies I_D \approx I_s \text{ (Reverse Saturation Current } \approx \text{nA)}$$</div>
+<div class="formula-line">$$\text{Forward Bias: } V_{\text{anode}} > V_{\text{cathode}} + V_{\text{knee}} \implies I_D \text{ conducts heavily}$$</div>
+<div class="formula-line">$$\text{Reverse Bias: } V_{\text{cathode}} > V_{\text{anode}} \implies I_D \approx I_s \text{ (Reverse Saturation Current } \approx \text{nA)}$$</div>
                   </div>
                 </div>
                 
@@ -3761,9 +3783,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. การไบแอสตรง (Forward Bias):<br/>ต่อขั้วบวกของแหล่งจ่ายเข้ากับแอโนด (P-type) และขั้วลบเข้ากับแคโทด (N-type) เมื่อแรงดันสูงเกินแรงดันคัตอิน (Knee Voltage: 0.7 V สำหรับ Si, 0.3 V สำหรับ Ge) รอยต่อปลอดพาหะ (Depletion Region) จะแคบลงจนยุบตัว ทำให้กระแสไหลผ่านไดโอดได้อย่างสะดวก</p>
-<p class="card-p">2. การไบแอสกลับ (Reverse Bias):<br/>ต่อขั้วบวกเข้ากับแคโทด (N-type) และขั้วลบเข้ากับแอโนด (P-type) สนามไฟฟ้าภายนอกจะดึงพาหะข้างมากออกจากรอยต่อ ทำให้ชั้นรอยต่อกว้างขึ้น กระแสหลักไม่สามารถไหลผ่านได้ จะมีเพียงกระแสรั่วไหลย้อนกลับเล็กน้อยมาก (Reverse Saturation Current Is ระดับ nA)</p>
-<p class="card-p">3. การพังทลายเมื่อไบแอสกลับ (Breakdown):<br/>หากป้อนแรงดันย้อนกลับเกินพิกัดทนแรงดันย้อนกลับสูงสุด (PIV) ไดโอดจะเกิดปรากฏการณ์ Avalanche หรือ Zener Breakdown ทำให้กระแสย้อนกลับพุ่งสูงอย่างรวดเร็ว หากไม่มีตัวต้านทานจำกัดกระแส ไดโอดจะไหม้เสียหายทันที</p>
+                    <p class="card-p">1. การไบแอสตรง (Forward Bias):<br/>ต่อขั้วบวกเข้ากับแอโนด (P-side) และขั้วลบเข้ากับแคโทด (N-side) เมื่อแรงดันสูงกว่าแรงดันคัตอิน ($0.7\text{ V}$ สำหรับ Silicon, $0.3\text{ V}$ สำหรับ Germanium) รอยต่อปลอดพาหะ (Depletion Region) จะยุบตัวลง ทำให้กระแส $I_D$ ไหลผ่านได้อย่างสะดวก</p>
+<p class="card-p">2. การไบแอสกลับ (Reverse Bias):<br/>ต่อขั้วบวกเข้ากับแคโทด (N-side) และขั้วลบเข้ากับแอโนด (P-side) สนามไฟฟ้าภายนอกจะดึงพาหะออกจากรอยต่อ ทำให้ชั้นรอยต่อกว้างขึ้น กระแสหลักไม่สามารถไหลได้ จะมีเพียงกระแสรั่วไหลย้อนกลับเล็กน้อยมาก ($I_s$ ระดับ nA)</p>
+<p class="card-p">3. การพังทลายเมื่อไบแอสกลับ (Breakdown):<br/>หากป้อนแรงดันย้อนกลับเกินพิกัดทนแรงดันย้อนกลับสูงสุด (PIV) ไดโอดจะเกิดปรากฏการณ์ Avalanche Breakdown ทำให้กระแสย้อนกลับพุ่งสูงอย่างรวดเร็ว หากไม่มีตัวต้านทานจำกัดกระแส ไดโอดจะไหม้เสียหายทันที</p>
                   </div>
                 </div>
                 
@@ -3811,9 +3833,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. สมการไดโอดของช็อคลีย์ (Shockley Equation):<br/>ID = Is * [exp(VD / (n*VT)) - 1]<br/>โดยที่ Is คือกระแสอิ่มตัวย้อนกลับ, n คือแฟกเตอร์อุดมคติ (1-2), และ VT คือแรงดันความร้อน = kT/q = 26 mV ที่อุณหภูมิห้อง (300 K)</p>
-<p class="card-p">2. ความต้านทานพลวัต (Dynamic Resistance rd):<br/>คำนวณจากอนุพันธ์ของเส้นโค้ง I-V: rd = 26 mV / ID<br/>เช่น ที่กระแส ID = 2 mA จะมี rd = 26 mV / 2 mA = 13 โอห์ม</p>
-<p class="card-p">3. การคำนวณตัวต้านทานจำกัดกระแส LED:<br/>R = (Vcc - V_led) / I_led = (12 V - 2.0 V) / 0.015 A = 10 V / 0.015 A = 666.7 โอห์ม<br/>(ในทางปฏิบัติเลือกใช้ตัวต้านทานค่ามาตรฐาน 680 โอห์ม)</p>
+                    <p class="card-p">1. สมการไดโอดของช็อคลีย์ (Shockley Equation):<br/>$$I_D = I_s \left( e^{\frac{V_D}{n V_T}} - 1 \right)$$<br/>โดยที่ $I_s$ คือกระแสอิ่มตัวย้อนกลับ, $n$ คือแฟกเตอร์อุดมคติ (1-2), และ $V_T = kT/q \approx 26\text{ mV}$ ที่อุณหภูมิห้อง ($300\text{ K}$)</p>
+<p class="card-p">2. ความต้านทานพลวัต (Dynamic Resistance $r_d$):<br/>คำนวณจากอนุพันธ์ของเส้นโค้ง I-V:<br/>$$r_d = \frac{26\text{ mV}}{I_D}$$<br/>เช่น ที่กระแส $I_D = 2\text{ mA}$ จะได้:<br/>$$r_d = \frac{26\text{ mV}}{2\text{ mA}} = 13\;\Omega$$</p>
+<p class="card-p">3. การคำนวณตัวต้านทานจำกัดกระแส LED ($R$):<br/>$$R = \frac{V_{CC} - V_{\text{LED}}}{I_{\text{LED}}} = \frac{12\text{ V} - 2.0\text{ V}}{15 \times 10^{-3}\text{ A}} = \frac{10\text{ V}}{0.015\text{ A}} = 666.67\;\Omega$$<br/>(ในทางปฏิบัติเลือกใช้ตัวต้านทานค่ามาตรฐาน $680\;\Omega$)</p>
                   </div>
                 </div>
                 
@@ -3858,8 +3880,8 @@ Conducted power + Transformed power</div>
                   <div class="card-formula-content">
                     <div class="formula-line">$$I_L = \frac{V_Z}{R_L} = \frac{10\text{ V}}{500\;\Omega} = 20\text{ mA}$$</div>
 <div class="formula-line">$$I_{Z,\max} = \frac{P_{Z,\max}}{V_Z} = \frac{1\text{ W}}{10\text{ V}} = 100\text{ mA}$$</div>
-<div class="formula-line">$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20 - 10}{0.100 + 0.020} = \frac{10}{0.120} = 83.3\;\Omega$$</div>
-<div class="formula-line">$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15 - 10}{0.005 + 0.020} = \frac{5}{0.025} = 200\;\Omega$$</div>
+<div class="formula-line">$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20 - 10}{0.100 + 0.020} = 83.3\;\Omega$$</div>
+<div class="formula-line">$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15 - 10}{0.005 + 0.020} = 200\;\Omega$$</div>
                   </div>
                 </div>
                 
@@ -3867,11 +3889,11 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. กลไกการรักษาระดับแรงดันของซีเนอร์ไดโอด:<br/>ซีเนอร์ไดโอดถูกออกแบบมาให้ทำงานในย่าน 'ไบแอสกลับ (Reverse Breakdown)' โดยเมื่อแรงดันย้อนกลับถึงค่าแรงดันซีเนอร์ (Vz) แรงดันตกคร่อมตัวมันจะคงที่อยู่ที่ Vz เกือบสมบูรณ์ แม้กระแสที่ไหลผ่านตัวมันจะเปลี่ยนแปลงไปก็ตาม</p>
-<p class="card-p">2. คำนวณกระแสโหลด IL:<br/>IL = Vz / RL = 10 V / 500 โอห์ม = 20 mA</p>
-<p class="card-p">3. คำนวณพิกัดกระแสซีเนอร์สูงสุด Iz_max:<br/>Iz_max = Pz_max / Vz = 1 W / 10 V = 100 mA (0.1 A)</p>
-<p class="card-p">4. คำนวณความต้านทานอนุกรมต่ำสุด R_min (ป้องกันซีเนอร์ไหม้เมื่อ Vin สูงสุด 20 V):<br/>R_min = (Vin_max - Vz) / (Iz_max + IL) = (20 - 10) / (0.100 + 0.020) = 10 / 0.120 = 83.3 โอห์ม</p>
-<p class="card-p">5. คำนวณความต้านทานอนุกรมสูงสุด R_max (รักษาการคุมแรงดันเมื่อ Vin ต่ำสุด 15 V และ Iz_min = 5 mA):<br/>R_max = (Vin_min - Vz) / (Iz_min + IL) = (15 - 10) / (0.005 + 0.020) = 5 / 0.025 = 200 โอห์ม<br/>สรุป: สามารถเลือกใช้ตัวต้านทานค่ามาตรฐานระหว่าง 84 ถึง 200 โอห์ม (เช่น 120 โอห์ม)</p>
+                    <p class="card-p">1. กลไกการรักษาระดับแรงดันของซีเนอร์ไดโอด:<br/>ซีเนอร์ไดโอดทำงานในย่าน 'ไบแอสกลับ (Reverse Breakdown)' โดยเมื่อแรงดันย้อนกลับถึงค่า $V_Z$ แรงดันตกคร่อมตัวมันจะคงที่อยู่ที่ $V_Z$ แม้กระแสจะเปลี่ยนแปลงไป</p>
+<p class="card-p">2. คำนวณกระแสโหลด $I_L$:<br/>$$I_L = \frac{V_Z}{R_L} = \frac{10\text{ V}}{500\;\Omega} = 20\text{ mA} = 0.020\text{ A}$$</p>
+<p class="card-p">3. คำนวณพิกัดกระแสซีเนอร์สูงสุด $I_{Z,\max}$:<br/>$$I_{Z,\max} = \frac{P_{Z,\max}}{V_Z} = \frac{1\text{ W}}{10\text{ V}} = 100\text{ mA} = 0.100\text{ A}$$</p>
+<p class="card-p">4. คำนวณความต้านทานอนุกรมต่ำสุด $R_{\min}$ (ป้องกันซีเนอร์ไหม้เมื่อ $V_{\text{in}}$ สูงสุด $20\text{ V}$):<br/>$$R_{\min} = \frac{V_{\text{in},\max} - V_Z}{I_{Z,\max} + I_L} = \frac{20\text{ V} - 10\text{ V}}{0.100\text{ A} + 0.020\text{ A}} = \frac{10\text{ V}}{0.120\text{ A}} = 83.3\;\Omega$$</p>
+<p class="card-p">5. คำนวณความต้านทานอนุกรมสูงสุด $R_{\max}$ (รักษาการคุมแรงดันเมื่อ $V_{\text{in}}$ ต่ำสุด $15\text{ V}$ และ $I_{Z,\min} = 5\text{ mA}$):<br/>$$R_{\max} = \frac{V_{\text{in},\min} - V_Z}{I_{Z,\min} + I_L} = \frac{15\text{ V} - 10\text{ V}}{0.005\text{ A} + 0.020\text{ A}} = \frac{5\text{ V}}{0.025\text{ A}} = 200\;\Omega$$<br/>สรุป: เลือกใช้ตัวต้านทานค่ามาตรฐานระหว่าง $84\;\Omega$ ถึง $200\;\Omega$ (เช่น $120\;\Omega$ หรือ $150\;\Omega$)</p>
                   </div>
                 </div>
                 
@@ -3920,8 +3942,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. วงจรสมมูลของโซลาร์เซลล์:<br/>ประกอบด้วยแหล่งจ่ายกระแสที่เกิดจากแสง Iph (แปรผันตามความเข้มแสงแดด) ต่อขนานกับ:<br/>- ตัวไดโอดรอยต่อ PN แท้จริง (Diode D)<br/>- ความต้านทานขนาน Rsh (แทนการรั่วไหลของกระแสตามขอบเซลล์ ในอุดมคติมีค่าเป็นอนันต์)<br/>- ความต้านทานอนุกรม Rs (แทนความต้านทานเนื้อซิลิคอนและขั้วโลหะ ในอุดมคติมีค่าเป็นศูนย์)</p>
-<p class="card-p">2. พารามิเตอร์สำคัญของเซลล์แสงอาทิตย์:<br/>- กระแสลัดวงจร (Short-Circuit Current: Isc): กระแสที่ไหลเมื่อต่อลัดวงจรขั้วเซลล์ (V = 0) มีค่าใกล้เคียงกระแสโฟโต Iph<br/>- แรงดันเปิดวงจร (Open-Circuit Voltage: Voc): แรงดันที่วัดได้เมื่อเปิดวงจร (I = 0) มีค่าประมาณ 0.6 V ต่อเซลล์ซิลิคอน 1 เซลล์<br/>- จุดทำงานกำลังสูงสุด (Maximum Power Point: MPP): จุดบนกราฟ I-V Curve ที่ให้ผลคูณ P = Vmp * Imp สูงที่สุด<br/>- ฟิลแฟกเตอร์ (Fill Factor: FF): อัตราส่วนระหว่างกำลังไฟฟ้าสูงสุดจริง ต่อ ผลคูณเชิงทฤษฎี (Voc * Isc) ยิ่งค่า FF สูง (0.75 - 0.85) กราฟจะยิ่งเป็นรูปสี่เหลี่ยม แสดงว่าเซลล์มีคุณภาพสูง</p>
+                    <p class="card-p">1. องค์ประกอบวงจรสมมูลของโซลาร์เซลล์:<br/>ประกอบด้วยแหล่งจ่ายกระแสโฟโต $I_{\text{ph}}$ (แปรผันตามแสงแดด) ต่อขนานกับ:<br/>- ตัวไดโอดรอยต่อ PN แท้จริง (Diode $D$)<br/>- ความต้านทานขนาน $R_{\text{sh}}$ (แทนกระแสรั่วไหลตามขอบเซลล์ ในอุดมคติมีค่าเป็นอนันต์)<br/>- ความต้านทานอนุกรม $R_s$ (แทนความต้านทานเนื้อซิลิคอนและขั้วโลหะ ในอุดมคติมีค่าเป็นศูนย์)</p>
+<p class="card-p">2. พารามิเตอร์สำคัญของเซลล์แสงอาทิตย์:<br/>- กระแสลัดวงจร ($I_{sc}$): กระแสเมื่อลัดวงจรขั้วเซลล์ ($V = 0$):<br/>$$I_{sc} \approx I_{\text{ph}}$$<br/>- แรงดันเปิดวงจร ($V_{oc}$): แรงดันเมื่อเปิดวงจร ($I = 0$) มีค่าประมาณ $0.6\text{ V}$ ต่อเซลล์<br/>- จุดกำลังสูงสุด ($P_{\max}$): จุดที่ให้ผลคูณแรงดันและกระแสสูงสุด:<br/>$$P_{\max} = V_{\text{mp}} \cdot I_{\text{mp}}$$<br/>- ฟิลแฟกเตอร์ ($FF$): อัตราส่วนกำลังจริงต่อผลคูณเชิงทฤษฎี ($V_{oc} I_{sc}$):<br/>$$FF = \frac{V_{\text{mp}} I_{\text{mp}}}{V_{oc} I_{sc}}$$<br/>เซลล์คุณภาพสูงจะมีค่า $FF \approx 0.75 - 0.85$</p>
                   </div>
                 </div>
                 
@@ -3974,9 +3996,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. กฎกระแสเคอร์ชอฟฟ์ของทรานซิสเตอร์ BJT:<br/>กระแสที่ไหลผ่านขาอิมิตเตอร์มีค่าเท่ากับผลรวมของกระแสขาเบสและขาคอลเลกเตอร์เสมอ:<br/>IE = IB + IC</p>
-<p class="card-p">2. นิยามอัตราขยายกระแส:<br/>- อัตราขยายกระแสแบบคอมมอนอิมิตเตอร์ (Beta หรือ hFE):<br/>Beta = IC / IB (ค่าทั่วไปอยู่ในช่วง 50 ถึง 300 เท่า)<br/>- อัตราขยายกระแสแบบคอมมอนเบส (Alpha):<br/>Alpha = IC / IE (มีค่าน้อยกว่า 1 เล็กน้อย ค่าทั่วไปประมาณ 0.98 ถึง 0.998)</p>
-<p class="card-p">3. การพิสูจน์ความสัมพันธ์ระหว่าง Alpha และ Beta:<br/>จาก IE = IB + IC นำ IC มาหารตลอด:<br/>IE / IC = (IB / IC) + 1<br/>1 / Alpha = (1 / Beta) + 1 = (Beta + 1) / Beta<br/>กลับเศษส่วนจะได้: Alpha = Beta / (Beta + 1)<br/>หรือแปลงรูปหาค่า Beta: Beta = Alpha / (1 - Alpha)</p>
+                    <p class="card-p">1. กฎกระแสเคอร์ชอฟฟ์ของทรานซิสเตอร์ BJT:<br/>กระแสที่ไหลผ่านขาอิมิตเตอร์มีค่าเท่ากับผลรวมของกระแสขาเบสและขาคอลเลกเตอร์เสมอ:<br/>$$I_E = I_B + I_C$$</p>
+<p class="card-p">2. นิยามอัตราขยายกระแส:<br/>- อัตราขยายกระแสคอมมอนอิมิตเตอร์ ($\beta$ หรือ $h_{FE}$):<br/>$$\beta = \frac{I_C}{I_B} \quad (\text{ค่าทั่วไปอยู่ในช่วง } 50 - 300)$$<br/>- อัตราขยายกระแสคอมมอนเบส ($\alpha$):<br/>$$\alpha = \frac{I_C}{I_E} \quad (\text{มีค่าน้อยกว่า 1 เล็กน้อย ประมาณ } 0.98 - 0.998)$$</p>
+<p class="card-p">3. การพิสูจน์ความสัมพันธ์ระหว่าง $\alpha$ และ $\beta$:<br/>จาก $I_E = I_B + I_C$ นำ $I_C$ มาหารตลอด:<br/>$$\frac{I_E}{I_C} = \frac{I_B}{I_C} + 1$$<br/>$$\frac{1}{\alpha} = \frac{1}{\beta} + 1 = \frac{\beta + 1}{\beta}$$<br/>กลับเศษส่วนจะได้:<br/>$$\alpha = \frac{\beta}{\beta + 1} \qquad \beta = \frac{\alpha}{1 - \alpha}$$</p>
                   </div>
                 </div>
                 
@@ -4014,10 +4036,10 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Cutoff (OFF): } V_{in} = 0 \implies I_B = 0, \; I_C = 0, \; V_{CE} = V_{CC}$$</div>
+                    <div class="formula-line">$$\text{Cutoff (OFF): } V_{\text{in}} = 0 \implies I_B = 0, \; I_C = 0, \; V_{CE} = V_{CC}$$</div>
 <div class="formula-line">$$\text{Saturation (ON): } I_B \ge \frac{I_{C,\text{sat}}}{\beta_{\text{sat}}} \implies V_{CE} = V_{CE,\text{sat}} \approx 0.2\text{ V}$$</div>
 <div class="formula-line">$$I_{C,\text{sat}} = \frac{V_{CC} - V_{CE,\text{sat}}}{R_{\text{load}}}$$</div>
-<div class="formula-line">$$R_B = \frac{V_{in} - V_{BE,\text{sat}}}{I_B}$$</div>
+<div class="formula-line">$$R_B = \frac{V_{\text{in}} - V_{BE,\text{sat}}}{I_B}$$</div>
                   </div>
                 </div>
                 
@@ -4025,8 +4047,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. สภาวะการทำงานเป็นสวิตช์:<br/>- สภาวะคัตออฟ (Cutoff - สวิตช์เปิด/OFF): เมื่อป้อน Vin = 0 V (Vbe < 0.7 V) จะไม่มีกระแสเบส IB = 0 ทำให้ IC = 0 ทรานซิสเตอร์ทำตัวเหมือนสวิตช์เปิดวงจร แรงดัน Vce เท่ากับ Vcc เต็มที่<br/>- สภาวะอิ่มตัว (Saturation - สวิตช์ปิด/ON): ป้อนกระแสเบส IB มากเพียงพอจนรอยต่อทั้งสองได้รับไบแอสตรง แรงดันตกคร่อม Vce จะลดฮวบลงเหลือ Vce(sat) เพียงประมาณ 0.2 V ทรานซิสเตอร์ทำตัวเหมือนสวิตช์ลัดวงจร จ่ายกระแสโหลดเต็มที่</p>
-<p class="card-p">2. การคำนวณค่าตัวต้านทานขาเบส RB:<br/>- กระแสโหลดคอลเลกเตอร์ที่ต้องการ: IC_sat = 100 mA<br/>- คำนวณกระแสเบสเพื่อให้เข้าสู่ภาวะอิ่มตัวอย่างสมบูรณ์ (Overdrive โดยใช้ Forced Beta = 10):<br/>IB = IC_sat / Beta_sat = 100 mA / 10 = 10 mA<br/>- คำนวณค่า RB:<br/>RB = (Vin - Vbe_sat) / IB = (5.0 V - 0.7 V) / 0.010 A = 4.3 V / 0.010 A = 430 โอห์ม<br/>(ในทางปฏิบัติเลือกใช้ตัวต้านทานมาตรฐาน 430 โอห์ม หรือ 390 โอห์ม)</p>
+                    <p class="card-p">1. สภาวะการทำงานเป็นสวิตช์:<br/>- สภาวะคัตออฟ (Cutoff - สวิตช์เปิด/OFF): เมื่อ $V_{\text{in}} = 0\text{ V}$ ($V_{BE} < 0.7\text{ V}$) ไม่มีกระแสเบส $I_B = 0$ ทำให้ $I_C = 0$ ทรานซิสเตอร์ทำตัวเหมือนสวิตช์เปิดวงจร แรงดัน $V_{CE} = V_{CC}$<br/>- สภาวะอิ่มตัว (Saturation - สวิตช์ปิด/ON): ป้อนกระแสเบส $I_B$ มากพอจนรอยต่อทั้งสองได้รับไบแอสตรง แรงดันตกคร่อมลดลงเหลือ $V_{CE,\text{sat}} \approx 0.2\text{ V}$ ทำตัวเหมือนสวิตช์ลัดวงจร</p>
+<p class="card-p">2. การคำนวณค่าตัวต้านทานขาเบส $R_B$:<br/>- กระแสโหลดคอลเลกเตอร์ที่ต้องการ: $I_{C,\text{sat}} = 100\text{ mA} = 0.100\text{ A}$<br/>- คำนวณกระแสเบสสำหรับภาวะอิ่มตัว (ใช้ Forced $\beta_{\text{sat}} = 10$):<br/>$$I_B = \frac{I_{C,\text{sat}}}{\beta_{\text{sat}}} = \frac{100\text{ mA}}{10} = 10\text{ mA} = 0.010\text{ A}$$<br/>- คำนวณค่า $R_B$:<br/>$$R_B = \frac{V_{\text{in}} - V_{BE,\text{sat}}}{I_B} = \frac{5.0\text{ V} - 0.7\text{ V}}{0.010\text{ A}} = \frac{4.3\text{ V}}{0.010\text{ A}} = 430\;\Omega$$<br/>(ในทางปฏิบัติเลือกใช้ตัวต้านทานค่ามาตรฐาน $430\;\Omega$ หรือ $390\;\Omega$)</p>
                   </div>
                 </div>
                 
@@ -4052,7 +4074,7 @@ Conducted power + Transformed power</div>
                 </div>
               </div>
               
-              <h3 class="card-topic">ตารางเปรียบเทียบเชิงลึก BJT vs FET / MOSFET</h3>
+              <h3 class="card-topic">ตารางเปรียบเทียบเชิงลึก BJT vs FET / MOSFET (ข้อสอบไฟนอล 4.2)</h3>
               
               <div class="card-question-box">
                 <div class="section-label">📌 คำถาม / โจทย์ข้อสอบจริง (PROBLEM / QUESTION):</div>
@@ -4078,10 +4100,10 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">ตารางเปรียบเทียบ BJT vs MOSFET:<br/>1. ชนิดของพาหะที่นำกระแส:<br/>- BJT: เป็นแบบ 'Bipolar' คือใช้ทั้งอิเล็กตรอนและโฮลในการนำกระแสพร้อมกัน<br/>- MOSFET: เป็นแบบ 'Unipolar' คือใช้เฉพาะพาหะข้างมากชนิดเดียวในแชนแนลในการนำกระแส</p>
-<p class="card-p">2. กลไกการควบคุม:<br/>- BJT: ควบคุมด้วยกระแส (Current-Controlled) โดยกระแสขาเข้า IB เป็นตัวกำหนดกระแสขาออก IC (IC = Beta * IB)<br/>- MOSFET: ควบคุมด้วยแรงดัน (Voltage-Controlled) โดยแรงดัน VGS เป็นตัวกำหนดกระแสขาออก ID</p>
-<p class="card-p">3. อิมพีแดนซ์ขาเข้า (Input Impedance):<br/>- BJT: ปานกลาง (1 k-ohm ถึง 10 k-ohm) เพราะรอยต่อ B-E ได้รับไบแอสตรง<br/>- MOSFET: สูงมากเกือบเป็นอนันต์ (10^12 ถึง 10^14 โอห์ม) เพราะมีชั้นฉนวน SiO2 กั้นขาเกตไว้</p>
-<p class="card-p">4. เสถียรภาพทางอุณหภูมิ (Thermal Stability):<br/>- BJT: มีสัมประสิทธิ์อุณหภูมิเป็นลบ เกิดปรากฏการณ์ Thermal Runaway (ยิ่งร้อนยิ่งกินกระแสจนไหม้) ได้ง่าย<br/>- MOSFET: มีสัมประสิทธิ์อุณหภูมิของ RDS(on) เป็นบวก เมื่อร้อนความต้านทานจะเพิ่มขึ้น ช่วยป้องกันความเสียหายและต่อขนานกันได้ง่าย</p>
+                    <p class="card-p">ตารางเปรียบเทียบเชิงลึก BJT vs MOSFET:<br/>1. ชนิดของพาหะที่นำกระแส:<br/>- BJT: เป็นแบบ 'Bipolar' คือใช้ทั้งอิเล็กตรอนและโฮลในการนำกระแสพร้อมกัน<br/>- MOSFET: เป็นแบบ 'Unipolar' คือใช้เฉพาะพาหะข้างมากชนิดเดียวในแชนแนลในการนำกระแส</p>
+<p class="card-p">2. กลไกการควบคุม:<br/>- BJT: ควบคุมด้วยกระแส (Current-Controlled) โดยกระแสขาเข้า $I_B$ กำหนดกระแสขาออก $I_C = \beta I_B$<br/>- MOSFET: ควบคุมด้วยแรงดัน (Voltage-Controlled) โดยแรงดัน $V_{GS}$ กำหนดกระแสขาออก $I_D$</p>
+<p class="card-p">3. อิมพีแดนซ์ขาเข้า (Input Impedance):<br/>- BJT: ปานกลาง ($1\text{ k}\Omega - 10\text{ k}\Omega$) เพราะรอยต่อ B-E ได้รับไบแอสตรง<br/>- MOSFET: สูงมากเกือบเป็นอนันต์ ($10^{12} - 10^{14}\,\Omega$) เพราะมีชั้นฉนวน $SiO_2$ กั้นขาเกต</p>
+<p class="card-p">4. เสถียรภาพทางอุณหภูมิ (Thermal Stability):<br/>- BJT: มีสัมประสิทธิ์อุณหภูมิเป็นลบ เกิดปรากฏการณ์ Thermal Runaway ได้ง่าย<br/>- MOSFET: มีสัมประสิทธิ์อุณหภูมิของ $R_{DS(\text{on})}$ เป็นบวก ช่วยป้องกันความเสียหายและต่อขนานกันได้ง่าย</p>
                   </div>
                 </div>
                 
@@ -4119,9 +4141,9 @@ Conducted power + Transformed power</div>
                 <div class="card-formula-box">
                   <div class="section-label">📐 สูตรสำคัญ & นิยาม (FORMULAS & DEFINITIONS):</div>
                   <div class="card-formula-content">
-                    <div class="formula-line">$$\text{Half-Wave: } V_{\text{dc}} = \frac{V_m}{\pi} = 0.318\, V_m \qquad f_{\text{ripple}} = f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
-<div class="formula-line">$$\text{Center-Tapped: } V_{\text{dc}} = \frac{2V_m}{\pi} = 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = 2V_m$$</div>
-<div class="formula-line">$$\text{Bridge Rectifier: } V_{\text{dc}} = \frac{2V_m}{\pi} = 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
+                    <div class="formula-line">$$\text{Half-Wave: } V_{\text{dc}} = \frac{V_m}{\pi} \approx 0.318\, V_m \qquad f_{\text{ripple}} = f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
+<div class="formula-line">$$\text{Center-Tapped: } V_{\text{dc}} = \frac{2V_m}{\pi} \approx 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = 2V_m$$</div>
+<div class="formula-line">$$\text{Bridge Rectifier: } V_{\text{dc}} = \frac{2V_m}{\pi} \approx 0.637\, V_m \qquad f_{\text{ripple}} = 2f_{\text{in}} \qquad \text{PIV} = V_m$$</div>
                   </div>
                 </div>
                 
@@ -4129,9 +4151,9 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. วงจรเรียงกระแสแบบครึ่งคลื่น (Half-Wave - ใช้ไดโอด 1 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: Vdc = Vm / pi = 0.318 Vm<br/>- ความถี่ริปเปิล: เท่ากับความถี่ไฟเข้า = fin (50 Hz)<br/>- ประสิทธิภาพสูงสุด: 40.6%<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: PIV = Vm</p>
-<p class="card-p">2. วงจรเต็มคลื่นแบบหม้อแปลงมีแท็ปกลาง (Center-Tapped - ใช้ไดโอด 2 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: Vdc = 2*Vm / pi = 0.637 Vm<br/>- ความถี่ริปเปิล: 2 เท่าของไฟเข้า = 2*fin (100 Hz กรองให้เรียบง่ายขึ้นมาก)<br/>- ประสิทธิภาพสูงสุด: 81.2%<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: PIV = 2*Vm (ข้อเสียสำคัญ: ไดโอดต้องทนแรงดันย้อนกลับสูงถึง 2 เท่าของแรงดันพีก)</p>
-<p class="card-p">3. วงจรเต็มคลื่นแบบบริดจ์ (Bridge Rectifier - ใช้ไดโอด 4 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: Vdc = 2*Vm / pi = 0.637 Vm<br/>- ความถี่ริปเปิล: 2*fin (100 Hz)<br/>- ประสิทธิภาพสูงสุด: 81.2%<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: PIV = Vm (ไดโอดรับแรงดันย้อนกลับเพียง 1 เท่า นิยมใช้มากที่สุดในอุตสาหกรรม)</p>
+                    <p class="card-p">1. วงจรเรียงกระแสแบบครึ่งคลื่น (Half-Wave - ใช้ไดโอด 1 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: $V_{\text{dc}} = V_m / \pi = 0.318\, V_m$<br/>- ความถี่ริปเปิล: $f_{\text{ripple}} = f_{\text{in}}$ (50 Hz)<br/>- ประสิทธิภาพสูงสุด: $40.6\%$<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: $\text{PIV} = V_m$</p>
+<p class="card-p">2. วงจรเต็มคลื่นแบบหม้อแปลงมีแท็ปกลาง (Center-Tapped - ใช้ไดโอด 2 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: $V_{\text{dc}} = 2V_m / \pi = 0.637\, V_m$<br/>- ความถี่ริปเปิล: $f_{\text{ripple}} = 2f_{\text{in}}$ (100 Hz กรองให้เรียบง่ายขึ้นมาก)<br/>- ประสิทธิภาพสูงสุด: $81.2\%$<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: $\text{PIV} = 2V_m$ (ข้อเสียสำคัญ: ไดโอดต้องทนแรงดันย้อนกลับสูงถึง 2 เท่าของแรงดันพีก)</p>
+<p class="card-p">3. วงจรเต็มคลื่นแบบบริดจ์ (Bridge Rectifier - ใช้ไดโอด 4 ตัว):<br/>- แรงดันไฟตรงเฉลี่ย: $V_{\text{dc}} = 2V_m / \pi = 0.637\, V_m$<br/>- ความถี่ริปเปิล: $f_{\text{ripple}} = 2f_{\text{in}}$ (100 Hz)<br/>- ประสิทธิภาพสูงสุด: $81.2\%$<br/>- พิกัดทนแรงดันย้อนกลับไดโอด: $\text{PIV} = V_m$ (ไดโอดรับแรงดันย้อนกลับเพียง 1 เท่า นิยมใช้มากที่สุดในอุตสาหกรรม)</p>
                   </div>
                 </div>
                 
@@ -4180,8 +4202,8 @@ Conducted power + Transformed power</div>
                 <div class="card-solution-box">
                   <div class="section-label">📝 เฉลยละเอียดและวิธีคิด (STEP-BY-STEP SOLUTION):</div>
                   <div class="card-solution-content">
-                    <p class="card-p">1. คุณสมบัติในอุดมคติของออปแอมป์ (Ideal Op-Amp):<br/>- ความต้านทานขาเข้า (Input Impedance: Rin) = อินฟินิตี้ (ไม่มีกระแสไหลเข้าขาอินพุต: I+ = I- = 0)<br/>- ความต้านทานขาออก (Output Impedance: Rout) = 0 โอห์ม (จ่ายกระแสโหลดได้ไม่จำกัดโดยแรงดันไม่ตก)<br/>- อัตราขยายแรงดันวงเปิด (Open-Loop Gain: A_OL) = อินฟินิตี้<br/>- แบนด์วิดท์ (Bandwidth: BW) = อินฟินิตี้ (ขยายสัญญาณได้ทุกความถี่ตั้งแต่ DC ถึงไม่สิ้นสุด)<br/>- สลูว์เรต (Slew Rate) = อินฟินิตี้ (แรงดันขาออกตอบสนองได้ทันทีโดยไม่มีความหน่วง)</p>
-<p class="card-p">2. แนวคิดช็อตเสมือน (Virtual Short) และกราวด์เสมือน (Virtual Ground):<br/>เนื่องจากอัตราขยาย A_OL เป็นอนันต์ เมื่อมีการต่อป้อนกลับแบบลบ (Negative Feedback) ผลต่างแรงดันระหว่างขาอินพุตทั้งสองต้องมีค่าเป็นศูนย์:<br/>(V+ - V-) = Vout / A_OL = 0  =>  V+ = V-<br/>สภาวะนี้เรียกว่า 'Virtual Short' และหากขา V+ ต่อลงกราวด์จริง (0 V) ขา V- ก็จะมีศักย์ไฟฟ้าเท่ากับ 0 V เสมือนต่อลงกราวด์ด้วย เรียกว่า 'Virtual Ground'</p>
+                    <p class="card-p">1. คุณสมบัติในอุดมคติของออปแอมป์ (Ideal Op-Amp):<br/>- ความต้านทานขาเข้า ($R_{\text{in}}$) = $\infty$ (ไม่มีกระแสไหลเข้าขาอินพุต: $I_+ = I_- = 0$)<br/>- ความต้านทานขาออก ($R_{\text{out}}$) = $0\;\Omega$ (จ่ายกระแสโหลดได้ไม่จำกัดโดยแรงดันไม่ตก)<br/>- อัตราขยายแรงดันวงเปิด ($A_{OL}$) = $\infty$<br/>- แบนด์วิดท์ ($BW$) = $\infty$ (ขยายสัญญาณได้ทุกความถี่ตั้งแต่ DC ถึงไม่สิ้นสุด)<br/>- สลูว์เรต (Slew Rate) = $\infty$ (แรงดันขาออกตอบสนองได้ทันทีโดยไม่มีความหน่วง)</p>
+<p class="card-p">2. แนวคิดช็อตเสมือน (Virtual Short) และกราวด์เสมือน (Virtual Ground):<br/>เนื่องจากอัตราขยาย $A_{OL}$ เป็นอนันต์ เมื่อมีการต่อป้อนกลับแบบลบ (Negative Feedback) ผลต่างแรงดันระหว่างขาอินพุตทั้งสองต้องมีค่าเป็นศูนย์:<br/>$$V_+ - V_- = \frac{V_{\text{out}}}{A_{OL}} = 0 \implies V_+ = V_-$$<br/>สภาวะนี้เรียกว่า 'Virtual Short' และหากขา $V_+$ ต่อลงกราวด์จริง ($0\text{ V}$) ขา $V_-$ ก็จะมีศักย์ไฟฟ้าเท่ากับ $0\text{ V}$ เสมือนต่อลงกราวด์ด้วย เรียกว่า 'Virtual Ground'</p>
                   </div>
                 </div>
                 
@@ -4206,7 +4228,8 @@ Conducted power + Transformed power</div>
             {left: '\\[', right: '\\]', display: true},
             {left: '\\(', right: '\\)', display: false}
           ],
-          throwOnError: false
+          throwOnError: false,
+          output: 'html'
         });
       }
     });
