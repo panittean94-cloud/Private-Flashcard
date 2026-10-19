@@ -388,5 +388,115 @@ const FLASHCARDS_DATA = [
     "question": "State the fundamental KCL current relationship between Emitter ($I_e$), Collector ($I_c$), and Base ($I_b$) currents in a BJT, and the relationships with current gains $\\beta$ and $\\alpha$.",
     "hint": "Key Formula: $I_e = I_c + I_b$",
     "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>$I_e = I_c + I_b$\n$I_c = \\beta I_b$\n$\\alpha = \\frac{\\beta}{\\beta + 1} = \\frac{I_c}{I_e}$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Terminal Current Law (KCL): Emitter current is the sum of collector and base currents:\n$$I_e = I_c + I_b$$\n2. Common-Emitter DC Current Gain ($\\beta$ or $h_{FE}$):\n$$I_c = \\beta I_b$$\nTypically $\\beta$ ranges from $50$ to $300$.\n3. Common-Base DC Current Gain ($\\alpha$):\n$$\\alpha = \\frac{I_c}{I_e} = \\frac{\\beta}{\\beta + 1}$$\nTypically $\\alpha \\approx 0.98 - 0.998$ (slightly less than 1.0).</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Because base current $I_b$ is tiny (typically $\\mu\\text{A}$), $I_e \\approx I_c$ in many rough approximations, but NEVER forget $I_e = I_c + I_b$ in exact KCL equations.</p>"
+  },
+  {
+    "id": "CH07-10",
+    "chapter": "Chapter 7",
+    "topic": "DC Generator KVL, Induced EMF & Armature Reaction",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "X-Class Exam Review Page 1 & Slide P.25",
+    "question": "A DC shunt generator driven at $1,800\\text{ rpm}$ produces a terminal voltage $V_t = 115\\text{ V}$ at no load. When loaded, it delivers an armature current of $I_a = 40\\text{ A}$ at $V_t = 100\\text{ V}$. The flux per pole is $\\Phi = 150\\text{ mWb}$. Find: (1) Machine constant ($K_a$), (2) Armature resistance ($R_a$), (3) Developed torque ($T_d$).",
+    "hint": "Key Formula: No load: $E_a = V_t = 115\\text{ V}$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>No load: $E_a = V_t = 115\\text{ V}$\n$\\omega_m = \\frac{2\\pi n}{60} = \\frac{2\\pi(1800)}{60} = 188.5\\text{ rad/s}$\n$K_a = \\frac{E_a}{\\Phi \\omega_m}$\nLoaded: $E_a = V_t + I_a R_a \\implies R_a = \\frac{E_a - V_t}{I_a}$\n$T_d = K_a \\Phi I_a$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Angular speed: $\\omega_m = \\frac{2\\pi \\times 1800}{60} = 188.5\\text{ rad/s}$\n2. At no load ($I_a = 0$), $E_a = V_t = 115\\text{ V}$:\n$$K_a = \\frac{115}{150 \\times 10^{-3} \\times 188.5} = \\frac{115}{28.27} = 4.07$$\n3. Loaded operation: Assuming speed and flux remain constant, $E_a = 115\\text{ V}$.\n$$R_a = \\frac{E_a - V_t}{I_a} = \\frac{115 - 100}{40} = \\frac{15}{40} = 0.375\\ \\Omega$$\n4. Developed Torque:\n$$T_d = K_a \\Phi I_a = 4.07 \\times (150 \\times 10^{-3}) \\times 40 = 24.42\\text{ N}\\cdot\\text{m}$$.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Crucial distinction: In a GENERATOR: $E_a = V_t + I_a R_a$ ($E_a > V_t$). In a MOTOR: $E_a = V_t - I_a R_a$ ($V_t > E_a$).</p>"
+  },
+  {
+    "id": "CH07-11",
+    "chapter": "Chapter 7",
+    "topic": "Types of Single-Phase Induction Motors",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "AC Machines Slides P.12-14",
+    "question": "Single-phase induction motors are not self-starting. Name the 3 common types used to create starting torque and describe their operating features.",
+    "hint": "Key Formula: Shaded-Pole | Capacitor-Start | Universal Motor",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>Shaded-Pole | Capacitor-Start | Universal Motor</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Shaded-Pole Motor:\n- Uses copper shading rings on pole faces to create a delayed phase shift in magnetic flux.\n- Low starting torque, simple, low cost; used in small desk fans and blowers.\n2. Capacitor-Start Motor:\n- Uses an auxiliary starting winding in series with a capacitor and centrifugal switch.\n- High starting torque ($200-350\\%$ of rated); switch disconnects capacitor at $\\approx 75\\%$ speed; used in air compressors, water pumps, refrigerators.\n3. Universal Motor:\n- Series-wound motor that operates on both AC and DC.\n- Very high speed (up to 20,000 rpm) and high torque-to-weight ratio; used in vacuum cleaners and power drills.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Pure single-phase AC creates a pulsating (standing) magnetic field, not a rotating magnetic field. It requires an auxiliary phase or shading ring to start rotating.</p>"
+  },
+  {
+    "id": "CH07-12",
+    "chapter": "Chapter 7",
+    "topic": "Synchronous Motor vs Induction Motor Operation",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "AC Machines Slides P.15 & HW7 Problem 3",
+    "question": "Compare the rotor construction and operating speed of a Synchronous Motor with an Induction Motor. How does a synchronous motor maintain exact synchronous speed?",
+    "hint": "Key Formula: $N_r = N_s$ (Synchronous) vs $N_r < N_s$ (Induction)",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>$N_r = N_s$ (Synchronous) vs $N_r < N_s$ (Induction)</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Synchronous Motor:\n- Rotor is excited by an external DC source (or permanent magnets) to establish fixed magnetic poles.\n- Rotor magnetic poles magnetically lock with the stator's Rotating Magnetic Field (RMF).\n- Runs at exactly synchronous speed ($N_r = N_s = \\frac{120f}{p}$) under all steady-load conditions (zero slip, $s = 0$).\n\n2. Induction Motor:\n- Rotor currents are induced purely by relative motion between RMF and rotor conductors.\n- Must always run below synchronous speed ($N_r < N_s$) to produce torque.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Synchronous motors can also operate at leading power factor by over-exciting the DC field, functioning as a Synchronous Condenser for power factor correction.</p>"
+  },
+  {
+    "id": "CH08-07",
+    "chapter": "Chapter 8",
+    "topic": "Impedance Matching with Transformer for Maximum Power",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "Ch07Transformer.pdf Example 1 (Page 18)",
+    "question": "A $10\\text{ V}$ audio source with internal source resistance $R_s = 1\\ \\Omega$ is connected to a speaker load $R_L = 9\\ \\Omega$. (1) Find load power without transformer. (2) If an ideal transformer with turns ratio $a = 1/3$ is inserted between source and speaker, find the reflected load resistance and the new load power.",
+    "hint": "Key Formula: $R_L' = a^2 R_L = \\left(\\frac{N_1}{N_2}\\right)^2 R_L$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>$R_L' = a^2 R_L = \\left(\\frac{N_1}{N_2}\\right)^2 R_L$\n$P = I^2 R$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Without Transformer:\n$$I = \\frac{V_s}{R_s + R_L} = \\frac{10}{1 + 9} = 1.0\\text{ A}$$\n$$P_{\\text{speaker}} = I^2 R_L = (1.0)^2 \\times 9 = 9.0\\text{ W}$$\n\n2. With Transformer ($a = 1/3$):\nReflected load resistance seen by source:\n$$R_L' = a^2 R_L = \\left(\\frac{1}{3}\\right)^2 \\times 9 = \\frac{1}{9} \\times 9 = 1.0\\ \\Omega$$\nNotice $R_L' = R_s = 1.0\\ \\Omega$ (perfect Maximum Power Transfer match!).\nNew primary current:\n$$I_1 = \\frac{V_s}{R_s + R_L'} = \\frac{10}{1 + 1} = 5.0\\text{ A}$$\nPower delivered to reflected load (and thus speaker, since transformer is ideal):\n$$P_{\\text{speaker}} = I_1^2 R_L' = (5.0)^2 \\times 1.0 = 25.0\\text{ W}$$\nPower increased dramatically from $9\\text{ W}$ to $25\\text{ W}$!</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Reflected impedance scales as $a^2$: $Z_1 = a^2 Z_2$. In audio systems, transformers match unequal impedances to maximize transferred power.</p>"
+  },
+  {
+    "id": "CH08-08",
+    "chapter": "Chapter 8",
+    "topic": "Transformer Efficiency & Full-Day Core Loss",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "X-Class Exam Review Page 4 & Lecture Slides",
+    "question": "A $25\\text{ kVA}, 2200/250\\text{ V}$ single-phase transformer has primary and secondary winding resistances $R_1 = 1.5\\ \\Omega$ and $R_2 = 0.01936\\ \\Omega$. Core loss is $P_{\\text{core}} = 260\\text{ W}$. Calculate full-load total losses and efficiency at $PF = 0.8$ lagging.",
+    "hint": "Key Formula: $I_1 = S / V_1, I_2 = S / V_2$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>$I_1 = S / V_1, I_2 = S / V_2$\n$P_{\\text{cu}} = I_1^2 R_1 + I_2^2 R_2$\n$P_{\\text{out}} = S_{\\text{rated}} \\times PF$\n$\\eta = \\frac{P_{\\text{out}}}{P_{\\text{out}} + P_{\\text{cu}} + P_{\\text{core}}} \\times 100\\%$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Rated currents:\n$I_1 = 25,000 / 2200 = 11.36\\text{ A}$\n$I_2 = 25,000 / 250 = 100.0\\text{ A}$\n\n2. Copper loss:\n$P_{\\text{cu}} = (11.36)^2(1.5) + (100)^2(0.01936) = 193.6 + 193.6 = 387.2\\text{ W}$\n\n3. Total losses:\n$P_{\\text{loss}} = P_{\\text{cu}} + P_{\\text{core}} = 387.2 + 260 = 647.2\\text{ W}$\n\n4. Output real power:\n$P_{\\text{out}} = 25,000 \\times 0.8 = 20,000\\text{ W} = 20\\text{ kW}$\n\n5. Efficiency:\n$$\\eta = \\frac{20,000}{20,000 + 647.2} \\times 100\\% = \\frac{20,000}{20,647.2} \\times 100\\% = 96.86\\%$$.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Notice that at maximum efficiency, copper loss equals core loss ($P_{\\text{cu}} = P_{\\text{core}}$).</p>"
+  },
+  {
+    "id": "CH09-06",
+    "chapter": "Chapter 9",
+    "topic": "Power Plant Specifics in Thailand (Bhumibol, Ubolratana, Mae Moh, Nam Pong)",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "FunEE Final Note P.5 & Lecture Slides",
+    "question": "Match the following major Thai power plants to their generation type, location, and key features: (1) Bhumibol Dam, (2) Ubolratana Dam, (3) Mae Moh, (4) Nam Pong.",
+    "hint": "Key Formula: Bhumibol: Ping River / Tak | Ubolratana: Khon Kaen | Mae Moh: Lignite / Lampang | Nam Pong: Combined Cycle / Khon Kaen",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>Bhumibol: Ping River / Tak | Ubolratana: Khon Kaen | Mae Moh: Lignite / Lampang | Nam Pong: Combined Cycle / Khon Kaen</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Bhumibol Dam (เขื่อนภูมิพล):\n- Location: Tak Province, Ping River.\n- Thailand's first multipurpose concrete arch dam; major hydro peak-load plant.\n\n2. Ubolratana Dam (เขื่อนอุบลรัตน์):\n- Location: Khon Kaen Province, Pong River.\n- First hydroelectric dam in Northeastern Thailand (Isan).\n\n3. Mae Moh Power Plant (โรงไฟฟ้าแม่เมาะ):\n- Location: Lampang Province.\n- Thailand's largest coal/lignite-fired steam thermal base-load power plant ($2,625\\text{ MW}$).\n\n4. Nam Pong Power Plant (โรงไฟฟ้าน้ำพอง):\n- Location: Khon Kaen Province ($32\\text{ km}$ from downtown KKU).\n- Combined-cycle power plant fueled by domestic natural gas from the Sinphuhorm/Nam Phong field.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Very relevant for KKU engineering students! Ubolratana Dam and Nam Pong power plant are located directly in Khon Kaen.</p>"
+  },
+  {
+    "id": "CH09-07",
+    "chapter": "Chapter 9",
+    "topic": "Residential Solar PV Rooftop System Components",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "FunEE Final Note P.6-7 & Lecture Slides",
+    "question": "Draw the flow path and name the 5 essential components of a grid-connected residential Solar PV system.",
+    "hint": "Key Formula: PV Modules -> DC/DC Charge Controller -> Battery -> DC/AC Inverter -> Fusebox / Bi-directional Meter",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>PV Modules -> DC/DC Charge Controller -> Battery -> DC/AC Inverter -> Fusebox / Bi-directional Meter</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. PV Solar Modules (Panels): Convert solar irradiance into DC electrical power.\n2. DC/DC Converter / Charge Controller: Regulates charging voltage and extracts maximum power (MPPT).\n3. Battery Storage: Stores electrical energy in DC form for night/emergency backup.\n4. DC/AC Power Inverter: Converts direct current (DC) into synchronized $230\\text{ V}, 50\\text{ Hz}$ alternating current (AC).\n5. Consumer Unit (Fusebox) & Bi-directional Net Meter: Distributes power to household loads and exports excess power to the MEA/PEA grid.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Solar cells produce pure DC; household appliances run on AC. The Inverter is the crucial bridging component.</p>"
+  },
+  {
+    "id": "CH10-08",
+    "chapter": "Chapter 10",
+    "topic": "Ayrton Shunt (Universal Shunt) for Multi-Range Ammeter",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "X-Class Exam Review Page 5 & Slide P.12",
+    "question": "What is an Ayrton (Universal) Shunt in a multi-range DC ammeter? Why is it superior to individual switch shunts?",
+    "hint": "Key Formula: Series chain of resistors: $R_1 + R_2 + R_3$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>Series chain of resistors: $R_1 + R_2 + R_3$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Structure: Employs a continuous series string of tapped resistors ($R_1, R_2, R_3$) permanently connected across the meter movement.\n2. Decisive Advantage over Individual Shunts: When switching between ranges, the rotary switch contacts momentarily break. With individual shunts, the meter coil is left unprotected across the full line current, burning out the delicate spring. With an Ayrton shunt, the meter is NEVER left unshunted during switching, preventing meter destruction.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Always mention the safety feature: the meter coil is never open-circuited while switching current ranges.</p>"
+  },
+  {
+    "id": "SEMI-06",
+    "chapter": "Semiconductors",
+    "topic": "Half-Wave vs Full-Wave Rectifiers & PIV Rating",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "X-Class Review Page 7-9 & Lecture Slides",
+    "question": "Compare Half-Wave Rectifier, Full-Wave Center-Tapped Rectifier, and Full-Wave Bridge Rectifier in terms of: (1) Number of diodes, (2) DC average output voltage ($V_{\\text{dc}}$), (3) Peak Inverse Voltage (PIV) rating across each diode.",
+    "hint": "Key Formula: Half-wave: $V_{\\text{dc}} = \\frac{V_m}{\\pi} = 0.318 V_m$, $\\text{PIV} = V_m$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>Half-wave: $V_{\\text{dc}} = \\frac{V_m}{\\pi} = 0.318 V_m$, $\\text{PIV} = V_m$\nFull-wave: $V_{\\text{dc}} = \\frac{2V_m}{\\pi} = 0.636 V_m$\nCenter-Tapped PIV = $2 V_m$ | Bridge PIV = $V_m$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Half-Wave Rectifier:\n- 1 diode\n- $V_{\\text{dc}} = V_m / \\pi = 0.318 V_m$\n- Ripple frequency = $f_{\\text{in}}$ ($50\\text{ Hz}$)\n- $\\text{PIV} = V_m$.\n\n2. Full-Wave Center-Tapped Rectifier:\n- 2 diodes\n- $V_{\\text{dc}} = 2V_m / \\pi = 0.636 V_m$\n- Ripple frequency = $2 f_{\\text{in}}$ ($100\\text{ Hz}$)\n- $\\text{PIV} = 2 V_m$ (Diodes must withstand twice peak voltage!).\n\n3. Full-Wave Bridge Rectifier:\n- 4 diodes\n- $V_{\\text{dc}} = 2V_m / \\pi = 0.636 V_m$\n- Ripple frequency = $2 f_{\\text{in}}$ ($100\\text{ Hz}$)\n- $\\text{PIV} = V_m$ (Does NOT require expensive center-tapped transformer).</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Exam multiple choice favorite: Full-wave center-tapped diode requires $\\text{PIV} = 2V_m$, whereas Bridge diode requires only $\\text{PIV} = V_m$.</p>"
+  },
+  {
+    "id": "SEMI-07",
+    "chapter": "Semiconductors",
+    "topic": "BJT vs FET / MOSFET Detailed Comparison",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Ch10IntroSemiDevices.pdf Slide P.21",
+    "question": "Provide a comprehensive comparison between BJT (Bipolar Junction Transistor) and FET / MOSFET across 6 electrical parameters.",
+    "hint": "Key Formula: BJT (Current-controlled, Bipolar) vs FET (Voltage-controlled, Unipolar)",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>BJT (Current-controlled, Bipolar) vs FET (Voltage-controlled, Unipolar)</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>Direct exam comparison table from Slide 21:\n\n1. Control Mechanism:\n- BJT: Current-controlled device ($I_c = \\beta I_b$).\n- FET/MOSFET: Voltage-controlled device ($I_D = g_m V_{GS}$).\n\n2. Input Impedance:\n- BJT: Low ($1\\text{ k}\\Omega - 10\\text{ k}\\Omega$).\n- FET/MOSFET: Extremely high ($10^{10} - 10^{15}\\ \\Omega$, draws zero gate current).\n\n3. Charge Carriers:\n- BJT: Bipolar (conduction uses both electrons and holes).\n- FET: Unipolar (conduction uses only majority carriers in the channel).\n\n4. Noise:\n- BJT: More noisy.\n- FET: Less noisy.\n\n5. Thermal Stability:\n- BJT: Less temperature stable (prone to thermal runaway).\n- FET: More temperature stable.\n\n6. Physical Size on Chip:\n- BJT: Larger size.\n- MOSFET: Much smaller size (ideal for billion-transistor IC microchips).</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Memorize this exact comparison table from Slide 21! It appears regularly in theory short-answer and multiple-choice questions.</p>"
+  },
+  {
+    "id": "SEMI-08",
+    "chapter": "Semiconductors",
+    "topic": "Operational Amplifier (Op-Amp 741) Characteristics",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Ch10IntroSemiDevices.pdf Slide P.23-24",
+    "question": "What is an Operational Amplifier (Op-Amp)? Identify its 5 primary terminal pins and state the 3 ideal Op-Amp properties.",
+    "hint": "Key Formula: $V_{\\text{out}} = A_{OL}(V_+ - V_-)$",
+    "answer": "<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>$V_{\\text{out}} = A_{OL}(V_+ - V_-)$</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>1. Definition: A high-gain DC-coupled differential voltage amplifier integrated circuit (e.g. standard $\\mu\\text{A}741$).\n2. Terminal Pins:\n- Pin 2: Inverting input ($V_-$)\n- Pin 3: Non-inverting input ($V_+$)\n- Pin 6: Output ($V_{\\text{out}}$)\n- Pin 7: Positive power supply ($V_S^+$)\n- Pin 4: Negative power supply ($V_S^-$).\n\n3. Ideal Op-Amp Properties:\n- Infinite open-loop voltage gain: $A_{OL} = \\infty$\n- Infinite input impedance: $R_{\\text{in}} = \\infty$ (no input current, $I_+ = I_- = 0$)\n- Zero output impedance: $R_{\\text{out}} = 0$\n- Infinite bandwidth and zero input offset voltage.</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>Virtual ground concept: When negative feedback is present, the Op-Amp drives the differential input to zero ($V_+ = V_-$).</p>"
   }
 ];
