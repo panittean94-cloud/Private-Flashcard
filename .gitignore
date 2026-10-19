@@ -1,0 +1,18 @@
+# Office temporary lock files
+~$*.xlsx
+~$*.docx
+~$*.pptx
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temporary scripts
+inspect_*.py
+analyze_*.py
+read_*.py
+check_*.py
+verify_*.py
+extract_*.py
+render_*.py
+fix_*.py
