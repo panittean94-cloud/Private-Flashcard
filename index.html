@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ FunE Final Flashcards | KKU Electrical Engineering</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX for Math Equations Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    /* 3D Flip Card Animation */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+
+  <!-- Header & Navbar -->
+  <header class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-blue-500/20">
+          ⚡
+        </div>
+        <div>
+          <h1 class="font-bold text-lg leading-tight tracking-tight">FunE Final Flashcards</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Chapters 6 – 10 • Assoc. Prof. Nararat (KKU)</p>
+        </div>
+      </div>
+
+      <!-- Controls Right -->
+      <div class="flex items-center space-x-2">
+        <button id="themeToggleBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Theme">
+          <i class="ph ph-moon text-xl" id="themeIcon"></i>
+        </button>
+        <button id="settingsBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Google Sheets Backend Sync">
+          <i class="ph ph-gear text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl w-full mx-auto px-4 py-6 flex-1 flex flex-col items-center">
+    
+    <!-- Top Filter & Search Section -->
+    <div class="w-full mb-6 space-y-3">
+      
+      <!-- Search & Filters Row -->
+      <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+        <!-- Search Bar -->
+        <div class="relative w-full sm:w-72">
+          <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="searchInput" placeholder="Search formulas, BANI, CDRX..." class="w-full pl-9 pr-3 py-1.5 text-sm rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Level / Difficulty Filter -->
+        <div class="flex items-center space-x-1.5 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+          <button class="diff-btn px-3 py-1 text-xs font-medium rounded-full border border-blue-500 bg-blue-500 text-white" data-diff="all">All Levels</button>
+          <button class="diff-btn px-3 py-1 text-xs font-medium rounded-full border border-slate-300 dark:border-slate-700 hover:border-blue-400 text-slate-600 dark:text-slate-300" data-diff="Level 1 (Concept)">🟢 Level 1 (Concepts)</button>
+          <button class="diff-btn px-3 py-1 text-xs font-medium rounded-full border border-slate-300 dark:border-slate-700 hover:border-blue-400 text-slate-600 dark:text-slate-300" data-diff="Level 2 (Past Exam / Calc)">🔴 Level 2 (Past Exams)</button>
+        </div>
+      </div>
+
+      <!-- Chapter Tabs -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-sm no-scrollbar">
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-blue-600 text-white shadow-sm" data-chapter="all">All Chapters (<span id="totalCount">0</span>)</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Chapter 6">Ch.6 3-Phase</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Chapter 7">Ch.7 Machinery</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Chapter 8">Ch.8 Transformer</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Chapter 9">Ch.9 Power System</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Chapter 10">Ch.10 Instruments</button>
+        <button class="chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700" data-chapter="Semiconductors">Semiconductors</button>
+      </div>
+
+    </div>
+
+    <!-- Progress & Mastery Bar -->
+    <div class="w-full flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2">
+      <div class="flex items-center space-x-2">
+        <span class="font-semibold text-slate-700 dark:text-slate-200">Card <span id="currentIndexDisplay">1</span> of <span id="filteredCountDisplay">27</span></span>
+        <span class="text-slate-300 dark:text-slate-600">•</span>
+        <span class="text-emerald-600 dark:text-emerald-400 font-medium">✅ Mastered: <span id="masteredCount">0</span></span>
+        <span class="text-amber-600 dark:text-amber-400 font-medium">❌ Need Review: <span id="needReviewCount">0</span></span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="shuffleBtn" class="hover:text-blue-500 flex items-center space-x-1" title="Shuffle Cards">
+          <i class="ph ph-shuffle"></i>
+          <span>Shuffle</span>
+        </button>
+        <button id="resetProgressBtn" class="hover:text-rose-500 flex items-center space-x-1 ml-2" title="Reset Study Stats">
+          <i class="ph ph-arrow-counter-clockwise"></i>
+          <span>Reset</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Progress Bar Line -->
+    <div class="w-full bg-slate-200 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mb-6">
+      <div id="progressBar" class="bg-blue-600 h-full transition-all duration-300" style="width: 0%;"></div>
+    </div>
+
+    <!-- FLASHCARD CONTAINER (3D FLIP) -->
+    <div class="w-full max-w-2xl min-h-[420px] relative perspective-1000 cursor-pointer select-none" id="cardContainer">
+      <div id="cardInner" class="w-full h-full relative transform-style-3d transition-transform duration-500 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800">
+
+        <!-- FRONT SIDE -->
+        <div class="w-full h-full min-h-[420px] p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 backface-hidden flex flex-col justify-between absolute inset-0">
+          <div>
+            <!-- Card Top Metadata -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center space-x-2">
+                <span id="cardChapter" class="px-2.5 py-1 text-xs font-bold rounded-md bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300">Chapter 6</span>
+                <span id="cardDiffBadge" class="px-2 py-0.5 text-[11px] font-semibold rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300">Level 1 (Concept)</span>
+              </div>
+              <span id="cardExamRef" class="text-xs font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">Past Exam</span>
+            </div>
+
+            <!-- Topic Title -->
+            <h3 id="cardTopic" class="text-sm font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-2">Topic Title</h3>
+
+            <!-- Question Text -->
+            <div id="cardQuestion" class="text-base sm:text-lg text-slate-800 dark:text-slate-100 font-medium leading-relaxed my-4">
+              Question text goes here...
+            </div>
+          </div>
+
+          <!-- Front Bottom Hint & Action -->
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+            <div class="flex items-center space-x-1" id="hintSection">
+              <i class="ph ph-lightbulb text-amber-500 text-sm"></i>
+              <span id="cardHint" class="italic text-slate-500 dark:text-slate-400">Click to flip card for answer</span>
+            </div>
+            <div class="flex items-center space-x-1 text-blue-600 dark:text-blue-400 font-semibold">
+              <span>Show Answer</span>
+              <i class="ph ph-arrow-elbow-down-right"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- BACK SIDE -->
+        <div class="w-full h-full min-h-[420px] p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-white to-blue-50/40 dark:from-slate-800 dark:to-slate-900 backface-hidden rotate-y-180 flex flex-col justify-between absolute inset-0 overflow-y-auto">
+          <div>
+            <!-- Back Top Header -->
+            <div class="flex items-center justify-between mb-3 border-b border-slate-200 dark:border-slate-700/60 pb-2">
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center space-x-1">
+                <i class="ph ph-check-circle text-base"></i>
+                <span>Model Solution & Answer</span>
+              </span>
+              <span id="backCardId" class="text-xs text-slate-400 font-mono">CH6-01</span>
+            </div>
+
+            <!-- Answer Content -->
+            <div id="cardAnswer" class="text-sm sm:text-base text-slate-800 dark:text-slate-100 leading-relaxed space-y-2 py-2">
+              Answer text with LaTeX formulas will be rendered here...
+            </div>
+          </div>
+
+          <!-- Back Bottom Hint -->
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-700 text-center text-xs text-slate-400">
+            <span>Tap card again to flip back</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation & Rating Controls -->
+    <div class="w-full max-w-2xl mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <!-- Previous / Next -->
+      <div class="flex items-center space-x-2">
+        <button id="prevBtn" class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 font-medium text-sm flex items-center space-x-1 shadow-sm transition">
+          <i class="ph ph-arrow-left"></i>
+          <span>Prev</span>
+        </button>
+        <button id="flipBtn" class="px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 font-medium text-sm flex items-center space-x-1 shadow-md shadow-blue-500/20 transition">
+          <i class="ph ph-repeat"></i>
+          <span>Flip (Space)</span>
+        </button>
+        <button id="nextBtn" class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 font-medium text-sm flex items-center space-x-1 shadow-sm transition">
+          <span>Next</span>
+          <i class="ph ph-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Self-Grading Buttons -->
+      <div class="flex items-center space-x-2">
+        <button id="markReviewBtn" class="px-3.5 py-2 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/50 text-xs font-semibold flex items-center space-x-1 transition" title="Press 1">
+          <span>❌ Need Review (1)</span>
+        </button>
+        <button id="markMasteredBtn" class="px-3.5 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-xs font-semibold flex items-center space-x-1 transition" title="Press 2">
+          <span>✅ Mastered (2)</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Keyboard Shortcuts Legend -->
+    <div class="mt-8 text-center text-xs text-slate-400 space-x-3 hidden sm:block">
+      <span><kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">Space</kbd> Flip</span>
+      <span><kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">←</kbd> Prev</span>
+      <span><kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">→</kbd> Next</span>
+      <span><kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">1</kbd> Need Review</span>
+      <span><kbd class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-mono">2</kbd> Mastered</span>
+    </div>
+
+  </main>
+
+  <!-- Google Sheets Sync Modal -->
+  <div id="settingsModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-800 max-w-md w-full rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+        <h3 class="font-bold text-base flex items-center space-x-2">
+          <i class="ph ph-google-chrome-logo text-emerald-500 text-xl"></i>
+          <span>Google Sheets Sync (Code.gs)</span>
+        </h3>
+        <button id="closeModalBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+          <i class="ph ph-x text-lg"></i>
+        </button>
+      </div>
+
+      <div class="text-xs text-slate-600 dark:text-slate-300 space-y-2">
+        <p>You can optionally connect this web app to your Google Spreadsheet via Google Apps Script (<code>Code.gs</code>):</p>
+        <ol class="list-decimal pl-4 space-y-1 text-slate-500 dark:text-slate-400">
+          <li>Create a Google Sheet and paste <code>Code.gs</code> into <em>Extensions &gt; Apps Script</em>.</li>
+          <li>Run <code>setupFlashcardSheet</code> to auto-populate cards.</li>
+          <li>Click <em>Deploy &gt; New deployment &gt; Web App</em>.</li>
+          <li>Paste the deployed URL below to sync your study progress in real-time!</li>
+        </ol>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Google Apps Script Web App URL</label>
+        <input type="text" id="gasUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="w-full text-xs p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <div class="flex items-center justify-end space-x-2 pt-2">
+        <button id="saveGasUrlBtn" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-xs hover:bg-blue-700">Save & Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded Local Flashcard Data -->
+  <script src="data/flashcards.js"></script>
+
+  <!-- Flashcard Logic -->
+  <script>
+    // State
+    let allCards = typeof FLASHCARDS_DATA !== 'undefined' ? FLASHCARDS_DATA : [];
+    let filteredCards = [...allCards];
+    let currentIndex = 0;
+    let isFlipped = false;
+    let selectedChapter = 'all';
+    let selectedDiff = 'all';
+    let searchQuery = '';
+    
+    // Study Progress Storage
+    let studyStats = JSON.parse(localStorage.getItem('fune_flashcards_stats') || '{}');
+    let gasEndpoint = localStorage.getItem('fune_gas_endpoint') || '';
+
+    // DOM Elements
+    const cardContainer = document.getElementById('cardContainer');
+    const cardInner = document.getElementById('cardInner');
+    const cardChapter = document.getElementById('cardChapter');
+    const cardDiffBadge = document.getElementById('cardDiffBadge');
+    const cardExamRef = document.getElementById('cardExamRef');
+    const cardTopic = document.getElementById('cardTopic');
+    const cardQuestion = document.getElementById('cardQuestion');
+    const cardHint = document.getElementById('cardHint');
+    const cardAnswer = document.getElementById('cardAnswer');
+    const backCardId = document.getElementById('backCardId');
+    
+    const currentIndexDisplay = document.getElementById('currentIndexDisplay');
+    const filteredCountDisplay = document.getElementById('filteredCountDisplay');
+    const totalCount = document.getElementById('totalCount');
+    const progressBar = document.getElementById('progressBar');
+    const masteredCount = document.getElementById('masteredCount');
+    const needReviewCount = document.getElementById('needReviewCount');
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const flipBtn = document.getElementById('flipBtn');
+    const shuffleBtn = document.getElementById('shuffleBtn');
+    const resetProgressBtn = document.getElementById('resetProgressBtn');
+    const markReviewBtn = document.getElementById('markReviewBtn');
+    const markMasteredBtn = document.getElementById('markMasteredBtn');
+    
+    const searchInput = document.getElementById('searchInput');
+    const chapterTabs = document.querySelectorAll('.chapter-tab');
+    const diffButtons = document.querySelectorAll('.diff-btn');
+
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsModal = document.getElementById('settingsModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const gasUrlInput = document.getElementById('gasUrlInput');
+    const saveGasUrlBtn = document.getElementById('saveGasUrlBtn');
+
+    // Theme setup
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      themeIcon.classList.replace('ph-moon', 'ph-sun');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+        themeIcon.classList.replace('ph-sun', 'ph-moon');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+        themeIcon.classList.replace('ph-moon', 'ph-sun');
+      }
+    });
+
+    // Initialize counts
+    totalCount.textContent = allCards.length;
+
+    // Filter Function
+    function applyFilters() {
+      filteredCards = allCards.filter(c => {
+        const matchesChapter = selectedChapter === 'all' || c.chapter.toLowerCase() === selectedChapter.toLowerCase();
+        const matchesDiff = selectedDiff === 'all' || c.difficulty === selectedDiff;
+        const matchesSearch = searchQuery === '' || 
+          c.question.toLowerCase().includes(searchQuery) ||
+          c.topic.toLowerCase().includes(searchQuery) ||
+          c.answer.toLowerCase().includes(searchQuery) ||
+          c.exam_reference.toLowerCase().includes(searchQuery);
+        return matchesChapter && matchesDiff && matchesSearch;
+      });
+
+      currentIndex = 0;
+      isFlipped = false;
+      renderCurrentCard();
+      updateStatsDisplay();
+    }
+
+    // Render Math Equations with KaTeX
+    function renderMath() {
+      if (window.renderMathInElement) {
+        renderMathInElement(cardQuestion, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+        renderMathInElement(cardAnswer, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // Render Current Card
+    function renderCurrentCard() {
+      if (filteredCards.length === 0) {
+        cardTopic.textContent = 'No cards found';
+        cardQuestion.innerHTML = '<p class="text-slate-400 text-center py-12">No flashcards match the selected filter or search term.</p>';
+        cardAnswer.innerHTML = '';
+        cardChapter.textContent = '-';
+        cardExamRef.textContent = '-';
+        cardDiffBadge.textContent = '-';
+        backCardId.textContent = '';
+        currentIndexDisplay.textContent = '0';
+        filteredCountDisplay.textContent = '0';
+        progressBar.style.width = '0%';
+        return;
+      }
+
+      const card = filteredCards[currentIndex];
+      
+      // Reset flip state
+      if (isFlipped) {
+        cardInner.classList.remove('rotate-y-180');
+        isFlipped = false;
+      }
+
+      cardChapter.textContent = card.chapter;
+      cardTopic.textContent = card.topic;
+      cardExamRef.textContent = card.exam_reference || 'Final Exam';
+      cardQuestion.innerHTML = card.question;
+      cardHint.textContent = card.hint || 'Click to flip card for answer';
+      cardAnswer.innerHTML = card.answer;
+      backCardId.textContent = card.id;
+
+      // Badges
+      if (card.difficulty.includes('Level 1')) {
+        cardDiffBadge.className = 'px-2 py-0.5 text-[11px] font-semibold rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300';
+        cardDiffBadge.textContent = '🟢 Level 1 (Concept)';
+      } else {
+        cardDiffBadge.className = 'px-2 py-0.5 text-[11px] font-semibold rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300';
+        cardDiffBadge.textContent = '🔴 Level 2 (Past Exam)';
+      }
+
+      currentIndexDisplay.textContent = currentIndex + 1;
+      filteredCountDisplay.textContent = filteredCards.length;
+      progressBar.style.width = `${((currentIndex + 1) / filteredCards.length) * 100}%`;
+
+      // KaTeX rendering after DOM insertion
+      setTimeout(renderMath, 10);
+    }
+
+    // Flip Card Action
+    function flipCard() {
+      if (filteredCards.length === 0) return;
+      isFlipped = !isFlipped;
+      if (isFlipped) {
+        cardInner.classList.add('rotate-y-180');
+      } else {
+        cardInner.classList.remove('rotate-y-180');
+      }
+    }
+
+    cardContainer.addEventListener('click', flipCard);
+    flipBtn.addEventListener('click', flipCard);
+
+    // Navigation
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCurrentCard();
+      }
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (currentIndex < filteredCards.length - 1) {
+        currentIndex++;
+        renderCurrentCard();
+      }
+    });
+
+    // Self-Grading
+    function rateCard(status) {
+      if (filteredCards.length === 0) return;
+      const currentCard = filteredCards[currentIndex];
+      studyStats[currentCard.id] = status;
+      localStorage.setItem('fune_flashcards_stats', JSON.stringify(studyStats));
+      updateStatsDisplay();
+
+      // Sync with Google Sheets backend if configured
+      if (gasEndpoint) {
+        fetch(gasEndpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: currentCard.id, status: status })
+        }).catch(err => console.log('GAS sync silent error:', err));
+      }
+
+      // Automatically advance to next card
+      if (currentIndex < filteredCards.length - 1) {
+        currentIndex++;
+        renderCurrentCard();
+      }
+    }
+
+    markMasteredBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      rateCard('Mastered');
+    });
+
+    markReviewBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      rateCard('Need Review');
+    });
+
+    // Update Stats Display
+    function updateStatsDisplay() {
+      let mastered = 0;
+      let review = 0;
+      allCards.forEach(c => {
+        if (studyStats[c.id] === 'Mastered') mastered++;
+        else if (studyStats[c.id] === 'Need Review') review++;
+      });
+      masteredCount.textContent = mastered;
+      needReviewCount.textContent = review;
+    }
+
+    resetProgressBtn.addEventListener('click', () => {
+      if (confirm('Reset your study progress?')) {
+        studyStats = {};
+        localStorage.removeItem('fune_flashcards_stats');
+        updateStatsDisplay();
+      }
+    });
+
+    // Shuffle
+    shuffleBtn.addEventListener('click', () => {
+      for (let i = filteredCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+      }
+      currentIndex = 0;
+      renderCurrentCard();
+    });
+
+    // Search Input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyFilters();
+    });
+
+    // Chapter Filter Tabs
+    chapterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        chapterTabs.forEach(t => {
+          t.className = 'chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700';
+        });
+        tab.className = 'chapter-tab px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap bg-blue-600 text-white shadow-sm';
+        selectedChapter = tab.getAttribute('data-chapter');
+        applyFilters();
+      });
+    });
+
+    // Difficulty Filter Buttons
+    diffButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        diffButtons.forEach(b => {
+          b.className = 'diff-btn px-3 py-1 text-xs font-medium rounded-full border border-slate-300 dark:border-slate-700 hover:border-blue-400 text-slate-600 dark:text-slate-300';
+        });
+        btn.className = 'diff-btn px-3 py-1 text-xs font-medium rounded-full border border-blue-500 bg-blue-500 text-white';
+        selectedDiff = btn.getAttribute('data-diff');
+        applyFilters();
+      });
+    });
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        flipCard();
+      } else if (e.code === 'ArrowLeft') {
+        if (currentIndex > 0) { currentIndex--; renderCurrentCard(); }
+      } else if (e.code === 'ArrowRight') {
+        if (currentIndex < filteredCards.length - 1) { currentIndex++; renderCurrentCard(); }
+      } else if (e.key === '1') {
+        rateCard('Need Review');
+      } else if (e.key === '2') {
+        rateCard('Mastered');
+      }
+    });
+
+    // Google Sheets Modal
+    settingsBtn.addEventListener('click', () => {
+      gasUrlInput.value = gasEndpoint;
+      settingsModal.classList.remove('hidden');
+    });
+    closeModalBtn.addEventListener('click', () => settingsModal.classList.add('hidden'));
+    settingsModal.addEventListener('click', (e) => {
+      if (e.target === settingsModal) settingsModal.classList.add('hidden');
+    });
+    saveGasUrlBtn.addEventListener('click', () => {
+      gasEndpoint = gasUrlInput.value.trim();
+      localStorage.setItem('fune_gas_endpoint', gasEndpoint);
+      settingsModal.classList.add('hidden');
+      alert('✅ Connected Google Sheet backend endpoint!');
+    });
+
+    // Initial Load
+    applyFilters();
+  </script>
+</body>
+</html>

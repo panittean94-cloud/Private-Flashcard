@@ -1,0 +1,272 @@
+[
+  {
+    "id": "CH6-01",
+    "chapter": "Chapter 6",
+    "topic": "Star (Y) vs Delta (Δ) Relationships",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Lecture Slides & Midterm/Final Standard",
+    "question": "In a balanced 3-phase system, state the relationships between line ($V_L, I_L$) and phase ($V_p, I_p$) quantities for both **Y-connection** and **$\\Delta$-connection**.",
+    "hint": "Remember the $\\sqrt{3}$ factor and the $\\pm 30^\\circ$ phase shifts!",
+    "answer": "<ul><li><strong>Y-Connection:</strong><br>• $V_L = \\sqrt{3} V_p \\angle +30^\\circ$ (magnitude $|V_L| = \\sqrt{3}|V_p|$, leads by $30^\\circ$)<br>• $I_L = I_p$ (line current equals phase current)</li><li><strong>$\\Delta$-Connection:</strong><br>• $V_L = V_p$ (line voltage equals phase voltage)<br>• $I_L = \\sqrt{3} I_p \\angle -30^\\circ$ (magnitude $|I_L| = \\sqrt{3}|I_p|$, lags by $30^\\circ$)</li></ul>"
+  },
+  {
+    "id": "CH6-02",
+    "chapter": "Chapter 6",
+    "topic": "Delta to Wye (Δ ↔ Y) Impedance Transformation",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "HW Ch.6 Problem 1 & 5",
+    "question": "If a balanced $3\\phi$ load is connected in $\\Delta$ with impedance $Z_\\Delta = 60 + j30\\ \\Omega$, what is the equivalent impedance per phase when transformed to a Y-connection ($Z_Y$)?",
+    "hint": "Divide by 3!",
+    "answer": "$$Z_Y = \\frac{Z_\\Delta}{3} = \\frac{60 + j30}{3} = \\mathbf{20 + j10\\ \\Omega}$$<p><em>Conversely, $Z_\\Delta = 3 Z_Y$. This transformation allows solving $3\\phi$ circuits as equivalent single-phase circuits.</em></p>"
+  },
+  {
+    "id": "CH6-03",
+    "chapter": "Chapter 6",
+    "topic": "Three-Phase Power Formulas",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Formula Sheet & Exam Standard",
+    "question": "State the general formulas for balanced $3\\phi$ Real Power ($P_{3\\phi}$), Reactive Power ($Q_{3\\phi}$), and Apparent Power ($|S_{3\\phi}|$) in terms of line voltage ($V_L$) and line current ($I_L$).",
+    "hint": "All formulas involve $\\sqrt{3} V_L I_L$",
+    "answer": "<ul><li><strong>Real Power:</strong> $P_{3\\phi} = \\sqrt{3} V_L I_L \\cos\\theta\\quad [\\text{W}]$</li><li><strong>Reactive Power:</strong> $Q_{3\\phi} = \\sqrt{3} V_L I_L \\sin\\theta\\quad [\\text{VAR}]$</li><li><strong>Apparent Power:</strong> $|S_{3\\phi}| = \\sqrt{3} V_L I_L = \\sqrt{P^2 + Q^2}\\quad [\\text{VA}]$</li><li><strong>Complex Power:</strong> $S_{3\\phi} = \\sqrt{3} V_L I_L^* = P + jQ$</li></ul><p>where $\\theta = \\angle Z_{\\text{phase}}$ is the load phase angle, and $PF = \\cos\\theta$.</p>"
+  },
+  {
+    "id": "CH6-04",
+    "chapter": "Chapter 6",
+    "topic": "3-Phase Induction Motor Load Calculation",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "HW Ch.6 Problem 4",
+    "question": "A $3\\phi$, $12\\text{-hp}$ induction motor is Y-connected to a $3\\phi$ supply with $|V_{\\text{line}}| = 380\\text{ V}, 50\\text{ Hz}$. The motor has $\\eta = 90\\%$ efficiency and a lagging power factor of $0.85$.<br><br>Calculate:<br>1. Input real power ($P_{\\text{in}}$)<br>2. Line current ($I_{\\text{line}}$)<br>3. Phase impedance ($Z$), resistance ($R$), and inductance ($L$).",
+    "hint": "1 hp = 746 W. $P_{\\text{in}} = P_{\\text{out}}/\\eta$.",
+    "answer": "<ol><li><strong>Input Power:</strong><br>$P_{\\text{out}} = 12 \\times 746 = 8,952\\text{ W}$<br>$P_{\\text{in}} = \\frac{8,952}{0.90} = \\mathbf{9,946.67\\text{ W}}$ ($9.95\\text{ kW}$)</li><li><strong>Line Current:</strong><br>$$I_L = \\frac{P_{\\text{in}}}{\\sqrt{3} V_L \\cos\\theta} = \\frac{9,946.67}{\\sqrt{3} \\times 380 \\times 0.85} = \\mathbf{17.78\\text{ A}}$$</li><li><strong>Phase Impedance (Y-connection: $V_p = 380/\\sqrt{3} = 219.39\\text{ V}, I_p = I_L = 17.78\\text{ A}$):</strong><br>• $|Z| = \\frac{219.39}{17.78} = 12.34\\ \\Omega$<br>• $\\theta = \\arccos(0.85) = 31.79^\\circ$<br>• $Z = 12.34\\angle 31.79^\\circ = 10.49 + j6.50\\ \\Omega$<br>• Resistance: $R = \\mathbf{10.49\\ \\Omega}$<br>• Reactance: $X_L = 6.50\\ \\Omega \\implies L = \\frac{6.50}{2\\pi \\times 50} = \\mathbf{20.7\\text{ mH}}$</li></ol>"
+  },
+  {
+    "id": "CH6-05",
+    "chapter": "Chapter 6",
+    "topic": "Delta-Connected Motor Load Calculation",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "HW Ch.6 Problem 5",
+    "question": "A $3\\phi$, $10\\text{-hp}$ motor is $\\Delta$-connected to a $3\\phi$ supply with $|V_{\\text{line}}| = 380\\text{ V}, 50\\text{ Hz}$, $\\eta = 85\\%$, and $PF = 0.8$ lagging. Find the line current ($I_L$) and phase impedance ($Z_\\Delta$).",
+    "hint": "For Delta load, $V_p = V_L = 380 V$ and $I_p = I_L / \\sqrt{3}$.",
+    "answer": "<ol><li><strong>Input Power:</strong><br>$P_{\\text{out}} = 10 \\times 746 = 7,460\\text{ W}$<br>$P_{\\text{in}} = \\frac{7,460}{0.85} = 8,776.47\\text{ W}$</li><li><strong>Line Current:</strong><br>$$I_L = \\frac{P_{\\text{in}}}{\\sqrt{3} V_L \\cos\\theta} = \\frac{8,776.47}{\\sqrt{3} \\times 380 \\times 0.8} = \\mathbf{16.67\\text{ A}}$$</li><li><strong>Phase Impedance ($Z_\\Delta$):</strong><br>• $V_p = V_L = 380\\text{ V}$<br>• $I_p = \\frac{I_L}{\\sqrt{3}} = \\frac{16.67}{\\sqrt{3}} = 9.62\\text{ A}$<br>• $|Z_\\Delta| = \\frac{380}{9.62} = \\mathbf{39.5\\ \\Omega}$<br>• $\\theta = \\arccos(0.8) = 36.87^\\circ \\implies Z_\\Delta = 39.5\\angle 36.87^\\circ = \\mathbf{31.6 + j23.7\\ \\Omega}$</li></ol>"
+  },
+  {
+    "id": "CH7-01",
+    "chapter": "Chapter 7",
+    "topic": "DC Machine Stator and Rotor Components",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 4.3",
+    "question": "Name the 2 primary structural parts of a DC machine and list at least 2 components found in each part.",
+    "hint": "One part is stationary, the other rotates.",
+    "answer": "<ul><li><strong>1. Stator (Stationary Part):</strong> Frame/Yoke, Magnetic Pole Cores, Pole Shoes, Field Windings.</li><li><strong>2. Rotor (Rotating Part):</strong> Armature Core (laminated silicon steel), Armature Winding, Commutator, Shaft (with carbon brushes riding on commutator).</li></ul>"
+  },
+  {
+    "id": "CH7-02",
+    "chapter": "Chapter 7",
+    "topic": "Fundamental EMF and Torque Equations",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Lecture Slides & HW Ch.7",
+    "question": "State the fundamental formulas for Back EMF ($E_a$), Developed Torque ($T_d$), and Angular Speed ($\\omega_m$) of a DC machine.",
+    "hint": "$E_a$ depends on speed; $T_d$ depends on armature current.",
+    "answer": "<ul><li><strong>Back EMF:</strong> $$E_a = K_a \\Phi \\omega_m = K_a \\Phi \\left(\\frac{2\\pi n}{60}\\right)$$</li><li><strong>Developed Torque:</strong> $$T_d = K_a \\Phi I_a$$</li><li><strong>Power Balance:</strong> $$P_{\\text{mech}} = T_d \\omega_m = E_a I_a = P_{\\text{elec}}$$</li></ul><p>where $n$ is speed in rpm, $\\Phi$ is flux per pole in Webers, and $K_a$ is the machine design constant.</p>"
+  },
+  {
+    "id": "CH7-03",
+    "chapter": "Chapter 7",
+    "topic": "DC Series Motor No-Load Danger",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Exam Pitfall & Standard Question",
+    "question": "Why must a <strong>DC Series Motor</strong> never be started or operated without a mechanical load (no-load condition)?",
+    "hint": "What happens to flux $\\Phi$ and speed $n$ when $I_a \\to 0$?",
+    "answer": "<p>In a DC series motor, the armature and field windings are in series, so $I_a = I_f$.</p><p>Under no-load conditions, $I_a$ is very small, causing the magnetic flux to approach zero ($\\Phi \\approx 0$).</p><p>Since speed is inversely proportional to flux ($n \\propto \\frac{E_a}{\\Phi}$), the motor speed will skyrocket uncontrollably to dangerous levels (<strong>runaway overspeed</strong>), resulting in centrifugal mechanical destruction of the armature.</p>"
+  },
+  {
+    "id": "CH7-04",
+    "chapter": "Chapter 7",
+    "topic": "Reversing 3-Phase Induction Motor Rotation",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 4.4c (2 Points)",
+    "question": "How can the direction of rotation of a 3-phase induction motor be reversed?",
+    "hint": "Think about the incoming 3-phase supply wires.",
+    "answer": "<p><strong>Interchange any two of the three power supply lines</strong> connected to the motor terminals (for example, swap line A and line B, while leaving line C unchanged).</p><p>This reverses the phase sequence of the stator currents, reversing the direction of the rotating magnetic field (RMF), which reverses motor rotation.</p>"
+  },
+  {
+    "id": "CH7-05",
+    "chapter": "Chapter 7",
+    "topic": "Squirrel-Cage Rotor Operation",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 4.4a & 4.4b",
+    "question": "What is a <strong>Squirrel-Cage Rotor</strong> in a 3-phase induction motor, and what is its working principle?",
+    "hint": "Laminated cylindrical core with conducting bars short-circuited by end rings.",
+    "answer": "<p><strong>Definition:</strong> A rugged rotor consisting of a laminated steel cylinder with copper or aluminum conducting bars embedded in longitudinal slots and short-circuited at both ends by heavy end rings, resembling a squirrel cage.</p><p><strong>Working Principle:</strong> The 3-phase stator creates a Rotating Magnetic Field (RMF) that cuts through the shorted rotor bars, inducing alternating EMF and heavy currents. By Lorentz law ($F = BIL$), these currents interact with the stator RMF to produce a driving torque that drags the rotor in the direction of the field.</p>"
+  },
+  {
+    "id": "CH7-06",
+    "chapter": "Chapter 7",
+    "topic": "DC Shunt Motor Full Calculation",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "HW Ch.7 Problem 4 / Final Exam",
+    "question": "A 2-pole, $100\\text{ VDC}$ DC shunt motor has design constant $K_a = 153$, armature resistance $R_a = 0.75\\ \\Omega$, field resistance $R_f = 440\\ \\Omega$, and flux per pole $\\Phi = 10.0\\text{ mWb}$. At full load, the total line current is $I_t = 25.0\\text{ A}$.<br><br>Calculate:<br>1. Armature current ($I_a$)<br>2. Induced back EMF ($E_a$)<br>3. Speed in rpm ($n$)<br>4. Developed torque ($T_d$)",
+    "hint": "$I_f = V_t / R_f$; $I_a = I_t - I_f$; $E_a = V_t - I_a R_a$; $E_a = K_a \\Phi \\omega_m$.",
+    "answer": "<ol><li><strong>Field & Armature Current:</strong><br>$I_f = \\frac{V_t}{R_f} = \\frac{100}{440} = 0.227\\text{ A}$<br>$I_a = I_t - I_f = 25.0 - 0.227 = \\mathbf{24.77\\text{ A}}$</li><li><strong>Back EMF:</strong><br>$$E_a = V_t - I_a R_a = 100 - (24.77 \\times 0.75) = 100 - 18.58 = \\mathbf{81.42\\text{ V}}$$</li><li><strong>Speed ($n$ in rpm):</strong><br>From $E_a = K_a \\Phi \\omega_m$:<br>$$81.42 = 153 \\times (10 \\times 10^{-3}) \\times \\omega_m = 1.53 \\omega_m \\implies \\omega_m = 53.22\\text{ rad/s}$$<br>$$n = \\frac{60 \\omega_m}{2\\pi} = \\frac{60 \\times 53.22}{2\\pi} = \\mathbf{508.17\\text{ rpm}}$$</li><li><strong>Developed Torque:</strong><br>$$T_d = K_a \\Phi I_a = 153 \\times (10 \\times 10^{-3}) \\times 24.77 = \\mathbf{37.9\\text{ N}\\cdot\\text{m}}$$</li></ol>"
+  },
+  {
+    "id": "CH8-01",
+    "chapter": "Chapter 8",
+    "topic": "Transformer Definition and Working Principle",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 1.1 & 1.3",
+    "question": "What is an electrical transformer, what is its primary purpose, and what physical principle does it operate on?",
+    "hint": "Static AC machine; Faraday Mutual Induction.",
+    "answer": "<p><strong>Definition:</strong> A static electromagnetic machine without moving parts.</p><p><strong>Purpose:</strong> Steps up or steps down alternating voltage and current levels at constant frequency.</p><p><strong>Physical Principle:</strong> <strong>Faraday's Law of Mutual Induction</strong>. An alternating current in the primary winding creates a time-varying magnetic flux in the laminated iron core, which links with and induces an alternating EMF in the secondary winding.</p>"
+  },
+  {
+    "id": "CH8-02",
+    "chapter": "Chapter 8",
+    "topic": "DC Connection to Transformer Hazard",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 1.6d & HW Ch.8",
+    "question": "What happens if a transformer's primary winding is connected to a <strong>DC voltage source</strong>?",
+    "hint": "Does flux change with DC? What limits primary current?",
+    "answer": "<ol><li><strong>Secondary Output is ZERO ($V_2 = 0$):</strong> Because DC voltage produces a steady, non-changing magnetic flux ($\\frac{d\\Phi}{dt} = 0$), no voltage is induced in the secondary winding.</li><li><strong>Primary Winding Burns Out:</strong> In DC, inductive reactance is zero ($X_L = 2\\pi f L = 0$), and there is no counter-EMF. The current is limited solely by the tiny wire resistance ($I_1 = V_{DC}/R_1$), resulting in catastrophic overheating and burnout.</li></ol>"
+  },
+  {
+    "id": "CH8-03",
+    "chapter": "Chapter 8",
+    "topic": "Properties of an Ideal Transformer",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 1.4 (2 Points)",
+    "question": "List 4 key properties of an <strong>Ideal Transformer</strong>.",
+    "hint": "Think about resistances, losses, and core permeability.",
+    "answer": "<ul><li>1. Zero winding resistance ($R_1 = R_2 = 0 \\implies$ No Copper Loss).</li><li>2. Infinite core permeability ($\\mu = \\infty \\implies$ Zero magnetizing current required to establish flux).</li><li>3. Zero core losses ($P_{\\text{core}} = 0$, no hysteresis or eddy current losses).</li><li>4. Zero leakage flux (100% of magnetic flux is confined within the core).</li></ul>"
+  },
+  {
+    "id": "CH8-04",
+    "chapter": "Chapter 8",
+    "topic": "Turns Ratio and Reflected Impedance Formulas",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "HW Ch.8 & Slide 15",
+    "question": "State the relationships between turns ratio ($a$), voltages ($V_1, V_2$), currents ($I_1, I_2$), and reflected secondary load impedance ($Z_1$).",
+    "hint": "Voltage is proportional to turns; current is inversely proportional; impedance goes by $a^2$.",
+    "answer": "$$a = \\frac{N_1}{N_2} = \\frac{V_1}{V_2} = \\frac{I_2}{I_1}$$<br>$$Z_1 = a^2 Z_2 = \\left(\\frac{N_1}{N_2}\\right)^2 Z_2$$"
+  },
+  {
+    "id": "CH8-05",
+    "chapter": "Chapter 8",
+    "topic": "25 kVA Transformer Full Calculation",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "Past Exam Problem 1.6 (10 Points) & HW Ch.8",
+    "question": "A single-phase transformer rated at $25\\text{ kVA}, 50\\text{ Hz}$ has $N_1 = 500$ turns and $N_2 = 50$ turns. The primary winding is connected to a $3,000\\text{ V}$ supply.<br><br>Find:<br>1. Turns ratio ($a$)<br>2. Rated primary and secondary currents ($I_1, I_2$)<br>3. Secondary voltage ($V_2$)<br>4. Maximum magnetic flux in the core ($\\Phi_m$)",
+    "hint": "$S = V_1 I_1 = V_2 I_2$; $E_1 = 4.44 f N_1 \\Phi_m$.",
+    "answer": "<ol><li><strong>Turns Ratio ($a$):</strong><br>$$a = \\frac{N_1}{N_2} = \\frac{500}{50} = \\mathbf{10}$$</li><li><strong>Rated Currents:</strong><br>• $I_1 = \\frac{S_{\\text{rated}}}{V_1} = \\frac{25 \\times 10^3}{3,000} = \\mathbf{8.33\\text{ A}}$<br>• $I_2 = a \\cdot I_1 = 10 \\times 8.33 = \\mathbf{83.33\\text{ A}}$</li><li><strong>Secondary Voltage ($V_2$):</strong><br>$$V_2 = \\frac{V_1}{a} = \\frac{3,000}{10} = \\mathbf{300\\text{ V}}$$</li><li><strong>Maximum Core Flux ($\\Phi_m$):</strong><br>From $V_1 = 4.44 f N_1 \\Phi_m$:<br>$$3,000 = 4.44 \\times 50 \\times 500 \\times \\Phi_m = 111,000 \\Phi_m \\implies \\Phi_m = \\frac{3,000}{111,000} = \\mathbf{0.027\\text{ Wb}} \\ (27\\text{ mWb})$$</li></ol>"
+  },
+  {
+    "id": "CH9-01",
+    "chapter": "Chapter 9",
+    "topic": "4 Subsystems of Electrical Power Systems",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 5.3 & Formula Sheet",
+    "question": "Name the 4 stages of an electric power system and classify these voltages: 500 kV, 22 kV, 380 V, 230 V.",
+    "hint": "Generation -> Transmission -> Distribution -> Utilization.",
+    "answer": "<ul><li><strong>1. Generation:</strong> 10–20 kV</li><li><strong>2. Transmission:</strong> Step-up to Extra High & High Voltage ($500\\text{ kV}$ = Extra High Voltage, $230/115\\text{ kV}$ = High Voltage)</li><li><strong>3. Distribution:</strong> Step-down to Medium Voltage ($22\\text{ kV}$ / $24\\text{ kV}$ = Medium Voltage)</li><li><strong>4. Utilization:</strong> Low Voltage ($380\\text{ V}$ = $3\\phi$ Low Voltage, $230\\text{ V}$ = Residential Single-Phase Low Voltage)</li></ul>"
+  },
+  {
+    "id": "CH9-02",
+    "chapter": "Chapter 9",
+    "topic": "Electricity Authorities in Thailand (EGAT, MEA, PEA)",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Final Exam Review & Slides",
+    "question": "State the jurisdiction and main responsibility of **EGAT**, **MEA**, and **PEA**.",
+    "hint": "MEA covers 3 provinces; PEA covers 74 provinces.",
+    "answer": "<ul><li><strong>EGAT (กฟผ. - Electricity Generating Authority of Thailand):</strong> Produces electricity, operates nationwide high-voltage transmission lines (500, 230, 115, 69 kV), sells wholesale power to MEA & PEA, trades energy internationally.</li><li><strong>MEA (กฟน. - Metropolitan Electricity Authority):</strong> Distributes electricity in <strong>3 provinces: Bangkok, Nonthaburi, Samut Prakan</strong> (distribution voltages: 24 kV & 12 kV).</li><li><strong>PEA (กฟภ. - Provincial Electricity Authority):</strong> Distributes electricity to the remaining <strong>74 provinces</strong> across Thailand (distribution voltages: 22 kV & 33 kV).</li></ul>"
+  },
+  {
+    "id": "CH9-03",
+    "chapter": "Chapter 9",
+    "topic": "Power Plant Types, Fuel & Startup Times",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 5.1 & 5.2 (6 Points)",
+    "question": "Based on power generation in Thailand:<br>1. Which fuel source is used the <strong>most</strong> and the <strong>least</strong>?<br>2. Which power plant has the <strong>shortest startup time</strong> (< 5 min) for <strong>Peak Load</strong>?<br>3. Which power plant has the <strong>longest startup time</strong> (6–8 hours) for <strong>Base Load</strong>?",
+    "hint": "Natural gas dominates; dams start immediately; coal boilers take hours.",
+    "answer": "<ol><li><strong>Fuel Usage:</strong> Most used = <strong>Natural Gas</strong>; Least used = <strong>Hydro</strong>.</li><li><strong>Shortest Startup / Peak Load:</strong> <strong>Hydroelectric Power Plant</strong> (e.g., Bhumibol Dam in Tak, Ubolratana Dam in Khon Kaen).</li><li><strong>Longest Startup / Base Load:</strong> <strong>Steam (Thermal) Power Plant</strong> (e.g., Mae Moh Power Plant in Lampang burning Lignite coal).</li></ol>"
+  },
+  {
+    "id": "CH9-04",
+    "chapter": "Chapter 9",
+    "topic": "Industrial Energy Conservation Methods",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 5.6 (3 Points)",
+    "question": "State 3 effective measures to conserve electrical energy in an industrial manufacturing plant.",
+    "hint": "Think about scheduling, transformers, and power factor.",
+    "answer": "<ol><li>Optimize work schedules and machine operating hours to avoid peak demand tariffs.</li><li>Consolidate or de-energize lightly loaded transformers to eliminate no-load core losses.</li><li>Improve Power Factor ($PF$) by installing capacitor banks (reducing reactive current and line losses).</li><li>Regulate and optimize supply voltage levels to prevent overvoltage waste.</li></ol>"
+  },
+  {
+    "id": "CH10-01",
+    "chapter": "Chapter 10",
+    "topic": "PMMC Instrument Operating Principle and Torque",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "HW Ch.10 Problem 1 & Past Exam 3.1",
+    "question": "1. Can a Permanent Magnet Moving Coil (PMMC) instrument measure AC directly? Why or why not?<br>2. State the formula for the deflecting torque ($T_d$) and spring controlling torque ($T_c$).",
+    "hint": "BANI formula; average torque in AC is zero.",
+    "answer": "<ol><li><strong>No, PMMC measures DC only.</strong> When AC is applied, the alternating torque averages out to zero over a cycle, so the mechanical pointer cannot respond and simply vibrates around zero.</li><li><strong>Torque Formulas:</strong><br>• Deflecting Torque: $$T_d = B \\cdot A \\cdot N \\cdot I \\quad (\\text{mnemonic: } BANI)$$<br>• Controlling Torque: $$T_c = K \\cdot \\theta$$<br>At balance ($T_d = T_c$): $\\theta = \\left(\\frac{BAN}{K}\\right) I \\implies$ deflection angle is strictly proportional to current (<strong>linear scale</strong>).</li></ol>"
+  },
+  {
+    "id": "CH10-02",
+    "chapter": "Chapter 10",
+    "topic": "Rectifier AC Voltmeter and Energy Meter",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 3.2 & 3.3",
+    "question": "1. What is the operating principle of a <strong>Rectifier AC Voltmeter</strong>, and what unit/quantity does it display?<br>2. What is an <strong>Energy Meter (Kilowatt-hour meter)</strong> used for?",
+    "hint": "Converts AC to DC; kWh accumulated energy.",
+    "answer": "<ol><li><strong>Rectifier AC Voltmeter:</strong> Uses semiconductor diodes (rectifier) to convert input AC into pulsating DC, which then flows into a PMMC meter. The scale is calibrated to read directly in <strong>Volts AC (RMS value)</strong>.</li><li><strong>Energy Meter (kWh meter):</strong> An integrating induction-type meter used to measure total cumulative electrical energy consumed over time in kilowatt-hours (kWh or units).</li></ol>"
+  },
+  {
+    "id": "CH10-03",
+    "chapter": "Chapter 10",
+    "topic": "DC Ammeter Design with and without CDRX",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "HW Ch.10 Problem 2",
+    "question": "A galvanometer has $I_g = 10\\text{ mA}$ and $R_g = 50\\ \\Omega$. Design a DC Ammeter with a full-scale range of $I = 100\\text{ mA}$. Calculate shunt resistance $R_s$ for:<br>(a) Without critical damping<br>(b) With critical damping resistance $CDRX = 400\\ \\Omega$ (connected in series with $R_g$)",
+    "hint": "Without CDRX: $R_s = I_g R_g / (I - I_g)$. With CDRX: $R_s = I_g(R_g + R_1)/(I - I_g)$.",
+    "answer": "<ol><li><strong>(a) Without Critical Damping:</strong><br>$$R_s = \\frac{I_g R_g}{I - I_g} = \\frac{10 \\times 50}{100 - 10} = \\frac{500}{90} = \\mathbf{5.56\\ \\Omega}$$</li><li><strong>(b) With Critical Damping ($CDRX = R_1 = 400\\ \\Omega$ in series with $R_g$):</strong><br>$$R_s = \\frac{I_g (R_g + R_1)}{I - I_g} = \\frac{10 \\times (50 + 400)}{100 - 10} = \\frac{4,500}{90} = \\mathbf{50.0\\ \\Omega}$$</li></ol>"
+  },
+  {
+    "id": "CH10-04",
+    "chapter": "Chapter 10",
+    "topic": "DC Voltmeter Design with and without CDRX",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "HW Ch.10 Problem 3",
+    "question": "A galvanometer has $I_g = 10\\text{ mA}$ and $R_g = 50\\ \\Omega$. Design a DC Voltmeter with full-scale range $V = 50\\text{ V}$. Calculate multiplier resistance $R_s$ for:<br>(a) Without critical damping<br>(b) With critical damping resistance $CDRX = 400\\ \\Omega$ (connected in parallel with $R_g$)",
+    "hint": "In (b), CDRX is in parallel with Rg, drawing extra current $I_1 = I_g R_g / CDRX$.",
+    "answer": "<ol><li><strong>(a) Without Critical Damping:</strong><br>$$R_s = \\frac{V}{I_g} - R_g = \\frac{50}{10 \\times 10^{-3}} - 50 = 5,000 - 50 = \\mathbf{4,950\\ \\Omega} \\ (4.95\\text{ k}\\Omega)$$</li><li><strong>(b) With Critical Damping ($CDRX = R_1 = 400\\ \\Omega$ in parallel with $R_g$):</strong><br>• Current through $R_1$: $I_1 = \\frac{I_g R_g}{R_1} = \\frac{10 \\times 10^{-3} \\times 50}{400} = 1.25\\text{ mA}$<br>• Total current through $R_s$: $I_{\\text{total}} = I_g + I_1 = 10 + 1.25 = 11.25\\text{ mA}$<br>• Voltage across $R_s$: $V_{Rs} = V - I_g R_g = 50 - 0.5 = 49.5\\text{ V}$<br>• $$R_s = \\frac{49.5}{11.25 \\times 10^{-3}} = \\mathbf{4,400\\ \\Omega} \\ (4.4\\text{ k}\\Omega)$$</li></ol>"
+  },
+  {
+    "id": "CH10-05",
+    "chapter": "Chapter 10",
+    "topic": "Multi-Range Ammeter Design (Actual Exam)",
+    "difficulty": "Level 2 (Past Exam / Calc)",
+    "exam_reference": "Past Exam Problem 3.5 (12 Points!)",
+    "question": "Design a multi-range DC ammeter to measure ranges: **$1\\text{ mA}, 50\\text{ mA}, 1\\text{ A}$**.<br>Given:<br>• Current Sensitivity = $0.1\\ \\mu\\text{A/mm}$, Scale Length = $10\\text{ mm}$<br>• $R_g = 100\\ \\Omega$, $CDRX = 400\\ \\Omega$ (in series with meter movement)<br>Find shunt resistor values $R_1, R_2, R_3$.",
+    "hint": "$I_g = 0.1 \\mu A/mm \\times 10 mm = 1 \\mu A$. Total branch $R = R_g + CDRX = 500 \\Omega$.",
+    "answer": "<ol><li><strong>Full-Scale Meter Current:</strong><br>$I_g = 0.1\\ \\mu\\text{A/mm} \\times 10\\text{ mm} = 1\\ \\mu\\text{A} = 1 \\times 10^{-6}\\text{ A}$</li><li><strong>Total Meter Branch Resistance:</strong><br>$R_{\\text{branch}} = R_g + CDRX = 100 + 400 = 500\\ \\Omega$</li><li><strong>Shunt Resistor Values:</strong><br>$$R_s = \\frac{I_g (R_g + CDRX)}{I - I_g} = \\frac{(1 \\times 10^{-6})(500)}{I - 10^{-6}} = \\frac{5 \\times 10^{-4}}{I - 10^{-6}}$$<br>• <strong>Range 1 ($I = 1\\text{ mA}$):</strong> $R_1 = \\frac{5 \\times 10^{-4}}{10^{-3} - 10^{-6}} \\approx \\mathbf{0.5\\ \\Omega}$<br>• <strong>Range 2 ($I = 50\\text{ mA}$):</strong> $R_2 = \\frac{5 \\times 10^{-4}}{50 \\times 10^{-3}} = \\mathbf{0.01\\ \\Omega}$<br>• <strong>Range 3 ($I = 1\\text{ A}$):</strong> $R_3 = \\frac{5 \\times 10^{-4}}{1} = \\mathbf{5 \\times 10^{-4}\\ \\Omega} \\ (0.0005\\ \\Omega)$</li></ol>"
+  },
+  {
+    "id": "SEMI-01",
+    "chapter": "Semiconductors",
+    "topic": "N-type vs P-type Semiconductor Physics",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Problem 4a & Ch.10 Slides",
+    "question": "Explain the difference between **N-type** and **P-type** semiconductors in terms of dopant valence and majority charge carriers.",
+    "hint": "Group 5 vs Group 3 dopants.",
+    "answer": "<ul><li><strong>N-type:</strong> Intrinsic silicon or germanium doped with <strong>Pentavalent atoms (Group 5)</strong> such as Phosphorus (P), Arsenic (As), or Antimony (Sb). Each dopant atom provides an extra free conduction electron. <strong>Majority carriers: Electrons</strong>.</li><li><strong>P-type:</strong> Doped with <strong>Trivalent atoms (Group 3)</strong> such as Boron (B), Aluminum (Al), or Gallium (Ga). Each dopant creates a deficiency of an electron (a hole). <strong>Majority carriers: Holes</strong>.</li></ul>"
+  },
+  {
+    "id": "SEMI-02",
+    "chapter": "Semiconductors",
+    "topic": "Diode Barrier Potentials and Rectifiers",
+    "difficulty": "Level 1 (Concept)",
+    "exam_reference": "Past Exam Review (X-Class) & Ch.10",
+    "question": "1. What are the forward barrier potentials ($V_D$) for Silicon and Germanium diodes?<br>2. What is the DC output voltage formula for Half-wave vs Full-wave rectifiers?<br>3. What is the role of a filter capacitor?",
+    "hint": "Si = 0.7V, Ge = 0.3V; 0.318 vs 0.636.",
+    "answer": "<ol><li><strong>Barrier Potentials:</strong><br>• Silicon (Si): $\\approx \\mathbf{0.7\\text{ V}}$<br>• Germanium (Ge): $\\approx \\mathbf{0.3\\text{ V}}$</li><li><strong>Rectifier DC Output ($V_{dc}$):</strong><br>• Half-Wave: $V_{dc} = \\frac{V_m}{\\pi} \\approx \\mathbf{0.318 V_m}$<br>• Full-Wave (Bridge/Center-Tap): $V_{dc} = \\frac{2 V_m}{\\pi} \\approx \\mathbf{0.636 V_m}$</li><li><strong>Capacitor Filter:</strong> Smooths pulsating DC by storing charge at peak voltage and discharging into load during troughs, significantly reducing ripple voltage (larger $C$ = smoother DC).</li></ol>"
+  }
+]
