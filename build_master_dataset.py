@@ -960,6 +960,43 @@ for col_letter, width in col_widths.items():
 json_path = r'c:\Users\thana\Desktop\Private-Flashcard\data\flashcards.json'
 js_path = r'c:\Users\thana\Desktop\Private-Flashcard\data\flashcards.js'
 
+def format_card_answer_html(formula_text, solution_text, pitfall_text):
+    # 1. Formula Box: Every formula line on its own row with clear vertical padding
+    f_lines = [l.strip() for l in formula_text.split('\n') if l.strip()]
+    f_rows = "".join(f"<div class='formula-row py-1'>{line}</div>" for line in f_lines)
+    
+    # 2. Solution Box: Every step, bullet, and equation on its own row
+    s_lines = [l.strip() for l in solution_text.split('\n') if l.strip()]
+    s_rows = []
+    for line in s_lines:
+        if line.startswith('$$') and line.endswith('$$'):
+            s_rows.append(f"<div class='solution-eq my-2 py-1 text-center font-medium'>{line}</div>")
+        elif any(line.startswith(f"{i}.") for i in range(1, 10)) or any(line.startswith(f"({ch})") for ch in 'abcd'):
+            s_rows.append(f"<div class='solution-step font-bold text-slate-900 dark:text-slate-100 mt-2 mb-1'>{line}</div>")
+        elif line.startswith('- '):
+            s_rows.append(f"<div class='solution-bullet my-1 pl-3 text-slate-700 dark:text-slate-300'>{line}</div>")
+        else:
+            s_rows.append(f"<div class='solution-line my-1 text-slate-800 dark:text-slate-200'>{line}</div>")
+    s_content = "".join(s_rows)
+    
+    # 3. Pitfall Box: Clean alert box
+    return (
+        f"<div class='space-y-3'>"
+        f"<div class='formula-box bg-blue-50/90 dark:bg-blue-950/40 border-l-4 border-blue-600 px-3.5 py-2.5 rounded-r-lg shadow-xs'>"
+        f"<div class='text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300 mb-1.5'>Key Formula / Operating Principle:</div>"
+        f"<div class='text-sm leading-relaxed'>{f_rows}</div>"
+        f"</div>"
+        f"<div class='solution-box bg-slate-50 dark:bg-slate-800/70 border-l-4 border-emerald-600 px-3.5 py-2.5 rounded-r-lg shadow-xs'>"
+        f"<div class='text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1.5'>Step-by-Step Solution & Calculation:</div>"
+        f"<div class='text-sm leading-relaxed'>{s_content}</div>"
+        f"</div>"
+        f"<div class='pitfall-box bg-amber-50/90 dark:bg-amber-950/40 border-l-4 border-amber-500 px-3.5 py-2 rounded-r-lg text-xs leading-relaxed text-amber-900 dark:text-amber-200'>"
+        f"<span class='font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mr-1'>⚠️ Exam Pitfall / Pro Tip:</span>"
+        f"<span class='italic'>{pitfall_text}</span>"
+        f"</div>"
+        f"</div>"
+    )
+
 web_cards = []
 for c in flashcards:
     web_cards.append({
@@ -970,7 +1007,7 @@ for c in flashcards:
         "exam_reference": c["exam_reference"],
         "question": c["question"],
         "hint": f"Key Formula: {c['formula'].splitlines()[0]}" if c["formula"] else "Click to flip card for answer",
-        "answer": f"<p class='font-semibold text-blue-600 dark:text-blue-400 mb-1'>Formula / Principle:</p><p class='mb-2'>{c['formula']}</p><p class='font-semibold text-emerald-600 dark:text-emerald-400 mb-1'>Step-by-Step Solution:</p><div class='mb-3 leading-relaxed whitespace-pre-line'>{c['solution']}</div><p class='font-semibold text-amber-600 dark:text-amber-400 mb-1'>Pitfall / Pro Tip:</p><p class='italic text-slate-500 dark:text-slate-400'>{c['pitfall']}</p>"
+        "answer": format_card_answer_html(c['formula'], c['solution'], c['pitfall'])
     })
 
 with open(json_path, 'w', encoding='utf-8') as f:

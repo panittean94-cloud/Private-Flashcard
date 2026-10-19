@@ -90,7 +90,6 @@ for ch in chapters_order:
           </div>
           
           <div class="card-answer-box">
-            <div class="section-label-answer">FORMULA, SOLUTION & PRO TIPS:</div>
             <div class="card-answer-content">{answer_body}</div>
           </div>
         </div>
@@ -304,7 +303,9 @@ html_template = f"""<!DOCTYPE html>
     
     .card-question-text {{
       font-size: 8.8pt;
-      color: #1e293b;
+      color: #0f172a;
+      white-space: pre-line;
+      line-height: 1.55;
     }}
 
     .card-question-text img, .card-answer-content img {{
@@ -319,34 +320,86 @@ html_template = f"""<!DOCTYPE html>
     }}
     
     .card-answer-box {{
-      padding: 8px 12px 10px 12px;
+      padding: 6px 12px 10px 12px;
       background: #fafafa;
-    }}
-    
-    .section-label-answer {{
-      font-size: 7pt;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      color: #059669;
-      margin-bottom: 4px;
     }}
     
     .card-answer-content {{
       font-size: 8.5pt;
-      line-height: 1.4;
+      line-height: 1.45;
     }}
 
-    .card-answer-content p {{
+    /* Formula Box */
+    .formula-box {{
+      background: #eff6ff;
+      border-left: 3.5px solid #2563eb;
+      padding: 6px 10px;
+      margin: 4px 0 8px 0;
+      border-radius: 4px;
+    }}
+    .formula-line {{
       margin: 3px 0;
+      line-height: 1.5;
+      font-size: 8.5pt;
+      color: #1e3a8a;
+      font-weight: 500;
+    }}
+
+    /* Solution Box */
+    .solution-box {{
+      background: #f8fafc;
+      border-left: 3.5px solid #059669;
+      padding: 6px 10px;
+      margin: 6px 0 8px 0;
+      border-radius: 4px;
+    }}
+    .solution-step {{
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 7px;
+      margin-bottom: 2px;
+      font-size: 8.6pt;
+    }}
+    .solution-eq {{
+      margin: 6px 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+    }}
+    .solution-bullet {{
+      margin: 2px 0 2px 10px;
+      color: #334155;
+      font-size: 8.3pt;
+      line-height: 1.45;
+    }}
+    .solution-line {{
+      margin: 2px 0;
+      color: #1e293b;
+      font-size: 8.3pt;
+      line-height: 1.45;
+    }}
+
+    /* Pitfall Box */
+    .pitfall-box {{
+      background: #fffbeb;
+      border-left: 3.5px solid #d97706;
+      padding: 5px 10px;
+      margin-top: 6px;
+      border-radius: 4px;
+      color: #92400e;
+      font-size: 7.8pt;
+      line-height: 1.35;
     }}
 
     /* KaTeX math adjustments */
     .katex {{
-      font-size: 1.02em !important;
+      font-size: 1.05em !important;
     }}
     
     .katex-display {{
-      margin: 4px 0 !important;
+      margin: 5px 0 !important;
     }}
   </style>
 </head>

@@ -67,6 +67,41 @@
     .dark ::-webkit-scrollbar-thumb {
       background: #475569;
     }
+
+    /* Equation Line Formatting & Math Breathing Room */
+    .formula-line {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+    .solution-step {
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+    .dark .solution-step {
+      color: #f8fafc;
+    }
+    .solution-eq {
+      margin: 8px 0;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.06);
+      border-radius: 6px;
+      text-align: center;
+    }
+    .dark .solution-eq {
+      background: rgba(16, 185, 129, 0.12);
+    }
+    .solution-bullet {
+      margin: 3px 0 3px 12px;
+    }
+    .solution-line {
+      margin: 3px 0;
+      line-height: 1.5;
+    }
+    .katex-display {
+      margin: 6px 0 !important;
+    }
   </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
@@ -178,7 +213,7 @@
             <h3 id="cardTopic" class="text-sm font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-2">Topic Title</h3>
 
             <!-- Question Text -->
-            <div id="cardQuestion" class="text-base sm:text-lg text-slate-800 dark:text-slate-100 font-medium leading-relaxed my-4">
+            <div id="cardQuestion" class="text-base sm:text-lg text-slate-800 dark:text-slate-100 font-medium leading-relaxed my-4 whitespace-pre-line">
               Question text goes here...
             </div>
           </div>
