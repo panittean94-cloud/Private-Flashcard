@@ -86,15 +86,13 @@
 
       <!-- Controls Right -->
       <div class="flex items-center space-x-2">
-        <button id="syncNowBtn" class="flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 transition" title="Fetch live data from Google Sheet">
-          <i class="ph ph-arrows-clockwise text-sm" id="syncIcon"></i>
-          <span class="hidden sm:inline">Live Sheet</span>
-        </button>
+        <a href="FunE_Final_Exam_Master_Flashcards_Ch6_10.pdf" download class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-800 hover:bg-rose-100 dark:hover:bg-rose-900/60 transition shadow-sm" title="Download Full Flashcard PDF Booklet (72 Cards)">
+          <i class="ph ph-file-pdf text-base"></i>
+          <span class="hidden sm:inline">Download PDF (72 Cards)</span>
+          <span class="sm:hidden">PDF</span>
+        </a>
         <button id="themeToggleBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Theme">
           <i class="ph ph-moon text-xl" id="themeIcon"></i>
-        </button>
-        <button id="settingsBtn" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Google Sheets Backend Sync">
-          <i class="ph ph-gear text-xl"></i>
         </button>
       </div>
     </div>
@@ -267,39 +265,7 @@
 
   </main>
 
-  <!-- Google Sheets Sync Modal -->
-  <div id="settingsModal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-slate-800 max-w-md w-full rounded-2xl p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
-        <h3 class="font-bold text-base flex items-center space-x-2">
-          <i class="ph ph-google-chrome-logo text-emerald-500 text-xl"></i>
-          <span>Google Sheets Sync (Code.gs)</span>
-        </h3>
-        <button id="closeModalBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-          <i class="ph ph-x text-lg"></i>
-        </button>
-      </div>
 
-      <div class="text-xs text-slate-600 dark:text-slate-300 space-y-2">
-        <p>You can optionally connect this web app to your Google Spreadsheet via Google Apps Script (<code>Code.gs</code>):</p>
-        <ol class="list-decimal pl-4 space-y-1 text-slate-500 dark:text-slate-400">
-          <li>Create a Google Sheet and paste <code>Code.gs</code> into <em>Extensions &gt; Apps Script</em>.</li>
-          <li>Run <code>setupFlashcardSheet</code> to auto-populate cards.</li>
-          <li>Click <em>Deploy &gt; New deployment &gt; Web App</em>.</li>
-          <li>Paste the deployed URL below to sync your study progress in real-time!</li>
-        </ol>
-      </div>
-
-      <div>
-        <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">Google Apps Script Web App URL</label>
-        <input type="text" id="gasUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="w-full text-xs p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
-
-      <div class="flex items-center justify-end space-x-2 pt-2">
-        <button id="saveGasUrlBtn" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-xs hover:bg-blue-700">Save & Connect</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Embedded Local Flashcard Data -->
   <script src="data/flashcards.js"></script>
@@ -317,7 +283,7 @@
     
     // Study Progress Storage
     let studyStats = JSON.parse(localStorage.getItem('fune_flashcards_stats') || '{}');
-    let gasEndpoint = localStorage.getItem('fune_gas_endpoint') || 'https://script.google.com/macros/s/AKfycbwA_n5WgxBOzFhy3E8VO0pKRn8us_CvyZMSxmysE1qcbHLcSVaCESZIuR4BTQWsA3zJWQ/exec';
+
 
     // DOM Elements
     const cardContainer = document.getElementById('cardContainer');
@@ -352,11 +318,7 @@
 
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const themeIcon = document.getElementById('themeIcon');
-    const settingsBtn = document.getElementById('settingsBtn');
-    const settingsModal = document.getElementById('settingsModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const gasUrlInput = document.getElementById('gasUrlInput');
-    const saveGasUrlBtn = document.getElementById('saveGasUrlBtn');
+
 
     // Theme setup
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -505,15 +467,7 @@
       localStorage.setItem('fune_flashcards_stats', JSON.stringify(studyStats));
       updateStatsDisplay();
 
-      // Sync with Google Sheets backend if configured
-      if (gasEndpoint) {
-        fetch(gasEndpoint, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: currentCard.id, status: status })
-        }).catch(err => console.log('GAS sync silent error:', err));
-      }
+
 
       // Automatically advance to next card
       if (currentIndex < filteredCards.length - 1) {
@@ -609,67 +563,8 @@
       }
     });
 
-    // Google Sheets Modal
-    settingsBtn.addEventListener('click', () => {
-      gasUrlInput.value = gasEndpoint;
-      settingsModal.classList.remove('hidden');
-    });
-    closeModalBtn.addEventListener('click', () => settingsModal.classList.add('hidden'));
-    settingsModal.addEventListener('click', (e) => {
-      if (e.target === settingsModal) settingsModal.classList.add('hidden');
-    });
-    saveGasUrlBtn.addEventListener('click', () => {
-      gasEndpoint = gasUrlInput.value.trim();
-      localStorage.setItem('fune_gas_endpoint', gasEndpoint);
-      settingsModal.classList.add('hidden');
-      alert('✅ Connected Google Sheet backend endpoint!');
-    });
-
-    // Real-Time Google Sheet Sync
-    const syncNowBtn = document.getElementById('syncNowBtn');
-    const syncIcon = document.getElementById('syncIcon');
-
-    async function fetchSheetData(silent = false) {
-      if (!gasEndpoint) return;
-      if (syncIcon) syncIcon.classList.add('animate-spin');
-      try {
-        const res = await fetch(gasEndpoint);
-        const json = await res.json();
-        if (json.status === 'success' && Array.isArray(json.data) && json.data.length > 0) {
-          // Map Google Sheet columns to Flashcard format
-          allCards = json.data.map(item => ({
-            id: item.id || '',
-            chapter: item.chapter || '',
-            topic: item.topic || '',
-            difficulty: item.level || 'Level 1 (Concept)',
-            exam_reference: item.topic || 'Final Exam',
-            question: item.question || '',
-            hint: item.formula ? `Key Formula: ${item.formula}` : 'Click to flip card',
-            answer: `<p class="font-semibold text-blue-600 dark:text-blue-400 mb-1">Formula / Principle:</p><p class="mb-3">${item.formula || '-'}</p><p class="font-semibold text-emerald-600 dark:text-emerald-400 mb-1">Step-by-Step Solution:</p><p class="whitespace-pre-line mb-3">${item.solution || '-'}</p><p class="font-semibold text-amber-600 dark:text-amber-400 mb-1">Pitfall / Tip:</p><p class="italic text-slate-500">${item.pitfall || '-'}</p>`
-          }));
-
-          totalCount.textContent = allCards.length;
-          applyFilters();
-          if (!silent) {
-            console.log('✅ Real-time data synced from Google Sheet:', allCards.length, 'cards');
-          }
-        }
-      } catch (err) {
-        console.warn('Could not fetch from Google Sheet, using local fallback:', err);
-      } finally {
-        if (syncIcon) syncIcon.classList.remove('animate-spin');
-      }
-    }
-
-    if (syncNowBtn) {
-      syncNowBtn.addEventListener('click', () => {
-        fetchSheetData(false);
-      });
-    }
-
-    // Initial Load & Auto-fetch from Google Sheet
+    // Initial Load
     applyFilters();
-    fetchSheetData(true);
   </script>
 </body>
 </html>
