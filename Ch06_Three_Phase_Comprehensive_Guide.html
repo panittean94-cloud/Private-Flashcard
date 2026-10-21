@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 6: Three-Phase Circuits Comprehensive Mastery Guide</title>
+  
+  <!-- KaTeX Math CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+    @top-left {
+      content: "คณะวิศวกรรมศาสตร์ มข. • Fundamental Electrical Engineering";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    @top-right {
+      content: "บทที่ 6: วงจรไฟฟ้า 3 เฟส (Three-Phase Circuits Mastery)";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #2563eb;
+    }
+    @bottom-left {
+      content: "รศ.ดร. นรารัตน์ เรืองชัยจตุพร • คู่มือติวสอบไฟนอลฉบับสมบูรณ์";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
+    @bottom-right {
+      content: "หน้า " counter(page) " จาก " counter(pages);
+      font-family: 'Inter', 'Sarabun', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #475569;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Sarabun', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.65;
+    font-size: 9.8pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover / Hero Header */
+  .guide-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 22px 20px 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    page-break-after: avoid;
+  }
+
+  .header-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 9999px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-size: 19pt;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .header-subtitle {
+    font-size: 10.5pt;
+    font-weight: 400;
+    opacity: 0.95;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
+  }
+
+  .header-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.28);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 8.2pt;
+  }
+
+  .meta-col strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1e3a8a;
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #334155;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* Figures & Captions */
+  .guide-figure {
+    margin: 16px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    max-width: 96%;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .guide-figure img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .guide-figure figcaption {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 8px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 8.8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th {
+    background: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #1e3a8a;
+  }
+
+  td {
+    padding: 7px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  /* Math Blocks */
+  .math-display {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0284c7;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 12px 0;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow-x: visible !important;
+  }
+
+  .math-inline {
+    font-size: 1.02em;
+  }
+
+  /* Callout Boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-left: 5px solid;
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .callout-header {
+    margin-bottom: 6px;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .callout-note {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+  }
+  .callout-note .callout-badge {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+
+  .callout-tip {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+    color: #065f46;
+  }
+  .callout-tip .callout-badge {
+    background: #10b981;
+    color: #ffffff;
+  }
+
+  .callout-important {
+    background: #f5f3ff;
+    border-left-color: #8b5cf6;
+    color: #5b21b6;
+  }
+  .callout-important .callout-badge {
+    background: #8b5cf6;
+    color: #ffffff;
+  }
+
+  .callout-warning, .callout-caution {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #92400e;
+  }
+  .callout-warning .callout-badge, .callout-caution .callout-badge {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+
+  /* Code & Pre */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.8pt;
+    background: #f1f5f9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #0f172a;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    page-break-inside: avoid;
+  }
+
+  pre.mermaid {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 16px 0;
+  }
+
+  /* KaTeX Printing Critical Fix */
+  .katex-display {
+    margin: 6px 0 !important;
+  }
+  .katex {
+    font-size: 1.03em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  /* Strictly prevent radical bar stretching across the entire page */
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 22px 0;
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Cover Header -->
+  <div class="guide-header">
+    <div class="header-badge">Faculty of Engineering • Khon Kaen University</div>
+    <h1 class="header-title">คัมภีร์เจาะลึกบทที่ 6: วงจรไฟฟ้ากระแสสลับ 3 เฟส</h1>
+    <div class="header-subtitle">Three-Phase AC Circuits Comprehensive Final Exam Mastery Guide</div>
+    
+    <div class="header-meta-row">
+      <div class="meta-col">
+        <strong>วิชา & ภาควิชา</strong>
+        Fundamental Electrical Engineering (EE KKU)
+      </div>
+      <div class="meta-col">
+        <strong>อาจารย์ผู้สอน</strong>
+        รศ.ดร. นรารัตน์ เรืองชัยจตุพร
+      </div>
+      <div class="meta-col">
+        <strong>โครงสร้างเนื้อหา</strong>
+        16 รูปไดอะแกรมแท้ • 5 ข้อสอบจริง • พิสูจน์สูตรจากศูนย์
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <h1>คัมภีร์เจาะลึกบทที่ 6: วงจรไฟฟ้ากระแสสลับ 3 เฟส (Three-Phase Circuits Mastery)</h1>
+<p><strong>วิชา:</strong> Fundamental Electrical Engineering (FunE) • คณะวิศวกรรมศาสตร์ มหาวิทยาลัยขอนแก่น<br />
+<strong>ผู้สอน:</strong> รศ.ดร. นรารัตน์ เรืองชัยจตุพร</p>
+<hr />
+<h2>📌 บทนำ: ทำไมโลกนี้ต้องมี &quot;ไฟฟ้า 3 เฟส&quot;? (Intuition จากศูนย์)</h2>
+<p>ก่อนจะไปจำสูตรและตัวห้อย มาเข้าใจภาพใหญ่ใน 2 นาทีกันก่อน:</p>
+<ol>
+<li><strong>ไฟฟ้า 1 เฟส (Single-Phase)</strong>: คือไฟบ้านปกติที่เราใช้ (<span class="math-inline">$230\text{ V}$</span>) เปรียบเสมือน <strong>&quot;คนปั่นจักรยานด้วยขาข้างเดียว&quot;</strong> เมื่อลูกบันไดหมุนมาถึงจุดบนสุดและล่างสุด กำลังงานจะตกลงเป็นศูนย์ชั่วขณะ (<span class="math-inline">$p(t)$</span> กระเพื่อมขึ้นลง) ทำให้มอเตอร์ขนาดใหญ่หมุนไม่เรียบ สั่นสะเทือน และไม่มีแรงสตาร์ทตัวเอง</li>
+<li><strong>ไฟฟ้า 3 เฟส (Three-Phase)</strong>: คือการนำขดลวด 3 ชุดมาวางห่างกันเชิงมุม <span class="math-inline">$120^\circ$</span> ทางเรขาคณิตในเครื่องกำเนิดไฟฟ้า เปรียบเสมือน <strong>&quot;เครื่องยนต์ 3 สูบที่ผลัดกันจุดระเบิดส่งกำลังต่อเนื่อง&quot;</strong>
+<ul>
+<li><strong>กำลังไฟฟ้าชั่วขณะคงที่เสมอ (<span class="math-inline">$p(t) = \text{Constant}$</span>)</strong>: มอเตอร์ 3 เฟสเดินเครื่องเรียบ ไร้การสั่นสะเทือน (Vibration-free) และมีทอร์กสตาร์ทตัวเองได้ทันที</li>
+<li><strong>ประหยัดสายไฟมหาศาล</strong>: การส่งกำลังไฟฟ้าปริมาณเท่ากัน ระบบ 3 เฟสใช้ปริมาณเนื้อทองแดง/อะลูมิเนียมของสายส่งน้อยกว่าระบบ 1 เฟสถึง <strong>25% – 50%</strong></li>
+<li><strong>ให้แรงดันใช้งานได้ 2 ระดับในระบบเดียว</strong>: เสียบโหลดเฟสเดียวได้ <span class="math-inline">$230\text{ V}$</span> หรือเสียบเครื่องจักร 3 เฟสได้ <span class="math-inline">$400\text{ V}$</span></li>
+</ul>
+</li>
+</ol>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_03.png" alt="รูปที่ 1: การกำเนิดไฟฟ้า 3 เฟส และรูปคลื่นแรงดัน 3 เฟส จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 1: การกำเนิดไฟฟ้า 3 เฟส และรูปคลื่นแรงดัน 3 เฟส จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 1: การกำเนิดไฟฟ้า 3 เฟส จากขดลวด 3 ชุดในเครื่องกำเนิดไฟฟ้า วางห่างกัน <span class="math-inline">$120^\circ$</span> ผลิตแรงดันไซน์ 3 รูปคลื่นที่เยื้องกัน <span class="math-inline">$120^\circ$</span> (จากสไลด์ที่ 3)</em></p>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_10.png" alt="รูปที่ 2: รูปคลื่นไซน์ 3 เฟส และจุดตัดของเวลา" />
+  </div>
+  <figcaption>รูปที่ 2: รูปคลื่นไซน์ 3 เฟส และจุดตัดของเวลา</figcaption>
+</figure>
+
+<em>รูปที่ 2: รูปคลื่นไซน์ทั้ง 3 เฟส (<span class="math-inline">$v_a, v_b, v_c$</span>) โดยมีคาบเวลา <span class="math-inline">$T = 360^\circ$</span> และแต่ละเฟสห่างกัน <span class="math-inline">$360^\circ / 3 = 120^\circ$</span> (จากสไลด์ที่ 10)</em></p>
+<hr />
+<h2>🔤 ถอดรหัส &quot;ทุกตัวแปรและตัวห้อย&quot; (Subscripts Decoded)</h2>
+<p>สาเหตุหลักที่ทำให้นักศึกษา &quot;งงและทำข้อสอบไม่ได้&quot; คือความสับสนเรื่องตัวห้อย! มาเคลียร์ให้ขาดตรงนี้:</p>
+<pre class="mermaid">flowchart LR
+    subgraph Source[&quot;ฝั่งแหล่งจ่าย (Source)&quot;]
+        A_src[&quot;ขั้ว a&quot;]
+        B_src[&quot;ขั้ว b&quot;]
+        C_src[&quot;ขั้ว c&quot;]
+        N_src[&quot;นิวทรัลเล็ก n&quot;]
+    end
+    subgraph Transmission[&quot;สายส่ง (Lines)&quot;]
+        L_A[&quot;สายส่ง A (มี Z_line)&quot;]
+        L_B[&quot;สายส่ง B (มี Z_line)&quot;]
+        L_C[&quot;สายส่ง C (มี Z_line)&quot;]
+        L_N[&quot;สายนิวทรัล (มี Z_nN)&quot;]
+    end
+    subgraph Load[&quot;ฝั่งโหลด (Load)&quot;]
+        A_ld[&quot;ขั้ว A&quot;]
+        B_ld[&quot;ขั้ว B&quot;]
+        C_ld[&quot;ขั้ว C&quot;]
+        N_ld[&quot;นิวทรัลใหญ่ N&quot;]
+    end
+
+    A_src --&gt; L_A --&gt; A_ld
+    B_src --&gt; L_B --&gt; B_ld
+    C_src --&gt; L_C --&gt; C_ld
+    N_src -.-&gt; L_N -.-&gt; N_ld
+</pre>
+<h3>1. ความหมายของตัวอักษรและตัวห้อย</h3>
+<ul>
+<li><strong>ตัวพิมพ์เล็ก (<span class="math-inline">$a, b, c, n$</span>)</strong>: ใช้เรียกฝั่ง <strong>แหล่งจ่าย (Source / Generator)</strong> โดยที่ <span class="math-inline">$n$</span> คือจุดร่วมสายนิวทรัลของแหล่งจ่าย</li>
+<li><strong>ตัวพิมพ์ใหญ่ (<span class="math-inline">$A, B, C, N$</span>)</strong>: ใช้เรียกฝั่ง <strong>โหลด (Load / Receiver)</strong> โดยที่ <span class="math-inline">$N$</span> คือจุดร่วมสายนิวทรัลของโหลด</li>
+<li><strong>ตัวห้อย 2 ตัว แปลว่า &quot;ความต่างศักย์ระหว่าง 2 จุดนั้น&quot;</strong>:
+<ul>
+<li><span class="math-inline">$V_{an} = V_a - V_n$</span> : แรงดันที่ขั้ว <span class="math-inline">$a$</span> เทียบกับนิวทรัล <span class="math-inline">$n$</span> เรียกว่า <strong>Phase Voltage ของแหล่งจ่าย</strong></li>
+<li><span class="math-inline">$V_{AN} = V_A - V_N$</span> : แรงดันที่ขั้วโหลด <span class="math-inline">$A$</span> เทียบกับนิวทรัล <span class="math-inline">$N$</span> เรียกว่า <strong>Phase Voltage ของโหลด</strong></li>
+<li><span class="math-inline">$V_{ab} = V_a - V_b$</span> : แรงดันระหว่างสายส่งเส้น <span class="math-inline">$a$</span> กับเส้น <span class="math-inline">$b$</span> เรียกว่า <strong>Line Voltage</strong></li>
+<li><span class="math-inline">$V_{Nn} = V_N - V_n$</span> : ความต่างศักย์ระหว่างนิวทรัลของโหลดกับนิวทรัลของแหล่งจ่าย เรียกว่า <strong>แรงดันจุดนิวทรัลเลื่อน (Neutral Shift Voltage)</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>2. ตารางเปรียบเทียบ Line vs Phase ให้เห็นภาพชัดเจน</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ปริมาณ</th>
+<th style="text-align:center">สัญลักษณ์</th>
+<th style="text-align:left">คำนิยามทางกายภาพ</th>
+<th style="text-align:left">ในวงจร Star (Y)</th>
+<th style="text-align:left">ในวงจร Delta (<span class="math-inline">$\Delta$</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Phase Voltage</strong></td>
+<td style="text-align:center"><span class="math-inline">$V_p$</span> หรือ <span class="math-inline">$V_{\text{phase}}$</span></td>
+<td style="text-align:left">แรงดันที่ตกคร่อม <strong>&quot;ขดลวดเพียง 1 ขด&quot;</strong></td>
+<td style="text-align:left">ตกคร่อมระหว่างขั้วเฟสกับนิวทรัล (<span class="math-inline">$V_{an}$</span>)</td>
+<td style="text-align:left">ตกคร่อมระหว่างหัวท้ายขดลวด (<span class="math-inline">$V_{ab}$</span>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Line Voltage</strong></td>
+<td style="text-align:center"><span class="math-inline">$V_L$</span> หรือ <span class="math-inline">$V_{\text{line}}$</span></td>
+<td style="text-align:left">แรงดันที่วัดระหว่าง <strong>&quot;สายส่ง 2 เส้นใดๆ&quot;</strong></td>
+<td style="text-align:left">วัดคร่อมระหว่างสาย เช่น <span class="math-inline">$V_{ab}, V_{bc}, V_{ca}$</span></td>
+<td style="text-align:left">วัดคร่อมระหว่างสาย เช่น <span class="math-inline">$V_{ab}, V_{bc}, V_{ca}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Phase Current</strong></td>
+<td style="text-align:center"><span class="math-inline">$I_p$</span> หรือ <span class="math-inline">$I_{\text{phase}}$</span></td>
+<td style="text-align:left">กระแสที่ไหลผ่าน <strong>&quot;เนื้อขดลวด 1 ขด&quot;</strong></td>
+<td style="text-align:left">ไหลผ่านขดลวดเฟสเดี่ยวๆ</td>
+<td style="text-align:left">ไหลวนในกิ่งเดลตา เช่น <span class="math-inline">$I_{ab}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Line Current</strong></td>
+<td style="text-align:center"><span class="math-inline">$I_L$</span> หรือ <span class="math-inline">$I_{\text{line}}$</span></td>
+<td style="text-align:left">กระแสที่วิ่งมาตาม <strong>&quot;สายไฟส่งกำลัง 1 เส้น&quot;</strong></td>
+<td style="text-align:left">วิ่งมาตามสายส่ง เช่น <span class="math-inline">$I_{aA}, I_{bB}, I_{cC}$</span></td>
+<td style="text-align:left">วิ่งมาตามสายส่ง เช่น <span class="math-inline">$I_a, I_b, I_c$</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🧭 ลำดับเฟส (Phase Sequence): Positive (<span class="math-inline">$abc$</span>) vs Negative (<span class="math-inline">$acb$</span>)</h2>
+<p>แรงดันทั้ง 3 เฟสจะมีความถี่เท่ากัน ขนาดเท่ากัน (<span class="math-inline">$|V_p|$</span>) แต่มีมุมเฟสต่างกัน <span class="math-inline">$120^\circ$</span>:</p>
+<h3>1. ลำดับเฟสบวก (Positive Sequence หรือ <span class="math-inline">$abc$</span> sequence) — <em>ใช้เป็นมาตรฐาน 95% ของข้อสอบ</em></h3>
+<p>ลูกศรเฟสเซอร์จะหมุนทวนเข็มนาฬิกา โดยเฟส <span class="math-inline">$a$</span> จะผ่านจุดอ้างอิงก่อน ตามด้วย <span class="math-inline">$b$</span> แล้วตามด้วย <span class="math-inline">$c$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = V_p \angle 0^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bn} = V_p \angle -120^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{cn} = V_p \angle -240^\circ = V_p \angle +120^\circ$$</div>
+<h3>2. ลำดับเฟสลบ (Negative Sequence หรือ <span class="math-inline">$acb$</span> sequence) — <em>ข้อสอบออกเมื่อต้องการดักคนท่องจำ!</em></h3>
+<p>เฟส <span class="math-inline">$a$</span> ผ่านก่อน ตามด้วย <span class="math-inline">$c$</span> แล้วค่อยตามด้วย <span class="math-inline">$b$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = V_p \angle 0^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bn} = V_p \angle +120^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{cn} = V_p \angle -120^\circ$$</div>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_11.png" alt="รูปที่ 3: เฟสเซอร์ไดอะแกรมของแรงดัน 3 เฟส สมดุล" />
+  </div>
+  <figcaption>รูปที่ 3: เฟสเซอร์ไดอะแกรมของแรงดัน 3 เฟส สมดุล</figcaption>
+</figure>
+
+<em>รูปที่ 3: เฟสเซอร์ไดอะแกรมของแรงดันเฟส <span class="math-inline">$V_{an}, V_{bn}, V_{cn}$</span> มุมห่างกัน <span class="math-inline">$120^\circ$</span> พอดี (จากสไลด์ที่ 11)</em></p>
+<div class="callout callout-warning"><div class="callout-header"><span class="callout-badge">WARNING</span></div><div class="callout-body">
+<p><strong>กับดักคะแนนสอบ:</strong> ถ้าโจทย์ระบุว่าระบบเป็น <strong>Negative Sequence (<span class="math-inline">$acb$</span>)</strong> ความสัมพันธ์ของมุมนำหน้า/ตามหลังจะสลับทันที! เช่น จากเดิม <span class="math-inline">$V_{ab}$</span> นำหน้า <span class="math-inline">$V_{an}$</span> อยู่ <span class="math-inline">$+30^\circ$</span> จะกลายเป็น <strong>ตามหลัง <span class="math-inline">$-30^\circ$</span></strong> ทันที</p>
+</div></div>
+<hr />
+<h2>⚡ เจาะลึกการต่อแบบ Star (Y) vs Delta (<span class="math-inline">$\Delta$</span>)</h2>
+<h3>1. การต่อแบบ Star (Y-Connection)</h3>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_14.png" alt="รูปที่ 4: วงจร Y-to-Y Connection จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 4: วงจร Y-to-Y Connection จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 4: โครงสร้างวงจรแบบ Y-to-Y มีสายไฟหลัก 3 เส้น (<span class="math-inline">$a, b, c$</span>) และสายนิวทรัล (<span class="math-inline">$n-N$</span>) (จากสไลด์ที่ 14)</em></p>
+<h4>กฎกระแสในวงจร Y:</h4>
+<p>กระแสที่วิ่งมาตามสายส่ง (<span class="math-inline">$I_L$</span>) ไม่มีทางแยกไปไหน มันต้องวิ่งทะลุเข้าขดลวดเฟส (<span class="math-inline">$I_p$</span>) โดยตรง:</p>
+<div class="math-display">$$I_L = I_p$$</div>
+<h4>กฎแรงดันในวงจร Y (พิสูจน์ที่มาของ <span class="math-inline">$\sqrt{3} \angle +30^\circ$</span>):</h4>
+<p>หาแรงดันระหว่างสาย <span class="math-inline">$V_{ab}$</span> โดยใช้กฎ KVL:</p>
+<div class="math-display">$$V_{ab} = V_{an} - V_{bn}$$</div>
+<p>แทนค่า <span class="math-inline">$V_{an} = V_p \angle 0^\circ$</span> และ <span class="math-inline">$V_{bn} = V_p \angle -120^\circ$</span>:</p>
+<div class="math-display">$$V_{ab} = V_p (1\angle 0^\circ - 1\angle -120^\circ) = V_p \left(1 - \left(-\frac{1}{2} - j\frac{\sqrt{3}}{2}\right)\right)$$</div>
+<div class="math-display">$$V_{ab} = V_p \left(\frac{3}{2} + j\frac{\sqrt{3}}{2}\right)$$</div>
+<p>แปลงเป็น Polar form:</p>
+<ul>
+<li>ขนาด: <span class="math-inline">$\sqrt{\left(\frac{3}{2}\right)^2 + \left(\frac{\sqrt{3}}{2}\right)^2} = \sqrt{\frac{9}{4} + \frac{3}{4}} = \sqrt{\frac{12}{4}} = \sqrt{3}$</span></li>
+<li>มุม: <span class="math-inline">$\arctan\left(\frac{\sqrt{3}/2}{3/2}\right) = \arctan\left(\frac{1}{\sqrt{3}}\right) = 30^\circ$</span></li>
+</ul>
+<div class="math-display">$$\mathbf{V}_{ab} = \sqrt{3}\, V_p \angle +30^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bc} = \sqrt{3}\, V_p \angle -90^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{ca} = \sqrt{3}\, V_p \angle +150^\circ \quad (\text{หรือ } -210^\circ)$$</div>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_18.png" alt="รูปที่ 5: เฟสเซอร์ไดอะแกรมพิสูจน์ Line Voltage นำหน้า Phase Voltage 30 องศา" />
+  </div>
+  <figcaption>รูปที่ 5: เฟสเซอร์ไดอะแกรมพิสูจน์ Line Voltage นำหน้า Phase Voltage 30 องศา</figcaption>
+</figure>
+
+<em>รูปที่ 5: เวกเตอร์เฟสเซอร์พิสูจน์ <span class="math-inline">$V_{ab} = V_{an} - V_{bn} = \sqrt{3}\,V_p\angle +30^\circ$</span> (จากสไลด์ที่ 18)</em></p>
+<div class="callout callout-important"><div class="callout-header"><span class="callout-badge">IMPORTANT</span></div><div class="callout-body">
+<p><strong>สรุปสูตร Star (Y):</strong></p>
+<ol>
+<li>กระแสเท่ากัน: <span class="math-inline">$I_L = I_p$</span></li>
+<li>แรงดันไลน์ใหญ่กว่าแรงดันเฟส <span class="math-inline">$\sqrt{3}$</span> เท่า: <span class="math-inline">$V_L = \sqrt{3}\, V_p$</span></li>
+<li>Line Voltage <strong>นำหน้า (leads)</strong> Phase Voltage อยู่ <span class="math-inline">$+30^\circ$</span> เสมอ (ในลำดับ <span class="math-inline">$abc$</span>)</li>
+</ol>
+</div></div>
+<hr />
+<h3>2. การต่อแบบ Delta (<span class="math-inline">$\Delta$</span>-Connection)</h3>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_15.png" alt="รูปที่ 6: วงจร Y-to-Delta Connection จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 6: วงจร Y-to-Delta Connection จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 6: โครงสร้างวงจรแบบ Y-to-Delta โหลดต่อเป็นรูปสามเหลี่ยมคร่อมสายส่งคู่ใดๆ (จากสไลด์ที่ 15)</em></p>
+<h4>กฎแรงดันในวงจร <span class="math-inline">$\Delta$</span>:</h4>
+<p>ขดลวดแต่ละเฟสต่อคร่อมระหว่างสายส่งคู่หนึ่งโดยตรง ดังนั้นแรงดันตกคร่อมขดลวดจึงเท่ากับแรงดันระหว่างสายส่งทันที:</p>
+<div class="math-display">$$V_L = V_p$$</div>
+<h4>กฎกระแสในวงจร <span class="math-inline">$\Delta$</span> (พิสูจน์ที่มาของ <span class="math-inline">$\sqrt{3} \angle -30^\circ$</span>):</h4>
+<p>พิจารณากระแสที่ไหลเข้าโหนด <span class="math-inline">$a$</span> ตามกฎ KCL:</p>
+<div class="math-display">$$I_a = I_{ab} - I_{ca}$$</div>
+<p>เมื่อพิสูจน์ด้วยเวกเตอร์เฟสเซอร์ในทำนองเดียวกับแรงดันของ Y จะได้:</p>
+<div class="math-display">$$\mathbf{I}_a = \sqrt{3}\, I_p \angle -30^\circ$$</div>
+<div class="math-display">$$\mathbf{I}_b = \sqrt{3}\, I_p \angle -150^\circ$$</div>
+<div class="math-display">$$\mathbf{I}_c = \sqrt{3}\, I_p \angle +90^\circ$$</div>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_22.png" alt="รูปที่ 7: เฟสเซอร์ไดอะแกรมกระแสในวงจรเดลตา Line Current ตามหลัง Phase Current 30 องศา" />
+  </div>
+  <figcaption>รูปที่ 7: เฟสเซอร์ไดอะแกรมกระแสในวงจรเดลตา Line Current ตามหลัง Phase Current 30 องศา</figcaption>
+</figure>
+
+<em>รูปที่ 7: เวกเตอร์เฟสเซอร์กระแสในวงจรเดลตา พิสูจน์ <span class="math-inline">$I_a = \sqrt{3}\,I_{ab}\angle -30^\circ$</span> (จากสไลด์ที่ 22)</em></p>
+<div class="callout callout-important"><div class="callout-header"><span class="callout-badge">IMPORTANT</span></div><div class="callout-body">
+<p><strong>สรุปสูตร Delta (<span class="math-inline">$\Delta$</span>):</strong></p>
+<ol>
+<li>แรงดันเท่ากัน: <span class="math-inline">$V_L = V_p$</span></li>
+<li>กระแสไลน์ใหญ่กว่ากระแสในขดลวด <span class="math-inline">$\sqrt{3}$</span> เท่า: <span class="math-inline">$I_L = \sqrt{3}\, I_p$</span></li>
+<li>Line Current <strong>ตามหลัง (lags)</strong> Phase Current อยู่ <span class="math-inline">$-30^\circ$</span> เสมอ (ในลำดับ <span class="math-inline">$abc$</span>)</li>
+</ol>
+</div></div>
+<hr />
+<h3>3. ตารางสรุป Master Summary จากสไลด์อาจารย์</h3>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_23.png" alt="รูปที่ 8: ตารางเปรียบเทียบ Voltage and Current in 3-Phase Systems จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 8: ตารางเปรียบเทียบ Voltage and Current in 3-Phase Systems จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 8: ตาราง Master Summary เปรียบเทียบความสัมพันธ์แรงดันและกระแสของ Y และ Delta (จากสไลด์ที่ 23)</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ระบบการต่อ</th>
+<th style="text-align:center">ปริมาณที่ &quot;เท่ากัน&quot;</th>
+<th style="text-align:center">ปริมาณที่ต้อง &quot;คูณ <span class="math-inline">$\sqrt{3}$</span>&quot;</th>
+<th style="text-align:center">ความสัมพันธ์ของมุม (Sequence <span class="math-inline">$abc$</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Star (Y)</strong></td>
+<td style="text-align:center"><strong>กระแสเท่ากัน</strong> (<span class="math-inline">$I_L = I_p$</span>)</td>
+<td style="text-align:center"><span class="math-inline">$V_L = \sqrt{3}\, V_p$</span></td>
+<td style="text-align:center">Line Voltage <strong>นำหน้า</strong> Phase Voltage อยู่ <strong><span class="math-inline">$+30^\circ$</span></strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>Delta (<span class="math-inline">$\Delta$</span>)</strong></td>
+<td style="text-align:center"><strong>แรงดันเท่ากัน</strong> (<span class="math-inline">$V_L = V_p$</span>)</td>
+<td style="text-align:center"><span class="math-inline">$I_L = \sqrt{3}\, I_p$</span></td>
+<td style="text-align:center">Line Current <strong>ตามหลัง</strong> Phase Current อยู่ <strong><span class="math-inline">$-30^\circ$</span></strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🔄 การแปลงอิมพีแดนซ์ Delta <span class="math-inline">$\leftrightarrow$</span> Wye (<span class="math-inline">$Z_\Delta \leftrightarrow Z_Y$</span>)</h2>
+<p>ในระบบ 3 เฟสสมดุล เรานิยมแปลงโหลด Delta ให้กลายเป็นโหลด Wye (Y) เพราะวงจร Y มีจุด Neutral ร่วม ทำให้เราสามารถตัดตอนมาคิดเพียง <strong>&quot;1 เฟส (Per-Phase Equivalent Circuit)&quot;</strong> ได้ทันที!</p>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_34.png" alt="รูปที่ 9: แผนผังการแปลงอิมพีแดนซ์ Delta เป็น Wye จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 9: แผนผังการแปลงอิมพีแดนซ์ Delta เป็น Wye จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 9: แผนผังการแปลงอิมพีแดนซ์ระหว่าง Delta และ Wye (จากสไลด์ที่ 34)</em></p>
+<p>สูตรการแปลงสำหรับโหลดสมดุล (<span class="math-inline">$Z_A = Z_B = Z_C$</span>):</p>
+<div class="math-display">$$Z_Y = \frac{Z_\Delta}{3} \qquad \Longleftrightarrow \qquad Z_\Delta = 3\, Z_Y$$</div>
+<div class="callout callout-tip"><div class="callout-header"><span class="callout-badge">TIP</span></div><div class="callout-body">
+<p><strong>วิธีจำไม่ให้สับสนว่า &quot;เมื่อไหร่คูณ 3 เมื่อไหร่หาร 3&quot;:</strong>
+โหลดที่ต่อแบบ <span class="math-inline">$\Delta$</span> ขดลวดแต่ละเส้นจะรับแรงดันสูงเต็มๆ (<span class="math-inline">$V_L$</span>) จึงกินกระแสมากกว่าแบบ Y ถึง 3 เท่า! ดังนั้น อิมพีแดนซ์ของ Delta จะต้องมีค่า <strong>ใหญ่กว่า</strong> Y อยู่ 3 เท่าเสมอ (<span class="math-inline">$\Delta = 3 \times Y$</span>) และเมื่อแปลงจาก <span class="math-inline">$\Delta \to Y$</span> ค่าความต้านทานต้อง <strong>เล็กลง (หาร 3)</strong></p>
+</div></div>
+<hr />
+<h2>📊 กำลังไฟฟ้า 3 เฟส (3-Phase Power Formulas)</h2>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_27.png" alt="รูปที่ 10: สรุปสูตรกำลังไฟฟ้าในระบบ 3 เฟส จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 10: สรุปสูตรกำลังไฟฟ้าในระบบ 3 เฟส จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 10: สูตรกำลังไฟฟ้า Real, Reactive และ Complex Power ในระบบ 3 เฟส (จากสไลด์ที่ 27)</em></p>
+<p>กำลังไฟฟ้ารวมของระบบ 3 เฟสสมดุล คือผลรวมของกำลังไฟฟ้าทั้ง 3 เฟส:</p>
+<div class="math-display">$$P_{3\phi} = 3 \times P_{1\phi} = 3\, V_p I_p \cos\theta$$</div>
+<p>เมื่อเราแทนค่าความสัมพันธ์ Line เข้าไป:</p>
+<ul>
+<li>ในวงจร Y: <span class="math-inline">$V_p = \frac{V_L}{\sqrt{3}}$</span> และ <span class="math-inline">$I_p = I_L \implies P = 3 \left(\frac{V_L}{\sqrt{3}}\right) I_L \cos\theta = \sqrt{3}\, V_L I_L \cos\theta$</span></li>
+<li>ในวงจร <span class="math-inline">$\Delta$</span>: <span class="math-inline">$V_p = V_L$</span> และ <span class="math-inline">$I_p = \frac{I_L}{\sqrt{3}} \implies P = 3 V_L \left(\frac{I_L}{\sqrt{3}}\right) \cos\theta = \sqrt{3}\, V_L I_L \cos\theta$</span></li>
+</ul>
+<p>ไม่ว่าจะต่อแบบ Y หรือ <span class="math-inline">$\Delta$</span> สูตรกำลังไฟฟ้าที่ใช้ค่า Line จะเหมือนกัน 100%:</p>
+<h3>1. กำลังไฟฟ้าจริง (Real / Active Power, <span class="math-inline">$P$</span>)</h3>
+<div class="math-display">$$P = \sqrt{3}\, V_L I_L \cos\theta \quad [\text{Watt, W}]$$</div>
+<h3>2. กำลังไฟฟ้ารีแอกทีฟ (Reactive Power, <span class="math-inline">$Q$</span>)</h3>
+<div class="math-display">$$Q = \sqrt{3}\, V_L I_L \sin\theta \quad [\text{VAR}]$$</div>
+<h3>3. กำลังไฟฟ้าปรากฏ (Apparent Power, <span class="math-inline">$|S|$</span>)</h3>
+<div class="math-display">$$|S| = \sqrt{3}\, V_L I_L = \sqrt{P^2 + Q^2} \quad [\text{VA}]$$</div>
+<h3>4. กำลังไฟฟ้าเชิงซ้อน (Complex Power, <span class="math-inline">$\mathbf{S}$</span>)</h3>
+<div class="math-display">$$\mathbf{S} = P + jQ = \sqrt{3}\, V_L I_L^* = 3\, \mathbf{V}_p \mathbf{I}_p^* \quad [\text{VA}]$$</div>
+<ul>
+<li><strong><span class="math-inline">$\theta$</span> คืออะไร?</strong>: <span class="math-inline">$\theta = \theta_v - \theta_i$</span> คือมุมของอิมพีแดนซ์โหลด (<span class="math-inline">$Z = |Z|\angle \theta$</span>)</li>
+<li><strong>Power Factor (<span class="math-inline">$PF$</span>)</strong>: <span class="math-inline">$PF = \cos\theta$</span>
+<ul>
+<li>ถ้าโหลดเป็น Inductive (มีตัวเหนี่ยวนำ <span class="math-inline">$L$</span> เช่น มอเตอร์): กระแสตามหลังแรงดัน <span class="math-inline">$\implies$</span> <strong>Lagging PF</strong> (<span class="math-inline">$+Q$</span>)</li>
+<li>ถ้าโหลดเป็น Capacitive (มีตัวเก็บประจุ <span class="math-inline">$C$</span>): กระแสนำหน้าแรงดัน <span class="math-inline">$\implies$</span> <strong>Leading PF</strong> (<span class="math-inline">$-Q$</span>)</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-caution"><div class="callout-header"><span class="callout-badge">CAUTION</span></div><div class="callout-body">
+<p><strong>กฎเหล็กเรื่องตัวคูณ:</strong></p>
+<ul>
+<li>ถ้าใช้ปริมาณ <strong>Line</strong> (<span class="math-inline">$V_L, I_L$</span>) <span class="math-inline">$\to$</span> ต้องมีตัวคูณ <strong><span class="math-inline">$\sqrt{3}$</span></strong></li>
+<li>ถ้าใช้ปริมาณ <strong>Phase</strong> (<span class="math-inline">$V_p, I_p$</span>) <span class="math-inline">$\to$</span> ต้องมีตัวคูณ <strong><span class="math-inline">$3$</span></strong></li>
+<li><strong>ห้ามนำ <span class="math-inline">$\sqrt{3}$</span> ไปคูณกับค่า Phase หรือเอา <span class="math-inline">$3$</span> ไปคูณกับค่า Line เด็ดขาด!</strong></li>
+</ul>
+</div></div>
+<hr />
+<h2>📈 วิธีวัดกำลังไฟฟ้าด้วย 2 วัตต์มิเตอร์ (Two-Wattmeter Method)</h2>
+<p>ในระบบ 3 สาย (ไม่มีสายนิวทรัล) เราสามารถใช้วัตต์มิเตอร์เพียง 2 ตัว วัดกำลังไฟฟ้ารวมของระบบ 3 เฟสได้ทั้งหมด แม้โหลดจะไม่สมดุลก็ตาม!</p>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/two_wattmeter_method_schematic.png" alt="รูปที่ 11: ไดอะแกรมวงจรการวัดกำลังไฟฟ้าด้วย 2 วัตต์มิเตอร์" />
+  </div>
+  <figcaption>รูปที่ 11: ไดอะแกรมวงจรการวัดกำลังไฟฟ้าด้วย 2 วัตต์มิเตอร์</figcaption>
+</figure>
+
+<em>รูปที่ 11: แผนผังวงจร Two-Wattmeter Method ขดลวดกระแส <span class="math-inline">$CC_1$</span> ต่ออนุกรมกับสาย <span class="math-inline">$A$</span>, <span class="math-inline">$CC_2$</span> ต่ออนุกรมกับสาย <span class="math-inline">$C$</span> และขดลวดแรงดัน <span class="math-inline">$PC_1, PC_2$</span> ต่อคร่อมมาที่สาย <span class="math-inline">$B$</span></em></p>
+<h3>1. สมการการอ่านค่าของวัตต์มิเตอร์แต่ละตัว</h3>
+<ul>
+<li>วัตต์มิเตอร์ตัวที่ 1 (<span class="math-inline">$W_1$</span>): วัดกระแสสาย A และวัดแรงดัน <span class="math-inline">$V_{ab}$</span></li>
+</ul>
+<div class="math-display">$$W_1 = V_L I_L \cos(30^\circ - \theta)$$</div>
+<ul>
+<li>วัตต์มิเตอร์ตัวที่ 2 (<span class="math-inline">$W_2$</span>): วัดกระแสสาย C และวัดแรงดัน <span class="math-inline">$V_{cb}$</span></li>
+</ul>
+<div class="math-display">$$W_2 = V_L I_L \cos(30^\circ + \theta)$$</div>
+<h3>2. สูตรมหัศจรรย์ 3 สูตรที่ต้องท่องเข้าห้องสอบ</h3>
+<ol>
+<li><strong>หากำลังไฟฟ้าจริงรวม (<span class="math-inline">$P_{\text{total}}$</span>)</strong>:</li>
+</ol>
+<div class="math-display">$$P_{\text{total}} = W_1 + W_2$$</div>
+<ol start="2">
+<li><strong>หากำลังไฟฟ้ารีแอกทีฟรวม (<span class="math-inline">$Q_{\text{total}}$</span>)</strong>:</li>
+</ol>
+<div class="math-display">$$Q_{\text{total}} = \sqrt{3}\,(W_1 - W_2)$$</div>
+<ol start="3">
+<li><strong>หามุมและ Power Factor</strong>:</li>
+</ol>
+<div class="math-display">$$\tan\theta = \sqrt{3}\,\frac{W_1 - W_2}{W_1 + W_2} \qquad \Longrightarrow \qquad PF = \cos\theta$$</div>
+<h3>3. ตารางวิเคราะห์พฤติกรรมของเข็มวัตต์มิเตอร์ (ข้อสอบชอบถามบรรยาย)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ค่า Power Factor ของโหลด</th>
+<th style="text-align:center">ค่ามุม <span class="math-inline">$\theta$</span></th>
+<th style="text-align:center">ค่าที่วัตต์มิเตอร์ <span class="math-inline">$W_1$</span> อ่านได้</th>
+<th style="text-align:center">ค่าที่วัตต์มิเตอร์ <span class="math-inline">$W_2$</span> อ่านได้</th>
+<th style="text-align:left">ข้อสังเกตและปรากฏการณ์</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$PF = 1.0$</span> (ความต้านทานล้วน)</strong></td>
+<td style="text-align:center"><span class="math-inline">$0^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 > 0$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_2 = W_1$</span></td>
+<td style="text-align:left">เข็มทั้งสองตัวชี้ค่าเท่ากันเป๊ะ</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$0.5 < PF < 1.0$</span></strong></td>
+<td style="text-align:center"><span class="math-inline">$0^\circ < \theta < 60^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 > 0$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_2 > 0$</span> (แต่น้อยกว่า <span class="math-inline">$W_1$</span>)</td>
+<td style="text-align:left">เข็มทั้งสองตัวอ่านค่าเป็นบวกทั้งคู่</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$PF = 0.5$</span></strong></td>
+<td style="text-align:center"><span class="math-inline">$60^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 = P_{\text{total}}$</span></td>
+<td style="text-align:center"><strong><span class="math-inline">$W_2 = 0$</span></strong></td>
+<td style="text-align:left"><strong>วัตต์มิเตอร์ตัวที่ 2 อ่านได้ศูนย์พอดี!</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$PF < 0.5$</span></strong></td>
+<td style="text-align:center"><span class="math-inline">$\theta > 60^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 > 0$</span></td>
+<td style="text-align:center"><strong><span class="math-inline">$W_2 < 0$</span> (ติดลบ)</strong></td>
+<td style="text-align:left"><strong>เข็ม <span class="math-inline">$W_2$</span> ตีกลับซ้ายสุด!</strong> ต้องสลับขั้วขดลวดกระแส แล้วบันทึกค่าเป็นลบ</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$PF = 0$</span> (เหนี่ยวนำบริสุทธิ์)</strong></td>
+<td style="text-align:center"><span class="math-inline">$90^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 = -W_2$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_2 = -W_1$</span></td>
+<td style="text-align:left">ผลบวก <span class="math-inline">$W_1 + W_2 = 0$</span> (ไม่มี Real Power)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🎯 ตะลุยโจทย์จริงจากง่ายไปยาก (Step-by-Step Solutions)</h2>
+<hr />
+<h3>🟢 โจทย์ระดับ 1 (โจทย์พื้นฐาน): คำนวณระบบ Balanced Y-Y</h3>
+<blockquote>
+<p><strong>โจทย์ (การบ้านบทที่ 6 ข้อ 1):</strong><br />
+จากรูปวงจร Balanced Y-Y แหล่งจ่าย 3 เฟสสมดุล ลำดับเฟสบวก (<span class="math-inline">$abc$</span>) ต่อแบบ Star มีแรงดันเฟส <span class="math-inline">$V_{an} = 220\angle 0^\circ\text{ V}, V_{bn} = 220\angle -120^\circ\text{ V}, V_{cn} = 220\angle -240^\circ\text{ V}$</span> จ่ายให้โหลดสมดุลต่อแบบ Star มีอิมพีแดนซ์ต่อเฟส <span class="math-inline">$Z_L = 20 + j50\ \Omega$</span> และสายส่งมีอิมพีแดนซ์ <span class="math-inline">$Z_{\text{line}} = 10 + j5\ \Omega$</span><br />
+<strong>จงหา:</strong></p>
+<ol>
+<li>แรงดันไลน์ของแหล่งจ่าย (<span class="math-inline">$V_{ab}, V_{bc}, V_{ca}$</span>)</li>
+<li>กระแสในสายส่งแต่ละเส้น (<span class="math-inline">$I_{aA}, I_{bB}, I_{cC}$</span>)</li>
+<li>กระแสที่ไหลในสายนิวทรัล (<span class="math-inline">$I_{Nn}$</span>)</li>
+<li>กำลังไฟฟ้าเชิงซ้อนรวม (<span class="math-inline">$S_{\text{total}}$</span>)</li>
+</ol>
+</blockquote>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/diagrams/hw6_fig1_yy_balanced.png" alt="รูปที่ 12: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 1 วงจร Balanced Y-Y" />
+  </div>
+  <figcaption>รูปที่ 12: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 1 วงจร Balanced Y-Y</figcaption>
+</figure>
+
+<em>รูปที่ 12: รูปวงจรจริงจากใบงานการบ้านบทที่ 6 รูปที่ 1 (Balanced Y-Y System)</em></p>
+<h4>💡 วิธีทำละเอียดทีละขั้น:</h4>
+<p><strong>ขั้นที่ 1: หาแรงดันไลน์ของแหล่งจ่าย (<span class="math-inline">$V_L$</span>)</strong><br />
+จากคุณสมบัติของระบบ Star ลำดับเฟสบวก: <span class="math-inline">$V_L = \sqrt{3}\, V_p \angle +30^\circ$</span></p>
+<ul>
+<li>ขนาดแรงดันไลน์: <span class="math-inline">$|V_L| = \sqrt{3} \times 220 = 381.05\text{ V}$</span></li>
+<li><span class="math-inline">$V_{ab} = 381.05\angle (0^\circ + 30^\circ) = \mathbf{381.05\angle 30^\circ\text{ V}}$</span></li>
+<li><span class="math-inline">$V_{bc}$</span> มุมตามหลัง <span class="math-inline">$V_{ab}$</span> อยู่ <span class="math-inline">$120^\circ$</span>: <span class="math-inline">$V_{bc} = \mathbf{381.05\angle -90^\circ\text{ V}}$</span></li>
+<li><span class="math-inline">$V_{ca}$</span> มุมตามหลัง <span class="math-inline">$V_{bc}$</span> อยู่ <span class="math-inline">$120^\circ$</span>: <span class="math-inline">$V_{ca} = \mathbf{381.05\angle -210^\circ\text{ V}}$</span> (หรือ <span class="math-inline">$381.05\angle +150^\circ$</span>)</li>
+</ul>
+<p><strong>ขั้นที่ 2: วาดวงจรสมมูล 1 เฟส (Per-Phase Equivalent Circuit สำหรับเฟส A)</strong><br />
+เนื่องจากระบบสมดุล จุดนิวทรัล <span class="math-inline">$n$</span> และ <span class="math-inline">$N$</span> มีศักย์เท่ากัน (<span class="math-inline">$V_{nN} = 0$</span>) เราจึงตัดมาคิดเฟส <span class="math-inline">$A$</span> ขาเดียวได้:
+รวมอิมพีแดนซ์ทั้งหมดในเฟส A:</p>
+<div class="math-display">$$Z_{\text{total}} = Z_{\text{line}} + Z_L = (10 + j5) + (20 + j50) = 30 + j55\ \Omega$$</div>
+<p>แปลงเป็น Polar form:</p>
+<ul>
+<li><span class="math-inline">$|Z_{\text{total}}| = \sqrt{30^2 + 55^2} = \sqrt{900 + 3025} = \sqrt{3925} = 62.65\ \Omega$</span></li>
+<li><span class="math-inline">$\theta = \arctan\left(\frac{55}{30}\right) = 61.39^\circ$</span></li>
+<li><span class="math-inline">$Z_{\text{total}} = 62.65\angle 61.39^\circ\ \Omega$</span></li>
+</ul>
+<p><strong>ขั้นที่ 3: คำนวณกระแสในสายส่ง (<span class="math-inline">$I_{aA}, I_{bB}, I_{cC}$</span>)</strong></p>
+<div class="math-display">$$I_{aA} = \frac{V_{an}}{Z_{\text{total}}} = \frac{220\angle 0^\circ}{62.65\angle 61.39^\circ} = \mathbf{3.51\angle -61.39^\circ\text{ A}}$$</div>
+<p>เนื่องจากระบบสมดุล เฟส <span class="math-inline">$B$</span> และ <span class="math-inline">$C$</span> จะมีขนาดเท่ากัน แต่มุมต่างกัน <span class="math-inline">$120^\circ$</span>:</p>
+<ul>
+<li><span class="math-inline">$I_{bB} = \mathbf{3.51\angle -181.39^\circ\text{ A}}$</span></li>
+<li><span class="math-inline">$I_{cC} = \mathbf{3.51\angle +58.61^\circ\text{ A}}$</span></li>
+</ul>
+<p><strong>ขั้นที่ 4: คำนวณกระแสสายนิวทรัล (<span class="math-inline">$I_{Nn}$</span>)</strong><br />
+ในวงจรที่สมดุล กระแสทั้ง 3 เฟสจะหักล้างกันพอดี:</p>
+<div class="math-display">$$I_{Nn} = I_{aA} + I_{bB} + I_{cC} = \mathbf{0\text{ A}}$$</div>
+<p><strong>ขั้นที่ 5: คำนวณ Complex Power รวม (<span class="math-inline">$S_{\text{total}}$</span>)</strong></p>
+<div class="math-display">$$S_{\text{total}} = 3\, V_{an} I_{aA}^* = 3 \times 220 \times 3.51\angle +61.39^\circ = \mathbf{2,316.6\angle 61.39^\circ\text{ VA}}$$</div>
+<div class="math-display">$$S_{\text{total}} = 1,109\text{ W} + j2,034\text{ VAR}$$</div>
+<hr />
+<h3>🟡 โจทย์ระดับ 2 (โจทย์มอเตอร์และการแปลงโหลด): ระบบ Balanced Y-<span class="math-inline">$\Delta$</span></h3>
+<blockquote>
+<p><strong>โจทย์:</strong> มอเตอร์เหนี่ยวนำ 3 เฟสตัวหนึ่งต่อแบบ Delta (<span class="math-inline">$\Delta$</span>) มีพิกัดขนาด <span class="math-inline">$10\text{ hp}$</span> ทำงานที่ระบบแรงดัน <span class="math-inline">$380\text{ V}, 50\text{ Hz}$</span> มีประสิทธิภาพ <span class="math-inline">$\eta = 85\%$</span> และ Power Factor <span class="math-inline">$PF = 0.80$</span> lagging<br />
+<strong>จงหา:</strong></p>
+<ol>
+<li>กำลังไฟฟ้าขาเข้า (<span class="math-inline">$P_{\text{in}}$</span>)</li>
+<li>กระแสไลน์ที่จ่ายเข้ามอเตอร์ (<span class="math-inline">$I_L$</span>)</li>
+<li>กระแสที่ไหลผ่านขดลวดแต่ละเฟสของมอเตอร์ (<span class="math-inline">$I_\Delta$</span>)</li>
+<li>อิมพีแดนซ์ต่อเฟสของมอเตอร์ (<span class="math-inline">$Z_\Delta$</span>) และถ้าแปลงเป็นวงจรสมมูล Y (<span class="math-inline">$Z_Y$</span>) จะมีค่าเท่าใด?</li>
+</ol>
+</blockquote>
+<h4>💡 วิธีทำละเอียดทีละขั้น:</h4>
+<p><strong>ขั้นที่ 1: แปลงกำลังกลทาง Output (แรงม้า) เป็นกำลังไฟฟ้าขาเข้า (<span class="math-inline">$P_{\text{in}}$</span>)</strong></p>
+<ul>
+<li><span class="math-inline">$1\text{ hp} = 746\text{ W}$</span></li>
+<li>กำลังงานกลที่เพลามอเตอร์: <span class="math-inline">$P_{\text{out}} = 10 \times 746 = 7,460\text{ W}$</span></li>
+<li>จากสูตรประสิทธิภาพ: <span class="math-inline">$\eta = \frac{P_{\text{out}}}{P_{\text{in}}} \implies P_{\text{in}} = \frac{P_{\text{out}}}{\eta}$</span></li>
+</ul>
+<div class="math-display">$$P_{\text{in}} = \frac{7,460}{0.85} = \mathbf{8,776.47\text{ W}} \approx 8.78\text{ kW}$$</div>
+<p><strong>ขั้นที่ 2: คำนวณหากระแสไลน์ (<span class="math-inline">$I_L$</span>)</strong><br />
+จากสูตรกำลังไฟฟ้า 3 เฟส: <span class="math-inline">$P_{\text{in}} = \sqrt{3}\, V_L I_L \cos\theta$</span></p>
+<div class="math-display">$$I_L = \frac{P_{\text{in}}}{\sqrt{3}\, V_L \times PF} = \frac{8,776.47}{\sqrt{3} \times 380 \times 0.80} = \frac{8,776.47}{526.54} = \mathbf{16.67\text{ A}}$$</div>
+<p><strong>ขั้นที่ 3: คำนวณหากระแสเฟสในขดลวดมอเตอร์ (<span class="math-inline">$I_\Delta$</span>)</strong><br />
+เนื่องจากมอเตอร์ต่อแบบ <strong>Delta (<span class="math-inline">$\Delta$</span>)</strong> กระแสไลน์จะแยกไหลเข้า 2 ขดลวด:</p>
+<div class="math-display">$$I_\Delta = \frac{I_L}{\sqrt{3}} = \frac{16.67}{\sqrt{3}} = \mathbf{9.62\text{ A}}$$</div>
+<p><strong>ขั้นที่ 4: คำนวณหาอิมพีแดนซ์ต่อเฟสของมอเตอร์ (<span class="math-inline">$Z_\Delta$</span>)</strong><br />
+ในวงจร Delta แรงดันตกคร่อมขดลวดจะเท่ากับแรงดันไลน์เต็มๆ: <span class="math-inline">$V_p = V_L = 380\text{ V}$</span></p>
+<ul>
+<li>ขนาดของอิมพีแดนซ์: <span class="math-inline">$|Z_\Delta| = \frac{V_p}{I_\Delta} = \frac{380}{9.62} = 39.50\ \Omega$</span></li>
+<li>หามุมของอิมพีแดนซ์: <span class="math-inline">$\theta = \arccos(0.80) = 36.87^\circ$</span> (เป็นบวกเพราะ lagging)</li>
+</ul>
+<div class="math-display">$$\mathbf{Z}_\Delta = 39.50\angle 36.87^\circ\ \Omega = 31.60 + j23.70\ \Omega$$</div>
+<p><strong>ขั้นที่ 5: แปลงเป็นอิมพีแดนซ์สมมูลแบบ Y (<span class="math-inline">$Z_Y$</span>)</strong></p>
+<div class="math-display">$$Z_Y = \frac{Z_\Delta}{3} = \frac{39.50\angle 36.87^\circ}{3} = \mathbf{13.17\angle 36.87^\circ\ \Omega} = 10.53 + j7.90\ \Omega$$</div>
+<hr />
+<h3>🔴 โจทย์ระดับ 3 (ข้อสอบจริง มข. ปราบเซียน): Unbalanced Y-Y 4-Wire มีสาย Neutral</h3>
+<blockquote>
+<p><strong>ข้อสอบจริง (การบ้านบทที่ 6 ข้อ 2):</strong><br />
+วงจร 3 เฟส 4 สาย (4-Wire Y-Y) แหล่งจ่ายสมดุล <span class="math-inline">$V_{an} = 220\angle 0^\circ\text{ V}, V_{bn} = 220\angle -120^\circ\text{ V}, V_{cn} = 220\angle +120^\circ\text{ V}$</span><br />
+สายส่งแต่ละเส้นมีอิมพีแดนซ์ <span class="math-inline">$Z_{\text{line}} = 10 + j5\ \Omega$</span><br />
+สายนิวทรัลมีอิมพีแดนซ์ <span class="math-inline">$Z_{nN} = 10 + j5\ \Omega$</span><br />
+โหลดต่อแบบ Y ไม่สมดุล (Unbalanced Load):</p>
+<ul>
+<li><span class="math-inline">$Z_A = 20 + j50\ \Omega$</span></li>
+<li><span class="math-inline">$Z_B = 10 + j50\ \Omega$</span></li>
+<li><span class="math-inline">$Z_C = 20 + j20\ \Omega$</span><br />
+<strong>จงหา:</strong> แรงดันจุดนิวทรัลเลื่อน (<span class="math-inline">$V_{Nn}$</span>), กระแสในสายส่งแต่ละเส้น (<span class="math-inline">$I_a, I_b, I_c$</span>) และกระแสสายนิวทรัล (<span class="math-inline">$I_{nN}$</span>)</li>
+</ul>
+</blockquote>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/diagrams/hw6_fig2_yy_unbalanced.png" alt="รูปที่ 13: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 2 วงจร Unbalanced Y-Y มีสายนิวทรัล" />
+  </div>
+  <figcaption>รูปที่ 13: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 2 วงจร Unbalanced Y-Y มีสายนิวทรัล</figcaption>
+</figure>
+
+<em>รูปที่ 13: รูปวงจรจริงจากใบงานการบ้านบทที่ 6 รูปที่ 2 (Unbalanced Y-Y 4-Wire with Neutral Line)</em></p>
+<h4>💡 วิธีทำละเอียดทีละขั้น (สูตร Node Voltage / Millman's Theorem):</h4>
+<p><strong>ขั้นที่ 1: รวมอิมพีแดนซ์ของแต่ละเฟส (<span class="math-inline">$Z_a', Z_b', Z_c'$</span>)</strong><br />
+รวมค่าความต้านทานสายส่งเข้ากับโหลดของแต่ละเฟส:</p>
+<ul>
+<li>เฟส A: <span class="math-inline">$Z_a' = Z_{\text{line}} + Z_A = (10 + j5) + (20 + j50) = 30 + j55\ \Omega = 62.65\angle 61.39^\circ\ \Omega$</span></li>
+<li>เฟส B: <span class="math-inline">$Z_b' = Z_{\text{line}} + Z_B = (10 + j5) + (10 + j50) = 20 + j55\ \Omega = 58.52\angle 70.02^\circ\ \Omega$</span></li>
+<li>เฟส C: <span class="math-inline">$Z_c' = Z_{\text{line}} + Z_C = (10 + j5) + (20 + j20) = 30 + j25\ \Omega = 39.05\angle 39.81^\circ\ \Omega$</span></li>
+<li>สายนิวทรัล: <span class="math-inline">$Z_{nN} = 10 + j5\ \Omega = 11.18\angle 26.57^\circ\ \Omega$</span></li>
+</ul>
+<p><strong>ขั้นที่ 2: แปลงเป็น Admittance (<span class="math-inline">$Y = 1/Z$</span>)</strong></p>
+<ul>
+<li><span class="math-inline">$Y_a = \frac{1}{62.65\angle 61.39^\circ} = 0.0160\angle -61.39^\circ = 0.00766 - j0.01402\ \text{S}$</span></li>
+<li><span class="math-inline">$Y_b = \frac{1}{58.52\angle 70.02^\circ} = 0.0171\angle -70.02^\circ = 0.00584 - j0.01605\ \text{S}$</span></li>
+<li><span class="math-inline">$Y_c = \frac{1}{39.05\angle 39.81^\circ} = 0.0256\angle -39.81^\circ = 0.01968 - j0.01640\ \text{S}$</span></li>
+<li><span class="math-inline">$Y_n = \frac{1}{11.18\angle 26.57^\circ} = 0.0894\angle -26.57^\circ = 0.08000 - j0.04000\ \text{S}$</span></li>
+</ul>
+<p>ผลรวมของ Admittance ที่โหนด <span class="math-inline">$N$</span>:</p>
+<div class="math-display">$$\sum Y = Y_a + Y_b + Y_c + Y_n = 0.11318 - j0.08647 = 0.1424\angle -37.38^\circ\ \text{S}$$</div>
+<p><strong>ขั้นที่ 3: คำนวณหาแรงดันเลื่อนจุดนิวทรัล (<span class="math-inline">$V_{Nn}$</span>) ด้วยทฤษฎีมิลล์แมน (Millman's Theorem)</strong><br />
+ใช้ KCL ที่โหนด <span class="math-inline">$N$</span> (กำหนดให้ <span class="math-inline">$n$</span> เป็นจุดอ้างอิง <span class="math-inline">$0\text{ V}$</span>):</p>
+<div class="math-display">$$\frac{V_{Nn} - V_{an}}{Z_a'} + \frac{V_{Nn} - V_{bn}}{Z_b'} + \frac{V_{Nn} - V_{cn}}{Z_c'} + \frac{V_{Nn}}{Z_{nN}} = 0$$</div>
+<div class="math-display">$$V_{Nn} = \frac{V_{an} Y_a + V_{bn} Y_b + V_{cn} Y_c}{Y_a + Y_b + Y_c + Y_n}$$</div>
+<p>คำนวณตัวเศษ:</p>
+<ul>
+<li><span class="math-inline">$V_{an} Y_a = (220\angle 0^\circ)(0.0160\angle -61.39^\circ) = 3.52\angle -61.39^\circ = 1.685 - j3.084$</span></li>
+<li><span class="math-inline">$V_{bn} Y_b = (220\angle -120^\circ)(0.0171\angle -70.02^\circ) = 3.762\angle -190.02^\circ = -3.705 + j0.655$</span></li>
+<li><span class="math-inline">$V_{cn} Y_c = (220\angle 120^\circ)(0.0256\angle -39.81^\circ) = 5.632\angle 80.19^\circ = 0.959 + j5.550$</span></li>
+<li>รวมตัวเศษ: <span class="math-inline">$(1.685 - 3.705 + 0.959) + j(-3.084 + 0.655 + 5.550) = -1.061 + j3.121 = 3.296\angle 108.78^\circ\text{ A}$</span></li>
+</ul>
+<p>หาค่า <span class="math-inline">$V_{Nn}$</span>:</p>
+<div class="math-display">$$V_{Nn} = \frac{3.296\angle 108.78^\circ}{0.1424\angle -37.38^\circ} = \mathbf{23.15\angle 146.16^\circ\text{ V}}$$</div>
+<div class="callout callout-note"><div class="callout-header"><span class="callout-badge">NOTE</span></div><div class="callout-body">
+<p><strong>ความหมายทางกายภาพ:</strong> จุดนิวทรัล <span class="math-inline">$N$</span> ของโหลด ไม่ได้อยู่ที่ <span class="math-inline">$0\text{ V}$</span> อีกต่อไป! มันลอยขึ้นมาเป็น <span class="math-inline">$23.15\text{ V}$</span> ทำให้แรงดันที่ตกคร่อมโหลดแต่ละเฟสบิดเบี้ยวไป ไม่เท่ากับ <span class="math-inline">$220\text{ V}$</span></p>
+</div></div>
+<p><strong>ขั้นที่ 4: คำนวณกระแสในสายส่งและสายนิวทรัล</strong></p>
+<ul>
+<li><span class="math-inline">$I_a = \frac{V_{an} - V_{Nn}}{Z_a'} = \frac{220\angle 0^\circ - 23.15\angle 146.16^\circ}{62.65\angle 61.39^\circ} = \mathbf{3.83\angle -58.21^\circ\text{ A}}$</span></li>
+<li><span class="math-inline">$I_b = \frac{V_{bn} - V_{Nn}}{Z_b'} = \mathbf{3.74\angle -182.12^\circ\text{ A}}$</span></li>
+<li><span class="math-inline">$I_c = \frac{V_{cn} - V_{Nn}}{Z_c'} = \mathbf{5.44\angle 58.73^\circ\text{ A}}$</span></li>
+<li>กระแสสายนิวทรัลไหลกลับ:</li>
+</ul>
+<div class="math-display">$$I_{nN} = \frac{V_{Nn}}{Z_{nN}} = \frac{23.15\angle 146.16^\circ}{11.18\angle 26.57^\circ} = \mathbf{2.07\angle 119.59^\circ\text{ A}}$$</div>
+<p><em>(เช็คคำตอบ: <span class="math-inline">$I_a + I_b + I_c = 2.07\angle 119.59^\circ = I_{nN}$</span> ถูกต้องแม่นยำ 100%!)</em></p>
+<hr />
+<h3>🔴 โจทย์ระดับ 4: Unbalanced 3-Wire Y-Y (ไม่มีสายนิวทรัล / Floating Neutral)</h3>
+<blockquote>
+<p><strong>ข้อสอบจริง (การบ้านบทที่ 6 ข้อ 3):</strong><br />
+จากโจทย์ระดับ 3 เดิม หากทำการ <strong>&quot;ตัดสายนิวทรัลทิ้ง&quot;</strong> (<span class="math-inline">$Z_{nN} = \infty$</span>)<br />
+<strong>จงหา:</strong> แรงดันจุดนิวทรัลเลื่อน <span class="math-inline">$V_{Nn}$</span> และอธิบายอันตรายที่เกิดขึ้นกับโหลด</p>
+</blockquote>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/diagrams/hw6_fig3_yy_neutral_z.png" alt="รูปที่ 14: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 3 วงจร Unbalanced 3-Wire ไม่มีสายนิวทรัล" />
+  </div>
+  <figcaption>รูปที่ 14: รูปประกอบข้อสอบจริง การบ้านบทที่ 6 ข้อ 3 วงจร Unbalanced 3-Wire ไม่มีสายนิวทรัล</figcaption>
+</figure>
+
+<em>รูปที่ 14: รูปวงจรจริงจากใบงานการบ้านบทที่ 6 รูปที่ 3 (Unbalanced Y-Y 3-Wire System)</em></p>
+<h4>💡 วิธีทำ:</h4>
+<p>เมื่อตัดสายนิวทรัลออก ค่า Admittance ของสายนิวทรัลจะเป็นศูนย์: <span class="math-inline">$Y_n = \frac{1}{\infty} = 0$</span><br />
+สูตรของมิลล์แมนจะตัดพจน์ <span class="math-inline">$Y_n$</span> ทิ้ง:</p>
+<div class="math-display">$$V_{Nn} = \frac{V_{an} Y_a + V_{bn} Y_b + V_{cn} Y_c}{Y_a + Y_b + Y_c}$$</div>
+<ul>
+<li>ตัวเศษยังคงเดิม: <span class="math-inline">$3.296\angle 108.78^\circ$</span></li>
+<li>ตัวส่วนตัด <span class="math-inline">$Y_n$</span> ออก:</li>
+</ul>
+<div class="math-display">$$\sum Y = Y_a + Y_b + Y_c = 0.03318 - j0.04647 = 0.0571\angle -54.48^\circ\ \text{S}$$</div>
+<ul>
+<li>คำนวณ <span class="math-inline">$V_{Nn}$</span> ใหม่:</li>
+</ul>
+<div class="math-display">$$V_{Nn} = \frac{3.296\angle 108.78^\circ}{0.0571\angle -54.48^\circ} = \mathbf{57.72\angle 163.26^\circ\text{ V}}$$</div>
+<div class="callout callout-warning"><div class="callout-header"><span class="callout-badge">WARNING</span></div><div class="callout-body">
+<p><strong>อันตรายของ Floating Neutral (จุดออกสอบบรรยาย):</strong>
+สังเกตว่าแรงดันเลื่อนจุดนิวทรัลพุ่งสูงขึ้นจาก <span class="math-inline">$23.15\text{ V}$</span> กลายเป็น <strong><span class="math-inline">$57.72\text{ V}$</span></strong>!<br />
+ส่งผลให้แรงดันตกคร่อมโหลดบางเฟสลดต่ำลงมาก (Undervoltage) ขณะที่โหลดเฟสที่มีอิมพีแดนซ์สูงจะได้รับแรงดันพุ่งสูงเกินพิกัด (<strong>Overvoltage ทะลุ <span class="math-inline">$260\text{ V} - 280\text{ V}$</span></strong>) ทำให้อุปกรณ์ไฟฟ้าและเครื่องใช้ไฟฟ้าไหม้เสียหายทันที!</p>
+</div></div>
+<hr />
+<h3>🟡 โจทย์ระดับ 5: การวัดกำลังไฟฟ้าด้วย 2 วัตต์มิเตอร์ (Two-Wattmeter Problem)</h3>
+<blockquote>
+<p><strong>โจทย์ (สไลด์ที่ 43 &amp; ข้อสอบไฟนอล):</strong><br />
+ระบบ 3 เฟสสมดุล <span class="math-inline">$380\text{ V}, 50\text{ Hz}$</span> จ่ายโหลดสมดุล ต่อวัตต์มิเตอร์ 2 ตัววัดกำลังไฟฟ้าตามวิธี Two-Wattmeter Method ปรากฏว่า:</p>
+<ul>
+<li>วัตต์มิเตอร์ตัวที่ 1 อ่านค่าได้ <span class="math-inline">$W_1 = 5,200\text{ W}$</span></li>
+<li>วัตต์มิเตอร์ตัวที่ 2 อ่านค่าได้ <span class="math-inline">$W_2 = 1,800\text{ W}$</span><br />
+<strong>จงหา:</strong></li>
+</ul>
+<ol>
+<li>Real Power รวม (<span class="math-inline">$P_{\text{total}}$</span>)</li>
+<li>Reactive Power รวม (<span class="math-inline">$Q_{\text{total}}$</span>)</li>
+<li>Power Factor (<span class="math-inline">$PF$</span>) ของระบบ</li>
+<li>กระแสไลน์ (<span class="math-inline">$I_L$</span>)</li>
+</ol>
+</blockquote>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/ch06_slide_43.png" alt="รูปที่ 15: ตัวอย่างข้อสอบ Two-Wattmeter Method จากสไลด์อาจารย์" />
+  </div>
+  <figcaption>รูปที่ 15: ตัวอย่างข้อสอบ Two-Wattmeter Method จากสไลด์อาจารย์</figcaption>
+</figure>
+
+<em>รูปที่ 15: ตัวอย่างโจทย์ Two-Wattmeter Method จากสไลด์ที่ 43 (Example 6.6)</em></p>
+<h4>💡 วิธีทำ:</h4>
+<p><strong>ขั้นที่ 1: หากำลังไฟฟ้าจริงรวม (<span class="math-inline">$P_{\text{total}}$</span>)</strong></p>
+<div class="math-display">$$P_{\text{total}} = W_1 + W_2 = 5,200 + 1,800 = \mathbf{7,000\text{ W}} = 7.0\text{ kW}$$</div>
+<p><strong>ขั้นที่ 2: หากำลังไฟฟ้ารีแอกทีฟรวม (<span class="math-inline">$Q_{\text{total}}$</span>)</strong></p>
+<div class="math-display">$$Q_{\text{total}} = \sqrt{3}\,(W_1 - W_2) = \sqrt{3}\,(5,200 - 1,800) = \sqrt{3} \times 3,400 = \mathbf{5,888.97\text{ VAR}} \approx 5.89\text{ kVAR}$$</div>
+<p><strong>ขั้นที่ 3: หามุมและค่า Power Factor</strong></p>
+<div class="math-display">$$\tan\theta = \sqrt{3}\,\frac{W_1 - W_2}{W_1 + W_2} = \frac{5,888.97}{7,000} = 0.8413$$</div>
+<div class="math-display">$$\theta = \arctan(0.8413) = 40.07^\circ$$</div>
+<div class="math-display">$$PF = \cos(40.07^\circ) = \mathbf{0.765\text{ lagging}}$$</div>
+<p><strong>ขั้นที่ 4: หากระแสไลน์ (<span class="math-inline">$I_L$</span>)</strong>
+จาก <span class="math-inline">$P = \sqrt{3}\, V_L I_L \cos\theta$</span>:</p>
+<div class="math-display">$$I_L = \frac{P}{\sqrt{3}\, V_L \cdot PF} = \frac{7,000}{\sqrt{3} \times 380 \times 0.765} = \frac{7,000}{503.50} = \mathbf{13.90\text{ A}}$$</div>
+<hr />
+<h3>🟣 โจทย์ระดับ 6 (การแก้ Power Factor ด้วย Capacitor Bank ต่อแบบ Delta)</h3>
+<blockquote>
+<p><strong>โจทย์ (การบ้านข้อ 10 &amp; ข้อสอบตัดเกรด):</strong><br />
+จากโรงงานในโจทย์ระดับ 5 ที่มีโหลด <span class="math-inline">$P = 7\text{ kW}$</span> และ <span class="math-inline">$PF_1 = 0.765$</span> lagging ต่ออยู่กับระบบ <span class="math-inline">$380\text{ V}, 50\text{ Hz}$</span> โรงงานต้องการปรับปรุงค่า Power Factor ให้เพิ่มขึ้นเป็น <span class="math-inline">$PF_2 = 0.95$</span> lagging โดยการติดตั้ง Capacitor Bank ต่อแบบ <strong>Delta (<span class="math-inline">$\Delta$</span>)</strong><br />
+<strong>จงหา:</strong></p>
+<ol>
+<li>กำลังไฟฟ้ารีแอกทีฟที่ Capacitor Bank ต้องจ่ายชดเชย (<span class="math-inline">$Q_C$</span>)</li>
+<li>ค่าความจุต่อเฟสของตัวเก็บประจุ (<span class="math-inline">$C_\Delta$</span>) ในหน่วยไมโครฟารัด (<span class="math-inline">$\mu\text{F}$</span>)</li>
+</ol>
+</blockquote>
+<p>
+<figure class="guide-figure">
+  <div class="img-wrapper">
+    <img src="images/ch06_guide/pf_correction_delta_cap_schematic.png" alt="รูปที่ 16: วงจรการต่อ Capacitor Bank แบบเดลตาเพื่อปรับปรุง Power Factor" />
+  </div>
+  <figcaption>รูปที่ 16: วงจรการต่อ Capacitor Bank แบบเดลตาเพื่อปรับปรุง Power Factor</figcaption>
+</figure>
+
+<em>รูปที่ 16: วงจรการต่อคาปาซิเตอร์แบงก์แบบเดลตาขนานกับโหลด เพื่อจ่ายกำลังไฟฟ้ารีแอกทีฟ <span class="math-inline">$Q_C$</span> ชดเชย</em></p>
+<h4>💡 วิธีทำ:</h4>
+<p><strong>ขั้นที่ 1: หามุมของ Power Factor เดิมและใหม่</strong></p>
+<ul>
+<li>มุมเดิม (<span class="math-inline">$\theta_1$</span>): <span class="math-inline">$\theta_1 = 40.07^\circ \implies \tan\theta_1 = \tan(40.07^\circ) = 0.8413$</span></li>
+<li>มุมใหม่ที่ต้องการ (<span class="math-inline">$\theta_2$</span>): <span class="math-inline">$\theta_2 = \arccos(0.95) = 18.19^\circ \implies \tan\theta_2 = \tan(18.19^\circ) = 0.3287$</span></li>
+</ul>
+<p><strong>ขั้นที่ 2: คำนวณหาค่า <span class="math-inline">$Q_C$</span> รวมทั้ง 3 เฟส</strong></p>
+<div class="math-display">$$Q_C = P\,(\tan\theta_1 - \tan\theta_2)$$</div>
+<div class="math-display">$$Q_C = 7,000\text{ W} \times (0.8413 - 0.3287) = 7,000 \times 0.5126 = \mathbf{3,588.2\text{ VAR}} \approx 3.59\text{ kVAR}$$</div>
+<p><strong>ขั้นที่ 3: คำนวณหาค่าความจุต่อเฟส (<span class="math-inline">$C_\Delta$</span>)</strong><br />
+เนื่องจากตัวเก็บประจุต่อแบบ <strong>Delta (<span class="math-inline">$\Delta$</span>)</strong>:</p>
+<ul>
+<li>คาปาซิเตอร์แต่ละตัวจะรับแรงดันไลน์เต็มๆ: <span class="math-inline">$V_C = V_L = 380\text{ V}$</span></li>
+<li>กำลังงานรีแอกทีฟต่อ 1 เฟส: <span class="math-inline">$Q_{C,\text{phase}} = \frac{Q_C}{3} = \frac{3,588.2}{3} = 1,196.07\text{ VAR}$</span></li>
+<li>จากสูตร: <span class="math-inline">$Q_{C,\text{phase}} = \frac{V_C^2}{X_C} = \omega C_\Delta V_L^2 = 2\pi f C_\Delta V_L^2$</span></li>
+</ul>
+<div class="math-display">$$C_\Delta = \frac{Q_{C,\text{phase}}}{2\pi f V_L^2} = \frac{1,196.07}{2\pi \times 50 \times (380)^2} = \frac{1,196.07}{314.16 \times 144,400} = \frac{1,196.07}{45,364,704}$$</div>
+<div class="math-display">$$C_\Delta = 2.636 \times 10^{-5}\text{ F} = \mathbf{26.36\ \mu\text{F}}$$</div>
+<div class="callout callout-tip"><div class="callout-header"><span class="callout-badge">TIP</span></div><div class="callout-body">
+<p><strong>ทำไมภาคอุตสาหกรรมถึงบังคับต่อ Capacitor Bank แบบ Delta เสมอ?</strong>
+ถ้าเราต่อ Capacitor แบบ Star (Y) แต่ละตัวจะรับแรงดันแค่ <span class="math-inline">$220\text{ V}$</span> สูตรจะกลายเป็น <span class="math-inline">$C_Y = 3 \times C_\Delta = 3 \times 26.36 = 79.1\ \mu\text{F}$</span> ต้องซื้อคาปาซิเตอร์ขนาดใหญ่ขึ้นถึง 3 เท่า แพงกว่า และกินพื้นที่ตู้คอนโทรลมากกว่า! การต่อแบบ Delta จึงช่วยประหยัดต้นทุนอุปกรณ์ได้ถึง 3 เท่าทันที</p>
+</div></div>
+<hr />
+<h2>🏆 Checklist สรุปสูตรลัดก่อนก้าวเท้าเข้าห้องสอบ</h2>
+<ol>
+<li><strong>Star (Y)</strong>:
+<ul>
+<li><span class="math-inline">$I_L = I_p$</span></li>
+<li><span class="math-inline">$V_L = \sqrt{3}\, V_p \angle +30^\circ$</span> (Positive sequence)</li>
+</ul>
+</li>
+<li><strong>Delta (<span class="math-inline">$\Delta$</span>)</strong>:
+<ul>
+<li><span class="math-inline">$V_L = V_p$</span></li>
+<li><span class="math-inline">$I_L = \sqrt{3}\, I_p \angle -30^\circ$</span> (Positive sequence)</li>
+</ul>
+</li>
+<li><strong>แปลงโหลด</strong>:
+<ul>
+<li><span class="math-inline">$Z_Y = \frac{Z_\Delta}{3} \iff Z_\Delta = 3 Z_Y$</span></li>
+</ul>
+</li>
+<li><strong>กำลังไฟฟ้า (ใช้ค่า Line เสมอ)</strong>:
+<ul>
+<li><span class="math-inline">$P = \sqrt{3}\, V_L I_L \cos\theta$</span></li>
+<li><span class="math-inline">$Q = \sqrt{3}\, V_L I_L \sin\theta$</span></li>
+<li><span class="math-inline">$S = \sqrt{3}\, V_L I_L = P + jQ$</span></li>
+</ul>
+</li>
+<li><strong>2 วัตต์มิเตอร์</strong>:
+<ul>
+<li><span class="math-inline">$P_{\text{total}} = W_1 + W_2$</span></li>
+<li><span class="math-inline">$Q_{\text{total}} = \sqrt{3}(W_1 - W_2)$</span></li>
+<li><span class="math-inline">$\tan\theta = \sqrt{3} \frac{W_1 - W_2}{W_1 + W_2}$</span></li>
+</ul>
+</li>
+<li><strong>มิลล์แมน (โหนดนิวทรัล N)</strong>:
+<ul>
+<li><span class="math-inline">$V_{Nn} = \frac{V_{an} Y_a + V_{bn} Y_b + V_{cn} Y_c}{Y_a + Y_b + Y_c + Y_n}$</span></li>
+<li>ถ้าตัดสายนิวทรัล: ตัดพจน์ <span class="math-inline">$Y_n$</span> ออก (Floating Neutral)</li>
+</ul>
+</li>
+</ol>
+
+
+  <!-- KaTeX & Mermaid Initialization -->
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: {
+        curve: 'basis',
+        htmlLabels: true
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false,
+          output: 'html'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
