@@ -28,8 +28,7 @@ chapters_order = [
     "Chapter 7",
     "Chapter 8",
     "Chapter 9",
-    "Chapter 10",
-    "Semiconductors"
+    "Chapter 10"
 ]
 
 chapter_meta = {
@@ -40,34 +39,28 @@ chapter_meta = {
         "sub_th": "ระบบ Y-Y สมดุล/ไม่สมดุล, โหลดเดลตา Y-Δ, กำลังไฟฟ้าเชิงซ้อน, แรงดันจุดนิวทรัลเลื่อน, การวัดกำลังด้วย 2 วัตต์มิเตอร์"
     },
     "Chapter 7": {
-        "title_en": "Chapter 7: Electrical Machines (DC & AC)",
-        "title_th": "บทที่ 7: เครื่องจักรกลไฟฟ้ากระแสตรงและกระแสสลับ (DC & AC Machines)",
-        "sub_en": "Right-Hand Rule, Lorentz Force, DC Shunt/Series Motors & Generators, Induction & Synchronous",
-        "sub_th": "กฎมือขวา, แรงลอเรนซ์, ดีซีมอเตอร์ชันต์/อนุกรม, เจเนอเรเตอร์, มอเตอร์เหนี่ยวนำ และซิงโครนัสมอเตอร์"
+        "title_en": "Chapter 7: Electric Machinery & Transformers",
+        "title_th": "บทที่ 7: เครื่องจักรกลไฟฟ้าและหม้อแปลงไฟฟ้า (Machinery & Transformers)",
+        "sub_en": "Right-Hand Rule, DC Shunt/Series Motors & Generators, Induction Motors, Slip, Power Transformers & Tests",
+        "sub_th": "กฎมือขวา, มอเตอร์กระแสตรงชันต์/อนุกรม, เจเนอเรเตอร์, มอเตอร์เหนี่ยวนำ, สลิป, หม้อแปลง 1 เฟส, 25 kVA, การทดสอบ OC/SC"
     },
     "Chapter 8": {
-        "title_en": "Chapter 8: Transformers",
-        "title_th": "บทที่ 8: หม้อแปลงไฟฟ้า (Transformers)",
-        "sub_en": "Mutual Induction, Induced EMF Formula, 25 kVA Exam Problem, Audio Matching, Efficiency & Auto-Transformers",
-        "sub_th": "การเหนี่ยวนำร่วม, สมการแรงเคลื่อนเหนี่ยวนำ EMF, ข้อสอบหม้อแปลง 25 kVA, การปรับอิมพีแดนซ์, ประสิทธิภาพ และหม้อแปลงออโต้"
+        "title_en": "Chapter 8: Power Distribution System",
+        "title_th": "บทที่ 8: ระบบการจ่ายไฟฟ้ากำลัง (Power Distribution System)",
+        "sub_en": "EGAT 4 Voltage Levels, EGAT 5 Power Plant Types, MEA & PEA Networks, Service Connections & Substations",
+        "sub_th": "4 ระดับแรงดันสายส่ง, 5 ประเภทโรงไฟฟ้า กฟผ., ระบบจำหน่าย กฟน./กฟภ., มิเตอร์และการต่อไฟ, สถานีไฟฟ้าย่อย"
     },
     "Chapter 9": {
-        "title_en": "Chapter 9: Power Transmission Systems & Energy Conservation",
-        "title_th": "บทที่ 9: ระบบสายส่งไฟฟ้ากำลังและการอนุรักษ์พลังงาน (Power Systems & Energy)",
-        "sub_en": "Thai Grid Voltage Stages, EGAT/MEA/PEA, Power Plants, Tower Classifications, Energy Conservation",
-        "sub_th": "4 ขั้นตอนระบบไฟฟ้าไทย, 3 การไฟฟ้า (กฟผ. กฟน. กฟภ.), โรงไฟฟ้าฐาน/พีค, ประเภทเสาสายส่ง, มาตรการประหยัดไฟบ้านและโรงงาน"
+        "title_en": "Chapter 9: Electrical Measuring Instruments & Sensors",
+        "title_th": "บทที่ 9: เครื่องมือวัดและเซนเซอร์ทางไฟฟ้า (Measuring Instruments & Sensors)",
+        "sub_en": "PMMC Principles, DC Ammeters & Voltmeters with CDRX, Ayrton Shunts, Ohmmeters, Wattmeters, Accuracy",
+        "sub_th": "มิเตอร์ PMMC, การออกแบบแอมมิเตอร์/โวลต์มิเตอร์ร่วมกับ CDRX, ชันต์แอร์ตัน, โอห์มมิเตอร์, วัตต์มิเตอร์, ความแม่นยำ"
     },
     "Chapter 10": {
-        "title_en": "Chapter 10: Measuring Instruments & Sensors",
-        "title_th": "บทที่ 10: เครื่องมือวัดและเซนเซอร์ทางไฟฟ้า (Measuring Instruments & Sensors)",
-        "sub_en": "PMMC Principles, DC Ammeters & Voltmeters with CDRX, Ayrton Shunts, Ohmmeters, Wattmeters, Accuracy",
-        "sub_th": "มิเตอร์ PMMC, การออกแบบแอมมิเตอร์/โวลต์มิเตอร์ร่วมกับค่าแดมปิ้ง CDRX, ชันต์แอร์ตัน, โอห์มมิเตอร์, วัตต์มิเตอร์, ความแม่นยำ"
-    },
-    "Semiconductors": {
-        "title_en": "Chapter 11 / Supplement: Semiconductor & Electronic Devices",
-        "title_th": "บทเสริม: อุปกรณ์สารกึ่งตัวนำและวงจรอิเล็กทรอนิกส์ (Semiconductors & Electronic Devices)",
-        "sub_en": "Diodes, Knee Voltages, LEDs, Solar PV Cells, BJT Terminal Currents, MOSFETs, Op-Amps",
-        "sub_th": "สาร N-Type/P-Type, ไดโอดรอยต่อ PN, วงจรซีเนอร์คุมแรงดัน, เซลล์แสงอาทิตย์, ทรานซิสเตอร์ BJT สวิตช์, มอสเฟต, ออปแอมป์"
+        "title_en": "Chapter 10: Semiconductor & Electronic Devices",
+        "title_th": "บทที่ 10: อุปกรณ์สารกึ่งตัวนำและวงจรอิเล็กทรอนิกส์ (Semiconductor & Electronic Devices)",
+        "sub_en": "Intrinsic/Extrinsic, PN Diodes, Zener Regulators, Solar Cells, BJTs, MOSFETs, Rectifiers, Op-Amps",
+        "sub_th": "สาร N-Type/P-Type, ไดโอดรอยต่อ PN, วงจรซีเนอร์คุมแรงดัน, เซลล์แสงอาทิตย์, ทรานซิสเตอร์ BJT, มอสเฟต, ออปแอมป์"
     }
 }
 
@@ -446,16 +439,16 @@ def generate_booklet_html(lang="th"):
     doc_title = "FunE Final Exam Master Flashcards (Bilingual TH / ENG)" if is_th else "FunE Final Exam Master Flashcards (English Master)"
     badge_text = "คณะวิศวกรรมศาสตร์ • มหาวิทยาลัยขอนแก่น" if is_th else "Faculty of Engineering • Khon Kaen University"
     main_title = "Fundamental Electrical Engineering (FunE)"
-    sub_title = "โพยสรุปและข้อสอบไฟนอลวิชาฟันอี 73 ข้อ ครบทุกบท (ภาษาไทย ทับศัพท์ ENG)" if is_th else "Final Exam Master Flashcards & Solved Problems Booklet (73 Cards)"
+    sub_title = f"โพยสรุปและข้อสอบไฟนอลวิชาฟันอี {len(cards)} ข้อ ครบทุกบท (ภาษาไทย ทับศัพท์ ENG)" if is_th else f"Final Exam Master Flashcards & Solved Problems Booklet ({len(cards)} Cards)"
     
     meta_prof_label = "อาจารย์ผู้สอน & ภาควิชา" if is_th else "Course & Instructor"
     meta_prof = "รศ.ดร. นรารัตน์ เรืองชัยจตุพร (วิศวกรรมไฟฟ้า)" if is_th else "Assoc. Prof. Nararat Ruangchaijatupon"
     
     meta_cov_label = "เนื้อหาที่ครอบคลุม" if is_th else "Coverage"
-    meta_cov = "บทที่ 6, 7, 8, 9, 10 และ สารกึ่งตัวนำ (ครบ 100%)" if is_th else "Chapters 6, 7, 8, 9, 10 & Semiconductors (100% Complete)"
+    meta_cov = "บทที่ 6, 7, 8, 9 และ 10 ครบตามสไลด์ อ.นรารัตน์ (100% Complete)" if is_th else "Chapters 6, 7, 8, 9 & 10 (100% Complete Syllabus)"
     
     meta_inc_label = "องค์ประกอบในเล่ม" if is_th else "Content Inclusions"
-    meta_inc = "73 การ์ดโจทย์ • 35 วงจรและรูปไดอะแกรมแท้ • สมการแยกบรรทัดละเอียด" if is_th else "73 Cards • 35 Authentic Diagrams • Line-by-Line Math Derivations"
+    meta_inc = f"{len(cards)} การ์ดโจทย์ • ไดอะแกรมแท้จากสไลด์และข้อสอบ • สมการแยกบรรทัดละเอียด" if is_th else f"{len(cards)} Cards • Authentic Slide & Exam Diagrams • Line-by-Line Math"
 
     cards_html = []
     
@@ -675,7 +668,10 @@ build_pdf(en_html, "flashcards_booklet.html", "FunE_Final_Exam_Master_Flashcards
 excel_src = os.path.join(base_dir, "FunE_Master_Exam_Flashcards_Ch6_10_Master.xlsx")
 excel_dest = os.path.join(fund_e_dir, "FunE_Master_Exam_Flashcards_Ch6_10_Master.xlsx")
 if os.path.exists(excel_src):
-    shutil.copy2(excel_src, excel_dest)
-    print(f"\nCopied master Excel to: {excel_dest}")
+    try:
+        shutil.copy2(excel_src, excel_dest)
+        print(f"\nCopied master Excel to: {excel_dest}")
+    except PermissionError:
+        print(f"\nNotice: {excel_dest} is currently open in Excel. Saved locally at {excel_src}")
 
 print("\nALL PDF BOOKLETS BUILT AND COPIED SUCCESSFULLY!")
