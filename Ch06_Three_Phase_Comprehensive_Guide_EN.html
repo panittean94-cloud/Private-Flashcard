@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 6: Three-Phase AC Circuits - Mastery Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+    @top-left {
+      content: "Faculty of Engineering, KKU • Fundamental Electrical Engineering";
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    @top-right {
+      content: attr(data-header);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #2563eb;
+    }
+    @bottom-left {
+      content: "Assoc. Prof. Dr. Nararat Ruangchaijatupon • Comprehensive Exam Guide";
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #475569;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.65;
+    font-size: 9.8pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .guide-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 22px 20px 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    page-break-after: avoid;
+  }
+
+  .guide-header.ch08 {
+    background: linear-gradient(135deg, #0f172a 0%, #78350f 45%, #b45309 80%, #d97706 100%);
+  }
+
+  .header-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 9999px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-size: 19pt;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .header-subtitle {
+    font-size: 10.5pt;
+    font-weight: 400;
+    opacity: 0.95;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
+  }
+
+  .header-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.28);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 8.2pt;
+  }
+
+  .meta-col strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .guide-header.ch08 .meta-col strong {
+    color: #fde68a;
+  }
+
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+  }
+  .ch08-theme h1 {
+    border-bottom-color: #b45309;
+  }
+
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1e3a8a;
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+  }
+  .ch08-theme h2 {
+    color: #92400e;
+    border-left-color: #d97706;
+  }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .guide-figure {
+    margin: 16px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    max-width: 96%;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .guide-figure img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .guide-figure figcaption {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 8px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 8.8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th {
+    background: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #1e3a8a;
+  }
+  .ch08-theme th {
+    background: #78350f;
+    border-color: #78350f;
+  }
+
+  td {
+    padding: 7px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  .math-display {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0284c7;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 12px 0;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow-x: visible !important;
+  }
+  .ch08-theme .math-display {
+    border-left-color: #d97706;
+  }
+
+  .math-inline {
+    font-size: 1.02em;
+  }
+
+  .callout {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-left: 5px solid;
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .callout-header {
+    margin-bottom: 6px;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .callout-note {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+  }
+  .callout-note .callout-badge {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+
+  .callout-tip {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+    color: #065f46;
+  }
+  .callout-tip .callout-badge {
+    background: #10b981;
+    color: #ffffff;
+  }
+
+  .callout-important {
+    background: #f5f3ff;
+    border-left-color: #8b5cf6;
+    color: #5b21b6;
+  }
+  .callout-important .callout-badge {
+    background: #8b5cf6;
+    color: #ffffff;
+  }
+
+  .callout-warning, .callout-caution {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #92400e;
+  }
+  .callout-warning .callout-badge, .callout-caution .callout-badge {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.8pt;
+    background: #f1f5f9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #0f172a;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    page-break-inside: avoid;
+  }
+
+  pre.mermaid {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 16px 0;
+  }
+
+  .katex-display {
+    margin: 6px 0 !important;
+  }
+  .katex {
+    font-size: 1.03em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 22px 0;
+  }
+
+  </style>
+</head>
+<body class="">
+  <div class="guide-header ">
+    <div class="header-badge">Faculty of Engineering • Khon Kaen University</div>
+    <h1 class="header-title">Chapter 6: Three-Phase AC Circuits</h1>
+    <div class="header-subtitle">Three-Phase AC Circuits Comprehensive Final Exam Mastery Guide</div>
+    <div class="header-meta-row">
+      <div class="meta-col">
+        <strong>Course & Dept</strong>
+        Fundamental Electrical Engineering (EE KKU)
+      </div>
+      <div class="meta-col">
+        <strong>Instructor</strong>
+        Assoc. Prof. Dr. Nararat Ruangchaijatupon
+      </div>
+      <div class="meta-col">
+        <strong>Coverage</strong>
+        16 Diagrams • 5 Exam Problems • Full Mathematical Proofs
+      </div>
+    </div>
+  </div>
+
+  <h1>Chapter 6: Three-Phase Alternating Current Circuits (Comprehensive Mastery Guide)</h1>
+<p><strong>Course:</strong> Fundamental Electrical Engineering (FunE) • Faculty of Engineering, Khon Kaen University<br />
+<strong>Instructor:</strong> Assoc. Prof. Dr. Nararat Ruangchaijatupon</p>
+<hr />
+<h2>📌 Introduction: Why Three-Phase AC Power? (Intuition from First Principles)</h2>
+<p>Before memorizing formulas and subscripts, let us understand the physical and economic intuition:</p>
+<ol>
+<li><strong>Single-Phase Power (<span class="math-inline">$1\phi$</span>)</strong>: The standard household supply (<span class="math-inline">$230\text{ V}$</span>) is like <strong>&quot;pedaling a bicycle with only one leg&quot;</strong>. When the crank reaches the top and bottom dead centers, instantaneous power drops to zero (<span class="math-inline">$p(t)$</span> pulsates at twice the supply frequency, <span class="math-inline">$2\omega$</span>). Consequently, large single-phase motors vibrate, run unevenly, and lack inherent starting torque.</li>
+<li><strong>Three-Phase Power (<span class="math-inline">$3\phi$</span>)</strong>: Three identical coils positioned <span class="math-inline">$120^\circ$</span> apart in space inside an electrical alternator. It acts like a <strong>&quot;three-cylinder engine firing sequentially in perfect balance&quot;</strong>:
+<ul>
+<li><strong>Constant Instantaneous Power (<span class="math-inline">$p(t) = \text{Constant}$</span>)</strong>: In a balanced three-phase system, the total instantaneous power delivered to the load never drops to zero. Large motors operate smoothly without mechanical vibrations and produce self-starting rotating magnetic fields.</li>
+<li><strong>Massive Conductor Material Savings</strong>: Delivering a given amount of power over a transmission line requires <strong><span class="math-inline">$25\% - 50\%$</span> less copper or aluminum</strong> in a three-phase system compared to a single-phase system carrying the same power at equivalent losses.</li>
+<li><strong>Two Distinct Voltage Levels from a Single System</strong>: A standard 3-phase 4-wire system provides both <span class="math-inline">$230\text{ V}$</span> (Phase Voltage, line-to-neutral for lights and appliances) and <span class="math-inline">$400\text{ V}$</span> (Line Voltage, line-to-line for heavy machinery and industrial motors).</li>
+</ul>
+</li>
+</ol>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_03.png" alt="Figure 1: Generation of Three-Phase Voltages and Waveforms" /></div><figcaption>Figure 1: Generation of Three-Phase Voltages and Waveforms</figcaption></figure>
+<em>Figure 1: Generation of 3-phase voltages from three coils displaced by <span class="math-inline">$120^\circ$</span> in the generator stator, producing three equal sinusoidal waveforms phase-shifted by <span class="math-inline">$120^\circ$</span> (From Slide 3).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_10.png" alt="Figure 2: Three-Phase Sinusoidal Waveforms" /></div><figcaption>Figure 2: Three-Phase Sinusoidal Waveforms</figcaption></figure>
+<em>Figure 2: The three sinusoidal waveforms (<span class="math-inline">$v_a, v_b, v_c$</span>) with period <span class="math-inline">$T = 360^\circ$</span>, each shifted by <span class="math-inline">$360^\circ / 3 = 120^\circ$</span> (From Slide 10).</em></p>
+<hr />
+<h2>🔤 Complete Subscript &amp; Notation Decoder (Variables Decoded)</h2>
+<p>The primary reason students struggle with three-phase circuits is confusing subscripts. Let us clarify them permanently:</p>
+<pre class="mermaid">flowchart LR
+    subgraph Source[&quot;Source / Generator Side&quot;]
+        A_src[&quot;Terminal a&quot;]
+        B_src[&quot;Terminal b&quot;]
+        C_src[&quot;Terminal c&quot;]
+        N_src[&quot;Neutral n&quot;]
+    end
+    subgraph Transmission[&quot;Transmission Lines&quot;]
+        L_A[&quot;Line A (Z_line)&quot;]
+        L_B[&quot;Line B (Z_line)&quot;]
+        L_C[&quot;Line C (Z_line)&quot;]
+        L_N[&quot;Neutral Line (Z_nN)&quot;]
+    end
+    subgraph Load[&quot;Load Side&quot;]
+        A_ld[&quot;Terminal A&quot;]
+        B_ld[&quot;Terminal B&quot;]
+        C_ld[&quot;Terminal C&quot;]
+        N_ld[&quot;Neutral N&quot;]
+    end
+
+    A_src --&gt; L_A --&gt; A_ld
+    B_src --&gt; L_B --&gt; B_ld
+    C_src --&gt; L_C --&gt; C_ld
+    N_src -.-&gt; L_N -.-&gt; N_ld
+</pre>
+<h3>1. Meaning of Subscript Letters</h3>
+<ul>
+<li><strong>Lowercase Letters (<span class="math-inline">$a, b, c, n$</span>)</strong>: Represent the <strong>Source / Generator side</strong>, where <span class="math-inline">$n$</span> is the source neutral point.</li>
+<li><strong>Uppercase Letters (<span class="math-inline">$A, B, C, N$</span>)</strong>: Represent the <strong>Load / Receiver side</strong>, where <span class="math-inline">$N$</span> is the load neutral point.</li>
+<li><strong>Double Subscripts Represent Potential Difference</strong>:
+<ul>
+<li><span class="math-inline">$\mathbf{V}_{an} = \mathbf{V}_a - \mathbf{V}_n$</span> : Voltage from source terminal <span class="math-inline">$a$</span> to source neutral <span class="math-inline">$n$</span> (<strong>Source Phase Voltage</strong>).</li>
+<li><span class="math-inline">$\mathbf{V}_{AN} = \mathbf{V}_A - \mathbf{V}_N$</span> : Voltage across load phase <span class="math-inline">$A$</span> to load neutral <span class="math-inline">$N$</span> (<strong>Load Phase Voltage</strong>).</li>
+<li><span class="math-inline">$\mathbf{V}_{ab} = \mathbf{V}_a - \mathbf{V}_b$</span> : Voltage between transmission line <span class="math-inline">$a$</span> and line <span class="math-inline">$b$</span> (<strong>Line-to-Line Voltage</strong> or <strong>Line Voltage</strong>).</li>
+<li><span class="math-inline">$\mathbf{V}_{Nn} = \mathbf{V}_N - \mathbf{V}_n$</span> : Voltage difference between load neutral and source neutral (<strong>Neutral Shift Voltage</strong>).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>2. Line vs. Phase Quantities Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Quantity</th>
+<th style="text-align:center">Symbol</th>
+<th style="text-align:left">Physical Definition</th>
+<th style="text-align:left">In Star / Wye (<span class="math-inline">$Y$</span>) Circuit</th>
+<th style="text-align:left">In Delta (<span class="math-inline">$\Delta$</span>) Circuit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Phase Voltage</strong></td>
+<td style="text-align:center"><span class="math-inline">$V_p$</span> or <span class="math-inline">$V_{\text{phase}}$</span></td>
+<td style="text-align:left">Voltage dropped across <strong>one single coil/branch</strong></td>
+<td style="text-align:left">Measured from phase terminal to neutral (<span class="math-inline">$\mathbf{V}_{an}$</span>)</td>
+<td style="text-align:left">Measured across individual delta branch (<span class="math-inline">$\mathbf{V}_{ab}$</span>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Line Voltage</strong></td>
+<td style="text-align:center"><span class="math-inline">$V_L$</span> or <span class="math-inline">$V_{\text{line}}$</span></td>
+<td style="text-align:left">Voltage measured between <strong>any two transmission lines</strong></td>
+<td style="text-align:left">Measured line-to-line, e.g. <span class="math-inline">$\mathbf{V}_{ab}, \mathbf{V}_{bc}, \mathbf{V}_{ca}$</span></td>
+<td style="text-align:left">Measured line-to-line, e.g. <span class="math-inline">$\mathbf{V}_{ab}, \mathbf{V}_{bc}, \mathbf{V}_{ca}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Phase Current</strong></td>
+<td style="text-align:center"><span class="math-inline">$I_p$</span> or <span class="math-inline">$I_{\text{phase}}$</span></td>
+<td style="text-align:left">Current flowing through <strong>the internal coil winding</strong></td>
+<td style="text-align:left">Current through single phase arm (<span class="math-inline">$I_p = I_L$</span>)</td>
+<td style="text-align:left">Current circulating in delta branch (<span class="math-inline">$\mathbf{I}_{ab}$</span>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Line Current</strong></td>
+<td style="text-align:center"><span class="math-inline">$I_L$</span> or <span class="math-inline">$I_{\text{line}}$</span></td>
+<td style="text-align:left">Current travelling along <strong>the external transmission line wire</strong></td>
+<td style="text-align:left">Current in transmission line (<span class="math-inline">$\mathbf{I}_{aA}, \mathbf{I}_{bB}, \mathbf{I}_{cC}$</span>)</td>
+<td style="text-align:left">Current in transmission line (<span class="math-inline">$\mathbf{I}_a, \mathbf{I}_b, \mathbf{I}_c$</span>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🧭 Phase Sequence: Positive (<span class="math-inline">$abc$</span>) vs. Negative (<span class="math-inline">$acb$</span>)</h2>
+<p>In a balanced system, all three phase voltages have equal magnitude (<span class="math-inline">$V_p$</span>) and are displaced by <span class="math-inline">$120^\circ$</span>:</p>
+<h3>1. Positive Sequence (<span class="math-inline">$abc$</span> Sequence) — <em>Standard in 95% of Problems</em></h3>
+<p>The phasor rotates counter-clockwise. Phase <span class="math-inline">$a$</span> passes the reference axis first, followed by phase <span class="math-inline">$b$</span>, then phase <span class="math-inline">$c$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = V_p \angle 0^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bn} = V_p \angle -120^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{cn} = V_p \angle -240^\circ = V_p \angle +120^\circ$$</div>
+<h3>2. Negative Sequence (<span class="math-inline">$acb$</span> Sequence) — <em>Used in Exam Trap Questions</em></h3>
+<p>Phase <span class="math-inline">$a$</span> passes first, followed by phase <span class="math-inline">$c$</span>, then phase <span class="math-inline">$b$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = V_p \angle 0^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bn} = V_p \angle +120^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{cn} = V_p \angle -120^\circ$$</div>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_11.png" alt="Figure 3: Phasor Diagrams for Balanced Three-Phase Voltages" /></div><figcaption>Figure 3: Phasor Diagrams for Balanced Three-Phase Voltages</figcaption></figure>
+<em>Figure 3: Phasor diagrams of positive (<span class="math-inline">$abc$</span>) vs negative (<span class="math-inline">$acb$</span>) phase sequences (From Slide 11).</em></p>
+<hr />
+<h2>🔗 The 4 Interconnection Topologies (Source-to-Load)</h2>
+<p>Both source and load can be connected in either Star (<span class="math-inline">$Y$</span>) or Delta (<span class="math-inline">$\Delta$</span>). This yields four possible topologies:</p>
+<pre class="mermaid">graph TD
+    Sources[&quot;Source Types:&lt;br/&gt;- Wye (Y)&lt;br/&gt;- Delta (Δ)&quot;] --&gt; Topo[&quot;4 Circuit Topologies&quot;]
+    Topo --&gt; YY[&quot;1. Y - Y Connection (Most Common)&quot;]
+    Topo --&gt; YD[&quot;2. Y - Δ Connection (High Power)&quot;]
+    Topo --&gt; DY[&quot;3. Δ - Y Connection&quot;]
+    Topo --&gt; DD[&quot;4. Δ - Δ Connection&quot;]
+</pre>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_14.png" alt="Figure 4: Wye-to-Wye (Y-Y) Connection System" /></div><figcaption>Figure 4: Wye-to-Wye (Y-Y) Connection System</figcaption></figure>
+<em>Figure 4: A 3-phase 4-wire Y-Y connected system showing source, line impedance, and star-connected load (From Slide 14).</em></p>
+<hr />
+<h3>1. Mathematical Proof of Wye (<span class="math-inline">$Y$</span>) System: <span class="math-inline">$V_L = \sqrt{3} V_p \angle +30^\circ$</span></h3>
+<p>In a Wye-connected source, applying Kirchhoff's Voltage Law (KVL) between terminal <span class="math-inline">$a$</span> and terminal <span class="math-inline">$b$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{ab} = \mathbf{V}_{an} - \mathbf{V}_{bn}$$</div>
+<p>For positive sequence with <span class="math-inline">$\mathbf{V}_{an} = V_p \angle 0^\circ$</span> and <span class="math-inline">$\mathbf{V}_{bn} = V_p \angle -120^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{ab} = V_p (1 + j0) - V_p \left(-\frac{1}{2} - j\frac{\sqrt{3}}{2}\right) = V_p \left( \frac{3}{2} + j\frac{\sqrt{3}}{2} \right)$$</div>
+<p>Converting to polar form:</p>
+<div class="math-display">$$|\mathbf{V}_{ab}| = V_p \sqrt{\left(\frac{3}{2}\right)^2 + \left(\frac{\sqrt{3}}{2}\right)^2} = V_p \sqrt{\frac{9 + 3}{4}} = V_p \sqrt{3} = \sqrt{3} V_p$$</div>
+<div class="math-display">$$\theta = \arctan\left(\frac{\sqrt{3}/2}{3/2}\right) = \arctan\left(\frac{1}{\sqrt{3}}\right) = 30^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{ab} = \sqrt{3} V_p \angle +30^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{bc} = \sqrt{3} V_p \angle -90^\circ$$</div>
+<div class="math-display">$$\mathbf{V}_{ca} = \sqrt{3} V_p \angle +150^\circ$$</div>
+<div class="callout callout-important"><div class="callout-header"><span class="callout-badge">IMPORTANT</span></div><div class="callout-body">
+<p><strong>Summary for Wye (<span class="math-inline">$Y$</span>) Connection</strong>:</p>
+<ul>
+<li><strong>Line Voltage leads Phase Voltage by <span class="math-inline">$30^\circ$</span></strong>: <span class="math-inline">$V_L = \sqrt{3} V_p \angle +30^\circ$</span></li>
+<li><strong>Line Current equals Phase Current</strong>: <span class="math-inline">$I_L = I_p$</span></li>
+</ul>
+</div></div>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_18.png" alt="Figure 5: Phasor Proof that Line Voltage Leads Phase Voltage by 30 Degrees" /></div><figcaption>Figure 5: Phasor Proof that Line Voltage Leads Phase Voltage by 30 Degrees</figcaption></figure>
+<em>Figure 5: Graphical phasor proof showing <span class="math-inline">$\mathbf{V}_{ab} = \mathbf{V}_{an} - \mathbf{V}_{bn} = \sqrt{3}V_p\angle 30^\circ$</span> (From Slide 18).</em></p>
+<hr />
+<h3>2. Mathematical Proof of Delta (<span class="math-inline">$\Delta$</span>) System: <span class="math-inline">$I_L = \sqrt{3} I_p \angle -30^\circ$</span></h3>
+<p>In a Delta connection, the phase branches are connected directly between the line conductors:</p>
+<div class="math-display">$$V_L = V_p$$</div>
+<p>Applying Kirchhoff's Current Law (KCL) at terminal node <span class="math-inline">$A$</span>:</p>
+<div class="math-display">$$\mathbf{I}_a = \mathbf{I}_{AB} - \mathbf{I}_{CA}$$</div>
+<p>Assuming balanced positive sequence currents <span class="math-inline">$\mathbf{I}_{AB} = I_p \angle 0^\circ$</span> and <span class="math-inline">$\mathbf{I}_{CA} = I_p \angle +120^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{I}_a = I_p (1 + j0) - I_p \left(-\frac{1}{2} + j\frac{\sqrt{3}}{2}\right) = I_p \left(\frac{3}{2} - j\frac{\sqrt{3}}{2}\right) = \sqrt{3} I_p \angle -30^\circ$$</div>
+<div class="callout callout-important"><div class="callout-header"><span class="callout-badge">IMPORTANT</span></div><div class="callout-body">
+<p><strong>Summary for Delta (<span class="math-inline">$\Delta$</span>) Connection</strong>:</p>
+<ul>
+<li><strong>Line Voltage equals Phase Voltage</strong>: <span class="math-inline">$V_L = V_p$</span></li>
+<li><strong>Line Current lags Phase Current by <span class="math-inline">$30^\circ$</span></strong>: <span class="math-inline">$I_L = \sqrt{3} I_p \angle -30^\circ$</span></li>
+</ul>
+</div></div>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_15.png" alt="Figure 6: Wye-to-Delta (Y-Δ) Connection System" /></div><figcaption>Figure 6: Wye-to-Delta (Y-Δ) Connection System</figcaption></figure>
+<em>Figure 6: Wye source supplying a Delta-connected load (From Slide 15).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_22.png" alt="Figure 7: Phasor Proof for Delta Line and Phase Currents" /></div><figcaption>Figure 7: Phasor Proof for Delta Line and Phase Currents</figcaption></figure>
+<em>Figure 7: Phasor relationship showing <span class="math-inline">$\mathbf{I}_a = \sqrt{3}I_{AB}\angle -30^\circ$</span> (From Slide 22).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_23.png" alt="Figure 8: Master Summary of Wye and Delta Relationships" /></div><figcaption>Figure 8: Master Summary of Wye and Delta Relationships</figcaption></figure>
+<em>Figure 8: Comprehensive summary table of Line vs Phase quantities for Wye and Delta connections (From Slide 23).</em></p>
+<hr />
+<h3>3. Delta-Wye Impedance Transformation (<span class="math-inline">$\Delta \leftrightarrow Y$</span>)</h3>
+<p>When solving balanced circuits containing Delta loads, transform the Delta load into an equivalent Wye load to solve on a <strong>Per-Phase Equivalent</strong> basis:</p>
+<div class="math-display">$$Z_Y = \frac{Z_\Delta}{3} \iff Z_\Delta = 3 Z_Y$$</div>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_34.png" alt="Figure 9: Delta to Wye Impedance Transformation" /></div><figcaption>Figure 9: Delta to Wye Impedance Transformation</figcaption></figure>
+<em>Figure 9: Transforming a balanced Delta load to an equivalent Wye load <span class="math-inline">$Z_Y = Z_\Delta / 3$</span> (From Slide 34).</em></p>
+<hr />
+<h2>⚡ Power in Three-Phase Circuits</h2>
+<p>The total power consumed by a balanced three-phase load (whether connected in Wye or Delta) is three times the single-phase power:</p>
+<h3>1. Complex, Real, and Reactive Power Formulas</h3>
+<div class="math-display">$$\mathbf{S}_{3\phi} = 3 \mathbf{S}_{1\phi} = 3 \mathbf{V}_p \mathbf{I}_p^* = \sqrt{3} V_L I_L \angle \theta$$</div>
+<div class="math-display">$$P_{3\phi} = 3 V_p I_p \cos\theta = \sqrt{3} V_L I_L \cos\theta \quad [\text{Watts, W}]$$</div>
+<div class="math-display">$$Q_{3\phi} = 3 V_p I_p \sin\theta = \sqrt{3} V_L I_L \sin\theta \quad [\text{Volt-Amperes Reactive, VAR}]$$</div>
+<div class="math-display">$$S_{3\phi} = \sqrt{P_{3\phi}^2 + Q_{3\phi}^2} = \sqrt{3} V_L I_L \quad [\text{Volt-Amperes, VA}]$$</div>
+<div class="callout callout-caution"><div class="callout-header"><span class="callout-badge">CAUTION</span></div><div class="callout-body">
+<p>In the formula <span class="math-inline">$\sqrt{3} V_L I_L \cos\theta$</span>, the angle <span class="math-inline">$\theta$</span> is <strong>the phase angle of the load impedance</strong> (<span class="math-inline">$\theta = \theta_v - \theta_i$</span> of individual phase branch), <strong>NOT</strong> the angle between line voltage and line current!</p>
+</div></div>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_27.png" alt="Figure 10: Three-Phase Power Formulas from Slide 27" /></div><figcaption>Figure 10: Three-Phase Power Formulas from Slide 27</figcaption></figure>
+<em>Figure 10: Real, reactive, and apparent power formulas for balanced three-phase systems (From Slide 27).</em></p>
+<hr />
+<h2>📊 Two-Wattmeter Method for Power Measurement</h2>
+<p>The two-wattmeter method measures the total real and reactive power of a three-phase three-wire system (balanced or unbalanced) using only two wattmeters:</p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/two_wattmeter_method_schematic.png" alt="Figure 11: Schematic of the Two-Wattmeter Connection" /></div><figcaption>Figure 11: Schematic of the Two-Wattmeter Connection</figcaption></figure>
+<em>Figure 11: Circuit diagram of the Two-Wattmeter Method with Current Coils (CC) in lines A and C, and Potential Coils (PC) connected across common line B.</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/ch06_slide_43.png" alt="Figure 12: Two-Wattmeter Example Slide" /></div><figcaption>Figure 12: Two-Wattmeter Example Slide</figcaption></figure>
+<em>Figure 12: Derivation and vector angles of individual wattmeter readings (From Slide 43).</em></p>
+<h3>1. Wattmeter Reading Equations (Balanced Load, Phase Sequence <span class="math-inline">$abc$</span>)</h3>
+<ul>
+<li>Wattmeter 1 measures line current <span class="math-inline">$\mathbf{I}_a$</span> and voltage <span class="math-inline">$\mathbf{V}_{ab}$</span>:</li>
+</ul>
+<div class="math-display">$$W_1 = V_{ab} I_a \cos(\angle \mathbf{V}_{ab} - \angle \mathbf{I}_a) = V_L I_L \cos(30^\circ - \theta)$$</div>
+<ul>
+<li>Wattmeter 2 measures line current <span class="math-inline">$\mathbf{I}_c$</span> and voltage <span class="math-inline">$\mathbf{V}_{cb}$</span>:</li>
+</ul>
+<div class="math-display">$$W_2 = V_{cb} I_c \cos(\angle \mathbf{V}_{cb} - \angle \mathbf{I}_c) = V_L I_L \cos(30^\circ + \theta)$$</div>
+<h3>2. Master Formulas Derived from <span class="math-inline">$W_1$</span> and <span class="math-inline">$W_2$</span></h3>
+<ol>
+<li><strong>Total Real Power (<span class="math-inline">$P_{\text{total}}$</span>)</strong>:</li>
+</ol>
+<div class="math-display">$$P_{\text{total}} = W_1 + W_2$$</div>
+<ol start="2">
+<li><strong>Total Reactive Power (<span class="math-inline">$Q_{\text{total}}$</span>)</strong>:</li>
+</ol>
+<div class="math-display">$$Q_{\text{total}} = \sqrt{3}(W_1 - W_2)$$</div>
+<ol start="3">
+<li><strong>Power Factor Angle (<span class="math-inline">$\theta$</span>)</strong>:</li>
+</ol>
+<div class="math-display">$$\tan\theta = \sqrt{3}\frac{W_1 - W_2}{W_1 + W_2} \implies \text{pf} = \cos\theta$$</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Load Power Factor (<span class="math-inline">$\text{pf} = \cos\theta$</span>)</th>
+<th style="text-align:center">Load Angle (<span class="math-inline">$\theta$</span>)</th>
+<th style="text-align:center">Wattmeter 1 Reading (<span class="math-inline">$W_1$</span>)</th>
+<th style="text-align:center">Wattmeter 2 Reading (<span class="math-inline">$W_2$</span>)</th>
+<th style="text-align:left">Special Phenomenon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$\text{pf} = 1.0$</span> (Purely Resistive)</strong></td>
+<td style="text-align:center"><span class="math-inline">$\theta = 0^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 = W_2 > 0$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 = W_2 > 0$</span></td>
+<td style="text-align:left">Both wattmeters read identical positive values.</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$\text{pf} = 0.5$</span> (Lagging)</strong></td>
+<td style="text-align:center"><span class="math-inline">$\theta = +60^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 > 0$</span></td>
+<td style="text-align:center"><strong><span class="math-inline">$W_2 = 0$</span></strong></td>
+<td style="text-align:left"><strong>Wattmeter 2 reads exactly ZERO!</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$0 \le \text{pf} < 0.5$</span> (Lagging)</strong></td>
+<td style="text-align:center"><span class="math-inline">$\theta > 60^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 > 0$</span></td>
+<td style="text-align:center"><strong><span class="math-inline">$W_2 < 0$</span> (Negative!)</strong></td>
+<td style="text-align:left"><strong>Wattmeter 2 deflects backwards!</strong> Reverse CC terminals to read.</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong><span class="math-inline">$\text{pf} = 0$</span> (Purely Reactive)</strong></td>
+<td style="text-align:center"><span class="math-inline">$\theta = 90^\circ$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_1 = -W_2$</span></td>
+<td style="text-align:center"><span class="math-inline">$W_2 = -W_1$</span></td>
+<td style="text-align:left"><span class="math-inline">$W_1 + W_2 = 0$</span> (Zero total real power).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>⚙️ Power Factor Correction with Delta Capacitor Banks</h2>
+<p>Most industrial loads are inductive (induction motors, transformers) operating at lagging power factors. Installing a parallel capacitor bank supplies the required reactive power locally, unloading transmission lines:</p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch06_guide/pf_correction_delta_cap_schematic.png" alt="Figure 13: Power Factor Correction Schematic with Delta Capacitor Bank" /></div><figcaption>Figure 13: Power Factor Correction Schematic with Delta Capacitor Bank</figcaption></figure>
+<em>Figure 13: Schematic of a three-phase inductive motor load corrected by a parallel Delta-connected capacitor bank.</em></p>
+<h3>1. Step-by-Step Design Formula</h3>
+<ol>
+<li>Calculate the required total reactive power compensation:</li>
+</ol>
+<div class="math-display">$$Q_C = P(\tan\theta_1 - \tan\theta_2)$$</div>
+<ol start="2">
+<li>In a <strong>Delta-connected</strong> capacitor bank, each capacitor sees the full line-to-line voltage (<span class="math-inline">$V_C = V_L$</span>):</li>
+</ol>
+<div class="math-display">$$Q_{C,\text{per phase}} = \frac{Q_C}{3} = \omega C_\Delta V_L^2 \implies C_\Delta = \frac{Q_C}{3 \omega V_L^2}$$</div>
+<ol start="3">
+<li>If connected in <strong>Wye (<span class="math-inline">$Y$</span>)</strong>, the voltage across each capacitor is only <span class="math-inline">$V_p = V_L / \sqrt{3}$</span>:</li>
+</ol>
+<div class="math-display">$$C_Y = \frac{Q_C}{\omega V_L^2} = 3 C_\Delta$$</div>
+<div class="callout callout-tip"><div class="callout-header"><span class="callout-badge">TIP</span></div><div class="callout-body">
+<p><strong>Why Delta is Universally Preferred in Industry</strong>:
+A Delta-connected capacitor bank requires <strong><span class="math-inline">$3\times$</span> smaller capacitance</strong> than a Wye bank (<span class="math-inline">$C_\Delta = \frac{1}{3} C_Y$</span>) to provide identical reactive VARs. Smaller capacitance means smaller physical size, lighter weight, and lower equipment cost!</p>
+</div></div>
+<hr />
+<h2>📝 5 Authentic Exam Problems with Full Step-by-Step Solutions</h2>
+<hr />
+<h3>🔴 Problem 1 (Level 1: Fundamentals of Phase Sequence &amp; Line Voltages)</h3>
+<p><strong>Problem Statement:</strong><br />
+A balanced three-phase Wye-connected source has a positive sequence (<span class="math-inline">$abc$</span>) with phase voltage <span class="math-inline">$\mathbf{V}_{an} = 120\angle 10^\circ\text{ V rms}$</span>.<br />
+Find:</p>
+<ol>
+<li>The remaining phase voltages <span class="math-inline">$\mathbf{V}_{bn}$</span> and <span class="math-inline">$\mathbf{V}_{cn}$</span>.</li>
+<li>All three line-to-line voltages <span class="math-inline">$\mathbf{V}_{ab}, \mathbf{V}_{bc}, \mathbf{V}_{ca}$</span>.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Determine Phase Voltages</strong><br />
+In positive sequence, each phase lags by <span class="math-inline">$120^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = 120\angle 10^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{bn} = 120\angle (10^\circ - 120^\circ) = 120\angle -110^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{cn} = 120\angle (10^\circ + 120^\circ) = 120\angle +130^\circ\text{ V}$$</div>
+<p><strong>Step 2: Calculate Line Voltages</strong><br />
+Line voltage magnitude is <span class="math-inline">$V_L = \sqrt{3} V_p = \sqrt{3} \times 120 \approx 207.85\text{ V}$</span>, leading phase voltage by <span class="math-inline">$30^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{ab} = \sqrt{3} \times 120 \angle (10^\circ + 30^\circ) = 207.85\angle 40^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{bc} = 207.85\angle (40^\circ - 120^\circ) = 207.85\angle -80^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{ca} = 207.85\angle (40^\circ + 120^\circ) = 207.85\angle 160^\circ\text{ V}$$</div>
+<hr />
+<h3>🔴 Problem 2 (Level 2: Balanced Y-Y System with Line Impedance - Homework 6 Prob. 1)</h3>
+<p><strong>Problem Statement:</strong><br />
+A balanced 3-phase 4-wire Y-Y system has:</p>
+<ul>
+<li>Source: <span class="math-inline">$\mathbf{V}_{an} = 110\angle 0^\circ\text{ V rms}$</span>, <span class="math-inline">$abc$</span> sequence.</li>
+<li>Line impedance: <span class="math-inline">$\mathbf{Z}_{\text{line}} = 5 - j2\ \Omega$</span> per phase.</li>
+<li>Load impedance: <span class="math-inline">$\mathbf{Z}_Y = 10 + j8\ \Omega$</span> per phase.</li>
+<li>Neutral wire impedance: <span class="math-inline">$\mathbf{Z}_n = 0\ \Omega$</span>.<br />
+Find:</li>
+</ul>
+<ol>
+<li>The line currents <span class="math-inline">$\mathbf{I}_{aA}, \mathbf{I}_{bB}, \mathbf{I}_{cC}$</span>.</li>
+<li>The phase voltages at the load terminals <span class="math-inline">$\mathbf{V}_{AN}, \mathbf{V}_{BN}, \mathbf{V}_{CN}$</span>.</li>
+<li>The total complex power <span class="math-inline">$\mathbf{S}_{\text{total}}$</span> delivered to the load.</li>
+</ol>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/diagrams/hw6_fig1_yy_balanced.png" alt="Figure 14: Balanced Y-Y Circuit Diagram" /></div><figcaption>Figure 14: Balanced Y-Y Circuit Diagram</figcaption></figure>
+<em>Figure 14: Balanced Y-Y system with line impedance (Homework 6 Problem 1).</em></p>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Single-Phase Equivalent Circuit Analysis</strong><br />
+Total impedance per phase:</p>
+<div class="math-display">$$\mathbf{Z}_{\text{total}} = \mathbf{Z}_{\text{line}} + \mathbf{Z}_Y = (5 - j2) + (10 + j8) = 15 + j6\ \Omega$$</div>
+<div class="math-display">$$\mathbf{Z}_{\text{total}} = \sqrt{15^2 + 6^2}\angle \arctan(6/15) = \sqrt{225 + 36}\angle 21.8^\circ = 16.16\angle 21.8^\circ\ \Omega$$</div>
+<p><strong>Step 2: Line Current Calculation</strong></p>
+<div class="math-display">$$\mathbf{I}_{aA} = \frac{\mathbf{V}_{an}}{\mathbf{Z}_{\text{total}}} = \frac{110\angle 0^\circ}{16.16\angle 21.8^\circ} = 6.81\angle -21.8^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{bB} = 6.81\angle (-21.8^\circ - 120^\circ) = 6.81\angle -141.8^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{cC} = 6.81\angle (-21.8^\circ + 120^\circ) = 6.81\angle 98.2^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_n = -(\mathbf{I}_{aA} + \mathbf{I}_{bB} + \mathbf{I}_{cC}) = 0\text{ A (Balanced!)}$$</div>
+<p><strong>Step 3: Load Phase Voltages</strong></p>
+<div class="math-display">$$\mathbf{V}_{AN} = \mathbf{I}_{aA} \mathbf{Z}_Y = (6.81\angle -21.8^\circ) \times (10 + j8)$$</div>
+<div class="math-display">$$10 + j8 = \sqrt{100 + 64}\angle \arctan(8/10) = 12.81\angle 38.66^\circ\ \Omega$$</div>
+<div class="math-display">$$\mathbf{V}_{AN} = 6.81 \times 12.81 \angle (-21.8^\circ + 38.66^\circ) = 87.24\angle 16.86^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{BN} = 87.24\angle (16.86^\circ - 120^\circ) = 87.24\angle -103.14^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{CN} = 87.24\angle (16.86^\circ + 120^\circ) = 87.24\angle 136.86^\circ\text{ V}$$</div>
+<p><strong>Step 4: Total Complex Power Delivered to the Load</strong></p>
+<div class="math-display">$$\mathbf{S}_{3\phi} = 3 \times |\mathbf{I}_{aA}|^2 \times \mathbf{Z}_Y = 3 \times (6.81)^2 \times (10 + j8) = 3 \times 46.38 \times (10 + j8)$$</div>
+<div class="math-display">$$\mathbf{S}_{3\phi} = 1,391.4 + j1,113.1\text{ VA} = 1.39\text{ kW} + j1.11\text{ kVAR}$$</div>
+<hr />
+<h3>🔴 Problem 3 (Level 3: Balanced Y-Δ System with Line Impedance)</h3>
+<p><strong>Problem Statement:</strong><br />
+A balanced three-phase system has:</p>
+<ul>
+<li>Source: Wye-connected, line-to-line voltage <span class="math-inline">$V_L = 208\text{ V rms}$</span>, <span class="math-inline">$abc$</span> sequence, taking <span class="math-inline">$\mathbf{V}_{ab}$</span> as reference (<span class="math-inline">$208\angle 0^\circ\text{ V}$</span>).</li>
+<li>Line impedance: <span class="math-inline">$\mathbf{Z}_{\text{line}} = 1 + j1\ \Omega$</span>.</li>
+<li>Load: Delta-connected with branch impedance <span class="math-inline">$\mathbf{Z}_\Delta = 12 + j9\ \Omega$</span>.<br />
+Find:</li>
+</ul>
+<ol>
+<li>The line currents <span class="math-inline">$\mathbf{I}_a, \mathbf{I}_b, \mathbf{I}_c$</span>.</li>
+<li>The phase currents circulating inside the Delta load <span class="math-inline">$\mathbf{I}_{AB}, \mathbf{I}_{BC}, \mathbf{I}_{CA}$</span>.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Transform Delta Load to Equivalent Wye Load</strong></p>
+<div class="math-display">$$\mathbf{Z}_Y = \frac{\mathbf{Z}_\Delta}{3} = \frac{12 + j9}{3} = 4 + j3\ \Omega$$</div>
+<p><strong>Step 2: Determine Source Phase Voltage</strong>
+Since <span class="math-inline">$\mathbf{V}_{ab} = 208\angle 0^\circ\text{ V}$</span> and <span class="math-inline">$\mathbf{V}_{ab} = \sqrt{3} \mathbf{V}_{an}\angle +30^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{V}_{an} = \frac{208}{\sqrt{3}}\angle (0^\circ - 30^\circ) = 120.09\angle -30^\circ\text{ V}$$</div>
+<p><strong>Step 3: Total Impedance and Line Current</strong></p>
+<div class="math-display">$$\mathbf{Z}_{\text{total}} = \mathbf{Z}_{\text{line}} + \mathbf{Z}_Y = (1 + j1) + (4 + j3) = 5 + j4 = 6.403\angle 38.66^\circ\ \Omega$$</div>
+<div class="math-display">$$\mathbf{I}_a = \frac{\mathbf{V}_{an}}{\mathbf{Z}_{\text{total}}} = \frac{120.09\angle -30^\circ}{6.403\angle 38.66^\circ} = 18.755\angle -68.66^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_b = 18.755\angle (-68.66^\circ - 120^\circ) = 18.755\angle -188.66^\circ\text{ A} = 18.755\angle 171.34^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_c = 18.755\angle (-68.66^\circ + 120^\circ) = 18.755\angle 51.34^\circ\text{ A}$$</div>
+<p><strong>Step 4: Calculate Delta Phase Currents</strong>
+Phase current magnitude is <span class="math-inline">$I_p = I_L / \sqrt{3} = 18.755 / \sqrt{3} = 10.828\text{ A}$</span>, leading line current by <span class="math-inline">$30^\circ$</span>:</p>
+<div class="math-display">$$\mathbf{I}_{AB} = \frac{18.755}{\sqrt{3}}\angle (-68.66^\circ + 30^\circ) = 10.83\angle -38.66^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{BC} = 10.83\angle (-38.66^\circ - 120^\circ) = 10.83\angle -158.66^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{CA} = 10.83\angle (-38.66^\circ + 120^\circ) = 10.83\angle 81.34^\circ\text{ A}$$</div>
+<hr />
+<h3>🔴 Problem 4 (Level 4: Unbalanced Y-Y System &amp; Neutral Shift - Homework 6 Prob. 2)</h3>
+<p><strong>Problem Statement:</strong><br />
+An unbalanced 3-phase 3-wire Y-Y system (NO neutral wire, <span class="math-inline">$\mathbf{Z}_n = \infty$</span>) has:</p>
+<ul>
+<li>Source: <span class="math-inline">$\mathbf{V}_{an} = 100\angle 0^\circ\text{ V}$</span>, <span class="math-inline">$\mathbf{V}_{bn} = 100\angle -120^\circ\text{ V}$</span>, <span class="math-inline">$\mathbf{V}_{cn} = 100\angle 120^\circ\text{ V}$</span>.</li>
+<li>Line impedance: <span class="math-inline">$\mathbf{Z}_{\text{line}} = 0\ \Omega$</span>.</li>
+<li>Unbalanced load: <span class="math-inline">$\mathbf{Z}_A = 10\ \Omega$</span>, <span class="math-inline">$\mathbf{Z}_B = j10\ \Omega$</span>, <span class="math-inline">$\mathbf{Z}_C = -j10\ \Omega$</span>.<br />
+Find:</li>
+</ul>
+<ol>
+<li>The Neutral Shift Voltage (<span class="math-inline">$\mathbf{V}_{Nn} = \mathbf{V}_N - \mathbf{V}_n$</span>).</li>
+<li>The load phase voltages <span class="math-inline">$\mathbf{V}_{AN}, \mathbf{V}_{BN}, \mathbf{V}_{CN}$</span>.</li>
+<li>The line currents <span class="math-inline">$\mathbf{I}_{aA}, \mathbf{I}_{bB}, \mathbf{I}_{cC}$</span>.</li>
+</ol>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/diagrams/hw6_fig2_yy_unbalanced.png" alt="Figure 15: Unbalanced Y-Y Circuit Diagram" /></div><figcaption>Figure 15: Unbalanced Y-Y Circuit Diagram</figcaption></figure>
+<em>Figure 15: Unbalanced Y-Y load with disconnected neutral wire (Homework 6 Problem 2).</em></p>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Calculate Load Admittances</strong></p>
+<div class="math-display">$$\mathbf{Y}_A = \frac{1}{10} = 0.1\ \text{S}$$</div>
+<div class="math-display">$$\mathbf{Y}_B = \frac{1}{j10} = -j0.1\ \text{S}$$</div>
+<div class="math-display">$$\mathbf{Y}_C = \frac{1}{-j10} = +j0.1\ \text{S}$$</div>
+<p>Sum of admittances:</p>
+<div class="math-display">$$\sum \mathbf{Y} = \mathbf{Y}_A + \mathbf{Y}_B + \mathbf{Y}_C = 0.1 - j0.1 + j0.1 = 0.1\ \text{S}$$</div>
+<p><strong>Step 2: Calculate Neutral Shift Voltage using Millman's Theorem / KCL</strong></p>
+<div class="math-display">$$\mathbf{V}_{Nn} = \frac{\mathbf{V}_{an}\mathbf{Y}_A + \mathbf{V}_{bn}\mathbf{Y}_B + \mathbf{V}_{cn}\mathbf{Y}_C}{\sum \mathbf{Y}}$$</div>
+<p>Numerator:</p>
+<div class="math-display">$$\mathbf{V}_{an}\mathbf{Y}_A = (100\angle 0^\circ)(0.1) = 10$$</div>
+<div class="math-display">$$\mathbf{V}_{bn}\mathbf{Y}_B = (100\angle -120^\circ)(-j0.1) = (100\angle -120^\circ)(0.1\angle -90^\circ) = 10\angle -210^\circ = 10\angle 150^\circ = -8.66 + j5$$</div>
+<div class="math-display">$$\mathbf{V}_{cn}\mathbf{Y}_C = (100\angle 120^\circ)(+j0.1) = (100\angle 120^\circ)(0.1\angle 90^\circ) = 10\angle 210^\circ = -8.66 - j5$$</div>
+<p>Summing the terms:</p>
+<div class="math-display">$$\text{Numerator} = 10 + (-8.66 + j5) + (-8.66 - j5) = 10 - 17.32 = -7.32\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{Nn} = \frac{-7.32}{0.1} = -73.2\angle 0^\circ = 73.2\angle 180^\circ\text{ V}$$</div>
+<p><strong>Step 3: Calculate Load Phase Voltages</strong></p>
+<div class="math-display">$$\mathbf{V}_{AN} = \mathbf{V}_{an} - \mathbf{V}_{Nn} = 100 - (-73.2) = 173.2\angle 0^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{BN} = \mathbf{V}_{bn} - \mathbf{V}_{Nn} = (-50 - j86.6) - (-73.2) = 23.2 - j86.6 = 89.65\angle -75^\circ\text{ V}$$</div>
+<div class="math-display">$$\mathbf{V}_{CN} = \mathbf{V}_{cn} - \mathbf{V}_{Nn} = (-50 + j86.6) - (-73.2) = 23.2 + j86.6 = 89.65\angle 75^\circ\text{ V}$$</div>
+<p><strong>Step 4: Calculate Line Currents</strong></p>
+<div class="math-display">$$\mathbf{I}_{aA} = \frac{\mathbf{V}_{AN}}{\mathbf{Z}_A} = \frac{173.2\angle 0^\circ}{10} = 17.32\angle 0^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{bB} = \frac{\mathbf{V}_{BN}}{\mathbf{Z}_B} = \frac{89.65\angle -75^\circ}{10\angle 90^\circ} = 8.965\angle -165^\circ\text{ A}$$</div>
+<div class="math-display">$$\mathbf{I}_{cC} = \frac{\mathbf{V}_{CN}}{\mathbf{Z}_C} = \frac{89.65\angle 75^\circ}{10\angle -90^\circ} = 8.965\angle 165^\circ\text{ A}$$</div>
+<p><em>(Verification: <span class="math-inline">$\mathbf{I}_{aA} + \mathbf{I}_{bB} + \mathbf{I}_{cC} = 17.32 + 2(-8.66) = 0\text{ A}$</span>. Perfect KCL match!)</em></p>
+<hr />
+<h3>🔴 Problem 5 (Level 5: Two-Wattmeter Method &amp; Power Factor Correction Exam Problem)</h3>
+<p><strong>Problem Statement:</strong><br />
+A three-phase, <span class="math-inline">$400\text{ V rms}, 50\text{ Hz}$</span> supply feeds a balanced inductive load. Two wattmeters connected to measure total input power read:</p>
+<div class="math-display">$$W_1 = 12.5\text{ kW} \quad \text{and} \quad W_2 = 4.5\text{ kW}$$</div>
+<ol>
+<li>Find the total real power <span class="math-inline">$P_{\text{total}}$</span>, reactive power <span class="math-inline">$Q_{\text{total}}$</span>, apparent power <span class="math-inline">$S_{\text{total}}$</span>, and the power factor.</li>
+<li>Determine the line current <span class="math-inline">$I_L$</span>.</li>
+<li>Calculate the required capacitance per phase (<span class="math-inline">$C_\Delta$</span>) of a Delta-connected capacitor bank to improve the overall power factor to <span class="math-inline">$0.95\text{ lagging}$</span>.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Calculate Total Powers from Wattmeter Readings</strong></p>
+<div class="math-display">$$P_{\text{total}} = W_1 + W_2 = 12.5 + 4.5 = 17.0\text{ kW}$$</div>
+<div class="math-display">$$Q_{\text{total}} = \sqrt{3}(W_1 - W_2) = \sqrt{3}(12.5 - 4.5) = \sqrt{3} \times 8.0 \approx 13.856\text{ kVAR}$$</div>
+<div class="math-display">$$S_{\text{total}} = \sqrt{P^2 + Q^2} = \sqrt{17.0^2 + 13.856^2} = \sqrt{289 + 192} = \sqrt{481} \approx 21.93\text{ kVA}$$</div>
+<div class="math-display">$$\text{pf}_1 = \cos\theta_1 = \frac{P_{\text{total}}}{S_{\text{total}}} = \frac{17.0}{21.93} \approx 0.775\text{ lagging}$$</div>
+<div class="math-display">$$\theta_1 = \arccos(0.775) \approx 39.18^\circ$$</div>
+<p><strong>Step 2: Line Current Before Compensation</strong></p>
+<div class="math-display">$$I_L = \frac{P_{\text{total}}}{\sqrt{3} V_L \cos\theta_1} = \frac{17,000}{\sqrt{3} \times 400 \times 0.775} = \frac{17,000}{536.94} \approx 31.66\text{ A}$$</div>
+<p><strong>Step 3: Capacitor Bank Sizing for <span class="math-inline">$\text{pf}_2 = 0.95\text{ lagging}$</span></strong></p>
+<div class="math-display">$$\theta_2 = \arccos(0.95) \approx 18.19^\circ$$</div>
+<div class="math-display">$$\tan\theta_1 = \tan(39.18^\circ) = 0.815$$</div>
+<div class="math-display">$$\tan\theta_2 = \tan(18.19^\circ) = 0.329$$</div>
+<p>Required reactive power compensation:</p>
+<div class="math-display">$$Q_C = P_{\text{total}} (\tan\theta_1 - \tan\theta_2) = 17.0 \times (0.815 - 0.329) = 17.0 \times 0.486 = 8.262\text{ kVAR}$$</div>
+<p>For a <strong>Delta-connected</strong> capacitor bank (<span class="math-inline">$V_C = V_L = 400\text{ V}$</span>):</p>
+<div class="math-display">$$C_\Delta = \frac{Q_C / 3}{\omega V_L^2} = \frac{8,262 / 3}{2\pi \times 50 \times 400^2} = \frac{2,754}{2\pi \times 50 \times 160,000} = \frac{2,754}{50,265,482} \approx 5.48 \times 10^{-5}\text{ F} = 54.8\ \mu\text{F}$$</div>
+<hr />
+<h2>🎯 Final Exam Key Formulas &amp; Cheat Sheet</h2>
+<ol>
+<li><strong>Wye (<span class="math-inline">$Y$</span>) Relationships</strong>:
+<ul>
+<li><span class="math-inline">$V_L = \sqrt{3} V_p \angle +30^\circ$</span></li>
+<li><span class="math-inline">$I_L = I_p$</span></li>
+</ul>
+</li>
+<li><strong>Delta (<span class="math-inline">$\Delta$</span>) Relationships</strong>:
+<ul>
+<li><span class="math-inline">$V_L = V_p$</span></li>
+<li><span class="math-inline">$I_L = \sqrt{3} I_p \angle -30^\circ$</span></li>
+</ul>
+</li>
+<li><strong><span class="math-inline">$\Delta \leftrightarrow Y$</span> Impedance Transformation</strong>:
+<ul>
+<li><span class="math-inline">$Z_Y = \frac{Z_\Delta}{3} \iff Z_\Delta = 3 Z_Y$</span></li>
+</ul>
+</li>
+<li><strong>Three-Phase Power</strong>:
+<ul>
+<li><span class="math-inline">$P = \sqrt{3} V_L I_L \cos\theta = 3 V_p I_p \cos\theta$</span></li>
+<li><span class="math-inline">$Q = \sqrt{3} V_L I_L \sin\theta = 3 V_p I_p \sin\theta$</span></li>
+</ul>
+</li>
+<li><strong>Two-Wattmeter Method</strong>:
+<ul>
+<li><span class="math-inline">$P_{\text{total}} = W_1 + W_2$</span></li>
+<li><span class="math-inline">$Q_{\text{total}} = \sqrt{3}(W_1 - W_2)$</span></li>
+<li><span class="math-inline">$\tan\theta = \sqrt{3}\frac{W_1 - W_2}{W_1 + W_2}$</span></li>
+</ul>
+</li>
+<li><strong>Capacitor Sizing</strong>:
+<ul>
+<li><span class="math-inline">$Q_C = P(\tan\theta_1 - \tan\theta_2)$</span></li>
+<li><span class="math-inline">$C_\Delta = \frac{Q_C / 3}{\omega V_L^2} = \frac{C_Y}{3}$</span></li>
+</ul>
+</li>
+</ol>
+
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: { curve: 'basis', htmlLabels: true }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false,
+          output: 'html'
+        });
+      }
+    });
+  </script>
+</body>
+</html>

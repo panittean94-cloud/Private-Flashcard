@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 8: Power Distribution Systems - Mastery Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+    @top-left {
+      content: "Faculty of Engineering, KKU • Fundamental Electrical Engineering";
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    @top-right {
+      content: attr(data-header);
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #2563eb;
+    }
+    @bottom-left {
+      content: "Assoc. Prof. Dr. Nararat Ruangchaijatupon • Comprehensive Exam Guide";
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #475569;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.65;
+    font-size: 9.8pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  .guide-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #0284c7 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 22px 20px 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    page-break-after: avoid;
+  }
+
+  .guide-header.ch08 {
+    background: linear-gradient(135deg, #0f172a 0%, #78350f 45%, #b45309 80%, #d97706 100%);
+  }
+
+  .header-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 9999px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-size: 19pt;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .header-subtitle {
+    font-size: 10.5pt;
+    font-weight: 400;
+    opacity: 0.95;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
+  }
+
+  .header-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.28);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 8.2pt;
+  }
+
+  .meta-col strong {
+    display: block;
+    color: #38bdf8;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .guide-header.ch08 .meta-col strong {
+    color: #fde68a;
+  }
+
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+  }
+  .ch08-theme h1 {
+    border-bottom-color: #b45309;
+  }
+
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #1e3a8a;
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+  }
+  .ch08-theme h2 {
+    color: #92400e;
+    border-left-color: #d97706;
+  }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .guide-figure {
+    margin: 16px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    max-width: 96%;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .guide-figure img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .guide-figure figcaption {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 8px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 8.8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th {
+    background: #1e3a8a;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #1e3a8a;
+  }
+  .ch08-theme th {
+    background: #78350f;
+    border-color: #78350f;
+  }
+
+  td {
+    padding: 7px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #f8fafc;
+  }
+
+  .math-display {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #0284c7;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 12px 0;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow-x: visible !important;
+  }
+  .ch08-theme .math-display {
+    border-left-color: #d97706;
+  }
+
+  .math-inline {
+    font-size: 1.02em;
+  }
+
+  .callout {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-left: 5px solid;
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .callout-header {
+    margin-bottom: 6px;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .callout-note {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+  }
+  .callout-note .callout-badge {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+
+  .callout-tip {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+    color: #065f46;
+  }
+  .callout-tip .callout-badge {
+    background: #10b981;
+    color: #ffffff;
+  }
+
+  .callout-important {
+    background: #f5f3ff;
+    border-left-color: #8b5cf6;
+    color: #5b21b6;
+  }
+  .callout-important .callout-badge {
+    background: #8b5cf6;
+    color: #ffffff;
+  }
+
+  .callout-warning, .callout-caution {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #92400e;
+  }
+  .callout-warning .callout-badge, .callout-caution .callout-badge {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.8pt;
+    background: #f1f5f9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #0f172a;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    page-break-inside: avoid;
+  }
+
+  pre.mermaid {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 16px 0;
+  }
+
+  .katex-display {
+    margin: 6px 0 !important;
+  }
+  .katex {
+    font-size: 1.03em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 22px 0;
+  }
+
+  </style>
+</head>
+<body class="ch08-theme">
+  <div class="guide-header ch08">
+    <div class="header-badge">Faculty of Engineering • Khon Kaen University</div>
+    <h1 class="header-title">Chapter 8: Power Distribution Systems</h1>
+    <div class="header-subtitle">Power Distribution System & National Grid Final Exam Mastery Guide</div>
+    <div class="header-meta-row">
+      <div class="meta-col">
+        <strong>Course & Dept</strong>
+        Fundamental Electrical Engineering (EE KKU)
+      </div>
+      <div class="meta-col">
+        <strong>Instructor</strong>
+        Assoc. Prof. Dr. Nararat Ruangchaijatupon
+      </div>
+      <div class="meta-col">
+        <strong>Coverage</strong>
+        21 Diagrams • 5 Exam Problems • AIS vs GIS
+      </div>
+    </div>
+  </div>
+
+  <h1>Chapter 8: Power Distribution Systems &amp; National Grid (Comprehensive Mastery Guide)</h1>
+<p><strong>Course:</strong> Fundamental Electrical Engineering (FunE) • Faculty of Engineering, Khon Kaen University<br />
+<strong>Instructor:</strong> Assoc. Prof. Dr. Nararat Ruangchaijatupon</p>
+<hr />
+<h2>📌 Introduction: Why Must Engineers Understand the Electrical Power Grid?</h2>
+<p>Electrical energy powering our modern homes, schools, and heavy industries <strong>is rarely generated nearby</strong>. Large power generating stations are located hundreds or thousands of kilometers away: high in mountain valleys (Bhumibol Dam in Tak, Ubolratana Dam in Khon Kaen), adjacent to open-pit coal mines (Mae Moh in Lampang), or along coastal gas pipelines (Bangpakong in Chachoengsao).</p>
+<p>Two fundamental questions arise: <strong>Why not build generators right next to our houses? And why does electricity undergo so many voltage transformations before reaching our wall sockets?</strong></p>
+<ol>
+<li><strong>Environmental and Resource Realities</strong>: Primary energy sources (falling water, coal seams, natural gas terminals) exist only in specific geographic locations. Large power plants also demand vast cooling water reservoirs and stringent environmental containment zones, making them unsuitable for dense urban centers.</li>
+<li><strong>Why High-Voltage Transmission (<span class="math-inline">$500\text{ kV}$</span>)?</strong>:
+<ul>
+<li>Three-phase active power delivered is given by <span class="math-inline">$P = \sqrt{3} V_L I_L \cos\theta$</span>.</li>
+<li>To transmit large amounts of power (<span class="math-inline">$P$</span>), a low transmission voltage requires enormous line currents (<span class="math-inline">$I_L$</span>).</li>
+<li>Conductor thermal power loss in three phases is <span class="math-inline">$P_{\text{loss}} = 3 I_L^2 R_{\text{line}}$</span>.</li>
+<li>Substituting <span class="math-inline">$I_L$</span>:</li>
+</ul>
+</li>
+</ol>
+<div class="math-display">$$P_{\text{loss}} = 3 \left( \frac{P}{\sqrt{3} V_L \cos\theta} \right)^2 R_{\text{line}} = \frac{P^2 R_{\text{line}}}{V_L^2 \cos^2\theta} \implies P_{\text{loss}} \propto \frac{1}{V_L^2}$$</div>
+<ul>
+<li><strong>If transmission voltage is stepped up by <span class="math-inline">$5\times$</span>, line current drops by <span class="math-inline">$5\times$</span>, and transmission line power loss plummets by <span class="math-inline">$5^2 = 25\times$</span>!</strong></li>
+<li>High-voltage transmission drastically cuts conductor cross-sectional area (saving millions in aluminum and copper costs) and minimizes line voltage drops over long distances.</li>
+</ul>
+<ol start="3">
+<li><strong>Why Step Down to <span class="math-inline">$230\text{ V}$</span> at Home?</strong>:
+<ul>
+<li><strong>Human Life Safety &amp; Insulation Clearance</strong>: High voltages create lethal electric arcs that jump across air gaps. Household appliances and wall outlets cannot safely sustain tens of thousands of volts without massive, bulky insulation.</li>
+</ul>
+</li>
+</ol>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/thailand_power_system_4_levels_schematic.png" alt="Figure 1: Schematic of Thailand's 4-Level Power Grid Architecture" /></div><figcaption>Figure 1: Schematic of Thailand's 4-Level Power Grid Architecture</figcaption></figure>
+<em>Figure 1: Overview schematic of Thailand's power grid across 4 distinct stages: Generation (10-20 kV) <span class="math-inline">$\to$</span> Transmission (69-500 kV) <span class="math-inline">$\to$</span> Distribution (22-33 kV / 24 kV) <span class="math-inline">$\to$</span> Utilization (400/230 V).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_07_four_levels.png" alt="Figure 2: The 4 Levels of the Electrical Power System" /></div><figcaption>Figure 2: The 4 Levels of the Electrical Power System</figcaption></figure>
+<em>Figure 2: Slide 7 illustrating the 4 stages and voltage transformation hierarchy (Generation <span class="math-inline">$\to$</span> Transmission <span class="math-inline">$\to$</span> Distribution <span class="math-inline">$\to$</span> Utilization).</em></p>
+<hr />
+<h2>🔤 Decoder of Utilities, Terms, and Variables (Thailand Grid Architecture)</h2>
+<p>Examinations in Chapter 8 frequently test acronyms, organizational responsibilities, and standardized voltage levels:</p>
+<pre class="mermaid">flowchart TD
+    subgraph NationalGrid[&quot;National Power Grid of Thailand&quot;]
+        direction TB
+        EGAT[&quot;1. EGAT (กฟผ.)&lt;br/&gt;Electricity Generating Authority of Thailand&lt;br/&gt;- Generation (10-20 kV)&lt;br/&gt;- High-Voltage Transmission (500, 230, 115, 69 kV)&quot;]
+        
+        SubStation[&quot;Main Bulk Substation&lt;br/&gt;Steps down transmission voltage to Medium Voltage (MV)&quot;]
+        
+        MEA[&quot;2. MEA (กฟน.)&lt;br/&gt;Metropolitan Electricity Authority&lt;br/&gt;- Jurisdiction: Bangkok, Nonthaburi, Samut Prakan (3 Provinces)&lt;br/&gt;- Primary MV: 24 kV (and legacy 12 kV)&quot;]
+        PEA[&quot;3. PEA (กฟภ.)&lt;br/&gt;Provincial Electricity Authority&lt;br/&gt;- Jurisdiction: Remaining 74 Provinces across Thailand&lt;br/&gt;- Primary MV: 22 kV and 33 kV (Southern region)&quot;]
+        
+        PoleTrans[&quot;Pole-Mounted Distribution Transformers&lt;br/&gt;Step down medium voltage to Low Voltage (LV)&quot;]
+        
+        Users[&quot;4. End Consumers&lt;br/&gt;- 1-Phase 2-Wire: 230 V (Residential homes)&lt;br/&gt;- 3-Phase 4-Wire: 400/230 V (Commercial buildings / Factories)&quot;]
+    end
+
+    EGAT --&gt; SubStation
+    SubStation --&gt; MEA
+    SubStation --&gt; PEA
+    MEA --&gt; PoleTrans
+    PEA --&gt; PoleTrans
+    PoleTrans --&gt; Users
+</pre>
+<h3>1. The Three Primary Electrical Utilities in Thailand</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Utility</th>
+<th style="text-align:left">Full Name (Thai / English)</th>
+<th style="text-align:left">Primary Legal Responsibilities</th>
+<th style="text-align:left">Territorial Jurisdiction</th>
+<th style="text-align:left">Voltage Classes Managed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>EGAT (กฟผ.)</strong></td>
+<td style="text-align:left">Electricity Generating Authority of Thailand<br><em>(การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย)</em></td>
+<td style="text-align:left">Generates power from its own plants, purchases bulk power from Independent Power Producers (IPP/SPP), and owns/operates the national high-voltage transmission grid.</td>
+<td style="text-align:left">Kingdom-wide (Generation &amp; Transmission)</td>
+<td style="text-align:left"><strong>Generation:</strong> <span class="math-inline">$10 - 20\text{ kV}$</span><br><strong>Transmission:</strong> <span class="math-inline">$69, 115, 230, 500\text{ kV}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>MEA (กฟน.)</strong></td>
+<td style="text-align:left">Metropolitan Electricity Authority<br><em>(การไฟฟ้านครหลวง)</em></td>
+<td style="text-align:left">Purchases bulk power from EGAT and distributes electricity to urban end-consumers in the Bangkok metropolis.</td>
+<td style="text-align:left"><strong>3 Provinces:</strong> Bangkok, Nonthaburi, Samut Prakan</td>
+<td style="text-align:left"><strong>Medium Voltage:</strong> <span class="math-inline">$24\text{ kV}$</span> (and legacy <span class="math-inline">$12\text{ kV}$</span>)<br><strong>Low Voltage:</strong> <span class="math-inline">$400/230\text{ V}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>PEA (กฟภ.)</strong></td>
+<td style="text-align:left">Provincial Electricity Authority<br><em>(การไฟฟ้าส่วนภูมิภาค)</em></td>
+<td style="text-align:left">Purchases bulk power from EGAT and distributes electricity to regional, rural, and industrial consumers throughout Thailand.</td>
+<td style="text-align:left"><strong>Remaining 74 Provinces</strong> (covering <span class="math-inline">$99\%$</span> of Thailand's geographical landmass)</td>
+<td style="text-align:left"><strong>Medium Voltage:</strong> <span class="math-inline">$22\text{ kV}$</span> and <span class="math-inline">$33\text{ kV}$</span><br><strong>Low Voltage:</strong> <span class="math-inline">$400/230\text{ V}$</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>2. Engineering Variables and Equations</h3>
+<ul>
+<li><span class="math-inline">$P$</span> : Real / Active Power in Watts (<span class="math-inline">$\text{W}$</span>), Kilowatts (<span class="math-inline">$\text{kW}$</span>), or Megawatts (<span class="math-inline">$\text{MW}$</span>).</li>
+<li><span class="math-inline">$Q$</span> : Reactive Power in Volt-Amperes Reactive (<span class="math-inline">$\text{VAR}$</span>) or Megavars (<span class="math-inline">$\text{MVAR}$</span>).</li>
+<li><span class="math-inline">$S$</span> : Apparent Power in Volt-Amperes (<span class="math-inline">$\text{VA}$</span>) or Megavolt-Amperes (<span class="math-inline">$\text{MVA}$</span>).</li>
+<li><span class="math-inline">$V_L$</span> : Line-to-Line Voltage, e.g. <span class="math-inline">$500\text{ kV}, 230\text{ kV}, 115\text{ kV}, 24\text{ kV}, 22\text{ kV}, 400\text{ V}$</span>.</li>
+<li><span class="math-inline">$V_p$</span> : Phase-to-Neutral Voltage, e.g. <span class="math-inline">$230\text{ V}$</span> (<span class="math-inline">$V_L = \sqrt{3} V_p$</span>).</li>
+<li><span class="math-inline">$I_L$</span> : Transmission Line Current:</li>
+</ul>
+<div class="math-display">$$I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
+<ul>
+<li><span class="math-inline">$P_{\text{loss}}$</span> : Conductor Power Loss in a 3-Phase Transmission Line:</li>
+</ul>
+<div class="math-display">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} = \frac{P^2 R_{\text{line}}}{V_L^2 \cos^2\theta}$$</div>
+<div class="callout callout-important"><div class="callout-header"><span class="callout-badge">IMPORTANT</span></div><div class="callout-body">
+<p>The fundamental economic rule: <span class="math-inline">$P_{\text{loss}} \propto \frac{1}{V_L^2}$</span>. Increasing the line voltage by factor <span class="math-inline">$k$</span> reduces line losses by factor <span class="math-inline">$k^2$</span> for the same transmitted power!</p>
+</div></div>
+<hr />
+<h2>⚡ The 4 Levels of the Electrical Power System</h2>
+<pre class="mermaid">flowchart LR
+    A[&quot;1. Generation System&lt;br/&gt;(10 - 20 kV)&quot;] --&gt;|&quot;Step-Up Transformer&quot;| B[&quot;2. Transmission System&lt;br/&gt;(69, 115, 230, 500 kV)&quot;]
+    B --&gt;|&quot;Step-Down Substation&quot;| C[&quot;3. Distribution System&lt;br/&gt;(MEA 24 kV / PEA 22, 33 kV)&quot;]
+    C --&gt;|&quot;Pole Transformer&quot;| D[&quot;4. Utilization System&lt;br/&gt;(400/230 V, 230 V)&quot;]
+</pre>
+<h3>1. Generation System</h3>
+<ul>
+<li><strong>Generator Terminal Voltage</strong>: Large synchronous alternators generate electric power at <strong><span class="math-inline">$10\text{ kV} - 20\text{ kV}$</span></strong>.</li>
+<li><strong>Why not generate directly at <span class="math-inline">$500\text{ kV}$</span>?</strong>: Because stator winding slots have physical insulation limits. Insulating a machine for <span class="math-inline">$500\text{ kV}$</span> would require stator slots so thick that cooling would become impossible and alternator dimensions would be unmanageable. Power is therefore generated at <span class="math-inline">$10-20\text{ kV}$</span> and immediately stepped up via a <strong>Generator Step-Up (GSU) Transformer</strong>.</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_10_thailand_grid.png" alt="Figure 3: Power Transmission and Generation Map of Thailand" /></div><figcaption>Figure 3: Power Transmission and Generation Map of Thailand</figcaption></figure>
+<em>Figure 3: National transmission grid map of EGAT interconnecting power stations across all four regions (From Slide 10).</em></p>
+<hr />
+<h3>2. Transmission System</h3>
+<ul>
+<li><strong>Operator</strong>: Managed exclusively by EGAT in Thailand.</li>
+<li><strong>Physical Infrastructure</strong>: Primarily <strong>Overhead Transmission Lines</strong> mounted on tall galvanized steel lattice towers or prestressed concrete poles, using the surrounding ambient air as natural electrical insulation.</li>
+<li><strong>4 Standard EGAT Transmission Voltages</strong>:
+<ol>
+<li><strong><span class="math-inline">$500\text{ kV}$</span> (Extra High Voltage - EHV)</strong>: Long-distance inter-regional bulk power highways (e.g. Mae Moh to Central Region, imports from Lao PDR hydro projects like Nam Theun 2).</li>
+<li><strong><span class="math-inline">$230\text{ kV}$</span> (High Voltage - HV)</strong>: Regional transmission backbone connecting major grid substations.</li>
+<li><strong><span class="math-inline">$115\text{ kV}$</span> (High Voltage - HV)</strong>: Sub-transmission feeding provincial load centers and industrial estates.</li>
+<li><strong><span class="math-inline">$69\text{ kV}$</span> (High Voltage - HV)</strong>: Legacy sub-transmission in select MEA urban pockets and special industrial zones.</li>
+</ol>
+</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_38_transmission_lines.png" alt="Figure 4: Overhead Transmission Towers and Voltage Standards" /></div><figcaption>Figure 4: Overhead Transmission Towers and Voltage Standards</figcaption></figure>
+<em>Figure 4: Aerial overhead lines and EGAT voltage levels: 69, 115, 230, and 500 kV (From Slide 38).</em></p>
+<hr />
+<h3>3. Distribution System</h3>
+<p>Receives high-voltage power from EGAT bulk substations and steps it down to <strong>Medium Voltage (MV)</strong> for distribution along streets:</p>
+<ul>
+<li><strong>MEA (กฟน.)</strong>: Steps down <span class="math-inline">$69\text{ kV} / 115\text{ kV}$</span> to <strong><span class="math-inline">$24\text{ kV}$</span></strong> (and legacy <span class="math-inline">$12\text{ kV}$</span>) using looped underground and overhead feeders.</li>
+<li><strong>PEA (กฟภ.)</strong>: Steps down <span class="math-inline">$115\text{ kV}$</span> to <strong><span class="math-inline">$22\text{ kV}$</span></strong> (standard nationwide) and <strong><span class="math-inline">$33\text{ kV}$</span></strong> (southern Thailand, where longer feeder runs require higher voltage to prevent excessive voltage drop).</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_42_mea_system.png" alt="Figure 5: MEA 24 kV Distribution Loop System" /></div><figcaption>Figure 5: MEA 24 kV Distribution Loop System</figcaption></figure>
+<em>Figure 5: 24 kV distribution system and 69 kV sub-transmission in the MEA jurisdiction (From Slide 42).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_46_pea_system.png" alt="Figure 6: PEA 22 kV and 33 kV Medium Voltage System" /></div><figcaption>Figure 6: PEA 22 kV and 33 kV Medium Voltage System</figcaption></figure>
+<em>Figure 6: PEA 22 kV and 33 kV multigrounded distribution network (From Slide 46).</em></p>
+<hr />
+<h3>4. Utilization System (Low Voltage Supply)</h3>
+<p>The final step delivering power to residential homes, commercial complexes, and industrial plants via <strong>Distribution Transformers</strong>:</p>
+<ul>
+<li><strong>1-Phase 2-Wire (<span class="math-inline">$230\text{ V}$</span>)</strong>:
+<ul>
+<li>Operating Voltage: <strong><span class="math-inline">$230\text{ V}$</span></strong> (1 Line conductor + 1 Neutral conductor).</li>
+<li>Application: Standard residential homes with total connected load below <span class="math-inline">$10\text{ kW}$</span>.</li>
+</ul>
+</li>
+<li><strong>3-Phase 4-Wire (<span class="math-inline">$400 / 230\text{ V}$</span>)</strong>:
+<ul>
+<li>Operating Voltage: <strong><span class="math-inline">$V_L = 400\text{ V}$</span></strong> (Line-to-Line), <strong><span class="math-inline">$V_p = 230\text{ V}$</span></strong> (Line-to-Neutral).</li>
+<li>Conductors: 3 Phase wires (<span class="math-inline">$A, B, C$</span>) + 1 Neutral wire (<span class="math-inline">$N$</span>).</li>
+<li>Benefit: Supplies both single-phase loads (<span class="math-inline">$230\text{ V}$</span> for lighting and sockets) and heavy three-phase equipment (<span class="math-inline">$400\text{ V}$</span> for elevators, water pumps, chillers, and 3-phase motors).</li>
+</ul>
+</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_50_low_voltage_400_230v.png" alt="Figure 7: Low Voltage Distribution System (400/230 V &amp; 230 V)" /></div><figcaption>Figure 7: Low Voltage Distribution System (400/230 V &amp; 230 V)</figcaption></figure>
+<em>Figure 7: 3-Phase 4-Wire 400/230 V and 1-Phase 2-Wire 230 V distribution standards in Thailand (From Slide 50).</em></p>
+<hr />
+<h2>🏭 5 Types of EGAT Power Plants (Base Load vs. Peak Load)</h2>
+<p>EGAT balances different generating sources according to daily load curve fluctuations:</p>
+<ol>
+<li><strong>Base Load Power Plants</strong>: Operate continuously 24 hours a day with low fuel cost per kWh. Very slow start-up/shut-down times (hours to days).</li>
+<li><strong>Peak Load Power Plants</strong>: Dispatched during periods of maximum grid demand (afternoon and early evening). Can start up and synchronize with the grid within 5–15 minutes.</li>
+</ol>
+<hr />
+<h3>1. Hydroelectric Power Plants</h3>
+<ul>
+<li><strong>Working Principle</strong>: Water stored behind a dam possesses gravitational potential energy. Water released through a penstock converts potential energy into kinetic energy to spin a <strong>Water Turbine</strong> coupled to an alternator.</li>
+<li><strong>Electrical Power Formula</strong>:</li>
+</ul>
+<div class="math-display">$$P_e = \eta \cdot \rho \cdot g \cdot Q \cdot H$$</div>
+<ul>
+<li><span class="math-inline">$\rho = 1,000\text{ kg/m}^3$</span> (Water density)</li>
+<li><span class="math-inline">$g = 9.81\text{ m/s}^2$</span> (Acceleration due to gravity)</li>
+<li><span class="math-inline">$Q$</span> : Water flow rate (<span class="math-inline">$\text{m}^3/\text{s}$</span>)</li>
+<li><span class="math-inline">$H$</span> : Effective water head (<span class="math-inline">$\text{m}$</span>)</li>
+<li><span class="math-inline">$\eta$</span> : Overall efficiency (<span class="math-inline">$\approx 85\% - 92\%$</span>)</li>
+<li><strong>Turbine Classifications</strong>:
+<ol>
+<li><strong>Pelton Turbine (Impulse Turbine)</strong>: Best for <strong>very high head (<span class="math-inline">$H > 300\text{ m}$</span>)</strong> and low flow rate. High-velocity water jets strike bucket runners.</li>
+<li><strong>Francis Turbine (Reaction Turbine)</strong>: Best for <strong>medium head (<span class="math-inline">$30 - 300\text{ m}$</span>)</strong>. The most widely used turbine in Thailand and globally (Bhumibol Dam, Sirikit Dam, Ubolratana Dam).</li>
+<li><strong>Kaplan Turbine (Propeller/Axial Turbine)</strong>: Best for <strong>low head (<span class="math-inline">$H < 30\text{ m}$</span>)</strong> and very large flow rates (Chao Phraya Dam).</li>
+</ol>
+</li>
+<li><strong>Pumped Storage Hydro (Lam Takhong Jolabha Vadhana in Nakhon Ratchasima)</strong>:
+<ul>
+<li>Acts as a <strong>gigantic water battery</strong>: During low-demand nighttime (Off-Peak), surplus electricity pumps water from the lower reservoir to the upper reservoir on Khao Yai Thiang.</li>
+<li>During daytime peak demand (Peak Load), water flows back down through reversible pump-turbines, delivering up to <span class="math-inline">$1,000\text{ MW}$</span> in minutes.</li>
+</ul>
+</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_13_hydro_dam.png" alt="Figure 8: Hydroelectric Dam and Powerhouse Architecture" /></div><figcaption>Figure 8: Hydroelectric Dam and Powerhouse Architecture</figcaption></figure>
+<em>Figure 8: Reservoir, penstock, turbine, and generator arrangement in a hydroelectric power plant (From Slide 13).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_20_turbines.png" alt="Figure 9: Water Turbine Classifications (Pelton, Francis, Kaplan)" /></div><figcaption>Figure 9: Water Turbine Classifications (Pelton, Francis, Kaplan)</figcaption></figure>
+<em>Figure 9: The three principal water turbine designs categorized by head and flow characteristics (From Slide 20).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_19_lam_takhong.png" alt="Figure 10: Lam Takhong Pumped Storage Hydroelectric Plant" /></div><figcaption>Figure 10: Lam Takhong Pumped Storage Hydroelectric Plant</figcaption></figure>
+<em>Figure 10: Underground powerhouse and upper reservoir configuration at Lam Takhong (From Slide 19).</em></p>
+<hr />
+<h3>2. Thermal / Steam Power Plants</h3>
+<ul>
+<li><strong>Working Principle</strong>: Fossil fuels (lignite coal, natural gas, or fuel oil) burn inside a boiler to convert water into high-pressure, superheated steam, which drives a <strong>Steam Turbine</strong> before condensing back to water.</li>
+<li><strong>Grid Role</strong>: <strong>Base Load Power Plant</strong>. Start-up from cold requires several hours, but it provides reliable, massive baseload output at low fuel cost.</li>
+<li><strong>Landmark Thai Example</strong>: <strong>Mae Moh Power Plant in Lampang</strong> (powered by local lignite open-cast mines).</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_21_thermal_plant.png" alt="Figure 11: Steam/Thermal Power Generation Cycle" /></div><figcaption>Figure 11: Steam/Thermal Power Generation Cycle</figcaption></figure>
+<em>Figure 11: Boiler, steam turbine, generator, and condenser thermodynamic cycle (From Slide 21).</em></p>
+<hr />
+<h3>3. Gas Turbine and Diesel Power Plants</h3>
+<ul>
+<li><strong>Gas Turbine (Simple Cycle)</strong>:
+<ul>
+<li>Ambient air is compressed by an axial compressor, mixed with natural gas, and ignited. Expanding hot combustion gases drive the turbine blades directly (identical to a jet aircraft engine).</li>
+<li><strong>Key Advantage</strong>: <strong>Extremely fast start-up (10–15 minutes)</strong> to full load. Ideal for <strong>Peak Load</strong> dispatch and emergency grid stabilization.</li>
+<li><strong>Landmark Thai Example</strong>: <strong>Nam Pong Power Plant in Khon Kaen</strong>, Lan Krabue in Kamphaeng Phet.</li>
+</ul>
+</li>
+<li><strong>Diesel Engine Plant</strong>:
+<ul>
+<li>Internal combustion engines driving alternators, used primarily on remote islands or as emergency standby generators in hospitals and data centers.</li>
+</ul>
+</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_24_gas_turbine.png" alt="Figure 12: Gas Turbine Operating Cycle" /></div><figcaption>Figure 12: Gas Turbine Operating Cycle</figcaption></figure>
+<em>Figure 12: Compressor, combustion chamber, and turbine rotor assembly (From Slide 24).</em></p>
+<hr />
+<h3>4. Combined Cycle Power Plants</h3>
+<ul>
+<li><strong>Working Principle (High-Yield Exam Concept)</strong>:
+<ul>
+<li>Combines a <strong>Gas Turbine (Brayton Cycle)</strong> with a <strong>Steam Turbine (Rankine Cycle)</strong>.</li>
+<li>Exhaust gases exiting a gas turbine are extremely hot (<span class="math-inline">$500^\circ\text{C} - 600^\circ\text{C}$</span>). Instead of discharging this heat into the atmosphere, it enters a <strong>Heat Recovery Steam Generator (HRSG)</strong>.</li>
+<li>The steam produced powers a secondary steam turbine, generating <strong><span class="math-inline">$50\%$</span> additional electricity without consuming any extra fuel!</strong></li>
+</ul>
+</li>
+<li><strong>Thermal Efficiency</strong>: Achieves <strong><span class="math-inline">$50\% - 60\%$</span></strong>, the highest efficiency of any thermal power generation technology.</li>
+<li><strong>Landmark Thai Examples</strong>: <strong>Bangpakong Power Plant in Chachoengsao</strong>, Wang Noi, South Bangkok.</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_29_combined_cycle.png" alt="Figure 13: Combined Cycle Gas &amp; Steam Turbine Configuration (COGES)" /></div><figcaption>Figure 13: Combined Cycle Gas &amp; Steam Turbine Configuration (COGES)</figcaption></figure>
+<em>Figure 13: Coupling gas turbine exhaust to an HRSG to drive a secondary steam turbine generator (From Slide 29).</em></p>
+<hr />
+<h3>5. Renewable Energy (Solar PV Systems)</h3>
+<ul>
+<li><strong>Solar Photovoltaics (PV)</strong>:
+<ul>
+<li>Semiconductor PV cells convert sunlight into direct current (DC) electricity.</li>
+<li>An <strong>Inverter (DC/AC Converter)</strong> synchronizes the power to <span class="math-inline">$50\text{ Hz}$</span> AC matching the grid voltage.</li>
+<li>Hybrid systems combine solar PV, battery energy storage systems (BESS), and diesel backups for microgrids.</li>
+</ul>
+</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_36_solar_pv_system.png" alt="Figure 14: Solar Rooftop PV System Architecture" /></div><figcaption>Figure 14: Solar Rooftop PV System Architecture</figcaption></figure>
+<em>Figure 14: Solar array, DC junction box, grid-tied inverter, and bidirectional net-metering configuration (From Slide 36).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_37_hybrid_system.png" alt="Figure 15: Hybrid Power System Configuration" /></div><figcaption>Figure 15: Hybrid Power System Configuration</figcaption></figure>
+<em>Figure 15: Microgrid combining solar panels, battery banks, and diesel backup (From Slide 37).</em></p>
+<hr />
+<h2>🔌 Customer Service Connections &amp; Metering Standards</h2>
+<p>Consumer connections are categorized by <strong>connected load capacity</strong> and <strong>operating voltage</strong>:</p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/consumer_connection_types_schematic.png" alt="Figure 16: Classification of Consumer Connections and Metering" /></div><figcaption>Figure 16: Classification of Consumer Connections and Metering</figcaption></figure>
+<em>Figure 16: Low-voltage residential connections vs medium-voltage industrial private substations.</em></p>
+<h3>1. Standard Meter Sizing Criteria</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Meter Rating</th>
+<th style="text-align:center">System Voltage</th>
+<th style="text-align:center">Continuous / Max Current</th>
+<th style="text-align:left">Typical Consumer Application</th>
+<th style="text-align:center">Metering Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>5(15) A</strong></td>
+<td style="text-align:center">1-Phase 230 V</td>
+<td style="text-align:center"><span class="math-inline">$5\text{ A}$</span> (Max surge <span class="math-inline">$15\text{ A}$</span>)</td>
+<td style="text-align:left">Small dwelling (lights, fans, refrigerator, NO air-conditioner)</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>15(45) A</strong></td>
+<td style="text-align:center">1-Phase 230 V</td>
+<td style="text-align:center"><span class="math-inline">$15\text{ A}$</span> (Max surge <span class="math-inline">$45\text{ A}$</span>)</td>
+<td style="text-align:left"><strong>Standard residential home</strong> (1–3 air-conditioners, water heater)</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>30(100) A</strong></td>
+<td style="text-align:center">1-Phase 230 V</td>
+<td style="text-align:center"><span class="math-inline">$30\text{ A}$</span> (Max surge <span class="math-inline">$100\text{ A}$</span>)</td>
+<td style="text-align:left">Large residence, commercial shop-house, high-power appliances</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>15(45) A</strong></td>
+<td style="text-align:center">3-Phase 400/230 V</td>
+<td style="text-align:center"><span class="math-inline">$15\text{ A}$</span> per phase (<span class="math-inline">$45\text{ A}$</span> max)</td>
+<td style="text-align:left">Small commercial office, dormitories, 3-phase air-conditioners</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>30(100) A</strong></td>
+<td style="text-align:center">3-Phase 400/230 V</td>
+<td style="text-align:center"><span class="math-inline">$30\text{ A}$</span> per phase (<span class="math-inline">$100\text{ A}$</span> max)</td>
+<td style="text-align:left">Commercial building, restaurant, small manufacturing workshop</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>&gt; 100 A</strong></td>
+<td style="text-align:center">3-Phase 400/230 V</td>
+<td style="text-align:center">Line current exceeds <span class="math-inline">$100\text{ A}$</span></td>
+<td style="text-align:left">Shopping malls, hospitals, universities, large factories</td>
+<td style="text-align:center"><strong>CT Metering (Current Transformers)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_52_meter_sizes.png" alt="Figure 17: Meter Sizing and Voltage Selection Table" /></div><figcaption>Figure 17: Meter Sizing and Voltage Selection Table</figcaption></figure>
+<em>Figure 17: Official utility criteria for meter rating and voltage level selection (From Slide 52).</em></p>
+<hr />
+<h3>2. Medium-Voltage Customers and Underground Service Drops</h3>
+<ul>
+<li><strong>Medium-Voltage Customers</strong>: Commercial or industrial loads exceeding the capacity of standard pole transformers must take power at medium voltage (<span class="math-inline">$24\text{ kV}$</span> in MEA or <span class="math-inline">$22\text{ kV} / 33\text{ kV}$</span> in PEA). The customer builds a <strong>Private On-Site Substation</strong> containing their own step-down power transformers.</li>
+<li><strong>Metering</strong>: Revenue metering is installed on the high-voltage side using <strong>Current Transformers (CT)</strong> and <strong>Potential Transformers (PT)</strong>, billed under Time-of-Use (TOU) tariffs.</li>
+<li><strong>Underground Service Connections</strong>: In dense urban areas, power is delivered via underground armored cables using a pole-mounted cable head (Riser Pole) descending into underground ducts directly into the building's switchgear room.</li>
+</ul>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_54_mv_customer_ct.png" alt="Figure 18: Medium-Voltage Customer Substation and CT Metering" /></div><figcaption>Figure 18: Medium-Voltage Customer Substation and CT Metering</figcaption></figure>
+<em>Figure 18: Primary metering scheme with CT/PT units on the medium-voltage side (From Slide 54).</em></p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_55_underground_service.png" alt="Figure 19: Underground Cable Service Entrance (Riser Pole &amp; Cable Head)" /></div><figcaption>Figure 19: Underground Cable Service Entrance (Riser Pole &amp; Cable Head)</figcaption></figure>
+<em>Figure 19: Underground cable connection transition from overhead lines (From Slide 55).</em></p>
+<hr />
+<h2>🏛️ Electrical Substations: AIS vs. GIS</h2>
+<p>Substations act as the vital switching, voltage-transformation, and protective hubs of the electrical grid:</p>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_58_substation_elements.png" alt="Figure 20: Principal Equipment in an Electrical Substation" /></div><figcaption>Figure 20: Principal Equipment in an Electrical Substation</figcaption></figure>
+<em>Figure 20: Switchgear, power transformers, busbars, and lightning surge arresters (From Slide 58).</em></p>
+<h3>1. The 6 Essential Substation Components</h3>
+<ol>
+<li><strong>Power Transformer</strong>: Steps transmission voltages down to distribution levels (e.g. <span class="math-inline">$115\text{ kV} \to 22\text{ kV}$</span>).</li>
+<li><strong>Circuit Breaker (CB)</strong>: Switches normal load currents and <strong>automatically interrupts catastrophic short-circuit fault currents</strong> within milliseconds to protect grid assets.</li>
+<li><strong>Disconnecting Switch / Isolator</strong>: Provides a visible physical air gap break during maintenance. <strong>Must only be opened when zero current flows (No-load switching)</strong>.</li>
+<li><strong>Busbars</strong>: Heavy copper or aluminum conductors serving as common nodes distributing power to outgoing feeders.</li>
+<li><strong>Surge / Lightning Arrester</strong>: Connected between phase conductors and earth ground. Diverts high-voltage lightning surges safely to ground, clamping voltage across the transformer.</li>
+<li><strong>Instrument Transformers (CT &amp; PT)</strong>: Step down high currents and voltages to standardized instrument levels (<span class="math-inline">$5\text{ A}$</span> and <span class="math-inline">$110\text{ V}$</span>) for revenue meters and protective relays.</li>
+</ol>
+<hr />
+<h3>2. Air-Insulated Substation (AIS) vs. Gas-Insulated Substation (GIS)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Comparison Parameter</th>
+<th style="text-align:left">Air-Insulated Substation (AIS)</th>
+<th style="text-align:left">Gas-Insulated Substation (GIS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Insulating Medium</strong></td>
+<td style="text-align:left"><strong>Atmospheric Ambient Air</strong></td>
+<td style="text-align:left"><strong>Sulfur Hexafluoride (<span class="math-inline">$\text{SF}_6$</span>) Gas</strong> (<span class="math-inline">$3\times$</span> higher dielectric strength than air)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Physical Footprint</strong></td>
+<td style="text-align:left"><strong>Requires vast land area</strong> to maintain safe electrical clearances</td>
+<td style="text-align:left"><strong>Extremely compact (occupies only <span class="math-inline">$10\% - 15\%$</span> of AIS footprint)</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Installation Location</strong></td>
+<td style="text-align:left">Rural, suburban, or industrial areas with cheap land</td>
+<td style="text-align:left"><strong>High-density downtown business districts, basements of skyscrapers</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Environmental Vulnerability</strong></td>
+<td style="text-align:left">Exposed to salt fog, dust, industrial soot, bird strikes</td>
+<td style="text-align:left"><strong>Hermetically sealed inside grounded metal enclosures</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Capital Cost</strong></td>
+<td style="text-align:left">Lower initial equipment cost</td>
+<td style="text-align:left">Higher equipment cost, but offset by massive savings in land acquisition</td>
+</tr>
+</tbody>
+</table>
+<p><figure class="guide-figure"><div class="img-wrapper"><img src="images/ch08_guide/ch08_slide_59_indoor_substation.png" alt="Figure 21: Indoor Gas-Insulated Substation (GIS)" /></div><figcaption>Figure 21: Indoor Gas-Insulated Substation (GIS)</figcaption></figure>
+<em>Figure 21: Compact, sealed SF6 gas-insulated switchgear installation inside an urban substation (From Slide 59).</em></p>
+<hr />
+<h2>📝 5 Authentic Exam Problems with Full Step-by-Step Solutions</h2>
+<hr />
+<h3>🔴 Problem 1 (Level 1: Transmission Power Loss &amp; Voltage Scaling)</h3>
+<p><strong>Problem Statement:</strong><br />
+A power plant transmits <span class="math-inline">$P = 120\text{ MW}$</span> of three-phase power to a bulk substation over a distance of <span class="math-inline">$150\text{ km}$</span>. The load power factor is <span class="math-inline">$\cos\theta = 0.85\text{ lagging}$</span>. The transmission line has a total resistance of <span class="math-inline">$R_{\text{line}} = 10\ \Omega$</span> per phase.</p>
+<ol>
+<li>Calculate the line current (<span class="math-inline">$I_L$</span>) and total three-phase transmission loss (<span class="math-inline">$P_{\text{loss}}$</span>) when transmitting at <strong><span class="math-inline">$115\text{ kV}$</span></strong>.</li>
+<li>Calculate the line current (<span class="math-inline">$I_L$</span>) and total three-phase transmission loss (<span class="math-inline">$P_{\text{loss}}$</span>) when transmitting at <strong><span class="math-inline">$500\text{ kV}$</span></strong>.</li>
+<li>Determine the percentage reduction in power loss achieved by stepping up the voltage.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Calculate for <span class="math-inline">$V_{L1} = 115\text{ kV}$</span></strong></p>
+<div class="math-display">$$I_{L1} = \frac{P}{\sqrt{3} V_{L1} \cos\theta} = \frac{120 \times 10^6}{\sqrt{3} \times (115 \times 10^3) \times 0.85} = \frac{120 \times 10^6}{169,308.08} \approx 708.77\text{ A}$$</div>
+<p>Total three-phase power loss:</p>
+<div class="math-display">$$P_{\text{loss1}} = 3 I_{L1}^2 R_{\text{line}} = 3 \times (708.77)^2 \times 10 = 3 \times 502,354.91 \times 10 \approx 15.07\text{ MW}$$</div>
+<p><em>(Loss represents <span class="math-inline">$\frac{15.07}{120} \times 100\% = 12.56\%$</span> of the transmitted power)</em></p>
+<p><strong>Step 2: Calculate for <span class="math-inline">$V_{L2} = 500\text{ kV}$</span></strong></p>
+<div class="math-display">$$I_{L2} = \frac{P}{\sqrt{3} V_{L2} \cos\theta} = \frac{120 \times 10^6}{\sqrt{3} \times (500 \times 10^3) \times 0.85} = \frac{120 \times 10^6}{736,121.59} \approx 163.02\text{ A}$$</div>
+<p>Total three-phase power loss:</p>
+<div class="math-display">$$P_{\text{loss2}} = 3 I_{L2}^2 R_{\text{line}} = 3 \times (163.02)^2 \times 10 = 3 \times 26,575.52 \times 10 \approx 0.80\text{ MW}$$</div>
+<p><em>(Loss represents only <span class="math-inline">$\frac{0.80}{120} \times 100\% = 0.67\%$</span> of transmitted power!)</em></p>
+<p><strong>Step 3: Calculate Percentage Loss Reduction</strong></p>
+<div class="math-display">$$\% \text{Reduction} = \frac{P_{\text{loss1}} - P_{\text{loss2}}}{P_{\text{loss1}}} \times 100\% = \frac{15.07 - 0.80}{15.07} \times 100\% = 94.69\%$$</div>
+<div class="callout callout-tip"><div class="callout-header"><span class="callout-badge">TIP</span></div><div class="callout-body">
+<p><strong>Verification via Inverse-Square Law</strong>:</p>
+</div></div>
+<div class="math-display">$$\frac{P_{\text{loss2}}}{P_{\text{loss1}}} = \left(\frac{V_{L1}}{V_{L2}}\right)^2 = \left(\frac{115}{500}\right)^2 = 0.0529 \implies \text{Loss drops by } (1 - 0.0529) = 94.71\%$$</div>
+<hr />
+<h3>🔴 Problem 2 (Level 2: Hydroelectric Power Generation Calculation)</h3>
+<p><strong>Problem Statement:</strong><br />
+Ubolratana Dam in Khon Kaen operates with an effective water head <span class="math-inline">$H = 45\text{ m}$</span> and a penstock discharge rate <span class="math-inline">$Q = 60\text{ m}^3/\text{s}$</span>. Given water density <span class="math-inline">$\rho = 1,000\text{ kg/m}^3$</span>, gravitational acceleration <span class="math-inline">$g = 9.81\text{ m/s}^2$</span>, turbine efficiency <span class="math-inline">$\eta_{\text{turbine}} = 90\%$</span>, and alternator efficiency <span class="math-inline">$\eta_{\text{gen}} = 95\%$</span>.</p>
+<ol>
+<li>Calculate the total hydraulic power of the water flow (<span class="math-inline">$P_h$</span>) in <span class="math-inline">$\text{MW}$</span>.</li>
+<li>Calculate the net electrical power delivered to the transmission lines (<span class="math-inline">$P_e$</span>) in <span class="math-inline">$\text{MW}$</span>.</li>
+<li>Identify the most suitable turbine type for this operating head.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Total Hydraulic Power (<span class="math-inline">$P_h$</span>)</strong></p>
+<div class="math-display">$$P_h = \rho \cdot g \cdot Q \cdot H = (1,000\text{ kg/m}^3) \times (9.81\text{ m/s}^2) \times (60\text{ m}^3/\text{s}) \times (45\text{ m})$$</div>
+<div class="math-display">$$P_h = 26,487,000\text{ W} = 26.487\text{ MW}$$</div>
+<p><strong>Step 2: Net Electrical Power Output (<span class="math-inline">$P_e$</span>)</strong></p>
+<div class="math-display">$$\eta_{\text{total}} = \eta_{\text{turbine}} \times \eta_{\text{gen}} = 0.90 \times 0.95 = 0.855 \quad (85.5\%)$$</div>
+<div class="math-display">$$P_e = \eta_{\text{total}} \times P_h = 0.855 \times 26.487\text{ MW} \approx 22.65\text{ MW}$$</div>
+<p><strong>Step 3: Turbine Selection</strong></p>
+<ul>
+<li>An effective head of <span class="math-inline">$H = 45\text{ m}$</span> falls within the medium head range (<span class="math-inline">$30\text{ m} - 300\text{ m}$</span>). The optimal turbine is the <strong>Francis Turbine</strong>.</li>
+</ul>
+<hr />
+<h3>🔴 Problem 3 (Level 3: Three-Phase Load Current &amp; Meter Selection)</h3>
+<p><strong>Problem Statement:</strong><br />
+A student dormitory in Khon Kaen is supplied by a 3-phase 4-wire, <span class="math-inline">$400/230\text{ V}, 50\text{ Hz}$</span> system. The connected loads consist of:</p>
+<ul>
+<li>3-Phase air-conditioning units: <span class="math-inline">$45\text{ kW}$</span> total at <span class="math-inline">$\text{pf} = 0.80\text{ lagging}$</span>.</li>
+<li>1-Phase lighting and domestic appliances (balanced across all 3 phases): <span class="math-inline">$21\text{ kW}$</span> total at <span class="math-inline">$\text{pf} = 1.0$</span>.</li>
+</ul>
+<ol>
+<li>Find total real power (<span class="math-inline">$P_{\text{total}}$</span>) and reactive power (<span class="math-inline">$Q_{\text{total}}$</span>).</li>
+<li>Calculate total apparent power (<span class="math-inline">$S_{\text{total}}$</span>) and overall building power factor (<span class="math-inline">$\text{pf}_{\text{total}}$</span>).</li>
+<li>Compute the line current (<span class="math-inline">$I_L$</span>).</li>
+<li>Specify the required utility meter configuration according to PEA/MEA standards.</li>
+</ol>
+<h4>💡 Step-by-Step Model Solution:</h4>
+<p><strong>Step 1: Break Down <span class="math-inline">$P$</span> and <span class="math-inline">$Q$</span></strong></p>
+<ul>
+<li>Air conditioners (<span class="math-inline">$P_1 = 45\text{ kW}$</span>):</li>
+</ul>
+<div class="math-display">$$\cos\theta_1 = 0.80 \implies \tan\theta_1 = 0.75 \implies Q_1 = 45 \times 0.75 = 33.75\text{ kVAR}$$</div>
+<ul>
+<li>Lighting (<span class="math-inline">$P_2 = 21\text{ kW}$</span>):</li>
+</ul>
+<div class="math-display">$$\cos\theta_2 = 1.0 \implies Q_2 = 0\text{ kVAR}$$</div>
+<div class="math-display">$$P_{\text{total}} = 45 + 21 = 66\text{ kW} \qquad Q_{\text{total}} = 33.75 + 0 = 33.75\text{ kVAR}$$</div>
+<p><strong>Step 2: Total Apparent Power and Power Factor</strong></p>
+<div class="math-display">$$S_{\text{total}} = \sqrt{P_{\text{total}}^2 + Q_{\text{total}}^2} = \sqrt{66^2 + 33.75^2} = \sqrt{4,356 + 1,139.06} \approx 74.13\text{ kVA}$$</div>
+<div class="math-display">$$\text{pf}_{\text{total}} = \frac{P_{\text{total}}}{S_{\text{total}}} = \frac{66}{74.13} \approx 0.890\text{ lagging}$$</div>
+<p><strong>Step 3: Line Current Calculation</strong></p>
+<div class="math-display">$$I_L = \frac{S_{\text{total}}}{\sqrt{3} \times V_L} = \frac{74,130}{\sqrt{3} \times 400} = \frac{74,130}{692.82} \approx 107.0\text{ A}$$</div>
+<p><strong>Step 4: Utility Meter Sizing</strong></p>
+<ul>
+<li>Since the line current (<span class="math-inline">$107.0\text{ A}$</span>) <strong>exceeds <span class="math-inline">$100\text{ A}$</span></strong>, standard direct-connected meters cannot safely handle the thermal load.</li>
+<li><strong>Selection</strong>: The building must install a <strong>3-Phase 4-Wire <span class="math-inline">$400/230\text{ V}$</span> meter with Current Transformers (CT Metering)</strong>, typically paired with <span class="math-inline">$150/5\text{ A}$</span> or <span class="math-inline">$200/5\text{ A}$</span> CT ratios.</li>
+</ul>
+<hr />
+<h3>🔴 Problem 4 (Level 4: Base Load vs. Peak Load Operational Dynamics)</h3>
+<p><strong>Problem Statement:</strong><br />
+In grid dispatch engineering:</p>
+<ol>
+<li>Explain why Mae Moh Thermal Plant runs as <strong>Base Load</strong>, whereas Nam Pong Gas Turbine Plant operates as <strong>Peak Load</strong>.</li>
+<li>Describe how a Combined Cycle plant (e.g. Bangpakong) attains nearly double the thermal efficiency of a simple-cycle gas turbine.</li>
+</ol>
+<h4>💡 Model Engineering Solution:</h4>
+<ol>
+<li><strong>Base Load vs. Peak Load Operational Factors</strong>:
+<ul>
+<li><strong>Mae Moh (Base Load)</strong>: Employs massive pulverized lignite coal boilers. Bringing millions of liters of water to superheated steam requires hours of slow preheating. Frequent shutdowns waste massive thermal energy and induce thermal fatigue in thick boiler tubes. However, domestic lignite fuel costs per kWh are very low, making continuous 24/7 baseload generation the most economical mode.</li>
+<li><strong>Nam Pong (Peak Load)</strong>: Gas turbines operate identically to jet engines without water preheating. They accelerate from cold standstill to grid synchronization at full load within <strong><span class="math-inline">$10 - 15\text{ minutes}$</span></strong>, making them ideal for rapid ramping during brief evening demand spikes.</li>
+</ul>
+</li>
+<li><strong>Combined Cycle Thermodynamic Synergy</strong>:
+<ul>
+<li>Simple-cycle gas turbines exhaust hot combustion gases into the atmosphere at <span class="math-inline">$500^\circ\text{C} - 600^\circ\text{C}$</span>, losing <span class="math-inline">$65\%$</span> of fuel energy.</li>
+<li>A Combined Cycle plant routes this hot exhaust into a <strong>Heat Recovery Steam Generator (HRSG)</strong> to generate high-pressure steam, driving a second steam turbine. This extracts an extra <span class="math-inline">$50\%$</span> electrical power from the same initial fuel burn, boosting thermal efficiency from <span class="math-inline">$30-35\%$</span> to <strong><span class="math-inline">$55-60\%$</span></strong>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3>🔴 Problem 5 (Level 5: Substation Insulation Design &amp; Lightning Protection)</h3>
+<p><strong>Problem Statement:</strong></p>
+<ol>
+<li>A new <span class="math-inline">$115/24\text{ kV}$</span> distribution substation is planned in central downtown Bangkok (Siam/Silom). Justify why a <strong>Gas-Insulated Substation (GIS)</strong> must be chosen over an <strong>Air-Insulated Substation (AIS)</strong>.</li>
+<li>If lightning strikes an incoming <span class="math-inline">$115\text{ kV}$</span> overhead line, which device protects the power transformer, and what is its internal operating mechanism?</li>
+</ol>
+<h4>💡 Model Engineering Solution:</h4>
+<ol>
+<li><strong>Selection of GIS Substation</strong>:
+<ul>
+<li><strong>Space Optimization</strong>: Real estate in central Bangkok costs millions of baht per square meter. The superior dielectric properties of <span class="math-inline">$\text{SF}_6$</span> gas enable equipment clearances to shrink dramatically, occupying only <strong><span class="math-inline">$10\% - 15\%$</span> of the physical land area</strong> required by an equivalent AIS.</li>
+<li><strong>Safety &amp; Aesthetics</strong>: GIS equipment is housed entirely inside an indoor architectural building, eliminating open live conductors and eliminating public contact hazards.</li>
+<li><strong>Immunity to Pollution</strong>: Critical live conductors are sealed inside pressurized aluminum tubes, immune to airborne soot, humidity, and bird strikes, ensuring higher reliability and lower long-term maintenance.</li>
+</ul>
+</li>
+<li><strong>Lightning Arrester Operation</strong>:
+<ul>
+<li>The protective device is the <strong>Metal-Oxide Surge Arrester (Zinc Oxide: ZnO)</strong> connected directly in parallel ahead of the transformer terminals.</li>
+<li><strong>Operating Mechanism</strong>: ZnO exhibits non-linear voltage-dependent resistance:
+<ul>
+<li>At nominal operating voltage (<span class="math-inline">$115\text{ kV}$</span>): The arrester behaves as an open circuit (<span class="math-inline">$R \approx \infty$</span>), drawing negligible leakage current (<span class="math-inline">$< 1\text{ mA}$</span>).</li>
+<li>When a megavolt lightning surge arrives: Its resistance collapses to near-zero (<span class="math-inline">$R \approx 0\ \Omega$</span>) within nanoseconds, safely shunting thousands of amperes of surge energy into the substation ground grid and clamping the terminal voltage below the transformer's Basic Impulse Insulation Level (BIL).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>🎯 Final Exam Key Formulas &amp; Quick Summary</h2>
+<ol>
+<li><strong>The 4 Grid Stages</strong>:
+<ul>
+<li>Generation: <span class="math-inline">$10 - 20\text{ kV}$</span> (EGAT)</li>
+<li>Transmission: <span class="math-inline">$69, 115, 230, 500\text{ kV}$</span> (EGAT)</li>
+<li>Distribution: <span class="math-inline">$24\text{ kV}$</span> (MEA), <span class="math-inline">$22 / 33\text{ kV}$</span> (PEA)</li>
+<li>Utilization: <span class="math-inline">$400 / 230\text{ V}$</span> (3-Phase 4-Wire), <span class="math-inline">$230\text{ V}$</span> (1-Phase 2-Wire)</li>
+</ul>
+</li>
+<li><strong>Transmission Power Loss</strong>:
+<ul>
+<li><span class="math-inline">$I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$</span></li>
+<li><span class="math-inline">$P_{\text{loss}} \propto \frac{1}{V_L^2}$</span> (Voltage <span class="math-inline">$\times k \implies$</span> Loss drops by <span class="math-inline">$k^2$</span>)</li>
+</ul>
+</li>
+<li><strong>EGAT Power Plants</strong>:
+<ul>
+<li>Hydro: <span class="math-inline">$P_e = \eta \rho g Q H$</span> (Pelton for high <span class="math-inline">$H$</span>, Francis for medium <span class="math-inline">$H$</span>, Kaplan for low <span class="math-inline">$H$</span>)</li>
+<li>Thermal: Mae Moh Lignite (Base Load)</li>
+<li>Gas Turbine: Nam Pong (Peak Load, 15 min start)</li>
+<li>Combined Cycle: Bangpakong (Gas + Steam, <span class="math-inline">$\eta \approx 55 - 60\%$</span>)</li>
+</ul>
+</li>
+<li><strong>Meter Sizing</strong>:
+<ul>
+<li>Standard home: <span class="math-inline">$15(45)\text{ A}, 230\text{ V}$</span></li>
+<li>Load <span class="math-inline">$> 100\text{ A}$</span>: Must use <strong>CT Metering</strong></li>
+</ul>
+</li>
+<li><strong>Substations</strong>:
+<ul>
+<li>AIS: Air insulated, large footprint, outdoor, cheaper equipment</li>
+<li>GIS: <span class="math-inline">$\text{SF}_6$</span> gas insulated, <span class="math-inline">$10-15\%$</span> footprint, urban indoor, highly resilient</li>
+</ul>
+</li>
+</ol>
+
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: { curve: 'basis', htmlLabels: true }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false,
+          output: 'html'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
