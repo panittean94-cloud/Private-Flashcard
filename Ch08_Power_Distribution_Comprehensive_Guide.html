@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 8: Power Distribution System Comprehensive Mastery Guide</title>
+  
+  <!-- KaTeX Math CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  
+  <!-- Mermaid.js for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  
+  <style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+    @top-left {
+      content: "คณะวิศวกรรมศาสตร์ มข. • Fundamental Electrical Engineering";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    @top-right {
+      content: "บทที่ 8: ระบบการจ่ายไฟฟ้ากำลัง (Power Distribution System)";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #b45309;
+    }
+    @bottom-left {
+      content: "รศ.ดร. นรารัตน์ เรืองชัยจตุพร • คู่มือติวสอบไฟนอลฉบับสมบูรณ์";
+      font-family: 'Sarabun', 'Inter', sans-serif;
+      font-size: 7.5pt;
+      color: #94a3b8;
+    }
+    @bottom-right {
+      content: "หน้า " counter(page) " จาก " counter(pages);
+      font-family: 'Inter', 'Sarabun', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #475569;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Sarabun', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.65;
+    font-size: 9.8pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover / Hero Header */
+  .guide-header {
+    background: linear-gradient(135deg, #0f172a 0%, #78350f 45%, #b45309 80%, #d97706 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 22px 20px 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    page-break-after: avoid;
+  }
+
+  .header-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 9999px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .header-title {
+    font-size: 19pt;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+  }
+
+  .header-subtitle {
+    font-size: 10.5pt;
+    font-weight: 400;
+    opacity: 0.95;
+    margin: 0 0 16px 0;
+    line-height: 1.45;
+  }
+
+  .header-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.28);
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 8.2pt;
+  }
+
+  .meta-col strong {
+    display: block;
+    color: #fde68a;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 16pt;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #b45309;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #92400e;
+    border-left: 5px solid #d97706;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #334155;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin: 0 0 10px 0;
+    text-align: justify;
+  }
+
+  ul, ol {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    padding-left: 22px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  /* Figures & Captions */
+  .guide-figure {
+    margin: 16px auto;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    max-width: 96%;
+  }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .guide-figure img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .guide-figure figcaption {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 8px;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 8.8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  th {
+    background: #78350f;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #78350f;
+  }
+
+  td {
+    padding: 7px 10px;
+    border: 1px solid #e2e8f0;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td {
+    background: #fdfaf6;
+  }
+
+  /* Math Blocks */
+  .math-display {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #d97706;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 12px 0;
+    text-align: center;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow-x: visible !important;
+  }
+
+  .math-inline {
+    font-size: 1.02em;
+  }
+
+  /* Callout Boxes */
+  .callout {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 14px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-left: 5px solid;
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .callout-header {
+    margin-bottom: 6px;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .callout-note {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e3a8a;
+  }
+  .callout-note .callout-badge {
+    background: #3b82f6;
+    color: #ffffff;
+  }
+
+  .callout-tip {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+    color: #065f46;
+  }
+  .callout-tip .callout-badge {
+    background: #10b981;
+    color: #ffffff;
+  }
+
+  .callout-important {
+    background: #f5f3ff;
+    border-left-color: #8b5cf6;
+    color: #5b21b6;
+  }
+  .callout-important .callout-badge {
+    background: #8b5cf6;
+    color: #ffffff;
+  }
+
+  .callout-warning, .callout-caution {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #92400e;
+  }
+  .callout-warning .callout-badge, .callout-caution .callout-badge {
+    background: #f59e0b;
+    color: #ffffff;
+  }
+
+  /* Code & Pre */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.8pt;
+    background: #f1f5f9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #0f172a;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    overflow-x: auto;
+    page-break-inside: avoid;
+  }
+
+  pre.mermaid {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 16px 0;
+  }
+
+  /* KaTeX Printing Critical Fix */
+  .katex-display {
+    margin: 6px 0 !important;
+  }
+  .katex {
+    font-size: 1.03em !important;
+  }
+  .katex-mathml {
+    display: none !important;
+  }
+
+  /* Strictly prevent radical bar stretching across the entire page */
+  .katex .hide-tail,
+  span.hide-tail {
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 22px 0;
+  }
+
+  </style>
+</head>
+<body>
+
+  <!-- Cover Header -->
+  <div class="guide-header">
+    <div class="header-badge">Faculty of Engineering • Khon Kaen University</div>
+    <h1 class="header-title">คัมภีร์เจาะลึกบทที่ 8: ระบบการจ่ายไฟฟ้ากำลัง</h1>
+    <div class="header-subtitle">Power Distribution System & National Grid Final Exam Comprehensive Mastery Guide</div>
+    
+    <div class="header-meta-row">
+      <div class="meta-col">
+        <strong>วิชา & ภาควิชา</strong>
+        Fundamental Electrical Engineering (EE KKU)
+      </div>
+      <div class="meta-col">
+        <strong>อาจารย์ผู้สอน</strong>
+        รศ.ดร. นรารัตน์ เรืองชัยจตุพร
+      </div>
+      <div class="meta-col">
+        <strong>โครงสร้างเนื้อหา</strong>
+        21 รูปไดอะแกรมแท้ • 5 ข้อสอบจริง • สรุป 3 การไฟฟ้า และ AIS vs GIS
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <h1>คัมภีร์เจาะลึกบทที่ 8: ระบบการจ่ายไฟฟ้ากำลัง (Power Distribution System Mastery)</h1>
+<p><strong>วิชา:</strong> Fundamental Electrical Engineering (FunE) • คณะวิศวกรรมศาสตร์ มหาวิทยาลัยขอนแก่น<br />
+<strong>ผู้สอน:</strong> รศ.ดร. นรารัตน์ เรืองชัยจตุพร</p>
+<hr />
+<h2>📌 บทนำ: ทำไมวิศวกรต้องเข้าใจ &quot;ระบบโครงข่ายไฟฟ้ากำลัง&quot;? (Intuition จากศูนย์)</h2>
+<p>ไฟฟ้าที่เราเปิดใช้งานตามบ้านพักอาศัยหรือโรงงานอุตสาหกรรมในปัจจุบัน <strong>ไม่ได้เกิดขึ้นใกล้ตัวเรา</strong> โรงไฟฟ้าขนาดใหญ่ส่วนใหญ่ตั้งอยู่ห่างไกลออกไปหลายร้อยถึงพันกิโลเมตร เช่น โรงไฟฟ้าพลังน้ำบนยอดเขา (เขื่อนภูมิพล จ.ตาก), โรงไฟฟ้าถ่านหินใกล้เหมืองแร่ (แม่เมาะ จ.ลำปาง), หรือโรงไฟฟ้าก๊าซธรรมชาติแถบชายฝั่งทะเล (บางปะกง)</p>
+<p>คำถามสำคัญคือ: <strong>ทำไมเราไม่สร้างโรงไฟฟ้าไว้กลางเมืองใกล้บ้านคน? และทำไมไฟฟ้าที่ส่งมาถึงเราต้องแปลงแรงดันขึ้น-ลงหลายรอบขนาดนั้น?</strong></p>
+<ol>
+<li><strong>ข้อจำกัดด้านทรัพยากรและสิ่งแวดล้อม</strong>: แหล่งพลังงานต้นกำเนิด (น้ำ, ก๊าซธรรมชาติ, ถ่านหิน) อยู่ในพื้นที่เฉพาะทางธรรมชาติ อีกทั้งโรงไฟฟ้าขนาดใหญ่ต้องการระบบระบายความร้อนมหาศาลและมาตรการควบคุมมลพิษที่เข้มงวด จึงจำเป็นต้องตั้งอยู่นอกเขตชุมชน</li>
+<li><strong>ทำไมต้องส่งด้วย &quot;แรงดันสูงลิ่ว&quot; (High Voltage)?</strong>:
+<ul>
+<li>กำลังไฟฟ้าที่ส่งทางสายคือ <span class="math-inline">$P = \sqrt{3} V_L I_L \cos\theta$</span></li>
+<li>หากเราต้องการส่งกำลังงาน <span class="math-inline">$P$</span> ปริมาณมหาศาล (เช่น <span class="math-inline">$500\text{ MW}$</span>) ถ้าส่งด้วยแรงดันต่ำ กระแสไฟฟ้า <span class="math-inline">$I_L$</span> จะมหาศาลตาม</li>
+<li>กำลังงานสูญเสียในสายส่งในรูปความร้อนคือ <span class="math-inline">$P_{\text{loss}} = 3 I_L^2 R_{\text{line}}$</span></li>
+<li>ดังนั้น <strong>หากเพิ่มแรงดันขึ้น <span class="math-inline">$5$</span> เท่า <span class="math-inline">$\rightarrow$</span> กระแสในสายจะลดลง <span class="math-inline">$5$</span> เท่า <span class="math-inline">$\rightarrow$</span> กำลังสูญเสียจะลดลงถึง <span class="math-inline">$5^2 = 25$</span> เท่า!</strong></li>
+<li>การส่งด้วยแรงดันสูงมากจึงช่วยประหยัดพลังงาน ประหยัดขนาดสายไฟ (ลดต้นทุนสายทองแดง/อะลูมิเนียม) และลดแรงดันตก (Voltage Drop) ทางไกลได้อย่างมหาศาล</li>
+</ul>
+</li>
+<li><strong>ทำไมตอนเข้าบ้านต้องลดแรงดันเหลือ <span class="math-inline">$230\text{ V}$</span>?</strong>:
+<ul>
+<li>เพราะเรื่อง <strong>&quot;ความปลอดภัยของมนุษย์ (Life Safety)&quot;</strong> และ <strong>&quot;ระยะฉนวนของอุปกรณ์ (Insulation Clearance)&quot;</strong> อุปกรณ์เครื่องใช้ไฟฟ้าในบ้านไม่สามารถทนแรงดันระดับหมื่นโวลต์ได้โดยไม่เกิดการอาร์กหรือลัดวงจร</li>
+</ul>
+</li>
+</ol>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/thailand_power_system_4_levels_schematic.png" alt="รูปที่ 1: แผนผังโครงสร้างระบบไฟฟ้ากำลัง 4 ขั้นตอนของประเทศไทย" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 1: แผนผังโครงสร้างระบบไฟฟ้ากำลัง 4 ขั้นตอนของประเทศไทย</figcaption>
+    </figure>
+    
+<em>รูปที่ 1: แผนผังภาพรวม 4 ขั้นตอนของระบบไฟฟ้ากำลังไทย: การผลิต (10-20 kV) <span class="math-inline">$\to$</span> การส่ง (69-500 kV) <span class="math-inline">$\to$</span> การจำหน่าย (22-33 kV / 24 kV) <span class="math-inline">$\to$</span> การใช้ไฟฟ้า (400/230 V)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_07_four_levels.png" alt="รูปที่ 2: ไดอะแกรม 4 ระดับของระบบไฟฟ้ากำลังจากสไลด์อาจารย์" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 2: ไดอะแกรม 4 ระดับของระบบไฟฟ้ากำลังจากสไลด์อาจารย์</figcaption>
+    </figure>
+    
+<em>รูปที่ 2: สไลด์หน้า 7 แสดงความสัมพันธ์และการแปลงระดับแรงดันใน 4 ขั้นตอน (Generation <span class="math-inline">$\to$</span> Transmission <span class="math-inline">$\to$</span> Distribution <span class="math-inline">$\to$</span> Utilization)</em></p>
+<hr />
+<h2>🔤 ถอดรหัส &quot;ทุกตัวแปร ตัวย่อ และหน่วยงานในข้อสอบ&quot; (Variables &amp; Utilities Decoded)</h2>
+<p>ข้อสอบบทที่ 8 มักมีตัวย่อภาษาอังกฤษ หน่วยงาน และระดับแรงดันที่ต้องจำให้แม่นยำ มาสรุปเคลียร์ทุกจุดตรงนี้:</p>
+<pre class="mermaid">flowchart TD
+    subgraph NationalGrid[&quot;โครงข่ายไฟฟ้าแห่งประเทศไทย (Thailand Power Grid)&quot;]
+        direction TB
+        EGAT[&quot;1. กฟผ. (EGAT)&lt;br/&gt;การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย&lt;br/&gt;- ผลิตไฟฟ้า (10-20 kV)&lt;br/&gt;- สายส่งแรงสูง (500, 230, 115, 69 kV)&quot;]
+        
+        SubStation[&quot;สถานีไฟฟ้าย่อยหลัก (Main Substation)&lt;br/&gt;ลดแรงดันลงสู่ระดับแรงดันปานกลาง (Medium Voltage)&quot;]
+        
+        MEA[&quot;2. กฟน. (MEA)&lt;br/&gt;การไฟฟ้านครหลวง&lt;br/&gt;- พื้นที่: กทม., นนทบุรี, สมุทรปราการ (3 จังหวัด)&lt;br/&gt;- แรงดันปานกลาง: 24 kV (และ 12 kV เดิม)&quot;]
+        PEA[&quot;3. กฟภ. (PEA)&lt;br/&gt;การไฟฟ้าส่วนภูมิภาค&lt;br/&gt;- พื้นที่: 74 จังหวัดที่เหลือทั่วประเทศ&lt;br/&gt;- แรงดันปานกลาง: 22 kV และ 33 kV (ภาคใต้)&quot;]
+        
+        PoleTrans[&quot;หม้อแปลงจำหน่ายตามเสาไฟ (Distribution Transformers)&lt;br/&gt;ลดแรงดันเป็นแรงต่ำ (Low Voltage)&quot;]
+        
+        Users[&quot;4. ผู้ใช้ไฟฟ้า (Consumers)&lt;br/&gt;- 1 เฟส 2 สาย: 230 V (บ้านทั่วไป)&lt;br/&gt;- 3 เฟส 4 สาย: 400/230 V (อาคาร/โรงงาน)&quot;]
+    end
+
+    EGAT --&gt; SubStation
+    SubStation --&gt; MEA
+    SubStation --&gt; PEA
+    MEA --&gt; PoleTrans
+    PEA --&gt; PoleTrans
+    PoleTrans --&gt; Users
+</pre>
+<h3>1. ถอดรหัส 3 การไฟฟ้าหลักของประเทศไทย</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">หน่วยงาน</th>
+<th style="text-align:left">ชื่อเต็มภาษาไทย / อังกฤษ</th>
+<th style="text-align:left">หน้าที่หลักตามกฎหมาย</th>
+<th style="text-align:left">ขอบเขตพื้นที่รับผิดชอบ</th>
+<th style="text-align:left">ระดับแรงดันที่รับผิดชอบ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>กฟผ. (EGAT)</strong></td>
+<td style="text-align:left">การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย<br><em>(Electricity Generating Authority of Thailand)</em></td>
+<td style="text-align:left">ผลิตไฟฟ้าจากโรงไฟฟ้าของตนเอง รับซื้อไฟฟ้าจากเอกชน (IPP/SPP/VSPP) และดูแลระบบสายส่งแรงสูงทั่วประเทศ</td>
+<td style="text-align:left">ทั่วราชอาณาจักรไทย (การผลิตและสายส่ง)</td>
+<td style="text-align:left"><strong>ผลิต:</strong> <span class="math-inline">$10 - 20\text{ kV}$</span><br><strong>สายส่ง:</strong> <span class="math-inline">$69, 115, 230, 500\text{ kV}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>กฟน. (MEA)</strong></td>
+<td style="text-align:left">การไฟฟ้านครหลวง<br><em>(Metropolitan Electricity Authority)</em></td>
+<td style="text-align:left">รับซื้อไฟฟ้าจาก กฟผ. มาจำหน่ายและบริการผู้ใช้ไฟฟ้าในเขตเมืองหลวง</td>
+<td style="text-align:left"><strong>3 จังหวัด:</strong> กรุงเทพมหานคร, นนทบุรี, สมุทรปราการ</td>
+<td style="text-align:left"><strong>แรงดันปานกลาง:</strong> <span class="math-inline">$24\text{ kV}$</span> (และ <span class="math-inline">$12\text{ kV}$</span>)<br><strong>แรงต่ำ:</strong> <span class="math-inline">$400/230\text{ V}$</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>กฟภ. (PEA)</strong></td>
+<td style="text-align:left">การไฟฟ้าส่วนภูมิภาค<br><em>(Provincial Electricity Authority)</em></td>
+<td style="text-align:left">รับซื้อไฟฟ้าจาก กฟผ. มาจำหน่ายและบริการผู้ใช้ไฟฟ้าในส่วนภูมิภาค</td>
+<td style="text-align:left"><strong>74 จังหวัดที่เหลือ</strong> ทั่วประเทศไทย (พื้นที่ครอบคลุม <span class="math-inline">$99\%$</span> ของประเทศ)</td>
+<td style="text-align:left"><strong>แรงดันปานกลาง:</strong> <span class="math-inline">$22\text{ kV}$</span> และ <span class="math-inline">$33\text{ kV}$</span><br><strong>แรงต่ำ:</strong> <span class="math-inline">$400/230\text{ V}$</span></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>2. ถอดรหัสตัวแปรและสูตรคำนวณทางวิศวกรรมไฟฟ้ากำลัง</h3>
+<ul>
+<li><span class="math-inline">$P$</span> : กำลังไฟฟ้าจริง (Real/Active Power) หน่วยเป็นวัตต์ (<span class="math-inline">$\text{W}$</span>), กิโลวัตต์ (<span class="math-inline">$\text{kW}$</span>), หรือเมกะวัตต์ (<span class="math-inline">$\text{MW}$</span>)</li>
+<li><span class="math-inline">$Q$</span> : กำลังไฟฟ้ารีแอกทีฟ (Reactive Power) หน่วยเป็นวาร์ (<span class="math-inline">$\text{VAR}$</span>) หรือเมกะวาร์ (<span class="math-inline">$\text{MVAR}$</span>)</li>
+<li><span class="math-inline">$S$</span> : กำลังไฟฟ้าปรากฏ (Apparent Power) หน่วยเป็นโวลต์-แอมแปร์ (<span class="math-inline">$\text{VA}$</span>) หรือเมกะโวลต์-แอมแปร์ (<span class="math-inline">$\text{MVA}$</span>)</li>
+<li><span class="math-inline">$V_L$</span> : แรงดันระหว่างสายส่ง (Line-to-Line Voltage) เช่น <span class="math-inline">$500\text{ kV}, 230\text{ kV}, 115\text{ kV}, 24\text{ kV}, 22\text{ kV}, 400\text{ V}$</span></li>
+<li><span class="math-inline">$V_p$</span> : แรงดันเทียบกับนิวทรัล (Phase Voltage) เช่น <span class="math-inline">$230\text{ V}$</span> (<span class="math-inline">$V_L = \sqrt{3} V_p$</span>)</li>
+<li><span class="math-inline">$I_L$</span> : กระแสไฟฟ้าที่ไหลในสายส่ง (Line Current) คำนวณจาก:</li>
+</ul>
+<div class="math-display">$$I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$$</div>
+<ul>
+<li><span class="math-inline">$P_{\text{loss}}$</span> : กำลังสูญเสียในสายส่ง 3 เฟส:</li>
+</ul>
+<div class="math-display">$$P_{\text{loss}} = 3 I_L^2 R_{\text{line}} = 3 \left(\frac{P}{\sqrt{3} V_L \cos\theta}\right)^2 R_{\text{line}} = \frac{P^2 R_{\text{line}}}{V_L^2 \cos^2\theta}$$</div>
+<blockquote>
+<p>[!IMPORTANT]
+สังเกตว่า <span class="math-inline">$P_{\text{loss}} \propto \frac{1}{V_L^2}$</span> นั่นคือ หากส่งกำลังงานเท่าเดิม การเพิ่มแรงดันขึ้น <span class="math-inline">$k$</span> เท่า จะทำให้กำลังสูญเสียลดลงถึง <span class="math-inline">$k^2$</span> เท่าเสมอ! ข้อสอบชอบออกข้อนี้บ่อยมาก</p>
+</blockquote>
+<hr />
+<h2>⚡ 4 ขั้นตอนของระบบไฟฟ้ากำลัง (The 4 Levels of Power System)</h2>
+<p>ระบบไฟฟ้ากำลังแบ่งออกเป็น 4 ระบบต่อเนื่องกันอย่างเป็นเอกภาพ:</p>
+<pre class="mermaid">flowchart LR
+    A[&quot;1. Generation System&lt;br/&gt;(10 - 20 kV)&quot;] --&gt;|&quot;Step-Up Transformer&quot;| B[&quot;2. Transmission System&lt;br/&gt;(69, 115, 230, 500 kV)&quot;]
+    B --&gt;|&quot;Step-Down Substation&quot;| C[&quot;3. Distribution System&lt;br/&gt;(MEA 24 kV / PEA 22, 33 kV)&quot;]
+    C --&gt;|&quot;Pole Transformer&quot;| D[&quot;4. Utilization System&lt;br/&gt;(400/230 V, 230 V)&quot;]
+</pre>
+<h3>1. ระบบผลิตไฟฟ้า (Generation System)</h3>
+<ul>
+<li><strong>ระดับแรงดันกำเนิด</strong>: เครื่องกำเนิดไฟฟ้ากระแสสลับ (Alternator / Synchronous Generator) ผลิตแรงดันออกมาในช่วง <strong><span class="math-inline">$10\text{ kV} - 20\text{ kV}$</span></strong></li>
+<li><strong>สาเหตุที่ไม่ผลิตที่ <span class="math-inline">$500\text{ kV}$</span> ตั้งแต่แรก</strong>: เพราะข้อจำกัดด้าน <strong>ฉนวนไฟฟ้า (Electrical Insulation)</strong> ภายในสล็อตของสเตเตอร์เครื่องกำเนิดไฟฟ้า หากทำขดลวดทนแรงดันระดับแสนโวลต์ ตัวเครื่องจะต้องมีขนาดมหึมาและฉนวนจะหนาเกินไปจนระบายความร้อนไม่ได้ จึงผลิตที่ <span class="math-inline">$10-20\text{ kV}$</span> แล้วส่งเข้า <strong>หม้อแปลงเพิ่มแรงดัน (Step-Up Transformer)</strong> ทันที</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_10_thailand_grid.png" alt="รูปที่ 3: แผนที่ระบบสายส่งและแหล่งผลิตไฟฟ้าของประเทศไทย" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 3: แผนที่ระบบสายส่งและแหล่งผลิตไฟฟ้าของประเทศไทย</figcaption>
+    </figure>
+    
+<em>รูปที่ 3: แผนที่โครงข่ายสายส่งกำลังไฟฟ้าแห่งชาติของ กฟผ. เชื่อมโยงโรงไฟฟ้าทั่วประเทศ (จากสไลด์ที่ 10)</em></p>
+<hr />
+<h3>2. ระบบส่งกำลังไฟฟ้า (Transmission System)</h3>
+<ul>
+<li><strong>ผู้รับผิดชอบ</strong>: กฟผ. (EGAT) แต่เพียงผู้เดียวในประเทศไทย</li>
+<li><strong>โครงสร้างทางกายภาพ</strong>: ส่วนใหญ่เป็น <strong>สายส่งเหนือดิน (Overhead Transmission Lines)</strong> ติดตั้งบนเสาโครงเหล็กแรงสูง (Steel Lattice Towers) หรือเสาคอนกรีตอัดแรง เพื่อให้อยู่ห่างจากพื้นดิน ปลอดภัยจากการสัมผัส และใช้บรรยากาศเป็นฉนวนธรรมชาติ</li>
+<li><strong>4 พิกัดแรงดันมาตรฐานของสายส่ง กฟผ. (Nominal Transmission Voltages)</strong>:
+<ol>
+<li><strong><span class="math-inline">$500\text{ kV}$</span> (แรงดันสูงสุดพิเศษ EHV)</strong>: ใช้ส่งกำลังงานมหาศาลข้ามภาค เช่น สายส่งจากโรงไฟฟ้าพลังน้ำประเทศลาว (น้ำงึม, น้ำเทิน) เข้าสู่ภาคกลาง และสายส่งเชื่อมโยงโรงไฟฟ้าแม่เมาะ จ.ลำปาง</li>
+<li><strong><span class="math-inline">$230\text{ kV}$</span> (แรงดันสูง)</strong>: โครงข่ายแกนหลัก (Main Backbone Grid) เชื่อมระหว่างสถานีไฟฟ้าย่อยหลักแต่ละภูมิภาค</li>
+<li><strong><span class="math-inline">$115\text{ kV}$</span> (แรงดันสูง)</strong>: กระจายกำลังไฟฟ้าสู่ตัวจังหวัดและสถานีไฟฟ้าย่อยรอบนอก</li>
+<li><strong><span class="math-inline">$69\text{ kV}$</span> (แรงดันสูงย่อย Sub-transmission)</strong>: ระบบดั้งเดิม ปัจจุบันพบในบางพื้นที่ของ กฟน. และพื้นที่เฉพาะ</li>
+</ol>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_38_transmission_lines.png" alt="รูปที่ 4: เสาสายส่งแรงสูงและโครงสร้างระดับแรงดันของ กฟผ." loading="eager" />
+      </div>
+      <figcaption>รูปที่ 4: เสาสายส่งแรงสูงและโครงสร้างระดับแรงดันของ กฟผ.</figcaption>
+    </figure>
+    
+<em>รูปที่ 4: สายส่งกำลังไฟฟ้าเหนือดินและระดับแรงดัน <span class="math-inline">$69, 115, 230, 500\text{ kV}$</span> (จากสไลด์ที่ 38)</em></p>
+<hr />
+<h3>3. ระบบจำหน่าย (Distribution System)</h3>
+<p>รับกำลังไฟฟ้าจากสถานีไฟฟ้าย่อยหลักของ กฟผ. แล้วลดแรงดันลงเป็น <strong>ระดับแรงดันปานกลาง (Medium Voltage: MV)</strong> เพื่อจ่ายเข้าไปตามถนน ตรอกซอกซอย และป้อนเข้าหม้อแปลงจำหน่าย</p>
+<ul>
+<li><strong>กฟน. (MEA)</strong>: รับแรงดัน <span class="math-inline">$69\text{ kV} / 115\text{ kV}$</span> ลดลงเหลือ <strong><span class="math-inline">$24\text{ kV}$</span></strong> (และ <span class="math-inline">$12\text{ kV}$</span> ในเขตอนุรักษ์เดิม) จัดวางระบบแบบ Loop Network</li>
+<li><strong>กฟภ. (PEA)</strong>: รับแรงดัน <span class="math-inline">$115\text{ kV}$</span> ลดลงเหลือ <strong><span class="math-inline">$22\text{ kV}$</span></strong> (เป็นระบบหลักครอบคลุมทั่วประเทศ) และ <strong><span class="math-inline">$33\text{ kV}$</span></strong> (ใช้ในพื้นที่ภาคใต้บางส่วน เช่น หาดใหญ่ ภูเก็ต เพื่อส่งระยะไกลโดยแรงดันไม่ตก)</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_42_mea_system.png" alt="รูปที่ 5: ระบบจำหน่าย 24 kV ของการไฟฟ้านครหลวง (กฟน.)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 5: ระบบจำหน่าย 24 kV ของการไฟฟ้านครหลวง (กฟน.)</figcaption>
+    </figure>
+    
+<em>รูปที่ 5: ระบบจำหน่าย 24 kV และวงจร 69 kV ในเขต กฟน. (จากสไลด์ที่ 42)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_46_pea_system.png" alt="รูปที่ 6: ระบบจำหน่ายแรงดันปานกลาง 22 kV และ 33 kV ของ กฟภ." loading="eager" />
+      </div>
+      <figcaption>รูปที่ 6: ระบบจำหน่ายแรงดันปานกลาง 22 kV และ 33 kV ของ กฟภ.</figcaption>
+    </figure>
+    
+<em>รูปที่ 6: ระบบจำหน่าย 22 kV และ 33 kV Multigrounded System ของ กฟภ. (จากสไลด์ที่ 46)</em></p>
+<hr />
+<h3>4. ระบบการใช้ไฟฟ้า (Utilization System / Low Voltage System)</h3>
+<p>เป็นขั้นตอนสุดท้ายที่จ่ายไฟตรงสู่บ้านพักอาศัย อาคารพาณิชย์ และโรงงาน โดยลดแรงดันผ่าน <strong>หม้อแปลงจำหน่าย (Distribution Transformer)</strong> ที่ติดตั้งตามเสาไฟหรือในห้องหม้อแปลงอาคาร:</p>
+<ul>
+<li><strong>ระบบ 1 เฟส 2 สาย (1-Phase 2-Wire)</strong>:
+<ul>
+<li>แรงดันใช้งาน: <strong><span class="math-inline">$230\text{ V}$</span></strong> (สาย Line 1 เส้น + สายนิวทรัล Neutral 1 เส้น)</li>
+<li>ใช้สำหรับ: บ้านพักอาศัยทั่วไป เครื่องใช้ไฟฟ้าขนาดเล็ก (โหลดรวมไม่เกิน <span class="math-inline">$10\text{ kW}$</span>)</li>
+</ul>
+</li>
+<li><strong>ระบบ 3 เฟส 4 สาย (3-Phase 4-Wire)</strong>:
+<ul>
+<li>แรงดันใช้งาน: <strong><span class="math-inline">$400 / 230\text{ V}$</span></strong> (<span class="math-inline">$V_{\text{Line}} = 400\text{ V}$</span>, <span class="math-inline">$V_{\text{Phase}} = 230\text{ V}$</span>)</li>
+<li>ประกอบด้วยสาย 4 เส้น: เฟส <span class="math-inline">$A, B, C$</span> และสาย <span class="math-inline">$N$</span> (Neutral)</li>
+<li>ข้อดี: ต่อไฟได้ 2 รูปแบบในระบบเดียว คือ ถ้าดึงไฟเฟสใดเฟสหนึ่งคู่กับสายนิวทรัลจะได้ <span class="math-inline">$230\text{ V}$</span> (สำหรับแสงสว่างและปลั๊กไฟ) แต่ถ้าดึงไฟระหว่างสายคู่สายจะได้ <span class="math-inline">$400\text{ V}$</span> (สำหรับมอเตอร์ 3 เฟส, ปั๊มน้ำ, ลิฟต์, และแอร์ชิลเลอร์)</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_50_low_voltage_400_230v.png" alt="รูปที่ 7: ระบบจำหน่ายแรงต่ำ 3 เฟส 4 สาย 400/230 V และ 1 เฟส 230 V" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 7: ระบบจำหน่ายแรงต่ำ 3 เฟส 4 สาย 400/230 V และ 1 เฟส 230 V</figcaption>
+    </figure>
+    
+<em>รูปที่ 7: วงจรระบบจำหน่ายแรงต่ำ 400/230 V ตามมาตรฐานประเทศไทย (จากสไลด์ที่ 50)</em></p>
+<hr />
+<h2>🏭 5 ประเภทโรงไฟฟ้าหลักของ กฟผ. (5 Types of EGAT Power Plants)</h2>
+<p>กฟผ. จำแนกประเภทโรงไฟฟ้าตามแหล่งพลังงานต้นกำเนิดและลักษณะการทำงาน เพื่อตอบสนองความต้องการไฟฟ้าที่ผันผวนตลอด 24 ชั่วโมง โดยแบ่งเป็น:</p>
+<ol>
+<li><strong>โรงไฟฟ้าฐาน (Base Load Power Plant)</strong>: เดินเครื่องตลอด 24 ชั่วโมง ต้นทุนเชื้อเพลิงต่อหน่วยต่ำ เริ่ม/หยุดเดินเครื่องช้า (ใช้เวลาหลายชั่วโมงถึงวัน)</li>
+<li><strong>โรงไฟฟ้ารับโหลดสูงสุด (Peak Load Power Plant)</strong>: เดินเครื่องเฉพาะช่วงที่มีความต้องการใช้ไฟฟ้าสูงสุด (เช่น ช่วงบ่ายหรือหัวค่ำ) สตาร์ทเร็วได้ภายใน 5–15 นาที</li>
+</ol>
+<hr />
+<h3>1. โรงไฟฟ้าพลังน้ำ (Hydro Power Plant)</h3>
+<ul>
+<li><strong>หลักการทำงาน</strong>: สร้างเขื่อนกักเก็บน้ำที่ระดับความสูง พลังงานศักย์ของน้ำจะถูกเปลี่ยนเป็นพลังงานจลน์เมื่อปล่อยผ่านท่อส่งน้ำ (Penstock) ไปหมุน <strong>กังหันน้ำ (Water Turbine)</strong> ซึ่งต่อเพลาร่วมกับเครื่องกำเนิดไฟฟ้า</li>
+<li><strong>สูตรคำนวณกำลังไฟฟ้าพลังน้ำ</strong>:</li>
+</ul>
+<div class="math-display">$$P_e = \eta \cdot \rho \cdot g \cdot Q \cdot H$$</div>
+<ul>
+<li><span class="math-inline">$\rho = 1,000\text{ kg/m}^3$</span> (ความหนาแน่นของน้ำ)</li>
+<li><span class="math-inline">$g = 9.81\text{ m/s}^2$</span> (ความเร่งโน้มถ่วง)</li>
+<li><span class="math-inline">$Q$</span> : อัตราการไหลของน้ำ (<span class="math-inline">$\text{m}^3/\text{s}$</span>)</li>
+<li><span class="math-inline">$H$</span> : ความสูงของระดับน้ำหรือเฮดประสิทธิผล (<span class="math-inline">$\text{m}$</span>)</li>
+<li><span class="math-inline">$\eta$</span> : ประสิทธิภาพรวมของกังหันและเครื่องกำเนิดไฟฟ้า (<span class="math-inline">$\approx 85\% - 92\%$</span>)</li>
+<li><strong>ประเภทของกังหันน้ำ (Turbine Types)</strong>:
+<ol>
+<li><strong>Pelton Turbine (กังหันแบบอิมพัลส์)</strong>: เหมาะกับ <strong>เฮดสูงมาก (<span class="math-inline">$H > 300\text{ m}$</span>)</strong> และอัตราน้ำไหลน้อย ใช้หัวฉีดน้ำแรงดันสูงพุ่งชนกะเปาะ</li>
+<li><strong>Francis Turbine (กังหันแบบรีแอกชัน)</strong>: เหมาะกับ <strong>เฮดปานกลาง (<span class="math-inline">$30 - 300\text{ m}$</span>)</strong> เป็นชนิดที่นิยมใช้มากที่สุดในโลกและในไทย (เช่น เขื่อนภูมิพล, เขื่อนสิริกิติ์)</li>
+<li><strong>Kaplan Turbine (กังหันแบบใบพัดเรือ)</strong>: เหมาะกับ <strong>เฮดต่ำ (<span class="math-inline">$H < 30\text{ m}$</span>)</strong> แต่อัตราน้ำไหลมหาศาล (เช่น เขื่อนเจ้าพระยา)</li>
+</ol>
+</li>
+<li><strong>โรงไฟฟ้าพลังน้ำแบบสูบกลับ (Pumped Storage - เช่น ลำตะคองชลภาวัฒนา จ.นครราชสีมา)</strong>:
+<ul>
+<li>ในช่วงกลางคืนที่ไฟเหลือ (Off-Peak) จะใช้พลังงานไฟฟ้าราคาถูกสูบน้ำจากอ่างล่างกลับขึ้นไปเก็บที่อ่างบน</li>
+<li>ในช่วงกลางวันที่มีความต้องการไฟสูง (Peak Load) จะปล่อยน้ำลงมาปั่นไฟทันที เปรียบเสมือน <strong>&quot;แบตเตอรี่น้ำขนาดยักษ์&quot;</strong></li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_13_hydro_dam.png" alt="รูปที่ 8: แผนผังโรงไฟฟ้าพลังน้ำและการทำงานของเขื่อน" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 8: แผนผังโรงไฟฟ้าพลังน้ำและการทำงานของเขื่อน</figcaption>
+    </figure>
+    
+<em>รูปที่ 8: โครงสร้างโรงไฟฟ้าพลังน้ำ อ่างเก็บน้ำ ท่อส่งน้ำ และกังหันน้ำ (จากสไลด์ที่ 13)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_20_turbines.png" alt="รูปที่ 9: ประเภทของกังหันน้ำ Pelton, Francis, Kaplan" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 9: ประเภทของกังหันน้ำ Pelton, Francis, Kaplan</figcaption>
+    </figure>
+    
+<em>รูปที่ 9: ลักษณะใบพัดกังหันน้ำ 3 ชนิดหลักตามระดับความสูงของหัวน้ำ (จากสไลด์ที่ 20)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_19_lam_takhong.png" alt="รูปที่ 10: โรงไฟฟ้าพลังน้ำลำตะคองชลภาวัฒนา แบบสูบกลับ (Pumped Storage)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 10: โรงไฟฟ้าพลังน้ำลำตะคองชลภาวัฒนา แบบสูบกลับ (Pumped Storage)</figcaption>
+    </figure>
+    
+<em>รูปที่ 10: ระบบสูบน้ำกลับขึ้นอ่างเก็บน้ำด้านบนเพื่อเป็นแหล่งสำรองพลังงานช่วง Peak Load (จากสไลด์ที่ 19)</em></p>
+<hr />
+<h3>2. โรงไฟฟ้าพลังความร้อน / กังหันไอน้ำ (Thermal / Steam Power Plant)</h3>
+<ul>
+<li><strong>หลักการทำงาน</strong>: เผาไหม้เชื้อเพลิง (ถ่านหินลิกไนต์, ก๊าซธรรมชาติ, หรือน้ำมันเตา) ในหม้อต้มน้ำ (Boiler) ผลิตไอน้ำแรงดันสูงและอุณหภูมิสูง เพื่อนำไปขับเคลื่อน <strong>กังหันไอน้ำ (Steam Turbine)</strong> แล้วควบแน่นไอน้ำกลับเป็นน้ำใน Condenser</li>
+<li><strong>ลักษณะการใช้งาน</strong>: ทำหน้าที่เป็น <strong>โรงไฟฟ้าฐาน (Base Load)</strong> เพราะใช้เวลาสตาร์ทเครื่องนาน (หลายชั่วโมง) แต่ให้กำลังผลิตมหาศาลสม่ำเสมอ</li>
+<li><strong>ตัวอย่างสำคัญในไทย</strong>: <strong>โรงไฟฟ้าแม่เมาะ จ.ลำปาง</strong> (ใช้ถ่านหินลิกไนต์จากเหมืองแม่เมาะ)</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_21_thermal_plant.png" alt="รูปที่ 11: วงจรการผลิตไฟฟ้าของโรงไฟฟ้าพลังความร้อนไอน้ำ" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 11: วงจรการผลิตไฟฟ้าของโรงไฟฟ้าพลังความร้อนไอน้ำ</figcaption>
+    </figure>
+    
+<em>รูปที่ 11: วงจรการผลิตไอน้ำ หม้อต้ม กังหันไอน้ำ และระบบควบแน่น (จากสไลด์ที่ 21)</em></p>
+<hr />
+<h3>3. โรงไฟฟ้ากังหันก๊าซและเครื่องยนต์ดีเซล (Gas Turbine &amp; Diesel Power Plant)</h3>
+<ul>
+<li><strong>กังหันก๊าซ (Gas Turbine)</strong>:
+<ul>
+<li>ดูดอากาศเข้ามาอัดด้วยคอมเพรสเซอร์ (Compressor) ฉีดเชื้อเพลิงก๊าซธรรมชาติแล้วจุดระเบิดในห้องเผาไหม้ ก๊าซร้อนแรงดันสูงจะพุ่งไปขับกังหันก๊าซโดยตรง (คล้ายเครื่องยนต์ไอพ่นเครื่องบิน)</li>
+<li><strong>ข้อดีเด่น</strong>: <strong>สตาร์ทเครื่องเร็วมาก (ภายใน 10 - 15 นาที)</strong> เหมาะอย่างยิ่งสำหรับรับ <strong>โหลดสูงสุด (Peak Load)</strong> และกรณีฉุกเฉิน</li>
+<li><strong>ตัวอย่างสำคัญในไทย</strong>: <strong>โรงไฟฟ้าน้ำพอง จ.ขอนแก่น</strong>, โรงไฟฟ้าลานกระบือ</li>
+</ul>
+</li>
+<li><strong>เครื่องยนต์ดีเซล (Diesel Engine Plant)</strong>:
+<ul>
+<li>ใช้เครื่องยนต์สันดาปภายใน 4 จังหวะขับเครื่องกำเนิดไฟฟ้า</li>
+<li>ใช้งานบนเกาะห่างไกลหรือเป็นเครื่องกำเนิดไฟฟ้าสำรองฉุกเฉิน (Emergency Generator) ตามโรงพยาบาลและอาคารสูง</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_24_gas_turbine.png" alt="รูปที่ 12: โครงสร้างและการทำงานของกังหันก๊าซ (Gas Turbine)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 12: โครงสร้างและการทำงานของกังหันก๊าซ (Gas Turbine)</figcaption>
+    </figure>
+    
+<em>รูปที่ 12: ระบบการอัดอากาศ การจุดระเบิดในห้องเผาไหม้ และการขับเพลากังหันก๊าซ (จากสไลด์ที่ 24)</em></p>
+<hr />
+<h3>4. โรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle Power Plant)</h3>
+<ul>
+<li><strong>หลักการสำคัญ (ข้อสอบชอบออก!)</strong>:
+<ul>
+<li>เป็นการนำ <strong>กังหันก๊าซ (Gas Turbine)</strong> มาจับคู่กับ <strong>กังหันไอน้ำ (Steam Turbine)</strong></li>
+<li>ก๊าซไอเสียที่ออกจากกังหันก๊าซยังคงมีอุณหภูมิสูงมาก (<span class="math-inline">$500^\circ\text{C} - 600^\circ\text{C}$</span>) แทนที่จะปล่อยทิ้งไป จะถูกนำเข้าสู่ <strong>หม้อต้มน้ำกู้ความร้อน (Heat Recovery Steam Generator: HRSG)</strong></li>
+<li>ไอน้ำที่ผลิตได้จากความร้อนเหลือทิ้งนี้จะถูกส่งไปปั่น <strong>กังหันไอน้ำ (Steam Turbine)</strong> ได้กำลังไฟฟ้าเพิ่มอีกชุดหนึ่ง โดย <strong>ไม่ต้องจ่ายค่าเชื้อเพลิงเพิ่มเลย!</strong></li>
+</ul>
+</li>
+<li><strong>ประสิทธิภาพ</strong>: สูงที่สุดในบรรดาโรงไฟฟ้าฟอสซิลทุกชนิด โดยมีประสิทธิภาพสูงถึง <strong><span class="math-inline">$50\% - 60\%$</span></strong> (เทียบกับกังหันก๊าซเดี่ยวๆ ที่ได้เพียง <span class="math-inline">$30\% - 35\%$</span>)</li>
+<li><strong>ตัวอย่างสำคัญในไทย</strong>: <strong>โรงไฟฟ้าบางปะกง จ.ฉะเชิงเทรา</strong>, โรงไฟฟ้าวังน้อย, โรงไฟฟ้าพระนครใต้</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_29_combined_cycle.png" alt="รูปที่ 13: แผนผังโรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle COGES)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 13: แผนผังโรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle COGES)</figcaption>
+    </figure>
+    
+<em>รูปที่ 13: การนำความร้อนไอเสียจาก Gas Turbine ไปต้มน้ำใน HRSG เพื่อขับ Steam Turbine หมุนสองเครื่องผลิตไฟฟ้า (จากสไลด์ที่ 29)</em></p>
+<hr />
+<h3>5. โรงไฟฟ้าพลังงานหมุนเวียน (Renewable Energy / Solar PV)</h3>
+<ul>
+<li><strong>พลังงานแสงอาทิตย์ (Photovoltaic: PV)</strong>:
+<ul>
+<li>แผงโซลาร์เซลล์แปลงแสงอาทิตย์เป็นไฟฟ้ากระแสตรง (DC)</li>
+<li>ใช้ <strong>อินเวอร์เตอร์ (Inverter / DC-to-AC Converter)</strong> แปลงเป็นไฟฟ้ากระแสสลับ (AC) ความถี่ <span class="math-inline">$50\text{ Hz}$</span> ซิงโครไนซ์เข้ากับโครงข่ายไฟฟ้า</li>
+<li>ระบบ Hybrid Power System: ผสมผสานโซลาร์เซลล์ กังหันลม แบตเตอรี่ และเครื่องยนต์ดีเซลสำหรับพื้นที่ห่างไกล</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_36_solar_pv_system.png" alt="รูปที่ 14: ระบบผลิตไฟฟ้าพลังงานแสงอาทิตย์บนหลังคา (Solar Rooftop PV System)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 14: ระบบผลิตไฟฟ้าพลังงานแสงอาทิตย์บนหลังคา (Solar Rooftop PV System)</figcaption>
+    </figure>
+    
+<em>รูปที่ 14: แผนผังระบบ Solar PV: แผงเซลล์แสงอาทิตย์ อินเวอร์เตอร์ ตู้ควบคุม และการเชื่อมต่อสายส่ง (จากสไลด์ที่ 36)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_37_hybrid_system.png" alt="รูปที่ 15: ระบบไฟฟ้าแบบผสมผสาน (Hybrid Power System)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 15: ระบบไฟฟ้าแบบผสมผสาน (Hybrid Power System)</figcaption>
+    </figure>
+    
+<em>รูปที่ 15: ระบบไฮบริดที่ผสานพลังงานหมุนเวียน แบตเตอรี่ และเครื่องกำเนิดไฟฟ้าสำรอง (จากสไลด์ที่ 37)</em></p>
+<hr />
+<h2>🔌 ระบบจำหน่ายและเกณฑ์การต่อไฟผู้ใช้ไฟฟ้า (Consumer Connections &amp; Metering)</h2>
+<p>เมื่อไฟฟ้าเดินทางมาถึงเขตชุมชน การเชื่อมต่อและการคิดค่าไฟจะขึ้นอยู่กับ <strong>ขนาดโหลด</strong> และ <strong>ระดับแรงดัน</strong>:</p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/consumer_connection_types_schematic.png" alt="รูปที่ 16: การจำแนกประเภทผู้ใช้ไฟฟ้า ขนาดมิเตอร์ และรูปแบบการเชื่อมต่อ" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 16: การจำแนกประเภทผู้ใช้ไฟฟ้า ขนาดมิเตอร์ และรูปแบบการเชื่อมต่อ</figcaption>
+    </figure>
+    
+<em>รูปที่ 16: การเปรียบเทียบผู้ใช้ไฟฟ้าแรงต่ำ (Low Voltage) vs ผู้ใช้ไฟฟ้าแรงปานกลาง (Medium Voltage)</em></p>
+<h3>1. ขนาดมิเตอร์มาตรฐานและการเลือกใช้งาน (Meter Sizing Criteria)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">พิกัดมิเตอร์</th>
+<th style="text-align:center">ระบบแรงดัน</th>
+<th style="text-align:center">กระแสพิกัดปกติ / กระแสสูงสุด</th>
+<th style="text-align:left">ลักษณะการใช้งาน</th>
+<th style="text-align:center">ชนิดการวัด (Metering)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>5(15) A</strong></td>
+<td style="text-align:center">1 เฟส 230 V</td>
+<td style="text-align:center"><span class="math-inline">$5\text{ A}$</span> (ทนพีคได้ <span class="math-inline">$15\text{ A}$</span>)</td>
+<td style="text-align:left">บ้านพักอาศัยขนาดเล็ก โคมไฟ พัดลม ทีวี ตู้เย็น (ไม่มีแอร์)</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>15(45) A</strong></td>
+<td style="text-align:center">1 เฟส 230 V</td>
+<td style="text-align:center"><span class="math-inline">$15\text{ A}$</span> (ทนพีคได้ <span class="math-inline">$45\text{ A}$</span>)</td>
+<td style="text-align:left"><strong>บ้านพักอาศัยมาตรฐานทั่วไป</strong> (มีแอร์ 1-3 ตัว, เครื่องทำน้ำอุ่น)</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>30(100) A</strong></td>
+<td style="text-align:center">1 เฟส 230 V</td>
+<td style="text-align:center"><span class="math-inline">$30\text{ A}$</span> (ทนพีคได้ <span class="math-inline">$100\text{ A}$</span>)</td>
+<td style="text-align:left">บ้านขนาดใหญ่ มีแอร์หลายเครื่อง เครื่องใช้ไฟฟ้ากำลังสูง</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>15(45) A</strong></td>
+<td style="text-align:center">3 เฟส 400/230 V</td>
+<td style="text-align:center"><span class="math-inline">$15\text{ A}$</span> ต่อเฟส (พีค <span class="math-inline">$45\text{ A}$</span>)</td>
+<td style="text-align:left">โฮมออฟฟิศ หอพัก อาคารพาณิชย์ หรือบ้านที่มีแอร์ 3 เฟส</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>30(100) A</strong></td>
+<td style="text-align:center">3 เฟส 400/230 V</td>
+<td style="text-align:center"><span class="math-inline">$30\text{ A}$</span> ต่อเฟส (พีค <span class="math-inline">$100\text{ A}$</span>)</td>
+<td style="text-align:left">อาคารสำนักงาน ร้านอาหาร โรงงานขนาดเล็ก</td>
+<td style="text-align:center">Direct Meter</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>&gt; 100 A</strong></td>
+<td style="text-align:center">3 เฟส 400/230 V</td>
+<td style="text-align:center">กระแสเกิน <span class="math-inline">$100\text{ A}$</span></td>
+<td style="text-align:left">ห้างสรรพสินค้า โรงพยาบาล โรงงานอุตสาหกรรม</td>
+<td style="text-align:center"><strong>CT Metering</strong> (ผ่านหม้อแปลงกระแส)</td>
+</tr>
+</tbody>
+</table>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_52_meter_sizes.png" alt="รูปที่ 17: ตารางขนาดมิเตอร์และเกณฑ์ระดับแรงดันจากสไลด์อาจารย์" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 17: ตารางขนาดมิเตอร์และเกณฑ์ระดับแรงดันจากสไลด์อาจารย์</figcaption>
+    </figure>
+    
+<em>รูปที่ 17: เกณฑ์พิจารณาขนาดมิเตอร์และระดับแรงดันตามความต้องการไฟฟ้าของผู้ใช้ (จากสไลด์ที่ 52)</em></p>
+<hr />
+<h3>2. ผู้ใช้ไฟฟ้าแรงปานกลางและการต่อสายใต้ดิน (Medium Voltage Customers)</h3>
+<ul>
+<li><strong>ผู้ใช้ไฟแรงปานกลาง (Medium Voltage Customer)</strong>: ผู้ใช้ไฟฟ้าที่มีโหลดขนาดใหญ่มาก (เกินกำลังของหม้อแปลงบนเสาของการไฟฟ้า) จะต้องรับไฟที่ระดับแรงปานกลาง (<span class="math-inline">$24\text{ kV}$</span> ใน กฟน. หรือ <span class="math-inline">$22\text{ kV} / 33\text{ kV}$</span> ใน กฟภ.) และลงทุนติดตั้ง <strong>สถานีไฟฟ้าย่อยและหม้อแปลงส่วนตัว (Private Substation)</strong> ภายในบริเวณพื้นที่ของตนเอง</li>
+<li><strong>การวัดหน่วยไฟฟ้า (Metering)</strong>: ติดตั้งมิเตอร์วัดทางด้านแรงสูง โดยใช้ <strong>หม้อแปลงกระแส (CT)</strong> และ <strong>หม้อแปลงแรงดัน (PT)</strong> ลดทอนสัญญาณเข้าเครื่องวัด พร้อมคิดค่าไฟตามอัตราตามช่วงเวลาของการใช้งาน (TOU: Time of Use Rate)</li>
+<li><strong>รูปแบบการนำสายไฟเข้าอาคาร</strong>:
+<ol>
+<li><strong>สายอากาศ (Overhead Service Drop)</strong>: ยึดสายข้ามอากาศเข้าแผงรับไฟ</li>
+<li><strong>สายเคเบิลใต้ดิน (Underground Cable Connection)</strong>: ติดตั้ง Riser Pole ที่โคนเสาไฟฟ้า ใส่ปลายสายเคเบิล (Cable Head) รูดสายใต้ดินเข้าสู่อาคาร ปลอดภัยจากสภาพอากาศ สวยงาม และทนทานต่อพายุลมแรง</li>
+</ol>
+</li>
+</ul>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_54_mv_customer_ct.png" alt="รูปที่ 18: การต่อสายวัดหน่วยผ่าน CT สำหรับผู้ใช้ไฟฟ้าแรงปานกลาง" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 18: การต่อสายวัดหน่วยผ่าน CT สำหรับผู้ใช้ไฟฟ้าแรงปานกลาง</figcaption>
+    </figure>
+    
+<em>รูปที่ 18: ผังการติดตั้ง CT และการต่อสายจากระบบจำหน่ายเข้าสู่สถานีย่อยของผู้ใช้ไฟ (จากสไลด์ที่ 54)</em></p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_55_underground_service.png" alt="รูปที่ 19: การเชื่อมต่อระบบจำหน่ายด้วยสายเคเบิลใต้ดิน (Underground Cable Connection)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 19: การเชื่อมต่อระบบจำหน่ายด้วยสายเคเบิลใต้ดิน (Underground Cable Connection)</figcaption>
+    </figure>
+    
+<em>รูปที่ 19: การต่อสายใต้ดินจากเสาไฟฟ้าแรงสูง (Riser Pole) ลอดท่อเข้าสู่อาคาร (จากสไลด์ที่ 55)</em></p>
+<hr />
+<h2>🏛️ สถานีไฟฟ้าย่อย (Electrical Substations)</h2>
+<p>สถานีไฟฟ้าย่อยคือจุดศูนย์กลางในการ <strong>ควบคุม แปลงแรงดัน ตัดตอนวงจร และป้องกันระบบไฟฟ้ากำลัง</strong>:</p>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_58_substation_elements.png" alt="รูปที่ 20: องค์ประกอบหลักภายในสถานีไฟฟ้าย่อย" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 20: องค์ประกอบหลักภายในสถานีไฟฟ้าย่อย</figcaption>
+    </figure>
+    
+<em>รูปที่ 20: องค์ประกอบสำคัญในสถานีไฟฟ้าย่อย: สวิตช์เกียร์, หม้อแปลงกำลัง, บัสบาร์, และกับดักฟ้าผ่า (จากสไลด์ที่ 58)</em></p>
+<h3>1. 6 องค์ประกอบสำคัญของสถานีไฟฟ้าย่อย (Substation Elements)</h3>
+<ol>
+<li><strong>หม้อแปลงไฟฟ้ากำลัง (Power Transformer)</strong>: ทำหน้าที่แปลงระดับแรงดันขึ้นหรือลงระหว่างระบบส่งและระบบจำหน่าย (เช่น <span class="math-inline">$115\text{ kV} \to 22\text{ kV}$</span>)</li>
+<li><strong>เซอร์กิตเบรกเกอร์ (Circuit Breaker: CB)</strong>: ทำหน้าที่ตัดต่อวงจรขณะมีกระแสโหลดปกติ และ <strong>ตัดวงจรอัตโนมัติขณะเกิดการลัดวงจร (Short Circuit)</strong> ที่มีกระแสกระชากมหาศาล เพื่อป้องกันอุปกรณ์อื่นพังเสียหาย</li>
+<li><strong>สวิตช์ใบมีดปลดวงจร (Disconnecting Switch / Isolator)</strong>: ใช้เปิดวงจรเพื่อตัดกระแสให้เห็นชัดเจนทางกายภาพ (Visible Break) <strong>ต้องเปิดเฉพาะตอนที่ไม่มีกระแสโหลดไหลแล้วเท่านั้น (No-load switching)</strong> เพื่อความปลอดภัยของช่างขณะซ่อมบำรุง</li>
+<li><strong>บัสบาร์ (Busbars)</strong>: ราวตัวนำทองแดงหรืออะลูมิเนียมขนาดใหญ่ ทำหน้าที่เป็นจุดศูนย์รวมและกระจายกำลังไฟฟ้าไปยังสายป้อน (Feeders) เส้นต่างๆ</li>
+<li><strong>กับดักเสิร์จ / กับดักฟ้าผ่า (Surge / Lightning Arrester)</strong>: ต่อขนานระหว่างสายส่งกับกราวด์ดิน ทำหน้าที่ระบายแรงดันกระชาก (Surge Voltage) ที่เกิดจากฟ้าผ่าลงสู่ดินทันที เพื่อไม่ให้หม้อแปลงระเบิด</li>
+<li><strong>หม้อแปลงเครื่องมือวัด (Instrument Transformers: CT &amp; PT)</strong>: ลดทอนกระแสสูงและแรงดันสูงลงมาในระดับปลอดภัย (<span class="math-inline">$5\text{ A}$</span> และ <span class="math-inline">$110\text{ V}$</span>) เพื่อป้อนให้กับมิเตอร์วัดค่าและรีเลย์ป้องกัน (Protection Relays)</li>
+</ol>
+<hr />
+<h3>2. เปรียบเทียบสถานีไฟฟ้าย่อยกลางแจ้ง (AIS) vs สถานีไฟฟ้าย่อยในร่ม (GIS)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">หัวข้อเปรียบเทียบ</th>
+<th style="text-align:left">สถานีกลางแจ้ง (Air Insulated Substation: AIS)</th>
+<th style="text-align:left">สถานีในร่ม (Gas Insulated Substation: GIS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>ตัวกลางฉนวน</strong></td>
+<td style="text-align:left"><strong>อากาศบริสุทธิ์รอบข้าง (Air)</strong></td>
+<td style="text-align:left"><strong>ก๊าซซัลเฟอร์เฮกซาฟลูออไรด์ (<span class="math-inline">$\text{SF}_6$</span>)</strong> ที่มีคุณสมบัติฉนวนดีกว่าอากาศถึง 3 เท่า</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>พื้นที่ติดตั้ง</strong></td>
+<td style="text-align:left"><strong>ใช้พื้นที่กว้างขวางมาก</strong> ต้องมีระยะห่างระหว่างตัวนำเพื่อกันการอาร์ก</td>
+<td style="text-align:left"><strong>ประหยัดพื้นที่มหาศาล (ใช้พื้นที่เพียง <span class="math-inline">$10\% - 15\%$</span> ของ AIS)</strong></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ทำเลที่ตั้ง</strong></td>
+<td style="text-align:left">พื้นที่นอกเมือง ชานเมือง หรือต่างจังหวัดที่มีที่ดินราคาถูก</td>
+<td style="text-align:left"><strong>ใจกลางเมืองหลวง ย่านธุรกิจ</strong> หรือชั้นใต้ดินของตึกระฟ้า</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ผลกระทบจากสภาพแวดล้อม</strong></td>
+<td style="text-align:left">ฝุ่น ละอองน้ำเค็ม มลพิษ นก และฟ้าผ่าอาจทำให้เกิดการลัดวงจร</td>
+<td style="text-align:left"><strong>อุปกรณ์ทั้งหมดปิดผนึกในท่อโลหะมิดชิด (Enclosed)</strong> ไร้ผลกระทบจากมลภาวะ</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ต้นทุนค่าก่อสร้าง</strong></td>
+<td style="text-align:left">ต้นทุนอุปกรณ์เริ่มต้นต่ำกว่า</td>
+<td style="text-align:left">ต้นทุนตัวอุปกรณ์สูงกว่า แต่ประหยัดค่าที่ดินในเมือง</td>
+</tr>
+</tbody>
+</table>
+<p>
+    <figure class="guide-figure">
+      <div class="img-wrapper">
+        <img src="images/ch08_guide/ch08_slide_59_indoor_substation.png" alt="รูปที่ 21: สถานีไฟฟ้าย่อยแบบติดตั้งในร่ม (Indoor GIS Substation)" loading="eager" />
+      </div>
+      <figcaption>รูปที่ 21: สถานีไฟฟ้าย่อยแบบติดตั้งในร่ม (Indoor GIS Substation)</figcaption>
+    </figure>
+    
+<em>รูปที่ 21: สถานีไฟฟ้าย่อยแบบ GIS (Gas Insulated Substation) ขนาดกะทัดรัด ปลอดภัย และไม่รบกวนทัศนียภาพ (จากสไลด์ที่ 59)</em></p>
+<hr />
+<h2>📝 5 ตัวอย่างโจทย์ข้อสอบจริงพร้อมวิธีคิดละเอียด (Step-by-Step Model Solutions)</h2>
+<hr />
+<h3>🔴 ข้อสอบข้อที่ 1 (ระดับง่าย - กฎการอนุรักษ์พลังงานและการสูญเสียในสายส่ง)</h3>
+<p><strong>โจทย์:</strong><br />
+โรงไฟฟ้าต้องการส่งกำลังไฟฟ้าจริง <span class="math-inline">$P = 120\text{ MW}$</span> ไปยังสถานีไฟฟ้าย่อยปลายทางที่ระยะทาง <span class="math-inline">$150\text{ km}$</span> โหลดมีเพาเวอร์แฟกเตอร์ <span class="math-inline">$\cos\theta = 0.85\text{ lagging}$</span> สายส่งมีความต้านทานรวม <span class="math-inline">$R_{\text{line}} = 10\ \Omega$</span> ต่อเฟส<br />
+จงคำนวณ:</p>
+<ol>
+<li>กระแสในสายส่ง (<span class="math-inline">$I_L$</span>) และกำลังงานสูญเสียในสายส่ง (<span class="math-inline">$P_{\text{loss}}$</span>) หากส่งด้วยแรงดัน <strong><span class="math-inline">$115\text{ kV}$</span></strong></li>
+<li>กระแสในสายส่ง (<span class="math-inline">$I_L$</span>) และกำลังงานสูญเสียในสายส่ง (<span class="math-inline">$P_{\text{loss}}$</span>) หากเพิ่มแรงดันเป็น <strong><span class="math-inline">$500\text{ kV}$</span></strong></li>
+<li>คำนวณร้อยละของกำลังงานสูญเสียที่ลดลงได้จากการเพิ่มแรงดัน</li>
+</ol>
+<h4>💡 วิธีคิดทีละขั้น (Step-by-Step):</h4>
+<p><strong>ขั้นที่ 1: คำนวณกรณีแรงดัน <span class="math-inline">$V_{L1} = 115\text{ kV}$</span></strong></p>
+<div class="math-display">$$I_{L1} = \frac{P}{\sqrt{3} V_{L1} \cos\theta} = \frac{120 \times 10^6}{\sqrt{3} \times (115 \times 10^3) \times 0.85} = \frac{120 \times 10^6}{169,308.08} \approx 708.77\text{ A}$$</div>
+<p>คำนวณกำลังสูญเสียในสายส่ง 3 เฟส:</p>
+<div class="math-display">$$P_{\text{loss1}} = 3 \times I_{L1}^2 \times R_{\text{line}} = 3 \times (708.77)^2 \times 10 = 3 \times 502,354.91 \times 10 \approx 15,070,647\text{ W} \approx 15.07\text{ MW}$$</div>
+<p><em>(คิดเป็นสูญเสียถึง <span class="math-inline">$\frac{15.07}{120} \times 100\% = 12.56\%$</span> ของกำลังงานที่ส่ง)</em></p>
+<p><strong>ขั้นที่ 2: คำนวณกรณีแรงดัน <span class="math-inline">$V_{L2} = 500\text{ kV}$</span></strong></p>
+<div class="math-display">$$I_{L2} = \frac{P}{\sqrt{3} V_{L2} \cos\theta} = \frac{120 \times 10^6}{\sqrt{3} \times (500 \times 10^3) \times 0.85} = \frac{120 \times 10^6}{736,121.59} \approx 163.02\text{ A}$$</div>
+<p>คำนวณกำลังสูญเสียในสายส่ง 3 เฟส:</p>
+<div class="math-display">$$P_{\text{loss2}} = 3 \times I_{L2}^2 \times R_{\text{line}} = 3 \times (163.02)^2 \times 10 = 3 \times 26,575.52 \times 10 \approx 797,266\text{ W} \approx 0.80\text{ MW}$$</div>
+<p><em>(คิดเป็นสูญเสียเพียง <span class="math-inline">$\frac{0.80}{120} \times 100\% = 0.67\%$</span> เท่านั้น!)</em></p>
+<p><strong>ขั้นที่ 3: คำนวณร้อยละที่ลดลง</strong></p>
+<div class="math-display">$$\% \text{Reduction} = \frac{P_{\text{loss1}} - P_{\text{loss2}}}{P_{\text{loss1}}} \times 100\% = \frac{15.07 - 0.80}{15.07} \times 100\% = 94.69\%$$</div>
+<div class="callout callout-tip"><div class="callout-header"><span class="callout-badge">TIP</span></div><div class="callout-body">
+<p><strong>ตรวจคำตอบด้วยทฤษฎีสัดส่วนกำลังสอง</strong>:</p>
+</div></div>
+<div class="math-display">$$\frac{P_{\text{loss2}}}{P_{\text{loss1}}} = \left(\frac{V_{L1}}{V_{L2}}\right)^2 = \left(\frac{115}{500}\right)^2 = (0.23)^2 = 0.0529 \implies \text{ลดลง } 1 - 0.0529 = 94.71\%$$</div>
+<blockquote>
+<p>ตัวเลขตรงกันอย่างสมบูรณ์แบบ!</p>
+</blockquote>
+<hr />
+<h3>🔴 ข้อสอบข้อที่ 2 (ระดับปานกลาง - การคำนวณกำลังผลิตของโรงไฟฟ้าพลังน้ำ)</h3>
+<p><strong>โจทย์:</strong><br />
+เขื่อนอุบลรัตน์ จ.ขอนแก่น มีระดับความสูงของหัวน้ำประสิทธิผล (Effective Head) <span class="math-inline">$H = 45\text{ m}$</span> มีอัตราการปล่อยน้ำผ่านท่อส่งน้ำ <span class="math-inline">$Q = 60\text{ m}^3/\text{s}$</span> กำหนดความหนาแน่นของน้ำ <span class="math-inline">$\rho = 1,000\text{ kg/m}^3$</span>, ความเร่งโน้มถ่วง <span class="math-inline">$g = 9.81\text{ m/s}^2$</span> หากกังหันน้ำมีประสิทธิภาพ <span class="math-inline">$\eta_{\text{turbine}} = 90\%$</span> และเครื่องกำเนิดไฟฟ้ามีประสิทธิภาพ <span class="math-inline">$\eta_{\text{gen}} = 95\%$</span><br />
+จงคำนวณ:</p>
+<ol>
+<li>กำลังไฮดรอลิกของมวลน้ำ (Hydraulic Power, <span class="math-inline">$P_h$</span>) ในหน่วย <span class="math-inline">$\text{MW}$</span></li>
+<li>กำลังไฟฟ้าสุทธิที่ผลิตได้ส่งออกสู่สายส่ง (<span class="math-inline">$P_e$</span>) ในหน่วย <span class="math-inline">$\text{MW}$</span></li>
+<li>ระบุชนิดกังหันน้ำที่เหมาะสมที่สุดสำหรับระดับหัวน้ำนี้</li>
+</ol>
+<h4>💡 วิธีคิดทีละขั้น (Step-by-Step):</h4>
+<p><strong>ขั้นที่ 1: คำนวณกำลังไฮดรอลิกของน้ำ (<span class="math-inline">$P_h$</span>)</strong></p>
+<div class="math-display">$$P_h = \rho \cdot g \cdot Q \cdot H = (1,000\text{ kg/m}^3) \times (9.81\text{ m/s}^2) \times (60\text{ m}^3/\text{s}) \times (45\text{ m})$$</div>
+<div class="math-display">$$P_h = 26,487,000\text{ W} = 26.487\text{ MW}$$</div>
+<p><strong>ขั้นที่ 2: คำนวณประสิทธิภาพรวม (<span class="math-inline">$\eta_{\text{total}}$</span>) และกำลังไฟฟ้าสุทธิ (<span class="math-inline">$P_e$</span>)</strong></p>
+<div class="math-display">$$\eta_{\text{total}} = \eta_{\text{turbine}} \times \eta_{\text{gen}} = 0.90 \times 0.95 = 0.855 \quad (85.5\%)$$</div>
+<div class="math-display">$$P_e = \eta_{\text{total}} \times P_h = 0.855 \times 26.487\text{ MW} \approx 22.65\text{ MW}$$</div>
+<p><strong>ขั้นที่ 3: ระบุชนิดกังหันน้ำที่เหมาะสม</strong></p>
+<ul>
+<li>เนื่องจากระดับความสูงของหัวน้ำอยู่ที่ <span class="math-inline">$H = 45\text{ m}$</span> ซึ่งอยู่ในช่วง <strong><span class="math-inline">$30\text{ m} - 300\text{ m}$</span></strong> กังหันน้ำที่เหมาะสมและมีประสิทธิภาพสูงสุดคือ <strong>Francis Turbine (กังหันฟรานซิส)</strong></li>
+</ul>
+<hr />
+<h3>🔴 ข้อสอบข้อที่ 3 (ระดับข้อสอบจริง - การคำนวณกระแสโหลดและเลือกขนาดมิเตอร์ กฟภ.)</h3>
+<p><strong>โจทย์:</strong><br />
+หอพักนักศึกษาแห่งหนึ่งในจังหวัดขอนแก่น ใช้ไฟฟ้าระบบ 3 เฟส 4 สาย <span class="math-inline">$400/230\text{ V}, 50\text{ Hz}$</span> มีอุปกรณ์ไฟฟ้าในอาคารประกอบด้วย:</p>
+<ul>
+<li>โหลดเครื่องปรับอากาศ 3 เฟส: กำลังไฟฟ้ารวม <span class="math-inline">$45\text{ kW}$</span> ที่ <span class="math-inline">$\text{pf} = 0.80\text{ lagging}$</span></li>
+<li>โหลดแสงสว่างและปลั๊กไฟ 1 เฟส (กระจายสมดุลลงทั้ง 3 เฟส): กำลังไฟฟ้ารวม <span class="math-inline">$21\text{ kW}$</span> ที่ <span class="math-inline">$\text{pf} = 1.0$</span><br />
+จงคำนวณ:</li>
+</ul>
+<ol>
+<li>กำลังไฟฟ้าจริงรวม (<span class="math-inline">$P_{\text{total}}$</span>) และกำลังไฟฟ้ารีแอกทีฟรวม (<span class="math-inline">$Q_{\text{total}}$</span>) ของหอพัก</li>
+<li>กำลังไฟฟ้าปรากฏรวม (<span class="math-inline">$S_{\text{total}}$</span>) และเพาเวอร์แฟกเตอร์รวมของอาคาร (<span class="math-inline">$\text{pf}_{\text{total}}$</span>)</li>
+<li>กระแสไฟฟ้ารวมที่ดึงจากสายส่ง (<span class="math-inline">$I_L$</span>)</li>
+<li>จงระบุขนาดมิเตอร์มาตรฐานและการเลือกใช้งานตามเกณฑ์ของการไฟฟ้า</li>
+</ol>
+<h4>💡 วิธีคิดทีละขั้น (Step-by-Step):</h4>
+<p><strong>ขั้นที่ 1: แยกคำนวณ <span class="math-inline">$P$</span> และ <span class="math-inline">$Q$</span> ของแต่ละโหลด</strong></p>
+<ul>
+<li>โหลดแอร์ 3 เฟส (<span class="math-inline">$P_1 = 45\text{ kW}$</span>):</li>
+</ul>
+<div class="math-display">$$\cos\theta_1 = 0.80 \implies \tan\theta_1 = \tan(\arccos 0.80) = \tan(36.87^\circ) = 0.75$$</div>
+<div class="math-display">$$Q_1 = P_1 \times \tan\theta_1 = 45 \times 0.75 = 33.75\text{ kVAR}$$</div>
+<ul>
+<li>โหลดแสงสว่าง (<span class="math-inline">$P_2 = 21\text{ kW}$</span>):</li>
+</ul>
+<div class="math-display">$$\cos\theta_2 = 1.0 \implies Q_2 = 0\text{ kVAR}$$</div>
+<p><strong>ขั้นที่ 2: รวมกำลังไฟฟ้า <span class="math-inline">$P_{\text{total}}$</span> และ <span class="math-inline">$Q_{\text{total}}$</span></strong></p>
+<div class="math-display">$$P_{\text{total}} = P_1 + P_2 = 45 + 21 = 66\text{ kW}$$</div>
+<div class="math-display">$$Q_{\text{total}} = Q_1 + Q_2 = 33.75 + 0 = 33.75\text{ kVAR}$$</div>
+<p><strong>ขั้นที่ 3: คำนวณกำลังไฟฟ้าปรากฏ (<span class="math-inline">$S_{\text{total}}$</span>) และเพาเวอร์แฟกเตอร์รวม</strong></p>
+<div class="math-display">$$S_{\text{total}} = \sqrt{P_{\text{total}}^2 + Q_{\text{total}}^2} = \sqrt{66^2 + 33.75^2} = \sqrt{4,356 + 1,139.06} = \sqrt{5,495.06} \approx 74.13\text{ kVA}$$</div>
+<div class="math-display">$$\text{pf}_{\text{total}} = \frac{P_{\text{total}}}{S_{\text{total}}} = \frac{66}{74.13} \approx 0.890\text{ lagging}$$</div>
+<p><strong>ขั้นที่ 4: คำนวณกระแสสายส่ง (<span class="math-inline">$I_L$</span>) ที่แรงดัน 3 เฟส <span class="math-inline">$400\text{ V}$</span></strong></p>
+<div class="math-display">$$I_L = \frac{S_{\text{total}}}{\sqrt{3} \times V_L} = \frac{74.13 \times 10^3}{\sqrt{3} \times 400} = \frac{74,130}{692.82} \approx 107.0\text{ A}$$</div>
+<p><strong>ขั้นที่ 5: พิจารณาเลือกมิเตอร์มาตรฐาน</strong></p>
+<ul>
+<li>กระแสสายส่งที่คำนวณได้คือ <span class="math-inline">$I_L = 107.0\text{ A}$</span> ซึ่ง <strong>มีค่าเกิน <span class="math-inline">$100\text{ A}$</span></strong> (มิเตอร์แบบต่อตรง direct meter พิกัดสูงสุดคือ 30(100) A ไม่สามารถรองรับได้อย่างปลอดภัย)</li>
+<li><strong>สรุปเกณฑ์การติดตั้ง</strong>: ต้องใช้ <strong>มิเตอร์ระบบ 3 เฟส 4 สาย <span class="math-inline">$400/230\text{ V}$</span> ต่อร่วมกับหม้อแปลงกระแส (CT Metering)</strong> โดยเลือกอัตราทด CT พิกัด เช่น <span class="math-inline">$150/5\text{ A}$</span> หรือ <span class="math-inline">$200/5\text{ A}$</span></li>
+</ul>
+<hr />
+<h3>🔴 ข้อสอบข้อที่ 4 (ระดับวิเคราะห์เชิงระบบ - การเปรียบเทียบโรงไฟฟ้าและความมั่นคงระบบ)</h3>
+<p><strong>โจทย์:</strong><br />
+ในการวางแผนเดินเครื่องระบบไฟฟ้าของ กฟผ. จงอธิบายและวิเคราะห์ตามหลักวิศวกรรม:</p>
+<ol>
+<li>เหตุใดโรงไฟฟ้าพลังความร้อนแม่เมาะจึงต้องเดินเครื่องเป็น <strong>Base Load</strong> ในขณะที่โรงไฟฟ้ากังหันก๊าซน้ำพองถูกใช้เป็น <strong>Peak Load</strong>?</li>
+<li>โรงไฟฟ้าพลังความร้อนร่วม (Combined Cycle) เช่น โรงไฟฟ้าบางปะกง มีกระบวนการอย่างไรที่ทำให้ได้ประสิทธิภาพทางความร้อนสูงกว่าโรงไฟฟ้ากังหันก๊าซธรรมดาถึงเกือบ 2 เท่า?</li>
+</ol>
+<h4>💡 แนวทางการตอบที่ได้คะแนนเต็ม:</h4>
+<ol>
+<li><strong>การจำแนก Base Load vs Peak Load</strong>:
+<ul>
+<li><strong>โรงไฟฟ้าแม่เมาะ (Base Load)</strong>: ใช้หม้อต้มไอน้ำขนาดมหึมาและเชื้อเพลิงถ่านหินลิกไนต์ การจุดเตาเพื่อผลิตไอน้ำต้องใช้เวลาวอร์มเครื่องหลายชั่วโมงถึงเป็นวัน และการดับเครื่องแต่ละครั้งมีความสูญเสียความร้อนสูงมาก แต่มีข้อได้เปรียบคือต้นทุนถ่านหินต่อกิโลวัตต์-ชั่วโมงต่ำมาก จึงคุ้มค่าที่สุดเมื่อเดินเครื่องต่อเนื่องคงที่ตลอด 24 ชั่วโมง</li>
+<li><strong>โรงไฟฟ้าน้ำพอง (Peak Load)</strong>: กังหันก๊าซ (Gas Turbine) ทำงานคล้ายเครื่องยนต์ไอพ่น ไม่ต้องรอต้มน้ำ สามารถสตาร์ทเครื่องจากศูนย์จนขนานไฟเข้าสู่ระบบได้เต็มกำลังภายใน <strong><span class="math-inline">$10 - 15\text{ นาที}$</span></strong> จึงเหมาะอย่างยิ่งในการเดินเครื่องเสริมชั่วคราวในช่วงที่คนเปิดไฟพร้อมกันสูงสุดตอนหัวค่ำ</li>
+</ul>
+</li>
+<li><strong>ความลับประสิทธิภาพของ Combined Cycle</strong>:
+<ul>
+<li>กังหันก๊าซแบบวงจรเดี่ยวจะปล่อยไอเสียทิ้งสู่อากาศที่อุณหภูมิสูงถึง <span class="math-inline">$500^\circ\text{C} - 600^\circ\text{C}$</span> ทำให้เกิดการสูญเสียพลังงานความร้อนมหาศาล (<span class="math-inline">$60\% - 70\%$</span>)</li>
+<li>โรงไฟฟ้าพลังความร้อนร่วมนำไอเสียร้อนนี้เข้าสู่หม้อต้ม <strong>HRSG (Heat Recovery Steam Generator)</strong> ผลิตไอน้ำแรงดันสูงไปขับเคลื่อน <strong>กังหันไอน้ำ (Steam Turbine)</strong> ได้กำลังไฟฟ้าเพิ่มอีกประมาณ <span class="math-inline">$50\%$</span> ของกังหันก๊าซ โดยใช้เชื้อเพลิงเท่าเดิม ทำให้ประสิทธิภาพรวมของวัฏจักร (Thermal Efficiency) เพิ่มขึ้นจาก <span class="math-inline">$30-35\%$</span> พุ่งสูงถึง <strong><span class="math-inline">$55-60\%$</span></strong></li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3>🔴 ข้อสอบข้อที่ 5 (ระดับสูง - การวิเคราะห์สถานีไฟฟ้าย่อยและการออกแบบฉนวน AIS vs GIS)</h3>
+<p><strong>โจทย์:</strong><br />
+การไฟฟ้านครหลวง (กฟน.) มีโครงการก่อสร้างสถานีไฟฟ้าย่อยขนาด <span class="math-inline">$115/24\text{ kV}$</span> ในย่านศูนย์กลางธุรกิจใจกลางกรุงเทพมหานคร (เช่น ย่านสยามหรือสีลม)</p>
+<ol>
+<li>วิศวกรควรเลือกออกแบบสถานีไฟฟ้าย่อยประเภทใดระหว่าง <strong>AIS (Air Insulated Substation)</strong> กับ <strong>GIS (Gas Insulated Substation)</strong>? จงให้เหตุผลสนับสนุนอย่างน้อย 3 ข้อ</li>
+<li>หากเกิดฟ้าผ่าลงบนสายส่งแรงสูง <span class="math-inline">$115\text{ kV}$</span> ที่กำลังวิ่งเข้าสู่สถานีไฟฟ้าย่อย อุปกรณ์ตัวใดจะทำหน้าที่ปกป้องหม้อแปลงไฟฟ้ากำลัง และมีกลไกการทำงานอย่างไร?</li>
+</ol>
+<h4>💡 แนวทางการตอบที่ได้คะแนนเต็ม:</h4>
+<ol>
+<li><strong>การเลือกประเภทสถานีไฟฟ้าย่อย</strong>:
+<ul>
+<li><strong>ต้องเลือกใช้ GIS (Gas Insulated Substation)</strong> อย่างแน่นอน ด้วยเหตุผลสำคัญ 3 ประการ:
+<ol>
+<li><strong>การประหยัดพื้นที่ (Footprint Space)</strong>: ย่านใจกลางเมืองมีราคาที่ดินตารางวาละหลายล้านบาท สถานี GIS ใช้ก๊าซ <span class="math-inline">$\text{SF}_6$</span> ซึ่งมีค่าความเป็นฉนวนไฟฟ้าสูงกว่าอากาศถึง 3 เท่า ทำให้สามารถย่อระยะห่างระหว่างอุปกรณ์ได้ จึง <strong>ใช้พื้นที่ดินเพียง <span class="math-inline">$10\% - 15\%$</span></strong> เมื่อเทียบกับสถานีแบบ AIS</li>
+<li><strong>ความปลอดภัยและทัศนียภาพ</strong>: สถานี GIS สามารถสร้างเป็นอาคารปิดมิดชิด (Indoor) กลมกลืนกับตึกสูง ไม่มีชิ้นส่วนมีกระแสเปิดโล่ง ปลอดภัยจากบุคคลภายนอก และไม่ส่งเสียงรบกวน</li>
+<li><strong>ความทนทานต่อมลภาวะ</strong>: ตัวนำและอุปกรณ์ตัดตอนทั้งหมดถูกบรรจุในท่อโลหะปิดผนึก ไม่ได้รับผลกระทบจากฝุ่น ควัน เขม่า หรือความชื้น ทำให้ความเสี่ยงจากการลัดวงจรต่ำและค่าบำรุงรักษาในระยะยาวต่ำกว่า</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>การทำงานของอุปกรณ์ป้องกันฟ้าผ่า</strong>:
+<ul>
+<li>อุปกรณ์ที่ทำหน้าที่คือ <strong>กับดักเสิร์จ / กับดักฟ้าผ่า (Surge / Lightning Arrester)</strong> ซึ่งติดตั้งอยู่หน้าหม้อแปลงไฟฟ้ากำลัง</li>
+<li><strong>กลไกการทำงาน</strong>: ทำจากแท่งสารกึ่งตัวนำประเภท <strong>ซิงก์ออกไซด์ (Zinc Oxide: ZnO)</strong> ซึ่งมีความต้านทานแบบไม่เชิงเส้น (Non-linear Resistance):
+<ul>
+<li>ในสภาวะแรงดันปกติ (<span class="math-inline">$115\text{ kV}$</span>): ตัว Arrester จะมีความต้านทานสูงมากเกือบเป็นอนันต์ (<span class="math-inline">$\approx \infty$</span>) เสมือนเป็นวงจรเปิด ไม่มีกระแสรั่วลงดิน</li>
+<li>เมื่อเกิดเสิร์จฟ้าผ่า (แรงดันกระชากพุ่งสูงเป็นเมกะโวลต์): ความต้านทานของ ZnO จะลดลงฮวบฮาบกลายเป็นเกือบศูนย์ (<span class="math-inline">$\approx 0\ \Omega$</span>) ทันทีภายในเสี้ยวไมโครวินาที เหนี่ยวนำกระแสฟ้าผ่าลงสู่ระบบกราวด์ดินอย่างปลอดภัย ทำให้แรงดันที่ตกคร่อมหม้อแปลงถูกจำกัดไว้ไม่เกินค่าพิกัดฉนวน (BIL) หม้อแปลงจึงไม่ระเบิด</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>🎯 สรุปสาระสำคัญสำหรับห้องสอบ (Final Exam Cheat-Sheet Summary)</h2>
+<ol>
+<li><strong>4 ระดับระบบไฟฟ้า</strong>:
+<ul>
+<li>ผลิต: <span class="math-inline">$10-20\text{ kV}$</span> (กฟผ.)</li>
+<li>สายส่ง: <span class="math-inline">$69, 115, 230, 500\text{ kV}$</span> (กฟผ.)</li>
+<li>จำหน่าย: <span class="math-inline">$24\text{ kV}$</span> (กฟน.), <span class="math-inline">$22\text{ kV} / 33\text{ kV}$</span> (กฟภ.)</li>
+<li>ผู้ใช้ไฟ: <span class="math-inline">$400/230\text{ V}$</span> (3 เฟส 4 สาย), <span class="math-inline">$230\text{ V}$</span> (1 เฟส 2 สาย)</li>
+</ul>
+</li>
+<li><strong>ความสัมพันธ์แรงดันและกำลังสูญเสีย</strong>:
+<ul>
+<li><span class="math-inline">$I_L = \frac{P}{\sqrt{3} V_L \cos\theta}$</span></li>
+<li><span class="math-inline">$P_{\text{loss}} \propto \frac{1}{V_L^2}$</span> (เพิ่มแรงดัน <span class="math-inline">$k$</span> เท่า <span class="math-inline">$\to$</span> สูญเสียลดลง <span class="math-inline">$k^2$</span> เท่า)</li>
+</ul>
+</li>
+<li><strong>5 โรงไฟฟ้า กฟผ.</strong>:
+<ul>
+<li>พลังน้ำ: เขื่อนภูมิพล, อุบลรัตน์, ลำตะคอง (สูบกลับ - Peak Load)</li>
+<li>กังหันน้ำ: Pelton (<span class="math-inline">$H$</span> สูง), Francis (<span class="math-inline">$H$</span> ปานกลาง), Kaplan (<span class="math-inline">$H$</span> ต่ำ)</li>
+<li>พลังความร้อนไอน้ำ: แม่เมาะ ลิกไนต์ (Base Load)</li>
+<li>กังหันก๊าซ: น้ำพอง (Peak Load สตาร์ทเร็ว 15 นาที)</li>
+<li>พลังความร้อนร่วม: บางปะกง (Gas + Steam, ประสิทธิภาพสูงสุด <span class="math-inline">$55-60\%$</span>)</li>
+</ul>
+</li>
+<li><strong>มิเตอร์และการต่อไฟ</strong>:
+<ul>
+<li>1 เฟส บ้านทั่วไป: <span class="math-inline">$15(45)\text{ A}, 230\text{ V}$</span></li>
+<li>3 เฟส โหลดเกิน <span class="math-inline">$10\text{ kW}$</span>: <span class="math-inline">$400/230\text{ V}$</span></li>
+<li>กระแสโหลดเกิน <span class="math-inline">$100\text{ A}$</span>: <strong>ต้องใช้ CT Metering</strong></li>
+</ul>
+</li>
+<li><strong>สถานีย่อย</strong>:
+<ul>
+<li>AIS: ใช้อากาศเป็นฉนวน พื้นที่กว้าง นอกเมือง ราคาถูก</li>
+<li>GIS: ใช้ก๊าซ <span class="math-inline">$\text{SF}_6$</span> ขนาดเล็กเพียง <span class="math-inline">$10-15\%$</span> ในเมืองใหญ่ ปลอดภัย</li>
+</ul>
+</li>
+</ol>
+
+
+  <!-- KaTeX & Mermaid Initialization -->
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'neutral',
+      flowchart: {
+        curve: 'basis',
+        htmlLabels: true
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\[', right: '\\]', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ],
+          throwOnError: false,
+          output: 'html'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
